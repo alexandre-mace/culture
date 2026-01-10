@@ -30,8 +30,28 @@ interface PositionedItem extends TimelineItem {
 }
 
 function formatYear(year: number): string {
+  const absYear = Math.abs(year);
+
+  // Geological timescales
+  if (absYear >= 1_000_000_000) {
+    const ga = absYear / 1_000_000_000;
+    const formatted = ga >= 10 ? Math.round(ga) : ga.toFixed(1);
+    return year < 0 ? `-${formatted} Ga` : `${formatted} Ga`;
+  }
+  if (absYear >= 1_000_000) {
+    const ma = absYear / 1_000_000;
+    const formatted = ma >= 10 ? Math.round(ma) : ma.toFixed(1);
+    return year < 0 ? `-${formatted} Ma` : `${formatted} Ma`;
+  }
+  if (absYear >= 10_000) {
+    const ka = absYear / 1_000;
+    const formatted = Math.round(ka);
+    return year < 0 ? `-${formatted} ka` : `${formatted} ka`;
+  }
+
+  // Historical timescales
   if (year < 0) {
-    return `${Math.abs(year)} av. J.-C.`;
+    return `${absYear} av. J.-C.`;
   }
   return `${year}`;
 }
@@ -50,12 +70,23 @@ function getYearMarkers(items: TimelineItem[]): number[] {
   const maxYear = Math.max(...items.map((i) => i.deathYear || i.birthYear));
 
   const markers: number[] = [];
-
   const range = maxYear - minYear;
-  let interval = 100;
-  if (range > 2000) interval = 500;
-  else if (range > 1000) interval = 200;
-  else if (range < 500) interval = 50;
+
+  // Calculate a "nice" interval that gives us roughly 10-25 markers
+  const targetMarkers = 15;
+  const rawInterval = range / targetMarkers;
+
+  // Round to a "nice" number (1, 2, 5 × power of 10)
+  const magnitude = Math.pow(10, Math.floor(Math.log10(rawInterval)));
+  const normalized = rawInterval / magnitude;
+
+  let niceMultiplier: number;
+  if (normalized <= 1) niceMultiplier = 1;
+  else if (normalized <= 2) niceMultiplier = 2;
+  else if (normalized <= 5) niceMultiplier = 5;
+  else niceMultiplier = 10;
+
+  const interval = Math.max(1, niceMultiplier * magnitude);
 
   const start = Math.floor(minYear / interval) * interval;
 
