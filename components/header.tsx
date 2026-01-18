@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -20,74 +20,25 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { Search } from "lucide-react";
-
-const categories = [
-  {
-    name: "Sciences",
-    items: [
-      { name: "Astronomie", href: "/astronomie" },
-      { name: "Physique", href: "/physique" },
-      { name: "Mathematiques", href: "/mathematiques" },
-      { name: "Biologie", href: "/biologie" },
-      { name: "Medecine", href: "/medecine" },
-      { name: "Inventions", href: "/inventions" },
-    ],
-  },
-  {
-    name: "Histoire",
-    items: [
-      { name: "Epoques", href: "/epoques" },
-      { name: "Explorations", href: "/explorations" },
-      { name: "Empires", href: "/empires" },
-      { name: "Guerres", href: "/guerres" },
-      { name: "Esclavage", href: "/esclavage" },
-      { name: "Pandemies", href: "/pandemies" },
-    ],
-  },
-  {
-    name: "Arts",
-    items: [
-      { name: "Philosophie", href: "/philosophie" },
-      { name: "Litterature", href: "/litterature" },
-      { name: "Peinture", href: "/peinture" },
-      { name: "Architecture", href: "/architecture" },
-      { name: "Musique classique", href: "/musique-classique" },
-      { name: "Jazz", href: "/jazz" },
-      { name: "Photographie", href: "/photographie" },
-      { name: "Cinema", href: "/cinema" },
-      { name: "Arts decoratifs", href: "/arts-decoratifs" },
-    ],
-  },
-  {
-    name: "Societe",
-    items: [
-      { name: "Mouvements politiques", href: "/mouvements-politiques" },
-      { name: "Democratie", href: "/democratie" },
-      { name: "Droits civiques", href: "/droits-civiques" },
-      { name: "Revolutions industrielles", href: "/revolutions-industrielles" },
-      { name: "Economie", href: "/economie" },
-      { name: "Monnaies & Banques", href: "/monnaies" },
-      { name: "Psychologie", href: "/psychologie" },
-    ],
-  },
-  {
-    name: "Croyances",
-    items: [
-      { name: "Religions", href: "/religions" },
-      { name: "Mythologies", href: "/mythologies" },
-    ],
-  },
-];
-
-// Flatten all items for search
-const allItems = categories.flatMap((cat) =>
-  cat.items.map((item) => ({ ...item, category: cat.name }))
-);
+import { Search, Shuffle } from "lucide-react";
+import { useDiscoverOptional } from "@/components/discover-context";
+import { ThemeToggle } from "@/components/theme-toggle";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { navigationCategories, searchItems } from "@/lib/search-data";
 
 export function Header() {
   const [open, setOpen] = React.useState(false);
   const router = useRouter();
+  const pathname = usePathname();
+  const discover = useDiscoverOptional();
+
+  const isDiscoverPage = pathname === "/discover";
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -101,20 +52,74 @@ export function Header() {
     return () => document.removeEventListener("keydown", down);
   }, []);
 
+  // Mobile: only show discover controls bar on /discover page
+  // Desktop: show full header
+  if (isDiscoverPage && discover) {
+    return (
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="flex h-11 items-center px-3 gap-2">
+          {/* Logo - desktop only */}
+          <Button variant="ghost" size="icon" asChild className="shrink-0 hidden md:flex">
+            <Link href="/">
+              <span className="text-xl">📚</span>
+            </Link>
+          </Button>
+
+          {/* Discover controls */}
+          <Select
+            value={discover.selectedCategory}
+            onValueChange={discover.setSelectedCategory}
+          >
+            <SelectTrigger className="w-[140px] h-8 text-sm">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">
+                <span className="flex items-center gap-2">
+                  <span>🎲</span>
+                  <span>Toutes</span>
+                </span>
+              </SelectItem>
+              {discover.categories.map((cat) => (
+                <SelectItem key={cat.name} value={cat.name}>
+                  <span className="flex items-center gap-2">
+                    <span>{cat.emoji}</span>
+                    <span>{cat.name}</span>
+                  </span>
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <div className="flex-1" />
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={discover.reshuffle}
+            className="h-8 w-8"
+          >
+            <Shuffle className="h-4 w-4" />
+          </Button>
+          <ThemeToggle className="h-8 w-8" />
+        </div>
+      </header>
+    );
+  }
+
+  // Regular header - desktop only
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="flex h-14 items-center px-6">
+    <header className="hidden md:block sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="flex h-12 items-center px-4 gap-2">
         {/* Logo */}
-        <Button variant="ghost" size="icon" asChild className="mr-2">
+        <Button variant="ghost" size="icon" asChild className="shrink-0">
           <Link href="/">
-            <span className="text-2xl">📚</span>
+            <span className="text-xl">📚</span>
           </Link>
         </Button>
 
         {/* Navigation Menu */}
-        <NavigationMenu className="hidden md:flex" viewport={false}>
+        <NavigationMenu viewport={false}>
           <NavigationMenuList>
-            {categories.map((category) => (
+            {navigationCategories.map((category) => (
               <NavigationMenuItem key={category.name}>
                 <NavigationMenuTrigger>{category.name}</NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -139,38 +144,55 @@ export function Header() {
         {/* Search button */}
         <Button
           variant="outline"
-          className="relative h-9 w-9 p-0 md:h-9 md:w-60 md:justify-start md:px-3 md:py-2"
+          className="relative h-8 w-60 justify-start px-3 py-2"
           onClick={() => setOpen(true)}
         >
-          <Search className="h-4 w-4 md:mr-2" />
-          <span className="hidden md:inline-flex">Rechercher...</span>
-          <kbd className="pointer-events-none absolute right-1.5 top-1.5 hidden h-6 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 md:flex">
+          <Search className="h-4 w-4 mr-2" />
+          <span className="text-sm">Rechercher...</span>
+          <kbd className="pointer-events-none absolute right-1.5 top-1 h-6 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 flex">
             <span className="text-xs">⌘</span>K
           </kbd>
         </Button>
+
+        <ThemeToggle className="h-8 w-8" />
       </div>
 
       {/* Command dialog for search */}
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Rechercher une timeline..." />
-        <CommandList>
+        <CommandInput placeholder="Rechercher..." />
+        <CommandList className="max-h-[400px]">
           <CommandEmpty>Aucun resultat.</CommandEmpty>
-          {categories.map((category) => (
-            <CommandGroup key={category.name} heading={category.name}>
-              {category.items.map((item) => (
-                <CommandItem
-                  key={item.href}
-                  value={item.name}
-                  onSelect={() => {
-                    router.push(item.href);
-                    setOpen(false);
-                  }}
-                >
-                  {item.name}
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          ))}
+          <CommandGroup heading="Timelines">
+            {navigationCategories.flatMap((cat) => cat.items).map((item) => (
+              <CommandItem
+                key={item.href}
+                value={`timeline ${item.name}`}
+                onSelect={() => {
+                  router.push(item.href);
+                  setOpen(false);
+                }}
+              >
+                {item.name}
+              </CommandItem>
+            ))}
+          </CommandGroup>
+          <CommandGroup heading="Personnes & Evenements">
+            {searchItems.map((item) => (
+              <CommandItem
+                key={item.href}
+                value={`${item.name} ${item.category}`}
+                onSelect={() => {
+                  router.push(item.href);
+                  setOpen(false);
+                }}
+              >
+                <span>{item.name}</span>
+                <span className="ml-auto text-xs text-muted-foreground">
+                  {item.category}
+                </span>
+              </CommandItem>
+            ))}
+          </CommandGroup>
         </CommandList>
       </CommandDialog>
     </header>
