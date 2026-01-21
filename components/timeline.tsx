@@ -3,8 +3,9 @@
 import { useState, useEffect, useRef, Suspense } from "react";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, Share2, Check } from "lucide-react";
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, Share2, Check, Sparkles } from "lucide-react";
+import { useSearchParams, usePathname } from "next/navigation";
+import Link from "next/link";
 import {
   Drawer,
   DrawerContent,
@@ -152,7 +153,6 @@ function TimelineContent({ items, title }: TimelineProps) {
   const timelineContainerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<Map<string, HTMLDivElement>>(new Map());
   const searchParams = useSearchParams();
-  const router = useRouter();
   const pathname = usePathname();
 
   // Sort items first (needed for index lookup)
@@ -483,9 +483,18 @@ function TimelineContent({ items, title }: TimelineProps) {
               )}
             </div>
 
-            {/* Navigation indicator */}
-            <div className="mt-8 pt-4 border-t text-center text-sm text-muted-foreground">
-              {selectedIndex + 1} / {sortedItems.length}
+            {/* Navigation indicator + Discover link */}
+            <div className="mt-8 pt-4 border-t flex items-center justify-between">
+              <span className="text-sm text-muted-foreground">
+                {selectedIndex + 1} / {sortedItems.length}
+              </span>
+              <Link
+                href="/discover"
+                className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline"
+              >
+                <Sparkles className="h-3.5 w-3.5" />
+                Découvrir au hasard
+              </Link>
             </div>
           </div>
         )}
@@ -569,24 +578,34 @@ function TimelineContent({ items, title }: TimelineProps) {
                 </div>
 
                 {/* Mobile navigation */}
-                <div className="flex items-center justify-between mt-6 pt-4 border-t">
+                <div className="flex items-center justify-center gap-4 mt-6 pt-4 border-t">
                   <button
                     onClick={goToPrevious}
-                    className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+                    className="p-2.5 rounded-full bg-background border shadow hover:bg-accent transition-colors"
+                    aria-label="Précédent"
                   >
-                    <ChevronLeft className="h-4 w-4" />
-                    Préc.
+                    <ChevronLeft className="h-5 w-5" />
                   </button>
-                  <span className="text-xs text-muted-foreground">
-                    {selectedIndex + 1} / {sortedItems.length} · Swipe ←→
+                  <span className="text-sm text-muted-foreground min-w-[60px] text-center">
+                    {selectedIndex + 1} / {sortedItems.length}
                   </span>
                   <button
                     onClick={goToNext}
-                    className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+                    className="p-2.5 rounded-full bg-background border shadow hover:bg-accent transition-colors"
+                    aria-label="Suivant"
                   >
-                    Suiv.
-                    <ChevronRight className="h-4 w-4" />
+                    <ChevronRight className="h-5 w-5" />
                   </button>
+                </div>
+                {/* Discover link */}
+                <div className="mt-4 text-center">
+                  <Link
+                    href="/discover"
+                    className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline"
+                  >
+                    <Sparkles className="h-3.5 w-3.5" />
+                    Découvrir au hasard
+                  </Link>
                 </div>
               </div>
             </>

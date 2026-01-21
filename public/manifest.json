@@ -1,0 +1,17 @@
+{
+  "name": "Culture - Frises chronologiques",
+  "short_name": "Culture",
+  "description": "Explorez l'histoire des idees, des arts et des techniques a travers des frises chronologiques interactives.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

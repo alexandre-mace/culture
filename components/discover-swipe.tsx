@@ -1,9 +1,12 @@
 "use client";
 
 import { useState, useRef, useEffect, useMemo } from "react";
+import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, MapPin, Share2, Check } from "lucide-react";
 import { useDiscover } from "@/components/discover-context";
+import { categoryRoutes } from "@/lib/search-data";
+import { cn } from "@/lib/utils";
 
 interface DiscoverItem {
   id: string;
@@ -62,7 +65,25 @@ export function DiscoverSwipe({ items }: DiscoverSwipeProps) {
   const { selectedCategory, setCategories, shuffleKey } = useDiscover();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [shuffledItems, setShuffledItems] = useState<DiscoverItem[]>([]);
+  const [slideDirection, setSlideDirection] = useState<"left" | "right" | null>(null);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [copied, setCopied] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Share function
+  const shareItem = async () => {
+    const item = shuffledItems[currentIndex];
+    if (!item) return;
+    const url = `${window.location.origin}${categoryRoutes[item.category]}?id=${item.id}`;
+
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      prompt("Copier ce lien:", url);
+    }
+  };
 
   // Extract and register categories on mount
   useEffect(() => {
@@ -97,14 +118,26 @@ export function DiscoverSwipe({ items }: DiscoverSwipeProps) {
   const currentItem = shuffledItems[currentIndex];
 
   const goToPrevious = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+    if (currentIndex > 0 && !isAnimating) {
+      setSlideDirection("right");
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentIndex(currentIndex - 1);
+        setSlideDirection(null);
+        setIsAnimating(false);
+      }, 200);
     }
   };
 
   const goToNext = () => {
-    if (currentIndex < shuffledItems.length - 1) {
-      setCurrentIndex(currentIndex + 1);
+    if (currentIndex < shuffledItems.length - 1 && !isAnimating) {
+      setSlideDirection("left");
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentIndex(currentIndex + 1);
+        setSlideDirection(null);
+        setIsAnimating(false);
+      }, 200);
     }
   };
 
@@ -166,7 +199,13 @@ export function DiscoverSwipe({ items }: DiscoverSwipeProps) {
       onTouchEnd={handleTouchEnd}
     >
       {/* Card content */}
-      <div className="px-4 py-6 space-y-6 pb-28 max-w-2xl mx-auto">
+      <div
+        className={cn(
+          "px-4 py-6 space-y-6 pb-28 max-w-2xl mx-auto transition-all duration-200",
+          slideDirection === "left" && "opacity-0 -translate-x-8",
+          slideDirection === "right" && "opacity-0 translate-x-8"
+        )}
+      >
         {/* Avatar and name */}
         <div className="flex flex-col items-center text-center">
           <Avatar className="h-24 w-24 md:h-32 md:w-32 border-4 border-primary/20 shadow-lg">
@@ -195,6 +234,23 @@ export function DiscoverSwipe({ items }: DiscoverSwipeProps) {
             <span className="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">
               {currentItem.movement}
             </span>
+          </div>
+          {/* Link to timeline */}
+          <div className="flex items-center justify-center gap-4 mt-3">
+            <Link
+              href={`${categoryRoutes[currentItem.category]}?id=${currentItem.id}`}
+              className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline"
+            >
+              <MapPin className="h-3.5 w-3.5" />
+              Voir sur la frise
+            </Link>
+            <button
+              onClick={shareItem}
+              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {copied ? <Check className="h-3.5 w-3.5" /> : <Share2 className="h-3.5 w-3.5" />}
+              {copied ? "Copié!" : "Partager"}
+            </button>
           </div>
         </div>
 

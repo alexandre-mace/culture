@@ -20,7 +20,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { Search, Shuffle } from "lucide-react";
+import { Search, Shuffle, Sparkles } from "lucide-react";
 import { useDiscoverOptional } from "@/components/discover-context";
 import { ThemeToggle } from "@/components/theme-toggle";
 import {
@@ -52,19 +52,11 @@ export function Header() {
     return () => document.removeEventListener("keydown", down);
   }, []);
 
-  // Mobile: only show discover controls bar on /discover page
-  // Desktop: show full header
+  // Mobile /discover: show compact controls bar
   if (isDiscoverPage && discover) {
     return (
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="md:hidden sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="flex h-11 items-center px-3 gap-2">
-          {/* Logo - desktop only */}
-          <Button variant="ghost" size="icon" asChild className="shrink-0 hidden md:flex">
-            <Link href="/">
-              <span className="text-xl">📚</span>
-            </Link>
-          </Button>
-
           {/* Discover controls */}
           <Select
             value={discover.selectedCategory}
@@ -137,6 +129,51 @@ export function Header() {
             ))}
           </NavigationMenuList>
         </NavigationMenu>
+
+        {/* Discover button or controls */}
+        {isDiscoverPage && discover ? (
+          <div className="flex items-center gap-2">
+            <Select
+              value={discover.selectedCategory}
+              onValueChange={discover.setSelectedCategory}
+            >
+              <SelectTrigger className="w-[160px] h-8 text-sm">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">
+                  <span className="flex items-center gap-2">
+                    <span>🎲</span>
+                    <span>Toutes catégories</span>
+                  </span>
+                </SelectItem>
+                {discover.categories.map((cat) => (
+                  <SelectItem key={cat.name} value={cat.name}>
+                    <span className="flex items-center gap-2">
+                      <span>{cat.emoji}</span>
+                      <span>{cat.name}</span>
+                    </span>
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={discover.reshuffle}
+              className="h-8 w-8"
+            >
+              <Shuffle className="h-4 w-4" />
+            </Button>
+          </div>
+        ) : (
+          <Button variant="ghost" size="sm" asChild className="gap-1.5">
+            <Link href="/discover">
+              <Sparkles className="h-4 w-4" />
+              Découvrir
+            </Link>
+          </Button>
+        )}
 
         {/* Spacer */}
         <div className="flex-1" />

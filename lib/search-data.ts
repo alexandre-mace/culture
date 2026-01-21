@@ -123,6 +123,11 @@ const dataCategories = [
   { data: decorativeStyles, href: "/arts-decoratifs", name: "Arts decoratifs" },
 ];
 
+// Category name to route mapping
+export const categoryRoutes: Record<string, string> = Object.fromEntries(
+  dataCategories.map((cat) => [cat.name, cat.href])
+);
+
 // All searchable items with their routes
 export interface SearchItem {
   id: string;
