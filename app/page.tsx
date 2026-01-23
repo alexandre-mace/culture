@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Sparkles } from "lucide-react";
+import { Shuffle } from "lucide-react";
 
 const categories = [
   {
@@ -227,11 +227,11 @@ export default function HomePage() {
           Explorez l'histoire des idees, des arts et des techniques a travers des frises chronologiques interactives.
         </p>
         <Link
-          href="/discover"
+          href="/tout"
           className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow hover:bg-primary/90 transition-colors"
         >
-          <Sparkles className="h-4 w-4" />
-          Decouvrir au hasard
+          <Shuffle className="h-4 w-4" />
+          Explorer toutes les categories
         </Link>
       </section>
 

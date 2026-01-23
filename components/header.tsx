@@ -20,25 +20,16 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { Search, Shuffle, Sparkles } from "lucide-react";
-import { useDiscoverOptional } from "@/components/discover-context";
+import { Search, Shuffle } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { navigationCategories, searchItems } from "@/lib/search-data";
 
 export function Header() {
   const [open, setOpen] = React.useState(false);
   const router = useRouter();
   const pathname = usePathname();
-  const discover = useDiscoverOptional();
 
-  const isDiscoverPage = pathname === "/discover";
+  const isToutPage = pathname === "/tout";
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -52,52 +43,7 @@ export function Header() {
     return () => document.removeEventListener("keydown", down);
   }, []);
 
-  // Mobile /discover: show compact controls bar
-  if (isDiscoverPage && discover) {
-    return (
-      <header className="md:hidden sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="flex h-11 items-center px-3 gap-2">
-          {/* Discover controls */}
-          <Select
-            value={discover.selectedCategory}
-            onValueChange={discover.setSelectedCategory}
-          >
-            <SelectTrigger className="w-[140px] h-8 text-sm">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">
-                <span className="flex items-center gap-2">
-                  <span>🎲</span>
-                  <span>Toutes</span>
-                </span>
-              </SelectItem>
-              {discover.categories.map((cat) => (
-                <SelectItem key={cat.name} value={cat.name}>
-                  <span className="flex items-center gap-2">
-                    <span>{cat.emoji}</span>
-                    <span>{cat.name}</span>
-                  </span>
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <div className="flex-1" />
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={discover.reshuffle}
-            className="h-8 w-8"
-          >
-            <Shuffle className="h-4 w-4" />
-          </Button>
-          <ThemeToggle className="h-8 w-8" />
-        </div>
-      </header>
-    );
-  }
-
-  // Regular header - desktop only
+  // Desktop only header
   return (
     <header className="hidden md:block sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="flex h-12 items-center px-4 gap-2">
@@ -130,50 +76,18 @@ export function Header() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* Discover button or controls */}
-        {isDiscoverPage && discover ? (
-          <div className="flex items-center gap-2">
-            <Select
-              value={discover.selectedCategory}
-              onValueChange={discover.setSelectedCategory}
-            >
-              <SelectTrigger className="w-[160px] h-8 text-sm">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">
-                  <span className="flex items-center gap-2">
-                    <span>🎲</span>
-                    <span>Toutes catégories</span>
-                  </span>
-                </SelectItem>
-                {discover.categories.map((cat) => (
-                  <SelectItem key={cat.name} value={cat.name}>
-                    <span className="flex items-center gap-2">
-                      <span>{cat.emoji}</span>
-                      <span>{cat.name}</span>
-                    </span>
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={discover.reshuffle}
-              className="h-8 w-8"
-            >
-              <Shuffle className="h-4 w-4" />
-            </Button>
-          </div>
-        ) : (
-          <Button variant="ghost" size="sm" asChild className="gap-1.5">
-            <Link href="/discover">
-              <Sparkles className="h-4 w-4" />
-              Découvrir
-            </Link>
-          </Button>
-        )}
+        {/* Toutes button */}
+        <Button
+          variant={isToutPage ? "secondary" : "ghost"}
+          size="sm"
+          asChild
+          className="gap-1.5"
+        >
+          <Link href="/tout">
+            <Shuffle className="h-4 w-4" />
+            Toutes
+          </Link>
+        </Button>
 
         {/* Spacer */}
         <div className="flex-1" />
@@ -235,4 +149,3 @@ export function Header() {
     </header>
   );
 }
-

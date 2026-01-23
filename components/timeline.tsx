@@ -1,17 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef, Suspense } from "react";
+import { useState, useEffect, useRef, Suspense, useCallback, useMemo } from "react";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, Share2, Check, Sparkles } from "lucide-react";
+import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, Share2, Check, X } from "lucide-react";
 import { useSearchParams, usePathname } from "next/navigation";
-import Link from "next/link";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-} from "@/components/ui/drawer";
 
 interface TimelineItem {
   id: string;
@@ -29,6 +22,7 @@ interface TimelineItem {
 interface TimelineProps {
   items: TimelineItem[];
   title: string;
+  randomOrder?: boolean;
 }
 
 interface PositionedItem extends TimelineItem {
@@ -146,17 +140,60 @@ function calculatePositions(
   return result;
 }
 
-function TimelineContent({ items, title }: TimelineProps) {
+// Fisher-Yates shuffle with seed for consistent shuffle per session
+function shuffleArray<T>(array: T[], seed: number): T[] {
+  const result = [...array];
+  let currentIndex = result.length;
+
+  // Simple seeded random
+  const random = () => {
+    seed = (seed * 9301 + 49297) % 233280;
+    return seed / 233280;
+  };
+
+  while (currentIndex > 0) {
+    const randomIndex = Math.floor(random() * currentIndex);
+    currentIndex--;
+    [result[currentIndex], result[randomIndex]] = [result[randomIndex], result[currentIndex]];
+  }
+
+  return result;
+}
+
+function TimelineContent({ items, title, randomOrder }: TimelineProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  // Start with fixed seed for SSR, randomize on client
+  const [shuffleSeed, setShuffleSeed] = useState(42);
+  const [isClient, setIsClient] = useState(false);
   const timelineContainerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<Map<string, HTMLDivElement>>(new Map());
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
-  // Sort items first (needed for index lookup)
-  const sortedItems = [...items].sort((a, b) => a.birthYear - b.birthYear);
+  // Randomize seed on client mount to avoid hydration mismatch
+  useEffect(() => {
+    if (randomOrder) {
+      setShuffleSeed(Math.floor(Math.random() * 10000));
+    }
+    setIsClient(true);
+  }, []);
+
+  // Sort or shuffle items for navigation
+  const sortedItems = useMemo(() => {
+    const chronological = [...items].sort((a, b) => a.birthYear - b.birthYear);
+    if (randomOrder && isClient) {
+      return shuffleArray(chronological, shuffleSeed);
+    }
+    return chronological;
+  }, [items, randomOrder, shuffleSeed, isClient]);
+
+  // Reshuffle function
+  const reshuffle = useCallback(() => {
+    setShuffleSeed(Math.floor(Math.random() * 10000));
+    setSelectedIndex(0);
+  }, []);
 
   // Read item id from URL on initial mount only
   const initialLoadDone = useRef(false);
@@ -229,30 +266,48 @@ function TimelineContent({ items, title }: TimelineProps) {
     updateUrlWithItem(sortedItems[newIndex]);
   };
 
-  // Handle horizontal swipe in drawer
-  const touchStartX = useRef(0);
-  const touchStartY = useRef(0);
+  // Scroll-snap container ref for fullscreen drawer
+  const drawerScrollRef = useRef<HTMLDivElement>(null);
+  const isScrollingRef = useRef(false);
 
-  const handleDrawerTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-    touchStartY.current = e.touches[0].clientY;
-  };
-
-  const handleDrawerTouchEnd = (e: React.TouchEvent) => {
-    const touchEndX = e.changedTouches[0].clientX;
-    const touchEndY = e.changedTouches[0].clientY;
-    const diffX = touchStartX.current - touchEndX;
-    const diffY = touchStartY.current - touchEndY;
-
-    // Only trigger if horizontal swipe is dominant
-    if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY)) {
-      if (diffX > 0) {
-        goToNext();
-      } else {
-        goToPrevious();
-      }
+  // Scroll to item in drawer and update state
+  const scrollToItemInDrawer = useCallback((index: number, updateState = true) => {
+    if (drawerScrollRef.current) {
+      const container = drawerScrollRef.current;
+      const slideWidth = container.clientWidth;
+      isScrollingRef.current = true;
+      container.scrollTo({ left: index * slideWidth, behavior: "smooth" });
+      setTimeout(() => {
+        isScrollingRef.current = false;
+      }, 300);
     }
-  };
+    if (updateState && index !== selectedIndex) {
+      setSelectedIndex(index);
+      updateUrlWithItem(sortedItems[index]);
+    }
+  }, [selectedIndex, sortedItems, updateUrlWithItem]);
+
+  // Handle scroll-snap end to sync selectedIndex
+  const handleDrawerScroll = useCallback(() => {
+    if (isScrollingRef.current || !drawerScrollRef.current) return;
+    const container = drawerScrollRef.current;
+    const slideWidth = container.clientWidth;
+    const newIndex = Math.round(container.scrollLeft / slideWidth);
+    if (newIndex !== selectedIndex && newIndex >= 0 && newIndex < sortedItems.length) {
+      setSelectedIndex(newIndex);
+      updateUrlWithItem(sortedItems[newIndex]);
+    }
+  }, [selectedIndex, sortedItems, updateUrlWithItem]);
+
+  // Scroll drawer to selected item when drawer opens
+  useEffect(() => {
+    if (drawerOpen && drawerScrollRef.current) {
+      // Use instant scroll when opening, don't update state (already set)
+      const container = drawerScrollRef.current;
+      const slideWidth = container.clientWidth;
+      container.scrollTo({ left: selectedIndex * slideWidth, behavior: "instant" });
+    }
+  }, [drawerOpen]);
 
   // Handle keyboard navigation
   useEffect(() => {
@@ -483,88 +538,104 @@ function TimelineContent({ items, title }: TimelineProps) {
               )}
             </div>
 
-            {/* Navigation indicator + Discover link */}
-            <div className="mt-8 pt-4 border-t flex items-center justify-between">
+            {/* Navigation indicator */}
+            <div className="mt-8 pt-4 border-t">
               <span className="text-sm text-muted-foreground">
                 {selectedIndex + 1} / {sortedItems.length}
               </span>
-              <Link
-                href="/discover"
-                className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline"
-              >
-                <Sparkles className="h-3.5 w-3.5" />
-                Découvrir au hasard
-              </Link>
             </div>
           </div>
         )}
       </div>
 
-      {/* Mobile Drawer */}
-      <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
-        <DrawerContent
-          className="max-h-[85vh]"
-          onTouchStart={handleDrawerTouchStart}
-          onTouchEnd={handleDrawerTouchEnd}
-        >
-          {selectedItem && (
-            <>
-              <DrawerHeader className="pb-2">
-                <div className="flex items-center gap-4">
-                  <Avatar className="h-14 w-14 border-2 border-primary/20">
-                    {selectedItem.image && <AvatarImage src={selectedItem.image} alt={selectedItem.name} />}
-                    <AvatarFallback className="bg-primary/10 text-primary text-lg font-semibold">
-                      {getInitials(selectedItem.name)}
+      {/* Mobile Fullscreen Overlay with Scroll-Snap */}
+      {drawerOpen && (
+        <div className="fixed inset-0 z-50 bg-background md:hidden">
+          {/* Header */}
+          <div className="sticky top-0 z-10 flex items-center justify-between px-4 h-14 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <span className="text-sm font-medium text-muted-foreground">
+              {selectedIndex + 1} / {sortedItems.length}
+            </span>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={shareItem}
+                className="p-2 rounded-full hover:bg-accent transition-colors"
+                aria-label="Partager"
+              >
+                {copied ? <Check className="h-5 w-5" /> : <Share2 className="h-5 w-5" />}
+              </button>
+              <button
+                onClick={() => setDrawerOpen(false)}
+                className="p-2 rounded-full hover:bg-accent transition-colors"
+                aria-label="Fermer"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Scroll-snap container */}
+          <div
+            ref={drawerScrollRef}
+            onScroll={handleDrawerScroll}
+            className="flex overflow-x-auto snap-x snap-mandatory h-[calc(100dvh-3.5rem-3.5rem)] scrollbar-hide"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {sortedItems.map((item, index) => (
+              <div
+                key={item.id}
+                className="flex-shrink-0 w-full snap-center overflow-y-auto px-4 py-4"
+              >
+                {/* Item header */}
+                <div className="flex items-center gap-4 mb-4">
+                  <Avatar className="h-16 w-16 border-2 border-primary/20">
+                    {item.image && <AvatarImage src={item.image} alt={item.name} />}
+                    <AvatarFallback className="bg-primary/10 text-primary text-xl font-semibold">
+                      {getInitials(item.name)}
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <DrawerTitle className="text-xl">{selectedItem.name}</DrawerTitle>
+                    <h2 className="text-xl font-semibold">{item.name}</h2>
                     <p className="text-sm text-muted-foreground">
-                      {formatYear(selectedItem.birthYear)}
-                      {selectedItem.deathYear && ` - ${formatYear(selectedItem.deathYear)}`}
+                      {formatYear(item.birthYear)}
+                      {item.deathYear && ` - ${formatYear(item.deathYear)}`}
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-2 flex-wrap items-center mt-3">
+
+                {/* Tags */}
+                <div className="flex gap-2 flex-wrap mb-4">
                   <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                    {selectedItem.nationality}
+                    {item.nationality}
                   </span>
                   <span className="inline-flex items-center rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground">
-                    {selectedItem.movement}
+                    {item.movement}
                   </span>
-                  <button
-                    onClick={shareItem}
-                    className="ml-auto inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {copied ? <Check className="h-3 w-3" /> : <Share2 className="h-3 w-3" />}
-                    {copied ? "Copié!" : "Partager"}
-                  </button>
                 </div>
-              </DrawerHeader>
 
-              <div className="px-4 pb-6 overflow-y-auto">
+                {/* Content */}
                 <div className="space-y-5">
                   <div>
                     <h3 className="font-semibold mb-2">Biographie</h3>
                     <p className="text-sm text-muted-foreground whitespace-pre-line leading-relaxed">
-                      {selectedItem.summary}
+                      {item.summary}
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="font-semibold mb-2">Oeuvres principales</h3>
+                    <h3 className="font-semibold mb-2">Œuvres principales</h3>
                     <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                      {selectedItem.mainWorks.map((work, i) => (
+                      {item.mainWorks.map((work, i) => (
                         <li key={i}>{work}</li>
                       ))}
                     </ul>
                   </div>
 
-                  {selectedItem.keyIdeas && selectedItem.keyIdeas.length > 0 && (
+                  {item.keyIdeas && item.keyIdeas.length > 0 && (
                     <div>
-                      <h3 className="font-semibold mb-2">Idees cles</h3>
+                      <h3 className="font-semibold mb-2">Idées clés</h3>
                       <div className="flex flex-wrap gap-2">
-                        {selectedItem.keyIdeas.map((idea, i) => (
+                        {item.keyIdeas.map((idea, i) => (
                           <span
                             key={i}
                             className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground"
@@ -577,41 +648,30 @@ function TimelineContent({ items, title }: TimelineProps) {
                   )}
                 </div>
 
-                {/* Mobile navigation */}
-                <div className="flex items-center justify-center gap-4 mt-6 pt-4 border-t">
-                  <button
-                    onClick={goToPrevious}
-                    className="p-2.5 rounded-full bg-background border shadow hover:bg-accent transition-colors"
-                    aria-label="Précédent"
-                  >
-                    <ChevronLeft className="h-5 w-5" />
-                  </button>
-                  <span className="text-sm text-muted-foreground min-w-[60px] text-center">
-                    {selectedIndex + 1} / {sortedItems.length}
-                  </span>
-                  <button
-                    onClick={goToNext}
-                    className="p-2.5 rounded-full bg-background border shadow hover:bg-accent transition-colors"
-                    aria-label="Suivant"
-                  >
-                    <ChevronRight className="h-5 w-5" />
-                  </button>
-                </div>
-                {/* Discover link */}
-                <div className="mt-4 text-center">
-                  <Link
-                    href="/discover"
-                    className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline"
-                  >
-                    <Sparkles className="h-3.5 w-3.5" />
-                    Découvrir au hasard
-                  </Link>
-                </div>
               </div>
-            </>
-          )}
-        </DrawerContent>
-      </Drawer>
+            ))}
+          </div>
+
+          {/* Bottom navigation */}
+          <div className="fixed bottom-14 left-0 right-0 h-14 flex items-center justify-center gap-6 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-t">
+            <button
+              onClick={() => scrollToItemInDrawer(selectedIndex > 0 ? selectedIndex - 1 : sortedItems.length - 1)}
+              className="p-3 rounded-full bg-background border shadow-sm hover:bg-accent transition-colors"
+              aria-label="Précédent"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <span className="text-xs text-muted-foreground">Swipez pour naviguer</span>
+            <button
+              onClick={() => scrollToItemInDrawer(selectedIndex < sortedItems.length - 1 ? selectedIndex + 1 : 0)}
+              className="p-3 rounded-full bg-background border shadow-sm hover:bg-accent transition-colors"
+              aria-label="Suivant"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

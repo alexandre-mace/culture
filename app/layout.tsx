@@ -4,7 +4,6 @@ import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { TabBar } from "@/components/tab-bar";
-import { DiscoverProvider } from "@/components/discover-context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,13 +41,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <DiscoverProvider>
-            <Header />
-            <main className="pb-14 md:pb-0">
-              {children}
-            </main>
-            <TabBar />
-          </DiscoverProvider>
+          <Header />
+          <main className="pb-14 md:pb-0">
+            {children}
+          </main>
+          <TabBar />
         </ThemeProvider>
       </body>
     </html>
