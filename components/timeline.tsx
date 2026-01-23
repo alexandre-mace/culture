@@ -17,12 +17,14 @@ interface TimelineItem {
   summary: string;
   mainWorks: string[];
   keyIdeas?: string[];
+  category?: string;
+  categoryEmoji?: string;
 }
 
 interface TimelineProps {
   items: TimelineItem[];
   title: string;
-  randomOrder?: boolean;
+  showCategory?: boolean;
 }
 
 interface PositionedItem extends TimelineItem {
@@ -140,80 +142,39 @@ function calculatePositions(
   return result;
 }
 
-// Fisher-Yates shuffle with seed for consistent shuffle per session
-function shuffleArray<T>(array: T[], seed: number): T[] {
-  const result = [...array];
-  let currentIndex = result.length;
-
-  // Simple seeded random
-  const random = () => {
-    seed = (seed * 9301 + 49297) % 233280;
-    return seed / 233280;
-  };
-
-  while (currentIndex > 0) {
-    const randomIndex = Math.floor(random() * currentIndex);
-    currentIndex--;
-    [result[currentIndex], result[randomIndex]] = [result[randomIndex], result[currentIndex]];
-  }
-
-  return result;
-}
-
-function TimelineContent({ items, title, randomOrder }: TimelineProps) {
+function TimelineContent({ items, title, showCategory }: TimelineProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [copied, setCopied] = useState(false);
-  // Start with fixed seed for SSR, randomize on client
-  const [shuffleSeed, setShuffleSeed] = useState(42);
-  const [isClient, setIsClient] = useState(false);
   const timelineContainerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<Map<string, HTMLDivElement>>(new Map());
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
-  // Randomize seed on client mount to avoid hydration mismatch
-  useEffect(() => {
-    if (randomOrder) {
-      setShuffleSeed(Math.floor(Math.random() * 10000));
-    }
-    setIsClient(true);
-  }, []);
-
-  // Sort or shuffle items for navigation
+  // Sort items chronologically
   const sortedItems = useMemo(() => {
-    const chronological = [...items].sort((a, b) => a.birthYear - b.birthYear);
-    if (randomOrder && isClient) {
-      return shuffleArray(chronological, shuffleSeed);
-    }
-    return chronological;
-  }, [items, randomOrder, shuffleSeed, isClient]);
+    return [...items].sort((a, b) => a.birthYear - b.birthYear);
+  }, [items]);
 
-  // Reshuffle function
-  const reshuffle = useCallback(() => {
-    setShuffleSeed(Math.floor(Math.random() * 10000));
-    setSelectedIndex(0);
-  }, []);
-
-  // Read item id from URL on initial mount only
-  const initialLoadDone = useRef(false);
+  // Sync selection with URL param (both on mount and when URL changes via search)
+  const urlItemId = searchParams.get("id");
   useEffect(() => {
-    if (initialLoadDone.current) return;
-    initialLoadDone.current = true;
+    if (!urlItemId) return;
 
-    const itemId = searchParams.get("id");
-    if (itemId) {
-      const index = sortedItems.findIndex((item) => item.id === itemId);
-      if (index !== -1) {
-        setSelectedIndex(index);
-        // Only open drawer on mobile (desktop has always-visible panel)
-        const isMobile = window.innerWidth < 768;
-        if (isMobile) {
-          setDrawerOpen(true);
-        }
+    // Find the item index
+    const index = sortedItems.findIndex((item) => item.id === urlItemId);
+    if (index === -1) return;
+
+    // Only update if different from current selection
+    if (index !== selectedIndex) {
+      setSelectedIndex(index);
+      // Open drawer on mobile
+      const isMobile = window.innerWidth < 768;
+      if (isMobile) {
+        setDrawerOpen(true);
       }
     }
-  }, [searchParams, sortedItems]);
+  }, [urlItemId, sortedItems]);
 
   // Update URL when selection changes
   const updateUrlWithItem = (item: TimelineItem) => {
@@ -487,7 +448,13 @@ function TimelineContent({ items, title, randomOrder }: TimelineProps) {
                 </div>
               </div>
               <div className="flex gap-2 flex-wrap items-center">
-                <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                {showCategory && selectedItem.category && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                    <span>{selectedItem.categoryEmoji}</span>
+                    {selectedItem.category}
+                  </span>
+                )}
+                <span className="inline-flex items-center rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground">
                   {selectedItem.nationality}
                 </span>
                 <span className="inline-flex items-center rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground">
@@ -605,7 +572,13 @@ function TimelineContent({ items, title, randomOrder }: TimelineProps) {
 
                 {/* Tags */}
                 <div className="flex gap-2 flex-wrap mb-4">
-                  <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                  {showCategory && item.category && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                      <span>{item.categoryEmoji}</span>
+                      {item.category}
+                    </span>
+                  )}
+                  <span className="inline-flex items-center rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground">
                     {item.nationality}
                   </span>
                   <span className="inline-flex items-center rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground">

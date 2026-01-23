@@ -100,8 +100,8 @@ export function Header() {
         >
           <Search className="h-4 w-4 mr-2" />
           <span className="text-sm">Rechercher...</span>
-          <kbd className="pointer-events-none absolute right-1.5 top-1 h-6 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 flex">
-            <span className="text-xs">⌘</span>K
+          <kbd className="pointer-events-none absolute right-1.5 top-1/2 -translate-y-1/2 h-5 select-none items-center gap-0.5 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 flex">
+            <span>⌘</span>K
           </kbd>
         </Button>
 
