@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ChevronLeft, ChevronRight, MapPin, Share2, Check } from "lucide-react";
 import { useDiscover } from "@/components/discover-context";
 import { categoryRoutes } from "@/lib/search-data";
-import { cn } from "@/lib/utils";
 
 interface DiscoverItem {
   id: string;
@@ -65,10 +64,9 @@ export function DiscoverSwipe({ items }: DiscoverSwipeProps) {
   const { selectedCategory, setCategories, shuffleKey } = useDiscover();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [shuffledItems, setShuffledItems] = useState<DiscoverItem[]>([]);
-  const [slideDirection, setSlideDirection] = useState<"left" | "right" | null>(null);
-  const [isAnimating, setIsAnimating] = useState(false);
   const [copied, setCopied] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const isScrollingRef = useRef(false);
 
   // Share function
   const shareItem = async () => {
@@ -115,31 +113,48 @@ export function DiscoverSwipe({ items }: DiscoverSwipeProps) {
     setCurrentIndex(0);
   }, [filteredItems, shuffleKey]);
 
-  const currentItem = shuffledItems[currentIndex];
+  // Scroll to specific index
+  const scrollToIndex = useCallback((index: number) => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
 
-  const goToPrevious = () => {
-    if (currentIndex > 0 && !isAnimating) {
-      setSlideDirection("right");
-      setIsAnimating(true);
-      setTimeout(() => {
-        setCurrentIndex(currentIndex - 1);
-        setSlideDirection(null);
-        setIsAnimating(false);
-      }, 200);
-    }
-  };
+    isScrollingRef.current = true;
+    const cardWidth = container.offsetWidth;
+    container.scrollTo({
+      left: index * cardWidth,
+      behavior: "smooth",
+    });
 
-  const goToNext = () => {
-    if (currentIndex < shuffledItems.length - 1 && !isAnimating) {
-      setSlideDirection("left");
-      setIsAnimating(true);
-      setTimeout(() => {
-        setCurrentIndex(currentIndex + 1);
-        setSlideDirection(null);
-        setIsAnimating(false);
-      }, 200);
+    // Reset flag after scroll animation
+    setTimeout(() => {
+      isScrollingRef.current = false;
+    }, 400);
+  }, []);
+
+  const goToPrevious = useCallback(() => {
+    if (currentIndex > 0) {
+      scrollToIndex(currentIndex - 1);
     }
-  };
+  }, [currentIndex, scrollToIndex]);
+
+  const goToNext = useCallback(() => {
+    if (currentIndex < shuffledItems.length - 1) {
+      scrollToIndex(currentIndex + 1);
+    }
+  }, [currentIndex, shuffledItems.length, scrollToIndex]);
+
+  // Handle scroll snap detection
+  const handleScroll = useCallback(() => {
+    const container = scrollContainerRef.current;
+    if (!container || isScrollingRef.current) return;
+
+    const cardWidth = container.offsetWidth;
+    const newIndex = Math.round(container.scrollLeft / cardWidth);
+
+    if (newIndex !== currentIndex && newIndex >= 0 && newIndex < shuffledItems.length) {
+      setCurrentIndex(newIndex);
+    }
+  }, [currentIndex, shuffledItems.length]);
 
   // Handle keyboard navigation
   useEffect(() => {
@@ -155,33 +170,9 @@ export function DiscoverSwipe({ items }: DiscoverSwipeProps) {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [currentIndex, shuffledItems.length]);
+  }, [goToPrevious, goToNext]);
 
-  // Handle horizontal touch swipe
-  const touchStartX = useRef(0);
-  const touchStartY = useRef(0);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-    touchStartY.current = e.touches[0].clientY;
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    const touchEndX = e.changedTouches[0].clientX;
-    const touchEndY = e.changedTouches[0].clientY;
-    const diffX = touchStartX.current - touchEndX;
-    const diffY = touchStartY.current - touchEndY;
-
-    if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY)) {
-      if (diffX > 0) {
-        goToNext();
-      } else {
-        goToPrevious();
-      }
-    }
-  };
-
-  if (!currentItem) {
+  if (shuffledItems.length === 0) {
     return (
       <div className="h-[calc(100vh-6.5rem)] md:h-[calc(100vh-3rem)] flex items-center justify-center">
         <div className="animate-pulse text-muted-foreground">Chargement...</div>
@@ -192,102 +183,105 @@ export function DiscoverSwipe({ items }: DiscoverSwipeProps) {
   // Mobile: header (44px) + tab bar (56px) = 100px = 6.25rem
   // Desktop: header (48px) = 3rem
   return (
-    <div
-      ref={containerRef}
-      className="h-[calc(100vh-6.5rem)] md:h-[calc(100vh-3rem)] overflow-y-auto relative bg-background"
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-    >
-      {/* Card content */}
+    <div className="h-[calc(100vh-6.5rem)] md:h-[calc(100vh-3rem)] relative bg-background">
+      {/* Horizontal scroll container with snap */}
       <div
-        className={cn(
-          "px-4 py-6 space-y-6 pb-28 max-w-2xl mx-auto transition-all duration-200",
-          slideDirection === "left" && "opacity-0 -translate-x-8",
-          slideDirection === "right" && "opacity-0 translate-x-8"
-        )}
+        ref={scrollContainerRef}
+        onScroll={handleScroll}
+        className="h-full flex overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
-        {/* Avatar and name */}
-        <div className="flex flex-col items-center text-center">
-          <Avatar className="h-24 w-24 md:h-32 md:w-32 border-4 border-primary/20 shadow-lg">
-            {currentItem.image && (
-              <AvatarImage src={currentItem.image} alt={currentItem.name} />
-            )}
-            <AvatarFallback className="bg-primary/10 text-primary text-2xl md:text-3xl font-semibold">
-              {getInitials(currentItem.name)}
-            </AvatarFallback>
-          </Avatar>
-          <h1 className="mt-4 text-2xl md:text-3xl font-bold">{currentItem.name}</h1>
-          <p className="text-muted-foreground">
-            {formatYear(currentItem.birthYear)}
-            {currentItem.deathYear && ` - ${formatYear(currentItem.deathYear)}`}
-          </p>
-          <div className="flex gap-2 flex-wrap justify-center mt-3">
-            {selectedCategory === "all" && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-xs font-medium">
-                <span>{currentItem.categoryEmoji}</span>
-                {currentItem.category}
-              </span>
-            )}
-            <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-              {currentItem.nationality}
-            </span>
-            <span className="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">
-              {currentItem.movement}
-            </span>
-          </div>
-          {/* Link to timeline */}
-          <div className="flex items-center justify-center gap-4 mt-3">
-            <Link
-              href={`${categoryRoutes[currentItem.category]}?id=${currentItem.id}`}
-              className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline"
-            >
-              <MapPin className="h-3.5 w-3.5" />
-              Voir sur la frise
-            </Link>
-            <button
-              onClick={shareItem}
-              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {copied ? <Check className="h-3.5 w-3.5" /> : <Share2 className="h-3.5 w-3.5" />}
-              {copied ? "Copié!" : "Partager"}
-            </button>
-          </div>
-        </div>
+        {shuffledItems.map((item, index) => (
+          <div
+            key={`${item.id}-${index}`}
+            className="snap-center shrink-0 w-full h-full overflow-y-auto"
+          >
+            <div className="px-4 py-6 space-y-6 pb-28 max-w-2xl mx-auto">
+              {/* Avatar and name */}
+              <div className="flex flex-col items-center text-center">
+                <Avatar className="h-24 w-24 md:h-32 md:w-32 border-4 border-primary/20 shadow-lg">
+                  {item.image && (
+                    <AvatarImage src={item.image} alt={item.name} />
+                  )}
+                  <AvatarFallback className="bg-primary/10 text-primary text-2xl md:text-3xl font-semibold">
+                    {getInitials(item.name)}
+                  </AvatarFallback>
+                </Avatar>
+                <h1 className="mt-4 text-2xl md:text-3xl font-bold">{item.name}</h1>
+                <p className="text-muted-foreground">
+                  {formatYear(item.birthYear)}
+                  {item.deathYear && ` - ${formatYear(item.deathYear)}`}
+                </p>
+                <div className="flex gap-2 flex-wrap justify-center mt-3">
+                  {selectedCategory === "all" && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-xs font-medium">
+                      <span>{item.categoryEmoji}</span>
+                      {item.category}
+                    </span>
+                  )}
+                  <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                    {item.nationality}
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">
+                    {item.movement}
+                  </span>
+                </div>
+                {/* Link to timeline */}
+                <div className="flex items-center justify-center gap-4 mt-3">
+                  <Link
+                    href={`${categoryRoutes[item.category]}?id=${item.id}`}
+                    className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline"
+                  >
+                    <MapPin className="h-3.5 w-3.5" />
+                    Voir sur la frise
+                  </Link>
+                  <button
+                    onClick={shareItem}
+                    className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {copied ? <Check className="h-3.5 w-3.5" /> : <Share2 className="h-3.5 w-3.5" />}
+                    {copied ? "Copié!" : "Partager"}
+                  </button>
+                </div>
+              </div>
 
-        {/* Summary */}
-        <div>
-          <h2 className="font-semibold mb-2">Biographie</h2>
-          <p className="text-sm text-muted-foreground whitespace-pre-line leading-relaxed">
-            {currentItem.summary}
-          </p>
-        </div>
+              {/* Summary */}
+              <div>
+                <h2 className="font-semibold mb-2">Biographie</h2>
+                <p className="text-sm text-muted-foreground whitespace-pre-line leading-relaxed">
+                  {item.summary}
+                </p>
+              </div>
 
-        {/* Main works */}
-        <div>
-          <h2 className="font-semibold mb-2">Oeuvres principales</h2>
-          <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-            {currentItem.mainWorks.map((work, i) => (
-              <li key={i}>{work}</li>
-            ))}
-          </ul>
-        </div>
+              {/* Main works */}
+              <div>
+                <h2 className="font-semibold mb-2">Oeuvres principales</h2>
+                <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
+                  {item.mainWorks.map((work, i) => (
+                    <li key={i}>{work}</li>
+                  ))}
+                </ul>
+              </div>
 
-        {/* Key ideas */}
-        {currentItem.keyIdeas && currentItem.keyIdeas.length > 0 && (
-          <div>
-            <h2 className="font-semibold mb-2">Idees cles</h2>
-            <div className="flex flex-wrap gap-2">
-              {currentItem.keyIdeas.map((idea, i) => (
-                <span
-                  key={i}
-                  className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground"
-                >
-                  {idea}
-                </span>
-              ))}
+              {/* Key ideas */}
+              {item.keyIdeas && item.keyIdeas.length > 0 && (
+                <div>
+                  <h2 className="font-semibold mb-2">Idees cles</h2>
+                  <div className="flex flex-wrap gap-2">
+                    {item.keyIdeas.map((idea, i) => (
+                      <span
+                        key={i}
+                        className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground"
+                      >
+                        {idea}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
-        )}
+        ))}
       </div>
 
       {/* Navigation buttons - above tab bar on mobile */}
