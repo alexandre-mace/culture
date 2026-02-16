@@ -13,6 +13,10 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog"
 
+function normalize(str: string) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+}
+
 function Command({
   className,
   ...props
@@ -24,6 +28,9 @@ function Command({
         "bg-popover text-popover-foreground flex h-full w-full flex-col overflow-hidden rounded-md",
         className
       )}
+      filter={(value, search) =>
+        normalize(value).includes(normalize(search)) ? 1 : 0
+      }
       {...props}
     />
   )
