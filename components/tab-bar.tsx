@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Home, Library, Search, Moon, Sun, Shuffle, Brain } from "lucide-react";
+import { Home, Library, Search, Shuffle, Brain, User } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useState, useSyncExternalStore } from "react";
-import { useTheme } from "next-themes";
+import { useState } from "react";
 import {
   CommandDialog,
   CommandEmpty,
@@ -62,24 +61,12 @@ export function TabBar() {
   const router = useRouter();
   const [searchOpen, setSearchOpen] = useState(false);
   const [subjectOpen, setSubjectOpen] = useState(false);
-  const { resolvedTheme, setTheme } = useTheme();
-  // true after hydration, false during SSR — avoids a theme-dependent hydration mismatch
-  const mounted = useSyncExternalStore(
-    () => () => {},
-    () => true,
-    () => false
-  );
-
   const isHome = pathname === "/";
   const isTout = pathname === "/tout";
   const isQuiz = pathname === "/quiz" || pathname === "/defi";
-  const isTimeline =
-    !isHome &&
-    !isTout &&
-    !isQuiz &&
-    pathname !== "/favoris" &&
-    pathname !== "/defi" &&
-    !pathname.startsWith("/parcours");
+  const isProfil =
+    pathname === "/profil" || pathname === "/favoris" || pathname.startsWith("/parcours");
+  const isTimeline = !isHome && !isTout && !isQuiz && !isProfil && pathname !== "/defi";
 
   return (
     <>
@@ -136,6 +123,20 @@ export function TabBar() {
             <span className="text-[10px]">Quiz</span>
           </Link>
 
+          {/* Profil */}
+          <Link
+            href="/profil"
+            className={cn(
+              "flex flex-col items-center justify-center gap-1 flex-1 h-full",
+              isProfil
+                ? "text-primary"
+                : "text-muted-foreground hover:text-foreground transition-colors"
+            )}
+          >
+            <User className="h-5 w-5" />
+            <span className="text-[10px]">Profil</span>
+          </Link>
+
         </div>
       </nav>
 
@@ -143,24 +144,7 @@ export function TabBar() {
       <Drawer open={subjectOpen} onOpenChange={setSubjectOpen}>
         <DrawerContent className="max-h-[85vh]">
           <DrawerHeader className="pb-2">
-            <div className="flex items-center justify-between">
-              <DrawerTitle>Choisir un sujet</DrawerTitle>
-              <button
-                onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-                className="p-2 rounded-full text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
-                aria-label={
-                  mounted && resolvedTheme === "dark"
-                    ? "Passer en thème clair"
-                    : "Passer en thème sombre"
-                }
-              >
-                {mounted && resolvedTheme === "dark" ? (
-                  <Sun className="h-5 w-5" />
-                ) : (
-                  <Moon className="h-5 w-5" />
-                )}
-              </button>
-            </div>
+            <DrawerTitle>Choisir un sujet</DrawerTitle>
           </DrawerHeader>
           <div className="px-4 pb-6 overflow-y-auto">
             {/* Random / All option */}

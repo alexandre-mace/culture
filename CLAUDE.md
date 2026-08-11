@@ -77,6 +77,7 @@ Shared libs:
   generators with `app/defi/page.tsx` (daily challenge, seeded via `lib/quiz-engine`
   so everyone gets the same grid, Wordle-style emoji share, streak in localStorage)
 - `app/favoris/page.tsx` - Starred items (localStorage)
+- `app/profil/page.tsx` - Personal hub (stats, shortcuts, theme, share) — 5th mobile tab
 - `app/fiche-index/route.ts` - Static JSON index for the home "Fiche du jour" card
 - `components/influence-graph.tsx` - Fullscreen SVG influence graph per subject
   (chronological x-axis, family lanes), opened from the timeline title row
