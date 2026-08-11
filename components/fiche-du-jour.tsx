@@ -80,7 +80,7 @@ export function FicheDuJour() {
   if (!entry) return null;
 
   return (
-    <div className="grid gap-3 sm:grid-cols-[2fr_1fr]">
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-[2fr_1fr]">
       {/* Fiche du jour */}
       <Link
         href={entry.href}

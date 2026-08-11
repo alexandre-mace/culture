@@ -20,7 +20,7 @@ export default function ParcoursPage() {
         Des visites racontées à travers les frises — suivez le fil, une fiche à la fois.
       </p>
 
-      <div className="grid gap-3 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {summaries.map((parcours) => (
           <Link
             key={parcours.slug}

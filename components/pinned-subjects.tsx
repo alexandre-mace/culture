@@ -29,7 +29,7 @@ export function PinnedSubjects() {
         <Pin className="h-5 w-5 fill-primary text-primary" />
         Épinglés
       </h2>
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {pinned.map((href) => (
           <div
             key={href}

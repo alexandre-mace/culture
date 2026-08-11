@@ -88,6 +88,12 @@ Shared libs:
   cache fallback, cache-first hashed assets, capped stale-while-revalidate for
   Wikimedia images. Bump `VERSION` in sw.js when changing caching behavior.
 
+### UI gotchas
+
+- Always give grids an explicit mobile column (`grid grid-cols-1 sm:grid-cols-2 …`):
+  an implicit grid column is sized `auto` (max-content), so any `truncate`/nowrap
+  content silently pushes cards wider than the viewport on mobile.
+
 ### UI Stack
 
 - **shadcn/ui** (New York style) with Radix UI primitives

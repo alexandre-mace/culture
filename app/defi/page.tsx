@@ -162,7 +162,7 @@ export default function DefiPage() {
             {streak} jours d'affilée
           </p>
         )}
-        <div className="grid gap-3 max-w-sm mx-auto mt-6">
+        <div className="grid grid-cols-1 gap-3 max-w-sm mx-auto mt-6">
           <Button size="lg" onClick={() => share(done)} className="gap-2">
             <Share2 className="h-4 w-4" />
             {copied ? "Copié !" : "Partager mon score"}
@@ -205,7 +205,7 @@ export default function DefiPage() {
         <>
           <h2 className="font-semibold mb-1">Remettez dans l’ordre chronologique</h2>
           <p className="text-sm text-muted-foreground mb-4">De la plus ancienne à la plus récente.</p>
-          <div className="grid gap-2">
+          <div className="grid grid-cols-1 gap-2">
             {question.items.map((item) => {
               const pickIndex = chronoPicks.indexOf(item.id);
               const correctOrder = [...question.items]
@@ -256,7 +256,7 @@ export default function DefiPage() {
           <blockquote className="text-sm text-muted-foreground border-l-2 pl-3 my-4 leading-relaxed">
             {question.type === "citation" ? `« ${question.quote} »` : question.excerpt}
           </blockquote>
-          <div className="grid gap-2">
+          <div className="grid grid-cols-1 gap-2">
             {question.choices.map((choice) => {
               const isAnswer = choice.id === question.answer.id;
               const isPick = choice.id === choicePick;

@@ -61,7 +61,7 @@ export function ParcoursViewer({ parcours }: { parcours: ResolvedParcours }) {
           Vous avez suivi « {parcours.title} » — {parcours.steps.length} étapes à travers{" "}
           l'histoire.
         </p>
-        <div className="grid gap-3 max-w-sm mx-auto">
+        <div className="grid grid-cols-1 gap-3 max-w-sm mx-auto">
           <Button asChild size="lg" className="gap-2">
             <Link href="/parcours">
               <Route className="h-4 w-4" />

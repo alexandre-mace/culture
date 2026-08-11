@@ -253,7 +253,7 @@ export default function HomePage() {
             <Route className="h-5 w-5 text-primary" />
             Parcours guidés
           </h2>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {getParcoursSummaries().map((parcours) => (
               <Link
                 key={parcours.slug}
@@ -280,7 +280,7 @@ export default function HomePage() {
               <span>{category.emoji}</span>
               {category.name}
             </h2>
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {category.subjects.map((subject) => (
                 <Link
                   key={subject.href}

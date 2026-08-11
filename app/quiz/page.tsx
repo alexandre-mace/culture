@@ -123,7 +123,7 @@ export default function QuizPage() {
             </p>
           </>
         )}
-        <div className="grid gap-3 max-w-sm mx-auto">
+        <div className="grid grid-cols-1 gap-3 max-w-sm mx-auto">
           <Button size="lg" onClick={() => start("mixte")} className="gap-2">
             {finished ? <RotateCcw className="h-4 w-4" /> : <Brain className="h-4 w-4" />}
             {finished ? "Rejouer en mixte" : "Mode mixte"}
@@ -169,7 +169,7 @@ export default function QuizPage() {
           <p className="text-sm text-muted-foreground mb-4">
             Touchez les fiches de la plus ancienne à la plus récente.
           </p>
-          <div className="grid gap-2">
+          <div className="grid grid-cols-1 gap-2">
             {question.items.map((item) => {
               const pickIndex = chronoPicks.indexOf(item.id);
               const correctOrder = [...question.items]
@@ -220,7 +220,7 @@ export default function QuizPage() {
           <blockquote className="text-sm text-muted-foreground border-l-2 pl-3 my-4 leading-relaxed">
             {question.type === "citation" ? `« ${question.quote} »` : question.excerpt}
           </blockquote>
-          <div className="grid gap-2">
+          <div className="grid grid-cols-1 gap-2">
             {question.choices.map((choice) => {
               const isAnswer = choice.id === question.answer.id;
               const isPick = choice.id === choicePick;
