@@ -229,7 +229,7 @@ export default function HomePage() {
           <span className="text-5xl sm:text-6xl block mb-3">📚</span>
           Culture
         </h1>
-        <p className="mt-3 max-w-xl text-muted-foreground sm:text-lg">
+        <p className="mt-3 max-w-xl text-balance text-muted-foreground sm:text-lg">
           Explorez l’histoire des idées, des arts et des techniques à travers des frises chronologiques interactives.
         </p>
         <Link
