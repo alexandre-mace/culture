@@ -535,16 +535,15 @@ function TimelineContent({
       <div ref={timelineContainerRef} className="w-full md:w-1/2 overflow-y-auto relative">
         <div className="sticky top-0 z-20 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
           <div className="relative">
-            <h1
-              className={cn(
-                "font-semibold text-center py-4",
-                titleExtra ? "text-lg md:text-xl px-16 md:px-72 truncate" : "text-xl"
-              )}
-            >
-              {title}
-            </h1>
-            {titleExtra && (
-              <div className="absolute right-3 top-1/2 -translate-y-1/2">{titleExtra}</div>
+            {titleExtra ? (
+              <div className="flex items-center gap-3 px-4 py-3">
+                <h1 className="text-lg md:text-xl font-semibold truncate flex-1 min-w-0">
+                  {title}
+                </h1>
+                <div className="shrink-0">{titleExtra}</div>
+              </div>
+            ) : (
+              <h1 className="text-xl font-semibold text-center py-4">{title}</h1>
             )}
             {/* Influence graph (only when the subject has influence links) */}
             {!showCategory && influenceOf.size > 0 && (

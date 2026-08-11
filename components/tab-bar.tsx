@@ -143,7 +143,24 @@ export function TabBar() {
       <Drawer open={subjectOpen} onOpenChange={setSubjectOpen}>
         <DrawerContent className="max-h-[85vh]">
           <DrawerHeader className="pb-2">
-            <DrawerTitle>Choisir un sujet</DrawerTitle>
+            <div className="flex items-center justify-between">
+              <DrawerTitle>Choisir un sujet</DrawerTitle>
+              <button
+                onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                className="p-2 rounded-full text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+                aria-label={
+                  mounted && resolvedTheme === "dark"
+                    ? "Passer en thème clair"
+                    : "Passer en thème sombre"
+                }
+              >
+                {mounted && resolvedTheme === "dark" ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+              </button>
+            </div>
           </DrawerHeader>
           <div className="px-4 pb-6 overflow-y-auto">
             {/* Random / All option */}
@@ -196,22 +213,6 @@ export function TabBar() {
               </div>
             ))}
 
-            {/* Appearance */}
-            <div className="mt-2 border-t pt-4">
-              <button
-                onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-                className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-accent transition-colors"
-              >
-                {mounted && resolvedTheme === "dark" ? (
-                  <Sun className="h-5 w-5 text-muted-foreground" />
-                ) : (
-                  <Moon className="h-5 w-5 text-muted-foreground" />
-                )}
-                <span className="text-sm">
-                  {mounted && resolvedTheme === "dark" ? "Passer en thème clair" : "Passer en thème sombre"}
-                </span>
-              </button>
-            </div>
           </div>
         </DrawerContent>
       </Drawer>
