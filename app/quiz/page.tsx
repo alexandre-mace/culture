@@ -3,22 +3,9 @@
 import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  Brain,
-  UserRoundSearch,
-  RotateCcw,
-  Check,
-  X,
-  Quote,
-  CalendarDays,
-} from "lucide-react";
+import { Brain, RotateCcw, Check, X, CalendarDays } from "lucide-react";
 import { cn } from "@/lib/utils";
-import {
-  makeQuestion,
-  buildPool,
-  quotableCount,
-  type Question,
-} from "@/lib/quiz-engine";
+import { makeQuestion, buildPool, type Question } from "@/lib/quiz-engine";
 import { categoryRegistry } from "@/lib/all-items";
 import {
   Select,
@@ -58,7 +45,6 @@ export default function QuizPage() {
     }
   }, []);
   const pool = useMemo(() => buildPool(category), [category]);
-  const canQuote = quotableCount(pool) >= 4;
   const [questionIndex, setQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [question, setQuestion] = useState<Question | null>(null);
@@ -188,25 +174,14 @@ export default function QuizPage() {
               </SelectContent>
             </Select>
           )}
-          <Button
-            size="lg"
-            variant="outline"
-            onClick={() => start("citation")}
-            disabled={!canQuote}
-            className="gap-2"
-            title={canQuote ? undefined : "Pas assez de citations dans cette catégorie"}
-          >
-            <Quote className="h-4 w-4" />
-            Qui a dit ça ?
-          </Button>
-          <Button size="lg" variant="outline" onClick={() => start("quisuisje")} className="gap-2">
-            <UserRoundSearch className="h-4 w-4" />
-            Qui suis-je ?
-          </Button>
-          <Button size="lg" variant="outline" onClick={() => start("mixte")} className="gap-2">
+          <Button size="lg" onClick={() => start("mixte")} className="gap-2">
             {finished ? <RotateCcw className="h-4 w-4" /> : <Brain className="h-4 w-4" />}
-            {finished ? "Rejouer en mixte" : "Mode mixte"}
+            {finished ? "Rejouer" : "Lancer le quiz"}
           </Button>
+          <p className="text-xs text-muted-foreground">
+            Un mélange de « Qui suis-je ? » (biographies masquées) et de « Qui a dit ça ? »
+            (citations).
+          </p>
         </div>
       </div>
     );
