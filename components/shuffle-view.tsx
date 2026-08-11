@@ -173,7 +173,7 @@ export function ShuffleView({ items }: ShuffleViewProps) {
       {/* Header */}
       <div className="flex items-center justify-between px-4 h-14 border-b bg-background/95 backdrop-blur">
         <div className="flex items-center gap-3">
-          <span className="text-sm font-medium text-muted-foreground">
+          <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">
             {currentIndex + 1} / {shuffledItems.length}
           </span>
           {currentItem?.category && (

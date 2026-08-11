@@ -315,7 +315,8 @@ function TimelineContent({ items, title, showCategory, itemType = "person" }: Ti
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedIndex, sortedItems]);
 
   // Scroll the timeline to the selected card. Instant on first run so a ?id=
   // deep link lands directly on the card; smooth for later selection changes.
