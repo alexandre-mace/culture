@@ -7,6 +7,7 @@ export interface PandemicItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -92,6 +93,7 @@ export const pandemics: PandemicItem[] = [
     nationality: "Américain",
     movement: "Renaissance",
     family: "Ère moderne",
+    influences: ["variole"],
     summary:
       "Les maladies européennes (variole, rougeole, grippe, typhus) déciment les populations amérindiennes non immunisées. 90% de la population disparaît. Facilite la colonisation.",
     mainWorks: [
@@ -214,6 +216,7 @@ export const pandemics: PandemicItem[] = [
     nationality: "Mondial",
     movement: "XXIe siècle",
     family: "Époque contemporaine",
+    influences: ["grippe-espagnole"],
     summary:
       "Pandémie de grippe porcine partie du Mexique. 150 000-575 000 morts. Moins sévère que craint. Vaccination massive mais controverse sur la gestion de la crise.",
     mainWorks: [
@@ -249,6 +252,7 @@ export const pandemics: PandemicItem[] = [
     nationality: "Mondial",
     movement: "XXIe siècle",
     family: "Époque contemporaine",
+    influences: ["sras"],
     summary:
       "Pandémie de coronavirus SARS-CoV-2. Plus de 7 millions de morts officiels (20+ millions estimés). Confinements mondiaux, vaccination accélérée (ARNm). Transformation du travail et de la société.",
     mainWorks: [

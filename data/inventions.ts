@@ -7,6 +7,7 @@ export interface Invention {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -58,6 +59,7 @@ L'invention de l'écriture marque traditionnellement la fin de la préhistoire e
     nationality: "Chinois",
     movement: "Antiquité",
     family: "Antiquité & Moyen Âge",
+    influences: ["ecriture"],
     summary: `Le papier est inventé en Chine en 105 ap. J.-C. par Cai Lun, eunuque de la cour impériale. Il utilise des fibres végétales (mûrier, chanvre) réduites en pâte et étalées en feuilles. Le secret de fabrication reste chinois pendant des siècles.
 
 Avant le papier, on écrit sur papyrus (fragile), parchemin (coûteux), tablettes d'argile ou de cire, bambou, soie. Le papier est léger, peu coûteux, facile à produire. Il révolutionne la diffusion de l'écrit.
@@ -94,6 +96,7 @@ La boussole reste l'instrument de navigation fondamental jusqu'à l'invention du
     nationality: "Allemand",
     movement: "Renaissance",
     family: "Renaissance & sciences",
+    influences: ["ecriture", "papier"],
     summary: `Johannes Gutenberg invente l'imprimerie à caractères mobiles vers 1450 à Mayence. Il combine plusieurs innovations : caractères métalliques interchangeables, presse à vis, encre grasse. La Bible de Gutenberg (1455) est le premier livre imprimé en Europe.
 
 L'imprimerie existait en Chine depuis le XIe siècle (caractères mobiles de Bi Sheng), mais les milliers d'idéogrammes limitaient son usage. L'alphabet européen rend les caractères mobiles bien plus efficaces.
@@ -130,6 +133,7 @@ Le télescope reste l'instrument fondamental de l'astronomie. Les grands observa
     nationality: "Néerlandais",
     movement: "Révolution scientifique",
     family: "Renaissance & sciences",
+    influences: ["telescope"],
     summary: `Le microscope apparaît au début du XVIIe siècle, mais c'est Anton van Leeuwenhoek qui en fait un instrument scientifique. Ses lentilles artisanales (grossissement x270) lui permettent de découvrir les bactéries, les spermatozoïdes, les globules rouges.
 
 Le microscope révèle un monde invisible à l'œil nu. Robert Hooke observe les cellules végétales (1665), ouvrant la voie à la biologie cellulaire. Pasteur et Koch utilisent le microscope pour fonder la microbiologie.
@@ -220,6 +224,7 @@ Aujourd'hui, des milliards de photos sont prises chaque jour. Du reportage à l'
     nationality: "Américain / Britannique",
     movement: "XIXe siècle",
     family: "Ère industrielle",
+    influences: ["pile-electrique"],
     summary: `Samuel Morse met au point le télégraphe électrique pratique en 1837, avec son célèbre code de points et traits. En 1844, il envoie le premier message public : "What hath God wrought" entre Washington et Baltimore.
 
 Le télégraphe permet pour la première fois de communiquer instantanément à distance. Les fils couvrent les continents, les câbles sous-marins relient l'Europe à l'Amérique (1866). Le monde se connecte.
@@ -238,6 +243,7 @@ Le morse reste utilisé jusqu'à la fin du XXe siècle, notamment en mer. Le té
     nationality: "Américain",
     movement: "XIXe siècle",
     family: "Ère industrielle",
+    influences: ["telegraphe"],
     summary: `Alexander Graham Bell brevète le téléphone en 1876, quelques heures avant Elisha Gray. "Mr. Watson, come here, I want to see you" : le premier appel téléphonique marque une révolution dans la communication humaine.
 
 Le téléphone transmet la voix en temps réel sur des fils électriques. En quelques décennies, il connecte les foyers, les entreprises, les nations. Les centrales téléphoniques emploient des milliers d'opératrices.
@@ -256,6 +262,7 @@ Aujourd'hui, le téléphone est devenu un ordinateur de poche. La voix n'est plu
     nationality: "Américain",
     movement: "Révolution industrielle",
     family: "Ère industrielle",
+    influences: ["pile-electrique"],
     summary: `Thomas Edison présente l'ampoule à incandescence pratique en 1879. Après des milliers d'essais, il trouve un filament de carbone capable de briller des heures dans une ampoule sous vide. L'éclairage électrique devient viable.
 
 Edison ne se contente pas de l'ampoule : il conçoit tout le système électrique (centrale, réseau, compteur). En 1882, la première centrale électrique éclaire un quartier de New York. L'électricité entre dans les foyers.
@@ -274,6 +281,7 @@ L'ampoule à incandescence cède aujourd'hui la place aux LED, cent fois plus ef
     nationality: "Allemand",
     movement: "Révolution industrielle",
     family: "Moteurs & ondes",
+    influences: ["machine-vapeur"],
     summary: `Karl Benz brevète la première automobile à moteur à explosion en 1886. Indépendamment, Gottlieb Daimler développe son propre moteur. Le principe : brûler un mélange air-essence dans un cylindre pour produire un mouvement.
 
 Le moteur à explosion offre une puissance concentrée et mobile, impossible avec la vapeur. L'automobile se développe rapidement, démocratisée par Ford et sa chaîne de montage (Model T, 1908). L'avion suit (Wright, 1903).
@@ -292,6 +300,7 @@ Le moteur thermique cède progressivement la place au moteur électrique pour l'
     nationality: "Italien",
     movement: "XXe siècle",
     family: "Moteurs & ondes",
+    influences: ["telegraphe"],
     summary: `Guglielmo Marconi réalise la première transmission radio longue distance en 1896, développant les travaux de Hertz et Tesla. En 1901, il transmet un signal à travers l'Atlantique. La communication sans fil est née.
 
 La radio libère la communication des câbles. Elle équipe les navires (naufrage du Titanic, 1912), les armées, puis les foyers. Les premières émissions régulières datent des années 1920. La radio devient un média de masse.
@@ -310,6 +319,7 @@ Les ondes radio portent aussi la télévision, les télécommunications mobiles,
     nationality: "Américain",
     movement: "XXe siècle",
     family: "Moteurs & ondes",
+    influences: ["moteur-explosion"],
     summary: `Les frères Wright réalisent le premier vol motorisé contrôlé le 17 décembre 1903 à Kitty Hawk : 12 secondes, 36 mètres. En quelques années, l'aviation progresse spectaculairement (Blériot traverse la Manche, 1909).
 
 La Première Guerre mondiale accélère le développement : avions de chasse, bombardiers. L'entre-deux-guerres voit les premiers vols transatlantiques (Lindbergh, 1927). L'aviation commerciale naît (Pan Am, Air France).
@@ -327,6 +337,7 @@ L'aviation représente 2-3% des émissions de CO2 mondiales. La décarbonation d
     nationality: "Britannique",
     movement: "Médecine moderne",
     family: "Médecine & vivant",
+    influences: ["microscope"],
     summary: `Alexander Fleming découvre la pénicilline en 1928 : une moisissure (Penicillium) tue les bactéries sur une boîte de Petri oubliée. Florey et Chain la purifient et la produisent industriellement pendant la Seconde Guerre mondiale.
 
 La pénicilline inaugure l'ère des antibiotiques. Des maladies autrefois mortelles (pneumonie, septicémie, syphilis) deviennent curables. L'espérance de vie bondit. D'autres antibiotiques suivent (streptomycine, tétracycline).
@@ -363,6 +374,7 @@ L'intelligence artificielle, héritière de ces machines, promet une nouvelle r�
     nationality: "Américain",
     movement: "Révolution numérique",
     family: "Révolution numérique",
+    influences: ["telephone", "radio"],
     summary: `John Bardeen, Walter Brattain et William Shockley inventent le transistor aux Bell Labs en 1947. Ce petit composant semi-conducteur remplace le tube à vide, fragile et énergivore. C'est la brique de base de toute l'électronique moderne.
 
 Le transistor permet la miniaturisation de l'électronique. Les radios portables (1954), les premiers ordinateurs à transistors, puis les circuits intégrés (1958) contenant des milliers puis des milliards de transistors sur une puce.
@@ -381,6 +393,7 @@ Le transistor est peut-être l'invention la plus importante du XXe siècle. Sans
     nationality: "Américain",
     movement: "Révolution numérique",
     family: "Révolution numérique",
+    influences: ["ordinateur", "transistor"],
     summary: `ARPANET, ancêtre d'internet, transmet son premier message le 29 octobre 1969 entre UCLA et Stanford. Le réseau militaire évolue vers un réseau académique puis commercial. Le World Wide Web (Tim Berners-Lee, 1989) le rend accessible à tous.
 
 Internet connecte les ordinateurs du monde entier via le protocole TCP/IP. Le web ajoute une couche de documents liés (hypertexte). Les navigateurs (Mosaic, 1993) demandent juste un clic. Le public découvre internet dans les années 1990.
@@ -399,6 +412,7 @@ Les défis d'internet au XXIe siècle : vie privée, désinformation, cybersécu
     nationality: "Américain",
     movement: "Révolution numérique",
     family: "Révolution numérique",
+    influences: ["radio", "ordinateur"],
     summary: `Le GPS (Global Positioning System) débute en 1978 avec le lancement des premiers satellites par l'armée américaine. Ouvert aux civils en 1983, il permet de connaître sa position n'importe où sur Terre avec une précision métrique.
 
 Le système repose sur 24 satellites émettant des signaux horaires. Un récepteur calcule sa distance à plusieurs satellites et en déduit sa position par triangulation. Des systèmes concurrents existent : Galileo (Europe), GLONASS (Russie), BeiDou (Chine).

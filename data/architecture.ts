@@ -7,6 +7,7 @@ export interface ArchitecturalStyle {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -42,6 +43,7 @@ L'architecture égyptienne influence toutes les civilisations méditerranéennes
     nationality: "Grec",
     movement: "Antiquité",
     family: "Antiquité",
+    influences: ["egyptien"],
     summary: `L'architecture grecque antique pose les fondements de toute l'architecture occidentale. Elle développe un système d'ordres - dorique, ionique, corinthien - qui codifie les proportions et les ornements des colonnes et entablements.
 
 Le temple grec, demeure du dieu, atteint sa perfection avec le Parthénon d'Athènes (447-432 av. J.-C.). Ses architectes Ictinos et Callicratès, et le sculpteur Phidias, créent un modèle d'harmonie et de proportion que l'Occident ne cessera d'imiter.
@@ -61,6 +63,7 @@ L'influence grecque s'étend avec les conquêtes d'Alexandre, créant une archit
     nationality: "Romain",
     movement: "Antiquité",
     family: "Antiquité",
+    influences: ["grec"],
     summary: `L'architecture romaine hérite des Grecs mais développe des innovations majeures : l'arc, la voûte, le dôme, le béton. Ces techniques permettent de couvrir des espaces immenses et de construire des infrastructures à l'échelle d'un empire.
 
 Le Colisée (80 ap. J.-C.) peut accueillir 50 000 spectateurs. Le Panthéon (125 ap. J.-C.) possède un dôme de 43 mètres de diamètre, record inégalé pendant 1300 ans. Les aqueducs, comme le Pont du Gard, amènent l'eau sur des dizaines de kilomètres.
@@ -80,6 +83,7 @@ L'architecture romaine influence directement l'art roman, la Renaissance, le né
     nationality: "Byzantin",
     movement: "Moyen Âge",
     family: "Moyen Âge",
+    influences: ["romain"],
     summary: `L'architecture byzantine naît avec la fondation de Constantinople en 330 et s'épanouit pendant plus d'un millénaire. Elle fusionne les traditions romaines et orientales pour créer un style original, centré sur le dôme et la décoration intérieure.
 
 Sainte-Sophie de Constantinople (537), chef-d'œuvre de l'empereur Justinien, reste le monument emblématique. Son dôme de 31 mètres de diamètre semble flotter sur un anneau de fenêtres, créant une impression de lumière divine.
@@ -98,6 +102,7 @@ L'influence byzantine s'étend à la Russie (Saint-Basile de Moscou), aux Balkan
     nationality: "Européen",
     movement: "Moyen Âge",
     family: "Moyen Âge",
+    influences: ["romain"],
     summary: `L'architecture romane se développe en Europe occidentale à partir du Xe siècle, première expression artistique commune de la chrétienté latine. Elle reprend les techniques romaines de la voûte en berceau et du pilier massif.
 
 Les églises romanes, souvent abbatiales, suivent un plan basilical avec nef, bas-côtés, transept et chevet à absidioles. Les murs épais, percés de petites fenêtres, créent une atmosphère de recueillement. La sculpture se déploie aux portails et chapiteaux.
@@ -117,6 +122,7 @@ L'art roman invente le tympan sculpté, le cloître, le déambulatoire. Sa robus
     nationality: "Français / Européen",
     movement: "Moyen Âge",
     family: "Moyen Âge",
+    influences: ["roman"],
     summary: `L'architecture gothique naît en Île-de-France au XIIe siècle avec la basilique de Saint-Denis (1140). L'abbé Suger veut créer une architecture de lumière, image de la Jérusalem céleste. L'arc brisé, la voûte d'ogives et l'arc-boutant permettent de percer les murs d'immenses vitraux.
 
 Les cathédrales gothiques atteignent des hauteurs vertigineuses : 37 mètres sous voûte à Notre-Dame de Paris, 42 mètres à Amiens, 48 mètres à Beauvais qui s'effondre. C'est une course vers le ciel, une prouesse technique et spirituelle.
@@ -136,6 +142,7 @@ Le gothique se répand dans toute l'Europe, s'adaptant aux traditions locales. M
     nationality: "Italien",
     movement: "Renaissance",
     family: "Renaissance & classicisme",
+    influences: ["grec", "romain"],
     summary: `L'architecture de la Renaissance naît à Florence au XVe siècle, avec le dôme de Brunelleschi pour la cathédrale (1436). Elle redécouvre l'Antiquité romaine, étudiée dans les ruines et le traité de Vitruve, pour créer un langage nouveau.
 
 Brunelleschi, Alberti, Bramante définissent les principes : proportions harmoniques, ordres classiques, perspective, plan centralisé. Le palais florentin, la villa, l'église à coupole deviennent des types nouveaux. L'architecte émerge comme artiste et intellectuel.
@@ -155,6 +162,7 @@ La Renaissance fixe le vocabulaire architectural classique pour trois siècles :
     nationality: "Italien / Européen",
     movement: "Baroque",
     family: "Renaissance & classicisme",
+    influences: ["renaissance"],
     summary: `L'architecture baroque naît à Rome après le Concile de Trente, instrument de la Contre-Réforme catholique. Elle cherche à émouvoir, à impressionner, à exprimer la puissance de l'Église et des monarchies absolues.
 
 Bernin, Borromini, Pierre de Cortone transforment Rome. Les façades ondulent, les espaces se dilatent, la lumière devient matière dramatique. Saint-Pierre de Rome, avec sa colonnade, incarne la magnificence baroque.
@@ -174,6 +182,7 @@ Le baroque invente l'urbanisme monumental : places royales, perspectives, fontai
     nationality: "Européen / Américain",
     movement: "Néoclassicisme",
     family: "Renaissance & classicisme",
+    influences: ["grec", "romain"],
     summary: `L'architecture néoclassique réagit contre les excès du baroque et du rococo pour revenir à la pureté antique. Les découvertes de Pompéi et Herculanum, les écrits de Winckelmann nourrissent un retour aux sources grecques et romaines.
 
 Le Panthéon de Paris (Soufflot, 1790), la Porte de Brandebourg à Berlin, le Capitole de Washington incarnent l'idéal néoclassique : colonnes, frontons, coupoles, formes géométriques pures. C'est l'architecture des Lumières, rationnelle et civique.
@@ -193,6 +202,7 @@ Le néoclassicisme s'impose pour les bâtiments publics jusqu'au XXe siècle. Le
     nationality: "Européen",
     movement: "Belle Époque",
     family: "Modernité",
+    influences: ["gothique"],
     summary: `L'Art Nouveau architectural rompt radicalement avec l'historicisme du XIXe siècle pour créer un style original, inspiré par les formes organiques de la nature. Courbes, arabesques, motifs végétaux et animaux envahissent façades et intérieurs.
 
 Victor Horta à Bruxelles crée les premiers intérieurs Art Nouveau (Hôtel Tassel, 1893). Il utilise le fer apparent, courbe les structures, unifie architecture et décoration. Hector Guimard à Paris (entrées du métro), Antoni Gaudí à Barcelone poussent l'expressionnisme organique à l'extrême.
@@ -212,6 +222,7 @@ L'Art Nouveau décroît rapidement après 1910, jugé excessif et coûteux. Mais
     nationality: "International",
     movement: "Modernisme",
     family: "Modernité",
+    influences: ["art-nouveau-archi"],
     summary: `L'architecture moderne naît après la Première Guerre mondiale, portée par l'utopie d'un monde nouveau. Le Bauhaus en Allemagne, Le Corbusier en France, Mies van der Rohe, Frank Lloyd Wright définissent ses principes : fonctionnalisme, matériaux industriels, rejet de l'ornement.
 
 Le Corbusier formule les "cinq points" : pilotis, toit-terrasse, plan libre, façade libre, fenêtre en bandeau. La Villa Savoye (1931) en est le manifeste. Mies van der Rohe pousse le minimalisme à l'extrême : "Less is more". Le verre et l'acier dominent.
@@ -230,6 +241,7 @@ Critiquée dès les années 1960 pour son inhumanité et son uniformité, l'arch
     nationality: "International",
     movement: "Modernisme tardif",
     family: "Modernité",
+    influences: ["modernisme"],
     summary: `Le brutalisme tire son nom du "béton brut" laissé apparent, sans revêtement. Né en Grande-Bretagne dans les années 1950 (Alison et Peter Smithson), il se répand pour les équipements publics : écoles, universités, logements sociaux, centres culturels.
 
 Le Corbusier avec la Cité Radieuse de Marseille (1952) inspire le mouvement. Le béton coffré conserve les traces du coffrage en bois. Les formes sont massives, sculpturales, expressives. Le brutalisme refuse la séduction pour affirmer une honnêteté des matériaux.
@@ -248,6 +260,7 @@ Longtemps décrié comme inhumain et laid, le brutalisme connaît une réhabilit
     nationality: "International",
     movement: "Postmodernisme",
     family: "Contemporain",
+    influences: ["modernisme"],
     summary: `L'architecture postmoderne réagit contre le modernisme jugé froid et dogmatique. Robert Venturi proclame "Less is a bore" et réhabilite l'ornement, la couleur, les références historiques. "Learning from Las Vegas" (1972) célèbre l'architecture populaire et commerciale.
 
 Le AT&T Building de Philip Johnson à New York (1984), gratte-ciel surmonté d'un fronton Chippendale, devient l'icône du mouvement. Michael Graves, Charles Moore, Ricardo Bofill mélangent les styles historiques avec ironie et exubérance.
@@ -267,6 +280,7 @@ Critiqué pour sa superficialité et son historicisme de pacotille, le postmoder
     nationality: "International",
     movement: "Contemporain",
     family: "Contemporain",
+    influences: ["modernisme"],
     summary: `Le déconstructivisme émerge avec l'exposition du MoMA en 1988, regroupant Gehry, Libeskind, Hadid, Coop Himmelb(l)au, Eisenman, Koolhaas, Tschumi. Ces architectes fragmentent les formes, disloquent les volumes, défient les conventions structurelles.
 
 Le musée Guggenheim de Bilbao (Frank Gehry, 1997) devient l'icône du mouvement et un phénomène urbanistique : "l'effet Bilbao". Ses formes titanesques couvertes de titane, impossibles sans logiciels de conception 3D, font du musée une sculpture habitable.

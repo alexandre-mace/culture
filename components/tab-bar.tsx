@@ -73,7 +73,8 @@ export function TabBar() {
   const isHome = pathname === "/";
   const isTout = pathname === "/tout";
   const isQuiz = pathname === "/quiz";
-  const isTimeline = !isHome && !isTout && !isQuiz && pathname !== "/favoris";
+  const isTimeline =
+    !isHome && !isTout && !isQuiz && pathname !== "/favoris" && !pathname.startsWith("/parcours");
 
   return (
     <>

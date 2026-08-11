@@ -7,6 +7,7 @@ export interface AstronomyItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -62,6 +63,7 @@ Aristarque est redécouvert à la Renaissance. Copernic le cite comme précurseu
     nationality: "Gréco-égyptien",
     movement: "Antiquité",
     family: "Antiquité",
+    influences: ["astronomie-babylonienne"],
     summary: `Claude Ptolémée, astronome et mathématicien d'Alexandrie, synthétise tout le savoir astronomique antique dans l'Almageste, référence absolue pendant quatorze siècles. Son système géocentrique place la Terre immobile au centre de l'univers.
 
 Pour expliquer les mouvements apparemment irréguliers des planètes, Ptolémée élabore un système complexe d'épicycles (cercles sur cercles) et d'équants. Ce modèle permet des prédictions assez précises.
@@ -81,6 +83,7 @@ Le système de Ptolémée, adopté par l'Église, devient dogme. Sa contestation
     nationality: "Polonais",
     movement: "Renaissance",
     family: "Révolution copernicienne",
+    influences: ["aristarque", "ptolemee"],
     summary: `Nicolas Copernic, chanoine et astronome polonais, bouleverse la cosmologie en plaçant le Soleil au centre de l'univers. Son De revolutionibus orbium coelestium (1543), publié l'année de sa mort, inaugure la révolution scientifique.
 
 Copernic reprend l'héliocentrisme d'Aristarque pour simplifier le système ptoléméique. La Terre devient une planète comme les autres, tournant sur elle-même (jour) et autour du Soleil (année). L'ordre des planètes s'en déduit logiquement.
@@ -100,6 +103,7 @@ L'Église catholique condamne l'héliocentrisme en 1616. Mais la révolution cop
     nationality: "Danois",
     movement: "Renaissance",
     family: "Révolution copernicienne",
+    influences: ["ptolemee", "copernic"],
     summary: `Tycho Brahe est le plus grand astronome observateur avant l'invention du télescope. Depuis son observatoire d'Uraniborg, il accumule des mesures d'une précision inégalée, dix fois supérieure à ses prédécesseurs.
 
 Tycho observe la supernova de 1572 et la comète de 1577, prouvant que le ciel n'est pas immuable comme le croyait Aristote. Ces phénomènes se produisent au-delà de la Lune, dans le monde supposé parfait des étoiles.
@@ -119,6 +123,7 @@ Ses observations, transmises à son assistant Kepler, permettront à celui-ci de
     nationality: "Allemand",
     movement: "Révolution scientifique",
     family: "Révolution copernicienne",
+    influences: ["copernic", "brahe"],
     summary: `Johannes Kepler, mathématicien et astronome allemand, découvre les trois lois du mouvement planétaire. Utilisant les observations de Tycho Brahe, il rompt avec deux millénaires de cercles parfaits : les planètes décrivent des ellipses.
 
 Première loi : les orbites sont des ellipses dont le Soleil occupe un foyer. Deuxième loi : le rayon Soleil-planète balaie des aires égales en temps égaux. Troisième loi : le carré de la période est proportionnel au cube du demi-grand axe.
@@ -138,6 +143,7 @@ Les lois de Kepler, purement descriptives, seront expliquées par Newton grâce 
     nationality: "Italien",
     movement: "Révolution scientifique",
     family: "Révolution copernicienne",
+    influences: ["copernic"],
     summary: `Galileo Galilei, savant florentin, est le père de la physique moderne et de la méthode expérimentale. En 1609, il tourne vers le ciel une lunette améliorée et fait des découvertes qui bouleversent la cosmologie.
 
 Il observe les montagnes de la Lune (le ciel n'est pas parfait), les satellites de Jupiter (la Terre n'est pas le centre unique), les phases de Vénus (elle tourne autour du Soleil), les taches solaires. Le Sidereus Nuncius (1610) rend ces découvertes célèbres.
@@ -157,6 +163,7 @@ Galilée fonde aussi la cinématique (chute des corps, mouvement parabolique). S
     nationality: "Anglais",
     movement: "Révolution scientifique",
     family: "Révolution copernicienne",
+    influences: ["galilee", "kepler"],
     summary: `Isaac Newton achève la révolution scientifique en unifiant la mécanique terrestre et céleste. Les Principia Mathematica (1687) établissent les lois du mouvement et la gravitation universelle : la même force fait tomber la pomme et orbiter la Lune.
 
 La loi de la gravitation (attraction proportionnelle aux masses, inversement proportionnelle au carré de la distance) explique les lois de Kepler, les marées, la forme de la Terre, les trajectoires des comètes. L'univers devient une horloge mécanique.
@@ -176,6 +183,7 @@ La mécanique newtonienne règne sans partage pendant deux siècles, jusqu'à Ei
     nationality: "Germano-britannique",
     movement: "Siècle des Lumières",
     family: "Cosmologie moderne",
+    influences: ["newton"],
     summary: `William Herschel, musicien devenu astronome, découvre Uranus en 1781, première planète trouvée depuis l'Antiquité. Cette découverte double la taille connue du système solaire et lui vaut une renommée mondiale.
 
 Herschel construit les plus grands télescopes de son époque (miroirs jusqu'à 1,2 m) et entreprend un relevé systématique du ciel. Il découvre des milliers de nébuleuses et d'amas, deux satellites d'Uranus, deux de Saturne.
@@ -213,6 +221,7 @@ Le télescope spatial Hubble, lancé en 1990, porte son nom. Ses images spectacu
     nationality: "Allemand / Suisse",
     movement: "Physique moderne",
     family: "Cosmologie moderne",
+    influences: ["newton"],
     itemType: "topic",
     summary: `Albert Einstein publie la relativité générale en 1915, révolutionnant notre compréhension de la gravitation. L'espace et le temps forment un tissu courbé par la présence de masse. Les planètes suivent les géodésiques de cet espace-temps.
 
@@ -232,6 +241,7 @@ Einstein cherche ensuite une théorie unifiée des forces, sans succès. La réc
     nationality: "Belge / Américain",
     movement: "Cosmologie moderne",
     family: "Cosmologie moderne",
+    influences: ["einstein-relativite", "hubble"],
     itemType: "topic",
     summary: `Georges Lemaître, prêtre et physicien belge, propose en 1927 que l'univers a commencé par l'explosion d'un "atome primitif". Cette hypothèse, combinée à l'expansion observée par Hubble, fonde la théorie du Big Bang.
 
@@ -289,6 +299,7 @@ L'astronomie spatiale s'affranchit de l'atmosphère : Hubble, Chandra, James Web
     nationality: "Britannique",
     movement: "Astrophysique",
     family: "Ère spatiale & astrophysique",
+    influences: ["radioastronomie"],
     itemType: "topic",
     summary: `Jocelyn Bell découvre les pulsars en 1967 : des signaux radio extrêmement réguliers, surnommés d'abord "LGM" (Little Green Men). Ce sont en fait des étoiles à neutrons en rotation rapide, résidus d'explosions de supernovae.
 
@@ -308,6 +319,7 @@ En 2017, la fusion de deux étoiles à neutrons est observée en ondes gravitati
     nationality: "International",
     movement: "Astrophysique",
     family: "Ère spatiale & astrophysique",
+    influences: ["einstein-relativite"],
     itemType: "topic",
     summary: `Les trous noirs, prédits par la relativité générale, sont des régions de l'espace d'où rien ne peut s'échapper, pas même la lumière. Leur existence est longtemps débattue jusqu'aux premières détections indirectes dans les années 1970.
 
@@ -346,6 +358,7 @@ Le télescope James Webb, lancé en 2021, analyse les atmosphères d'exoplanète
     nationality: "Américain",
     movement: "Physique contemporaine",
     family: "Astronomie contemporaine",
+    influences: ["einstein-relativite"],
     itemType: "topic",
     summary: `Le 14 septembre 2015, les détecteurs LIGO captent pour la première fois des ondes gravitationnelles, prédites par Einstein un siècle plus tôt. Elles proviennent de la fusion de deux trous noirs à 1,3 milliard d'années-lumière.
 

@@ -7,6 +7,7 @@ export interface Filmmaker {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -80,6 +81,7 @@ Accusé de sympathies communistes pendant le maccarthysme, Chaplin s'exile en Su
     nationality: "Russe",
     movement: "Cinéma soviétique / Montage",
     family: "Pionniers & muet",
+    influences: ["griffith"],
     summary: `Sergei Mikhailovich Eisenstein naît à Riga dans une famille bourgeoise. Ingénieur de formation, il rejoint l'Armée rouge pendant la révolution et découvre le théâtre d'avant-garde. Son passage au cinéma est marqué par une réflexion théorique sur le montage.
 
 La Grève (1925) et surtout Le Cuirassé Potemkine (1925) révolutionnent le cinéma mondial. La séquence de l'escalier d'Odessa, avec son montage frénétique et ses images choc, devient le modèle du montage expressif. Eisenstein théorise le "montage des attractions" : le sens naît du choc entre les plans.
@@ -156,6 +158,7 @@ Exilé aux États-Unis pendant la guerre, Renoir y tourne plusieurs films avant 
     nationality: "Américain",
     movement: "Western / Cinéma classique hollywoodien",
     family: "Cinéma classique",
+    influences: ["griffith", "murnau"],
     summary: `John Martin Feeney, dit John Ford, naît dans le Maine de parents irlandais. Il rejoint son frère à Hollywood en 1914 et devient assistant réalisateur. Ses premiers westerns muets révèlent déjà son sens du paysage et de la communauté.
 
 La Chevauchée fantastique (1939) relance le western comme genre majeur et lance la carrière de John Wayne. Ford filme Monument Valley comme un peintre, créant la mythologie visuelle de l'Ouest américain. Mais ses westerns interrogent aussi la violence et le racisme de la conquête.
@@ -194,6 +197,7 @@ La Nouvelle Vague, particulièrement Rivette et Godard, révèle Hawks comme un 
     nationality: "Britannique / Américain",
     movement: "Suspense / Thriller",
     family: "Cinéma classique",
+    influences: ["griffith", "murnau", "lang"],
     summary: `Alfred Joseph Hitchcock naît à Londres dans une famille catholique modeste. Une enfance solitaire et anxieuse nourrit ses obsessions futures. Il entre dans le cinéma comme graphiste avant de devenir réalisateur. Ses films muets britanniques révèlent déjà son goût pour le suspense.
 
 Les Trente-Neuf Marches (1935) et Une femme disparaît (1938) font de lui le maître du thriller. À Hollywood, il enchaîne les chefs-d'œuvre : Rebecca, Soupçons, L'Ombre d'un doute, La Corde, Fenêtre sur cour, Sueurs froides, La Mort aux trousses, Psychose, Les Oiseaux.
@@ -213,6 +217,7 @@ Star médiatique, silhouette rondouillarde, Hitchcock cultive son image avec hum
     nationality: "Américain",
     movement: "Cinéma moderne",
     family: "Cinéma classique",
+    influences: ["ford"],
     summary: `George Orson Welles naît à Kenosha, dans le Wisconsin, dans une famille cultivée. Enfant prodige, il débute au théâtre à seize ans et fonde le Mercury Theatre à vingt-deux ans. Sa radio-adaptation de La Guerre des mondes (1938) provoque une panique nationale et fait de lui une célébrité.
 
 Citizen Kane (1941), son premier film à vingt-cinq ans, est régulièrement élu meilleur film de tous les temps. Récit de la vie d'un magnat de la presse, il révolutionne le langage cinématographique : profondeur de champ, plans-séquences, structure narrative éclatée, plongées et contre-plongées extrêmes.
@@ -232,6 +237,7 @@ Welles meurt à Los Angeles, obèse et amer, mais toujours génial. Don Quichott
     nationality: "Italien",
     movement: "Néoréalisme italien",
     family: "Auteurs d'après-guerre",
+    influences: ["chaplin"],
     summary: `Vittorio De Sica naît à Sora, près de Rome. Acteur de charme très populaire dans les années 1930, il passe à la réalisation pendant la guerre. Sa rencontre avec le scénariste Cesare Zavattini détermine sa carrière : ensemble, ils inventent le néoréalisme.
 
 Sciuscià (1946) et Le Voleur de bicyclette (1948) filment l'Italie d'après-guerre avec des acteurs non professionnels, en décors naturels, racontant les drames des petites gens. Le Voleur de bicyclette, histoire d'un père et son fils cherchant une bicyclette volée, atteint une perfection tragique.
@@ -251,6 +257,7 @@ Le Jardin des Finzi-Contini (1970), sur une famille juive italienne face au fasc
     nationality: "Japonais",
     movement: "Cinéma japonais classique",
     family: "Auteurs d'après-guerre",
+    influences: ["ford"],
     summary: `Akira Kurosawa naît à Tokyo dans une famille de samouraï. Peintre et scénariste, il devient assistant réalisateur avant de tourner son premier film en 1943. Rashomon (1950), conte médiéval explorant la relativité de la vérité, remporte le Lion d'or à Venise et révèle le cinéma japonais au monde.
 
 Les Sept Samouraïs (1954), épopée de trois heures et demie, réinvente le film d'action. Son récit de guerriers défendant un village contre des bandits est adapté en western (Les Sept Mercenaires) et influence tout le cinéma d'aventure, de Star Wars aux Avengers.
@@ -308,6 +315,7 @@ Installé sur l'île de Faro, Bergman poursuit jusqu'à Saraband (2003) une œuv
     nationality: "Italien",
     movement: "Cinéma d'auteur italien",
     family: "Auteurs d'après-guerre",
+    influences: ["chaplin"],
     summary: `Federico Fellini naît à Rimini, ville de province dont il garde une nostalgie teintée d'ironie. Dessinateur et journaliste, il entre dans le cinéma comme scénariste, collaborant avec Rossellini. Sa femme, Giulietta Masina, devient son actrice fétiche.
 
 La Strada (1954) et Les Nuits de Cabiria (1957), avec Masina en femme-enfant maltraitée par la vie, révèlent son humanisme et son sens du spectacle. La Dolce Vita (1960), fresque de la décadence romaine, fait scandale et triomphe. Mastroianni devient son alter ego masculin.
@@ -327,6 +335,7 @@ Fellini invente un adjectif : "fellinien" désigne ce mélange de grotesque et d
     nationality: "Franco-suisse",
     movement: "Nouvelle Vague",
     family: "Cinéma moderne",
+    influences: ["renoir", "lang", "hitchcock"],
     summary: `Jean-Luc Godard naît à Paris dans une famille de la grande bourgeoisie protestante. Cinéphile fanatique, il écrit aux Cahiers du cinéma avant de passer à la réalisation. À bout de souffle (1960), tourné en deux semaines avec des moyens dérisoires, réinvente le cinéma.
 
 Godard dynamite les conventions : faux raccords, regards caméra, citations, collages sonores. Ses films des années 1960 - Le Mépris, Pierrot le Fou, Masculin Féminin, Week-end - mêlent réflexion politique, amour fou et expérimentation formelle. Anna Karina est sa muse.
@@ -346,6 +355,7 @@ Installé à Rolle, en Suisse, Godard reste productif jusqu'à Adieu au langage 
     nationality: "Français",
     movement: "Nouvelle Vague",
     family: "Cinéma moderne",
+    influences: ["renoir", "hitchcock"],
     summary: `François Truffaut naît à Paris, enfant non désiré élevé par sa grand-mère. Adolescent délinquant, il est sauvé par le cinéma et l'amitié d'André Bazin, fondateur des Cahiers du cinéma. Ses critiques virulentes contre le "cinéma de papa" préparent la révolution à venir.
 
 Les Quatre Cents Coups (1959), récit autobiographique d'un enfant mal-aimé, inaugure la Nouvelle Vague. Le personnage d'Antoine Doinel, incarné par Jean-Pierre Léaud, reviendra dans quatre films. Truffaut filme l'enfance, l'amour et le cinéma avec une tendresse lyrique.
@@ -365,6 +375,7 @@ Truffaut meurt d'une tumeur au cerveau à cinquante-deux ans, laissant une œuvr
     nationality: "Russe",
     movement: "Cinéma poétique / Cinéma d'auteur",
     family: "Cinéma moderne",
+    influences: ["bergman", "kurosawa"],
     summary: `Andreï Arsenievitch Tarkovski naît à Zavrajie, fils du poète Arseni Tarkovski. Formé au VGIK de Moscou, il réalise L'Enfance d'Ivan (1962), récit onirique d'un enfant-espion pendant la guerre, qui remporte le Lion d'or à Venise et lance sa carrière internationale.
 
 Andreï Roublev (1966), fresque sur le peintre d'icônes médiéval, est censuré pendant cinq ans mais s'impose comme un chef-d'œuvre. Solaris (1972) et Stalker (1979), science-fictions philosophiques, explorent la conscience et la spiritualité avec une lenteur contemplative.
@@ -384,6 +395,7 @@ En conflit avec les autorités soviétiques, Tarkovski s'exile en 1982. Nostalgh
     nationality: "Américain",
     movement: "Cinéma d'auteur",
     family: "Cinéma moderne",
+    influences: ["welles"],
     summary: `Stanley Kubrick naît dans le Bronx, fils d'un médecin juif. Photographe pour Look Magazine à dix-sept ans, il se tourne vers le cinéma et tourne ses premiers films avec des moyens dérisoires. Les Sentiers de la gloire (1957) et Spartacus (1960) révèlent un perfectionniste obsessionnel.
 
 Installé en Angleterre pour échapper à Hollywood, Kubrick réalise des chefs-d'œuvre dans tous les genres : satire politique (Docteur Folamour), science-fiction (2001, l'Odyssée de l'espace), ultra-violence (Orange mécanique), horreur (Shining), film de guerre (Full Metal Jacket).
@@ -402,6 +414,7 @@ Reclus dans son manoir anglais, Kubrick meurt après avoir achevé Eyes Wide Shu
     nationality: "Américain",
     movement: "Nouvel Hollywood",
     family: "Nouvel Hollywood",
+    influences: ["ford", "hitchcock", "welles"],
     summary: `Martin Scorsese naît à New York, dans le quartier italo-américain de Little Italy. Enfant asthmatique, il découvre le cinéma dans les salles de quartier et la télévision. Formé à la NYU, il réalise ses premiers films dans l'effervescence du Nouvel Hollywood.
 
 Mean Streets (1973), avec Harvey Keitel et Robert De Niro, inaugure une collaboration légendaire. Taxi Driver (1976) et Raging Bull (1980) imposent Scorsese comme le grand cinéaste de la violence masculine, de la culpabilité catholique et de la rue new-yorkaise.
@@ -420,6 +433,7 @@ Infatigable, Scorsese continue de tourner à plus de quatre-vingts ans : The Iri
     nationality: "Américain",
     movement: "Nouvel Hollywood",
     family: "Nouvel Hollywood",
+    influences: ["eisenstein", "kurosawa"],
     summary: `Francis Ford Coppola naît à Detroit dans une famille d'artistes italo-américains. Son père est compositeur, son frère August scénariste. Formé à l'UCLA, il débute comme assistant de Roger Corman avant de fonder American Zoetrope avec George Lucas.
 
 Le Parrain (1972) et Le Parrain II (1974) réinventent le film de gangsters comme tragédie shakespearienne. La trilogie reste l'une des plus grandes réussites du cinéma américain. Coppola impose sa vision contre le studio, obtenant le montage final et le casting de Brando et Pacino.
@@ -438,6 +452,7 @@ Ruiné par des échecs commerciaux (Coup de cœur, Cotton Club), Coppola se rel�
     nationality: "Américain",
     movement: "Blockbuster / Cinéma populaire",
     family: "Nouvel Hollywood",
+    influences: ["ford", "hitchcock", "kubrick"],
     summary: `Steven Allan Spielberg naît à Cincinnati dans une famille juive. Enfant, il réalise déjà des films en 8mm. Repéré par Universal, il tourne Duel pour la télévision puis Les Dents de la mer (1975) qui invente le blockbuster moderne et bat tous les records.
 
 Rencontres du troisième type, Les Aventuriers de l'arche perdue, E.T. confirment son talent pour le spectacle populaire et l'émotion. Spielberg sait toucher le public comme personne, mêlant effets spéciaux, humour et sentimentalisme. Il domine le box-office mondial.
@@ -456,6 +471,7 @@ Cofondateur de DreamWorks, producteur prolifique, Spielberg est le cinéaste le 
     nationality: "Américain",
     movement: "Cinéma surréaliste / Art et Essai",
     family: "Nouvel Hollywood",
+    influences: ["fellini", "bergman", "kubrick"],
     summary: `David Keith Lynch naît à Missoula, Montana. Peintre de formation, il étudie à l'American Film Institute où il réalise Eraserhead, cauchemar en noir et blanc autoproduit sur cinq ans. Ce film culte lui ouvre les portes d'Hollywood.
 
 Elephant Man (1980) révèle son humanisme sous l'étrangeté. Mais c'est Blue Velvet (1986) qui définit son univers : sous la surface idyllique de l'Amérique se cachent violence et perversion. Mulholland Drive (2001), rêve hollywoodien décomposé, est régulièrement élu meilleur film du XXIe siècle.
@@ -474,6 +490,7 @@ Peintre, musicien, adepte de la méditation transcendantale, Lynch refuse de s'e
     nationality: "Hongkongais",
     movement: "Cinéma d'auteur asiatique",
     family: "Cinéma contemporain",
+    influences: ["godard"],
     summary: `Wong Kar-wai naît à Shanghai et émigre à Hong Kong à cinq ans. Scénariste pour la télévision et le cinéma, il passe à la réalisation avec As Tears Go By (1988), film de gangsters stylisé. Ses films suivants imposent une esthétique unique, immédiatement reconnaissable.
 
 Chungking Express (1994) et Fallen Angels (1995), tournés dans les ruelles néon de Hong Kong, capturent la solitude urbaine avec une caméra nerveuse et une bande-son pop. In the Mood for Love (2000), histoire d'amour inassouvie dans le Hong Kong des années 1960, est salué comme un chef-d'œuvre.
@@ -492,6 +509,7 @@ Wong Kar-wai filme le désir, le manque, le temps qui passe. Ses personnages se 
     nationality: "Américain",
     movement: "Postmodernisme",
     family: "Cinéma contemporain",
+    influences: ["hawks", "godard", "scorsese"],
     summary: `Quentin Jerome Tarantino naît à Knoxville, Tennessee. Élevé par sa mère en Californie, il abandonne l'école pour travailler dans un vidéoclub. Cette éducation cinématographique encyclopédique, des classiques aux films d'exploitation, nourrit son œuvre.
 
 Reservoir Dogs (1992), huis clos sanglant, révèle un dialoguiste brillant et un metteur en scène virtuose. Pulp Fiction (1994), récit éclaté de gangsters à Los Angeles, remporte la Palme d'or et redéfinit le cinéma des années 1990 : dialogues pop, violence stylisée, structure non linéaire.
@@ -510,6 +528,7 @@ Tarantino annonce sa retraite après dix films. Once Upon a Time in Hollywood (2
     nationality: "Britannico-américain",
     movement: "Blockbuster d'auteur",
     family: "Cinéma contemporain",
+    influences: ["kubrick"],
     summary: `Christopher Edward Nolan naît à Londres, fils d'un publicitaire anglais et d'une hôtesse de l'air américaine. Cinéphile précoce, il tourne des courts métrages en Super 8 avant de réaliser Following (1998) avec un budget dérisoire. Memento (2000), récit inversé d'un amnésique, le révèle.
 
 Engagé par Warner pour relancer Batman, Nolan livre une trilogie (Batman Begins, The Dark Knight, The Dark Knight Rises) qui redéfinit le film de super-héros comme drame sérieux. Le Joker de Heath Ledger devient iconique. Nolan prouve qu'un blockbuster peut être intelligent.
@@ -528,6 +547,7 @@ Défenseur de la pellicule et de l'expérience en salle, Nolan est l'un des rare
     nationality: "Sud-coréen",
     movement: "Cinéma coréen contemporain",
     family: "Cinéma contemporain",
+    influences: ["hitchcock", "scorsese"],
     summary: `Bong Joon-ho naît à Daegu, en Corée du Sud. Diplômé de sociologie, il étudie le cinéma et réalise des courts métrages remarqués. Memories of Murder (2003), enquête sur un tueur en série non élucidée, impose son sens du mélange des genres : thriller, comédie noire, critique sociale.
 
 The Host (2006), film de monstre écologique, devient le plus grand succès du cinéma coréen. Mother (2009) et Snowpiercer (2013) confirment sa capacité à subvertir les genres. Okja (2017), fable sur l'industrie alimentaire, est produit par Netflix.

@@ -7,6 +7,7 @@ export interface EmpireItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -74,6 +75,7 @@ export const empires: EmpireItem[] = [
     nationality: "Perse",
     movement: "Antiquité",
     family: "Antiquité",
+    influences: ["akkad", "assyrie"],
     summary:
       "Plus grand empire du monde antique, de l'Égypte à l'Inde. Cyrus le Grand fonde un modèle de tolérance. Route royale, satrapies, et guerres médiques contre les Grecs. Conquis par Alexandre.",
     mainWorks: [
@@ -91,6 +93,7 @@ export const empires: EmpireItem[] = [
     nationality: "Macédonien",
     movement: "Antiquité",
     family: "Antiquité",
+    influences: ["perse-achemenide"],
     summary:
       "En 13 ans, Alexandre conquiert l'empire perse jusqu'à l'Inde. Son empire éphémère diffuse la culture grecque (hellénisation) de l'Égypte à l'Asie centrale. Divisé entre ses généraux.",
     mainWorks: [
@@ -109,6 +112,7 @@ export const empires: EmpireItem[] = [
     nationality: "Romain",
     movement: "Antiquité",
     family: "Antiquité",
+    influences: ["alexandre"],
     summary:
       "De la Bretagne à la Mésopotamie, Rome unifie le monde méditerranéen. Droit romain, routes, aqueducs, et Pax Romana. Christianisé au IVe siècle, divisé puis chute en 476 (Occident).",
     mainWorks: [
@@ -144,6 +148,7 @@ export const empires: EmpireItem[] = [
     nationality: "Byzantin",
     movement: "Moyen Âge",
     family: "Empires médiévaux",
+    influences: ["rome"],
     summary:
       "Continuation de l'Empire romain d'Orient pendant mille ans. Constantinople, la plus grande ville d'Europe. Préserve la culture grecque, orthodoxie chrétienne. Tombe face aux Ottomans.",
     mainWorks: [
@@ -162,6 +167,7 @@ export const empires: EmpireItem[] = [
     nationality: "Arabe",
     movement: "Moyen Âge",
     family: "Empires médiévaux",
+    influences: ["byzance"],
     summary:
       "Premier grand empire islamique, de l'Espagne à l'Inde. Damas comme capitale, arabisation de l'administration. Renversé par les Abbassides, survit en Espagne (Al-Andalus).",
     mainWorks: [
@@ -180,6 +186,7 @@ export const empires: EmpireItem[] = [
     nationality: "Franc",
     movement: "Moyen Âge",
     family: "Empires médiévaux",
+    influences: ["rome"],
     summary:
       "Charlemagne reconstitue un empire en Occident, couronné empereur en 800. Renaissance carolingienne et unification de l'Europe occidentale. Divisé en 843 (traité de Verdun).",
     mainWorks: [
@@ -215,6 +222,7 @@ export const empires: EmpireItem[] = [
     nationality: "Ottoman",
     movement: "Moyen Âge / Moderne",
     family: "Empires médiévaux",
+    influences: ["byzance", "califat-omeyyade"],
     summary:
       "Empire musulman de six siècles, des Balkans au Moyen-Orient. Prise de Constantinople (1453), apogée sous Soliman. Décline au XIXe siècle, aboli après la Première Guerre mondiale.",
     mainWorks: [
@@ -232,6 +240,7 @@ export const empires: EmpireItem[] = [
     nationality: "Chinois",
     movement: "Moyen Âge / Moderne",
     family: "Empires médiévaux",
+    influences: ["han", "mongol"],
     summary:
       "Dernière dynastie chinoise d'origine Han. Cité interdite, Grande Muraille reconstruite, expéditions de Zheng He. Repli sur soi et chute face aux Mandchous.",
     mainWorks: [
@@ -266,6 +275,7 @@ export const empires: EmpireItem[] = [
     nationality: "Indien",
     movement: "Moderne",
     family: "Empires modernes",
+    influences: ["mongol"],
     summary:
       "Empire musulman en Inde, descendant de Tamerlan. Akbar le Grand instaure la tolérance religieuse. Taj Mahal, miniatures, fusion indo-persane. Absorbé par l'Empire britannique.",
     mainWorks: [
@@ -284,6 +294,7 @@ export const empires: EmpireItem[] = [
     nationality: "Britannique",
     movement: "Moderne / Contemporain",
     family: "Empires modernes",
+    influences: ["espagnol"],
     summary:
       "Plus grand empire de l'histoire, un quart de la population mondiale. Inde, Afrique, Canada, Australie. Langue anglaise, common law, cricket. Décolonisation après 1945.",
     mainWorks: [
@@ -302,6 +313,7 @@ export const empires: EmpireItem[] = [
     nationality: "Russe",
     movement: "Moderne",
     family: "Empires modernes",
+    influences: ["byzance", "mongol"],
     summary:
       "De Pierre le Grand à Nicolas II, la Russie s'étend de la Pologne au Pacifique. Modernisation autoritaire, servage, autocratie. Révolution de 1917 et naissance de l'URSS.",
     mainWorks: [
@@ -320,6 +332,7 @@ export const empires: EmpireItem[] = [
     nationality: "Français",
     movement: "Moderne",
     family: "Empires modernes",
+    influences: ["rome", "carolingien"],
     summary:
       "Napoléon domine l'Europe de Madrid à Moscou. Code civil, réorganisation administrative, mais guerres incessantes. Waterloo met fin à l'aventure, mais l'héritage perdure.",
     mainWorks: [
@@ -338,6 +351,7 @@ export const empires: EmpireItem[] = [
     nationality: "Chinois (Mandchou)",
     movement: "Moderne",
     family: "Empires modernes",
+    influences: ["ming"],
     summary:
       "Dernière dynastie impériale chinoise, fondée par les Mandchous. Apogée territorial (Tibet, Xinjiang, Mongolie). Guerres de l'opium, rébellions, chute et République.",
     mainWorks: [
@@ -356,6 +370,7 @@ export const empires: EmpireItem[] = [
     nationality: "Français",
     movement: "Moderne / Contemporain",
     family: "Empires modernes",
+    influences: ["espagnol"],
     summary:
       "Deuxième empire colonial, d'Afrique du Nord à l'Indochine. Mission civilisatrice, assimilation. Décolonisation douloureuse : Indochine (1954), Algérie (1962).",
     mainWorks: [
@@ -374,6 +389,7 @@ export const empires: EmpireItem[] = [
     nationality: "Soviétique",
     movement: "Contemporain",
     family: "Ère contemporaine",
+    influences: ["russe"],
     summary:
       "Superpuissance communiste, de la Baltique au Pacifique. Industrialisation forcée, Goulag, Guerre froide, course à l'espace. Effondrement en 1991.",
     mainWorks: [
@@ -390,6 +406,7 @@ export const empires: EmpireItem[] = [
     nationality: "Américain",
     movement: "Contemporain",
     family: "Ère contemporaine",
+    influences: ["britannique"],
     summary:
       "Superpuissance depuis 1945, les États-Unis dominent économiquement, militairement et culturellement. Bases mondiales, dollar, Hollywood. Hégémonie contestée au XXIe siècle.",
     mainWorks: [

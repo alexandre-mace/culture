@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Shuffle } from "lucide-react";
+import { Shuffle, Route } from "lucide-react";
+import { getParcoursSummaries } from "@/lib/parcours";
 import { subjectCounts } from "@/lib/search-data";
 import { SubjectProgress } from "@/components/subject-progress";
 import { FavoritesLink } from "@/components/favorites-link";
@@ -243,6 +244,34 @@ export default function HomePage() {
       {/* Categories */}
       <section className="container pb-16 space-y-10">
         <PinnedSubjects />
+
+        {/* Guided tours */}
+        <div>
+          <h2 className="flex items-center gap-2 text-xl font-semibold mb-4">
+            <Route className="h-5 w-5 text-primary" />
+            Parcours guidés
+          </h2>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {getParcoursSummaries().map((parcours) => (
+              <Link
+                key={parcours.slug}
+                href={`/parcours/${parcours.slug}`}
+                className="group flex items-center gap-3 rounded-lg border p-4 hover:border-primary/50 hover:bg-muted/50 transition-all"
+              >
+                <span className="text-2xl">{parcours.emoji}</span>
+                <div className="min-w-0">
+                  <h3 className="font-medium group-hover:text-primary transition-colors truncate">
+                    {parcours.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground truncate">{parcours.description}</p>
+                </div>
+                <span className="ml-auto shrink-0 text-xs text-muted-foreground tabular-nums">
+                  {parcours.stepCount} ét.
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
         {categories.map((category) => (
           <div key={category.name}>
             <h2 className="flex items-center gap-2 text-xl font-semibold mb-4">

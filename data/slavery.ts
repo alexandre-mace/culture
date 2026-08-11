@@ -7,6 +7,7 @@ export interface SlaveryItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -38,6 +39,7 @@ export const slavery: SlaveryItem[] = [
     nationality: "Arabe",
     movement: "Moyen Âge / Moderne",
     family: "Mondes anciens",
+    influences: ["antiquite"],
     summary:
       "Pendant 13 siècles, traite d'esclaves africains vers le monde musulman : Maghreb, Égypte, Arabie, Perse, Inde. Estimations de 12-17 millions de personnes déportées. Officiellement abolie au XXe siècle.",
     mainWorks: [
@@ -55,6 +57,7 @@ export const slavery: SlaveryItem[] = [
     nationality: "Européen",
     movement: "Moyen Âge",
     family: "Mondes anciens",
+    influences: ["antiquite"],
     summary:
       "En Europe médiévale, le servage remplace l'esclavage antique. Les serfs sont attachés à la terre, non libres mais protégés. Décline à l'Ouest dès le XIIe siècle, persiste en Russie jusqu'en 1861.",
     mainWorks: [
@@ -72,6 +75,7 @@ export const slavery: SlaveryItem[] = [
     nationality: "Européen/Américain",
     movement: "Moderne",
     family: "Traite atlantique",
+    influences: ["esclavage-portugais", "traite-arabe"],
     summary:
       "Commerce triangulaire : produits européens contre esclaves africains, déportés aux Amériques pour produire sucre, coton, café. 12-15 millions d'Africains déportés, des millions morts en transit.",
     mainWorks: [
@@ -89,6 +93,7 @@ export const slavery: SlaveryItem[] = [
     nationality: "Portugais",
     movement: "Moderne",
     family: "Traite atlantique",
+    influences: ["traite-arabe"],
     summary:
       "Le Portugal initie la traite atlantique dès 1441. Brésil : plus grande destination d'esclaves (4-5 millions). Dernier pays occidental à abolir l'esclavage (1888).",
     mainWorks: [
@@ -106,6 +111,7 @@ export const slavery: SlaveryItem[] = [
     nationality: "Espagnol",
     movement: "Moderne",
     family: "Traite atlantique",
+    influences: ["esclavage-portugais"],
     summary:
       "L'Espagne introduit l'esclavage africain aux Amériques après le déclin des populations autochtones. Cuba et Porto Rico sont les derniers bastions. Abolition en 1886.",
     mainWorks: [
@@ -123,6 +129,7 @@ export const slavery: SlaveryItem[] = [
     nationality: "Britannique",
     movement: "Moderne",
     family: "Traite atlantique",
+    influences: ["traite-atlantique", "esclavage-espagnol"],
     summary:
       "La Grande-Bretagne domine la traite au XVIIIe siècle. Liverpool, Bristol et Londres prospèrent du commerce triangulaire. Premier pays à abolir la traite (1807) puis l'esclavage (1833).",
     mainWorks: [
@@ -140,6 +147,7 @@ export const slavery: SlaveryItem[] = [
     nationality: "Français",
     movement: "Moderne",
     family: "Traite atlantique",
+    influences: ["traite-atlantique"],
     summary:
       "La France pratique l'esclavage dans ses colonies caribéennes (Saint-Domingue, Martinique, Guadeloupe). Code noir (1685). Première abolition en 1794, rétabli par Napoléon, aboli définitivement en 1848.",
     mainWorks: [
@@ -158,6 +166,7 @@ export const slavery: SlaveryItem[] = [
     nationality: "Haïtien",
     movement: "Abolition",
     family: "Abolitions",
+    influences: ["esclavage-francais", "mouvement-abolitionniste"],
     summary:
       "Seule révolte d'esclaves réussie de l'histoire. Toussaint Louverture puis Dessalines libèrent Saint-Domingue. Haïti, première république noire (1804). Inspire les mouvements abolitionnistes.",
     mainWorks: [
@@ -175,6 +184,7 @@ export const slavery: SlaveryItem[] = [
     nationality: "International",
     movement: "Abolition",
     family: "Abolitions",
+    influences: ["traite-atlantique", "esclavage-britannique"],
     summary:
       "Mouvement né en Grande-Bretagne (Wilberforce, Clarkson) qui obtient l'abolition de la traite puis de l'esclavage. Quakers, évangéliques et libéraux unissent leurs forces.",
     mainWorks: [
@@ -193,6 +203,7 @@ export const slavery: SlaveryItem[] = [
     nationality: "Américain",
     movement: "Moderne",
     family: "États-Unis",
+    influences: ["traite-atlantique", "esclavage-britannique"],
     summary:
       "L'esclavage structure l'économie du Sud (coton, tabac). 4 millions d'esclaves en 1860. La question de l'esclavage divise le pays et mène à la guerre civile. Abolition par le 13e amendement.",
     mainWorks: [
@@ -211,6 +222,7 @@ export const slavery: SlaveryItem[] = [
     nationality: "Américain",
     movement: "Abolition",
     family: "États-Unis",
+    influences: ["esclavage-americain", "mouvement-abolitionniste"],
     summary:
       "Réseau clandestin d'évasion pour les esclaves fuyant le Sud vers le Nord et le Canada. Harriet Tubman, ancienne esclave, guide plus de 70 personnes vers la liberté.",
     mainWorks: [
@@ -229,6 +241,7 @@ export const slavery: SlaveryItem[] = [
     nationality: "Américain",
     movement: "Abolition",
     family: "États-Unis",
+    influences: ["esclavage-americain", "mouvement-abolitionniste"],
     summary:
       "Guerre civile américaine entre le Nord (Union) et le Sud (Confédérés). L'esclavage est la cause profonde. Proclamation d'émancipation (1863) de Lincoln. Victoire du Nord et abolition.",
     mainWorks: [
@@ -246,6 +259,7 @@ export const slavery: SlaveryItem[] = [
     nationality: "Américain",
     movement: "Post-esclavage",
     family: "États-Unis",
+    influences: ["guerre-secession"],
     summary:
       "Après l'abolition, la Reconstruction accorde des droits aux Noirs. Mais les lois Jim Crow (ségrégation) les privent de liberté réelle. Un siècle de discrimination jusqu'aux droits civiques.",
     mainWorks: [
@@ -296,6 +310,7 @@ export const slavery: SlaveryItem[] = [
     nationality: "Global",
     movement: "Contemporain",
     family: "Héritages contemporains",
+    influences: ["traite-atlantique", "esclavage-americain"],
     summary:
       "Mouvements demandant réparations pour l'esclavage et la colonisation. La CARICOM réclame des réparations aux anciennes puissances coloniales. Débats sur la mémoire et la reconnaissance.",
     mainWorks: [

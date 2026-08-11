@@ -7,6 +7,7 @@ export interface WarItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -40,6 +41,7 @@ export const wars: WarItem[] = [
     nationality: "Grec",
     movement: "Antiquité",
     family: "Antiquité",
+    influences: ["guerres-mediques"],
     summary:
       "Guerre fratricide entre Athènes et Sparte pour l'hégémonie grecque. 27 ans de conflit qui épuise les cités. Défaite d'Athènes, déclin de la Grèce classique.",
     mainWorks: [
@@ -199,6 +201,7 @@ export const wars: WarItem[] = [
     nationality: "Mondial",
     movement: "Contemporain",
     family: "Guerres mondiales",
+    influences: ["premiere-guerre-mondiale", "guerre-civile-espagnole"],
     summary:
       "Le conflit le plus meurtrier de l'histoire : 70-85 millions de morts. Shoah, bombes atomiques. Défaite de l'Axe (Allemagne, Italie, Japon), naissance de l'ONU et de la Guerre froide.",
     mainWorks: [
@@ -216,6 +219,7 @@ export const wars: WarItem[] = [
     nationality: "International",
     movement: "Guerre froide",
     family: "Guerre froide",
+    influences: ["seconde-guerre-mondiale"],
     summary:
       "Premier conflit majeur de la Guerre froide. La Corée du Nord envahit le Sud, intervention américaine sous mandat ONU, puis chinoise. Armistice sans traité de paix, Corée toujours divisée.",
     mainWorks: [
@@ -251,6 +255,7 @@ export const wars: WarItem[] = [
     nationality: "Moyen-Oriental",
     movement: "Contemporain",
     family: "Guerre froide",
+    influences: ["seconde-guerre-mondiale"],
     summary:
       "Série de conflits entre Israël et ses voisins arabes. 1948, 1967 (Six Jours), 1973 (Kippour). Israël agrandit son territoire, question palestinienne non résolue.",
     mainWorks: [
@@ -321,6 +326,7 @@ export const wars: WarItem[] = [
     nationality: "International",
     movement: "Contemporain",
     family: "Après 1989",
+    influences: ["guerre-afghanistan-sovietique"],
     summary:
       "Après le 11 septembre, les USA envahissent l'Afghanistan pour éliminer Al-Qaïda. 20 ans de guerre, retrait chaotique en 2021, retour des Talibans au pouvoir.",
     mainWorks: [
@@ -339,6 +345,7 @@ export const wars: WarItem[] = [
     nationality: "International",
     movement: "Contemporain",
     family: "Après 1989",
+    influences: ["guerre-golfe", "guerre-afghanistan-usa"],
     summary:
       "Les USA envahissent l'Irak, prétextant des armes de destruction massive inexistantes. Chute de Saddam Hussein, chaos, guerre civile, émergence de l'État islamique.",
     mainWorks: [

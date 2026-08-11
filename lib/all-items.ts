@@ -40,6 +40,7 @@ export interface RegistryItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   keyIdeas?: string[];
@@ -93,6 +94,8 @@ export const allItems = categoryRegistry.flatMap((cat) =>
   cat.data.map((item) => ({
     ...item,
     id: `${cat.prefix}-${item.id}`,
+    // influences reference ids of the same file: keep them consistent with the prefixed ids
+    influences: item.influences?.map((id) => `${cat.prefix}-${id}`),
     category: cat.name,
     categoryEmoji: cat.emoji,
     itemType: item.itemType ?? cat.type,

@@ -7,6 +7,7 @@ export interface CivilRightsItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -36,6 +37,7 @@ export const civilRights: CivilRightsItem[] = [
     nationality: "Français",
     movement: "Abolition",
     family: "Luttes fondatrices",
+    influences: ["abolition-uk"],
     summary:
       "Victor Schoelcher obtient l'abolition définitive de l'esclavage dans les colonies françaises lors de la révolution de 1848. 250 000 esclaves sont libérés.",
     mainWorks: [
@@ -53,6 +55,7 @@ export const civilRights: CivilRightsItem[] = [
     nationality: "International",
     movement: "Droits des femmes",
     family: "Luttes fondatrices",
+    influences: ["abolition-uk"],
     summary:
       "Lutte pour le droit de vote des femmes. De la convention de Seneca Falls (1848) au 19e amendement américain (1920). Emmeline Pankhurst au Royaume-Uni, actions militantes et emprisonnements.",
     mainWorks: [
@@ -121,6 +124,7 @@ export const civilRights: CivilRightsItem[] = [
     nationality: "Américain",
     movement: "Droits civiques USA",
     family: "Droits civiques",
+    influences: ["brown-v-board"],
     summary:
       "Rosa Parks refuse de céder sa place dans un bus à Montgomery, Alabama. Boycott des bus pendant 381 jours. Victoire légale, émergence de Martin Luther King Jr.",
     mainWorks: [
@@ -139,6 +143,7 @@ export const civilRights: CivilRightsItem[] = [
     nationality: "Américain",
     movement: "Droits civiques USA",
     family: "Droits civiques",
+    influences: ["gandhi"],
     itemType: "person",
     summary:
       "Leader du mouvement des droits civiques, il prône la non-violence. Marche sur Washington, 'I Have a Dream'. Prix Nobel de la paix 1964. Assassiné en 1968.",
@@ -157,6 +162,7 @@ export const civilRights: CivilRightsItem[] = [
     nationality: "Américain",
     movement: "Droits civiques USA",
     family: "Droits civiques",
+    influences: ["brown-v-board", "rosa-parks", "mlk"],
     summary:
       "Loi fondamentale interdisant la discrimination basée sur la race, la couleur, la religion, le sexe ou l'origine nationale. Fin légale de la ségrégation. Votée grâce à LBJ après l'assassinat de JFK.",
     mainWorks: [
@@ -191,6 +197,7 @@ export const civilRights: CivilRightsItem[] = [
     nationality: "Sud-Africain",
     movement: "Droits civiques",
     family: "Droits civiques",
+    influences: ["gandhi"],
     summary:
       "46 ans de lutte contre la ségrégation raciale en Afrique du Sud. Mandela emprisonné 27 ans. Pression internationale, sanctions. Fin de l'apartheid et élection de Mandela président (1994).",
     mainWorks: [
@@ -208,6 +215,7 @@ export const civilRights: CivilRightsItem[] = [
     nationality: "International",
     movement: "Droits des femmes",
     family: "Nouvelles émancipations",
+    influences: ["suffragettes"],
     summary:
       "Au-delà du droit de vote, lutte pour l'égalité complète : travail, famille, corps. Betty Friedan, Simone de Beauvoir. Contraception, avortement, discrimination au travail.",
     mainWorks: [
@@ -224,6 +232,7 @@ export const civilRights: CivilRightsItem[] = [
     nationality: "International",
     movement: "Droits LGBT+",
     family: "Nouvelles émancipations",
+    influences: ["civil-rights-act", "feminisme-deuxieme-vague"],
     summary:
       "Les émeutes de Stonewall (1969) lancent le mouvement de libération gay. Marches des fiertés, lutte contre le SIDA, mariage pour tous. Progrès rapides mais inégaux selon les pays.",
     mainWorks: [
@@ -240,6 +249,7 @@ export const civilRights: CivilRightsItem[] = [
     nationality: "International",
     movement: "Droits des personnes handicapées",
     family: "Nouvelles émancipations",
+    influences: ["civil-rights-act"],
     summary:
       "Lutte pour l'accessibilité et contre la discrimination. Section 504 (USA, 1973), ADA (1990), Convention ONU (2006). Du modèle médical au modèle social du handicap.",
     mainWorks: [
@@ -257,6 +267,7 @@ export const civilRights: CivilRightsItem[] = [
     nationality: "Américain",
     movement: "Droits civiques contemporains",
     family: "Luttes contemporaines",
+    influences: ["mlk", "malcolm-x"],
     summary:
       "Mouvement né après l'acquittement du meurtrier de Trayvon Martin. Proteste contre les violences policières. George Floyd (2020) déclenche des manifestations mondiales.",
     mainWorks: [
@@ -273,6 +284,7 @@ export const civilRights: CivilRightsItem[] = [
     nationality: "International",
     movement: "Droits des femmes",
     family: "Luttes contemporaines",
+    influences: ["suffragettes", "feminisme-deuxieme-vague"],
     summary:
       "Mouvement contre le harcèlement et les agressions sexuelles, lancé après les révélations sur Harvey Weinstein. Témoignages massifs sur les réseaux sociaux. Libération de la parole.",
     mainWorks: [

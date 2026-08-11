@@ -7,6 +7,7 @@ export interface MedicineItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -40,6 +41,7 @@ export const medicine: MedicineItem[] = [
     nationality: "Romain (né en Grèce)",
     movement: "Médecine antique",
     family: "Médecine ancienne",
+    influences: ["hippocrate"],
     summary:
       "Médecin des gladiateurs puis de l'empereur Marc Aurèle, ses travaux sur l'anatomie et la physiologie dominèrent la médecine pendant 1500 ans.",
     mainWorks: [
@@ -57,6 +59,7 @@ export const medicine: MedicineItem[] = [
     nationality: "Persan",
     movement: "Médecine islamique",
     family: "Médecine ancienne",
+    influences: ["hippocrate", "galien"],
     summary:
       "Polymathe persan, son Canon de la médecine synthétise les savoirs grecs et arabes. Ouvrage de référence en Europe et au Moyen-Orient pendant des siècles.",
     mainWorks: [
@@ -75,6 +78,7 @@ export const medicine: MedicineItem[] = [
     nationality: "Flamand",
     movement: "Renaissance anatomique",
     family: "Renaissance & anatomie",
+    influences: ["galien"],
     summary:
       "Fondateur de l'anatomie moderne, il corrige les erreurs de Galien grâce à la dissection de cadavres humains. Son atlas anatomique révolutionne la connaissance du corps.",
     mainWorks: [
@@ -111,6 +115,7 @@ export const medicine: MedicineItem[] = [
     nationality: "Anglais",
     movement: "Révolution scientifique",
     family: "Renaissance & anatomie",
+    influences: ["vesale", "galien"],
     summary:
       "Découvre la circulation sanguine en démontrant que le cœur est une pompe qui fait circuler le sang en circuit fermé. Bouleverse la physiologie héritée de Galien.",
     mainWorks: [
@@ -201,6 +206,7 @@ export const medicine: MedicineItem[] = [
     nationality: "Anglais",
     movement: "Chirurgie antiseptique",
     family: "Révolution microbienne",
+    influences: ["pasteur"],
     summary:
       "Père de la chirurgie antiseptique, il applique les découvertes de Pasteur à la salle d'opération. L'utilisation de l'acide phénique réduit drastiquement les infections post-opératoires.",
     mainWorks: [
@@ -219,6 +225,7 @@ export const medicine: MedicineItem[] = [
     nationality: "Allemand",
     movement: "Bactériologie",
     family: "Révolution microbienne",
+    influences: ["pasteur"],
     summary:
       "Fondateur de la bactériologie médicale, il isole les bacilles de la tuberculose et du choléra. Ses postulats définissent les critères pour identifier l'agent d'une maladie infectieuse.",
     mainWorks: [
@@ -273,6 +280,7 @@ export const medicine: MedicineItem[] = [
     nationality: "Écossais",
     movement: "Antibiothérapie",
     family: "Médecine moderne",
+    influences: ["pasteur", "koch"],
     summary:
       "Découvre la pénicilline en 1928, premier antibiotique. Cette découverte fortuite ouvre l'ère des antibiotiques et sauve des millions de vies.",
     mainWorks: [
@@ -307,6 +315,7 @@ export const medicine: MedicineItem[] = [
     nationality: "Américain",
     movement: "Vaccination moderne",
     family: "Médecine moderne",
+    influences: ["jenner", "pasteur"],
     summary:
       "Développe le premier vaccin efficace contre la poliomyélite en 1955. Refuse de breveter son vaccin pour qu'il soit accessible à tous.",
     mainWorks: [

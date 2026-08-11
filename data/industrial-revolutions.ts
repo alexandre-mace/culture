@@ -7,6 +7,7 @@ export interface IndustrialItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -40,6 +41,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     nationality: "Britannique",
     movement: "Première RI",
     family: "Première révolution",
+    influences: ["revolution-agricole", "machine-vapeur"],
     summary:
       "Naissance de l'industrie moderne en Grande-Bretagne. Machine à vapeur, textile, charbon, fer. Usines, urbanisation, naissance du prolétariat. Transformation radicale de la société.",
     mainWorks: [
@@ -75,6 +77,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     nationality: "International",
     movement: "Première RI",
     family: "Première révolution",
+    influences: ["machine-vapeur", "premiere-ri"],
     summary:
       "Stephenson inaugure la première ligne publique (1825). Le rail transforme les transports, unifie les marchés nationaux. Investissements massifs, spéculation, crises.",
     mainWorks: [
@@ -93,6 +96,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     nationality: "International",
     movement: "Deuxième RI",
     family: "Deuxième révolution",
+    influences: ["premiere-ri"],
     summary:
       "Électricité, acier, chimie, pétrole transforment l'économie. Grandes entreprises, taylorisme, production de masse. Allemagne et USA rattrapent la Grande-Bretagne.",
     mainWorks: [
@@ -110,6 +114,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     nationality: "International",
     movement: "Deuxième RI",
     family: "Deuxième révolution",
+    influences: ["deuxieme-ri"],
     summary:
       "Edison invente l'ampoule (1879) et développe le réseau électrique. Tesla et Westinghouse imposent le courant alternatif. L'électricité transforme l'industrie et la vie quotidienne.",
     mainWorks: [
@@ -127,6 +132,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     nationality: "International",
     movement: "Deuxième RI",
     family: "Deuxième révolution",
+    influences: ["deuxieme-ri", "petrochimie"],
     summary:
       "Benz et Daimler inventent l'automobile à essence (1886). Ford démocratise la voiture avec la Model T et la chaîne de montage. Révolution des transports individuels.",
     mainWorks: [
@@ -144,6 +150,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     nationality: "Américain",
     movement: "Deuxième RI",
     family: "Deuxième révolution",
+    influences: ["deuxieme-ri", "automobile"],
     summary:
       "Taylor invente l'organisation scientifique du travail. Ford applique ces principes avec la chaîne de montage et les hauts salaires. Production de masse et consommation de masse.",
     mainWorks: [
@@ -161,6 +168,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     nationality: "International",
     movement: "XXe siècle",
     family: "Deuxième révolution",
+    influences: ["automobile"],
     summary:
       "Les frères Wright réalisent le premier vol motorisé (1903). L'aviation se développe pendant les guerres mondiales puis se démocratise avec l'aviation commerciale.",
     mainWorks: [
@@ -195,6 +203,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     nationality: "International",
     movement: "Troisième RI",
     family: "Révolution numérique",
+    influences: ["deuxieme-ri", "informatique"],
     summary:
       "Électronique, informatique, télécommunications transforment l'économie. Ordinateurs personnels, Internet, mondialisation. Désindustrialisation des pays développés.",
     mainWorks: [
@@ -213,6 +222,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     nationality: "International",
     movement: "Troisième RI",
     family: "Révolution numérique",
+    influences: ["electricite"],
     summary:
       "Des premiers ordinateurs géants (ENIAC) au PC et à Internet. Transistor, circuit intégré, microprocesseur. L'informatique transforme tous les secteurs de l'économie.",
     mainWorks: [
@@ -229,6 +239,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     nationality: "International",
     movement: "Troisième RI",
     family: "Révolution numérique",
+    influences: ["informatique", "troisieme-ri"],
     summary:
       "Le World Wide Web (1991) démocratise Internet. E-commerce, réseaux sociaux, économie numérique. Transformation de la communication, du travail, de la culture.",
     mainWorks: [
@@ -245,6 +256,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     nationality: "International",
     movement: "Quatrième RI",
     family: "Époque contemporaine",
+    influences: ["troisieme-ri", "internet"],
     summary:
       "Fusion des technologies numériques, biologiques et physiques. Intelligence artificielle, robotique, IoT, impression 3D. Transformation du travail et de la société.",
     mainWorks: [
@@ -261,6 +273,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     nationality: "International",
     movement: "Quatrième RI",
     family: "Époque contemporaine",
+    influences: ["informatique", "quatrieme-ri"],
     summary:
       "Le deep learning révolutionne l'IA à partir de 2012. Reconnaissance d'images, traduction, génération de texte et d'images. ChatGPT (2022) popularise l'IA générative.",
     mainWorks: [
@@ -278,6 +291,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     nationality: "International",
     movement: "XXIe siècle",
     family: "Époque contemporaine",
+    influences: ["petrochimie"],
     summary:
       "Face au changement climatique, transition des énergies fossiles vers les renouvelables. Solaire, éolien, véhicules électriques. Défis technologiques, économiques et politiques.",
     mainWorks: [

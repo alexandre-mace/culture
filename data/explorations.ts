@@ -7,6 +7,7 @@ export interface ExplorationItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -115,6 +116,7 @@ export const explorations: ExplorationItem[] = [
     nationality: "Portugais",
     movement: "Grandes découvertes",
     family: "Grandes découvertes",
+    influences: ["diaz"],
     itemType: "person",
     summary:
       "Premier Européen à atteindre l'Inde par la mer en 1498, contournant l'Afrique. Ouvre la route des épices et établit l'empire commercial portugais en Asie.",
@@ -153,6 +155,7 @@ export const explorations: ExplorationItem[] = [
     nationality: "Portugais/Espagnol",
     movement: "Grandes découvertes",
     family: "Grandes découvertes",
+    influences: ["colomb", "vasco-de-gama"],
     itemType: "person",
     summary:
       "Organise la première circumnavigation du globe (1519-1522), prouvant définitivement la rotondité de la Terre. Meurt aux Philippines mais son expédition, menée à terme par Elcano, révolutionne la géographie.",
@@ -172,6 +175,7 @@ export const explorations: ExplorationItem[] = [
     nationality: "Français",
     movement: "Exploration de l'Amérique du Nord",
     family: "Grandes découvertes",
+    influences: ["cabot"],
     itemType: "person",
     summary:
       "Explorateur français qui découvre le fleuve Saint-Laurent et revendique le Canada pour la France. Trois voyages (1534-1542) qui fondent la présence française en Amérique du Nord.",
@@ -191,6 +195,7 @@ export const explorations: ExplorationItem[] = [
     nationality: "Anglais",
     movement: "Explorations élisabéthaines",
     family: "Grandes découvertes",
+    influences: ["magellan"],
     itemType: "person",
     summary:
       "Corsaire et navigateur anglais, second à réaliser la circumnavigation (1577-1580). Héros national anglais, il joue un rôle décisif contre l'Invincible Armada espagnole.",
@@ -209,6 +214,7 @@ export const explorations: ExplorationItem[] = [
     nationality: "Anglais",
     movement: "Exploration arctique",
     family: "Pôles & extrêmes",
+    influences: ["cabot"],
     itemType: "person",
     summary:
       "Explorateur anglais cherchant le passage du Nord-Ouest. Découvre le fleuve Hudson et la baie d'Hudson. Abandonné par son équipage mutiné dans la baie qui porte son nom.",
@@ -247,6 +253,7 @@ export const explorations: ExplorationItem[] = [
     nationality: "Anglais",
     movement: "Exploration scientifique",
     family: "Voyages scientifiques",
+    influences: ["tasman"],
     itemType: "person",
     summary:
       "Plus grand explorateur du XVIIIe siècle, il cartographie le Pacifique lors de trois voyages. Découvre la côte est de l'Australie, explore l'Antarctique et Hawaii où il trouve la mort.",
@@ -266,6 +273,7 @@ export const explorations: ExplorationItem[] = [
     nationality: "Français",
     movement: "Exploration scientifique",
     family: "Voyages scientifiques",
+    influences: ["cook"],
     itemType: "person",
     summary:
       "Navigateur français chargé par Louis XVI d'une expédition scientifique dans le Pacifique. Disparaît mystérieusement à Vanikoro après avoir exploré l'Alaska, l'Asie et l'Océanie.",
@@ -302,6 +310,7 @@ export const explorations: ExplorationItem[] = [
     nationality: "Allemand",
     movement: "Exploration scientifique",
     family: "Voyages scientifiques",
+    influences: ["cook"],
     itemType: "person",
     summary:
       "Naturaliste et explorateur, il parcourt l'Amérique latine pendant cinq ans (1799-1804). Fonde la géographie moderne et l'écologie, documentant climat, végétation et géologie.",
@@ -340,6 +349,7 @@ export const explorations: ExplorationItem[] = [
     nationality: "Gallois/Américain",
     movement: "Exploration de l'Afrique",
     family: "Explorations continentales",
+    influences: ["livingstone"],
     itemType: "person",
     summary:
       "Journaliste devenu explorateur, célèbre pour avoir retrouvé Livingstone. Explore le fleuve Congo et contribue (controversément) à la colonisation du Congo pour le roi Léopold II.",
@@ -397,6 +407,7 @@ export const explorations: ExplorationItem[] = [
     nationality: "Irlandais/Anglais",
     movement: "Exploration polaire",
     family: "Pôles & extrêmes",
+    influences: ["scott"],
     itemType: "person",
     summary:
       "Explorateur légendaire de l'Antarctique. Son expédition Endurance (1914-1916) devient un exploit de survie : après la perte du navire, il sauve tout son équipage après 22 mois sur la glace.",

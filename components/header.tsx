@@ -20,7 +20,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { Search, Shuffle, Brain, Star } from "lucide-react";
+import { Search, Shuffle, Brain, Star, Route } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { navigationCategories, searchItems } from "@/lib/search-data";
 import { stripAccents } from "@/lib/utils";
@@ -100,6 +100,19 @@ export function Header() {
           <Link href="/quiz">
             <Brain className="h-4 w-4" />
             Quiz
+          </Link>
+        </Button>
+
+        {/* Parcours button */}
+        <Button
+          variant={pathname.startsWith("/parcours") ? "secondary" : "ghost"}
+          size="sm"
+          asChild
+          className="gap-1.5"
+        >
+          <Link href="/parcours">
+            <Route className="h-4 w-4" />
+            Parcours
           </Link>
         </Button>
 

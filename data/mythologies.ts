@@ -7,6 +7,7 @@ export interface MythologyItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -47,6 +48,7 @@ Le récit sumérien du Déluge — où le dieu Enki prévient Ziusudra de la cat
     nationality: "Égyptien",
     movement: "Antiquité",
     family: "Méditerranée antique",
+    influences: ["mythologie-sumerienne"],
     summary: `La mythologie égyptienne se déploie pendant trois millénaires autour du Nil, du cycle solaire et de l'obsession de la vie après la mort. Elle produit l'un des systèmes religieux les plus élaborés et les plus durables de l'Antiquité.
 
 Le dieu-soleil Râ traverse le ciel chaque jour dans sa barque et combat chaque nuit le serpent Apophis dans les ténèbres souterraines. Ce cycle quotidien de mort et de renaissance structure toute la pensée égyptienne. Le pharaon, fils de Râ, est le garant de Maât — l'ordre cosmique — sur terre.
@@ -71,6 +73,7 @@ Le Livre des Morts accompagne le défunt dans l'au-delà. Son cœur est pesé co
     nationality: "Grec",
     movement: "Antiquité",
     family: "Méditerranée antique",
+    influences: ["mythologie-sumerienne"],
     summary: `La mythologie grecque est la plus influente de l'histoire occidentale. Ses dieux, ses héros et ses récits imprègnent l'art, la littérature, la philosophie et même le langage courant depuis presque trois millénaires.
 
 Les dieux de l'Olympe — Zeus, Athéna, Apollon, Aphrodite, Arès, Hermès — sont extraordinairement humains. Ils sont jaloux, amoureux, vindicatifs, vaniteux. Zeus trompe constamment Héra, Aphrodite séduit Arès, Athéna et Poséidon se disputent Athènes. Cette proximité entre dieux et hommes distingue la Grèce de la plupart des autres mythologies.
@@ -95,6 +98,7 @@ La Théogonie d'Hésiode raconte la genèse du monde : du Chaos naissent Gaïa e
     nationality: "Romain",
     movement: "Antiquité",
     family: "Méditerranée antique",
+    influences: ["mythologie-grecque"],
     summary: `La mythologie romaine emprunte largement au panthéon grec — Jupiter est Zeus, Mars est Arès, Vénus est Aphrodite — mais elle y ajoute une dimension civique et politique proprement romaine. La religion n'est pas affaire de foi personnelle mais de dévotion à l'État.
 
 Les mythes fondateurs de Rome sont essentiels à l'identité romaine. Énée, prince troyen fils de Vénus, fuit Troie en flammes et fonde la lignée qui mènera à Rome. Romulus et Rémus, jumeaux allaités par une louve, fondent la ville en 753 av. J.-C. Romulus tue Rémus : la grandeur de Rome naît dans la violence fraternelle.
@@ -211,6 +215,7 @@ Le Voyage vers l'Ouest, roman du XVIe siècle, raconte le périple du moine Xuan
     nationality: "Japonais",
     movement: "Religions orientales",
     family: "Asie",
+    influences: ["mythologie-chinoise"],
     summary: `La mythologie japonaise, fondement du shintoïsme, est intimement liée à la nature et au paysage de l'archipel. Les kami — esprits divins — habitent les montagnes, les rivières, les arbres et les rochers. Chaque élément naturel est potentiellement sacré.
 
 Le Kojiki (712) et le Nihon Shoki (720) racontent la création du Japon. Les dieux Izanagi et Izanami enfantent les îles japonaises et les divinités. De la purification d'Izanagi naissent trois kami suprêmes : Amaterasu (déesse du soleil), Tsukuyomi (dieu de la lune) et Susanoo (dieu des tempêtes).
@@ -258,6 +263,7 @@ Le calendrier sacré tzolk'in de 260 jours structure la vie rituelle. Les sacrif
     nationality: "Mésoaméricain",
     movement: "Amériques",
     family: "Amériques",
+    influences: ["mythologie-maya"],
     summary: `La mythologie aztèque est dominée par une vision cosmique dramatique : le monde a déjà été créé et détruit quatre fois, et le cinquième soleil — notre ère — est condamné à périr à son tour. Les dieux se sont sacrifiés pour créer ce soleil ; les humains doivent les nourrir de sang pour retarder sa fin.
 
 Quetzalcoatl, le serpent à plumes, est le dieu de la sagesse, du vent et de l'étoile du matin. Figure civilisatrice, il a donné le maïs et le calendrier aux hommes. Son départ vers l'est et sa promesse de retour auraient facilité la conquête espagnole, Cortés étant initialement pris pour le dieu revenu.

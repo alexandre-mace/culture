@@ -7,6 +7,7 @@ export interface PoliticalMovementItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -74,6 +75,7 @@ export const politicalMovements: PoliticalMovementItem[] = [
     nationality: "Européen",
     movement: "XVIIIe siècle",
     family: "Ère des révolutions",
+    influences: ["liberalisme"],
     summary:
       "Mouvement intellectuel qui promeut la raison, la liberté et le progrès contre l'obscurantisme. Voltaire, Rousseau, Montesquieu posent les bases philosophiques des révolutions à venir.",
     mainWorks: [
@@ -110,6 +112,7 @@ export const politicalMovements: PoliticalMovementItem[] = [
     nationality: "Américain",
     movement: "Révolutions",
     family: "Ère des révolutions",
+    influences: ["lumieres", "liberalisme"],
     summary:
       "Première révolution moderne, les colonies américaines s'émancipent de la Grande-Bretagne. La Déclaration d'indépendance et la Constitution établissent une république fédérale démocratique.",
     mainWorks: [
@@ -128,6 +131,7 @@ export const politicalMovements: PoliticalMovementItem[] = [
     nationality: "Français",
     movement: "Révolutions",
     family: "Ère des révolutions",
+    influences: ["lumieres", "revolution-americaine"],
     summary:
       "Bouleversement radical qui abolit la monarchie absolue et les privilèges. Déclaration des droits de l'homme, Terreur, Directoire : elle transforme définitivement la politique moderne.",
     mainWorks: [
@@ -146,6 +150,7 @@ export const politicalMovements: PoliticalMovementItem[] = [
     nationality: "Européen",
     movement: "XIXe siècle",
     family: "Idéologies du XIXe",
+    influences: ["lumieres"],
     summary:
       "Idéologie qui fait de la nation le cadre légitime du pouvoir politique. Moteur des unifications italienne et allemande, il dégénérera en nationalismes agressifs au XXe siècle.",
     mainWorks: [
@@ -164,6 +169,7 @@ export const politicalMovements: PoliticalMovementItem[] = [
     nationality: "Européen",
     movement: "XIXe-XXe siècles",
     family: "Idéologies du XIXe",
+    influences: ["revolution-francaise"],
     summary:
       "Mouvement né de la question ouvrière, il critique le capitalisme et prône la propriété collective. Du socialisme utopique à Marx, il inspire syndicats et partis ouvriers.",
     mainWorks: [
@@ -182,6 +188,7 @@ export const politicalMovements: PoliticalMovementItem[] = [
     nationality: "Allemand",
     movement: "XIXe-XXe siècles",
     family: "Idéologies du XIXe",
+    influences: ["socialisme"],
     summary:
       "Théorie de Marx et Engels analysant l'histoire comme lutte des classes. Le capitalisme doit être renversé par la révolution prolétarienne. Base du communisme au XXe siècle.",
     mainWorks: [
@@ -199,6 +206,7 @@ export const politicalMovements: PoliticalMovementItem[] = [
     nationality: "Européen",
     movement: "XIXe siècle",
     family: "Idéologies du XIXe",
+    influences: ["socialisme"],
     summary:
       "Philosophie politique rejetant toute forme d'autorité coercitive, notamment l'État. De Proudhon à Bakounine, il prône l'auto-organisation et influencera le syndicalisme révolutionnaire.",
     mainWorks: [
@@ -216,6 +224,7 @@ export const politicalMovements: PoliticalMovementItem[] = [
     nationality: "Européen",
     movement: "XIXe-XXe siècles",
     family: "Idéologies du XIXe",
+    influences: ["nationalisme"],
     summary:
       "Expansion des puissances européennes sur le monde, justifiée par la 'mission civilisatrice'. Partage de l'Afrique, domination de l'Asie, exploitation des ressources et des peuples.",
     mainWorks: [
@@ -234,6 +243,7 @@ export const politicalMovements: PoliticalMovementItem[] = [
     nationality: "Italien/Allemand",
     movement: "XXe siècle",
     family: "XXe siècle",
+    influences: ["nationalisme", "communisme-sovietique"],
     summary:
       "Idéologie totalitaire, ultranationaliste et antidémocratique. Mussolini en Italie, Hitler en Allemagne établissent des régimes de terreur qui mèneront à la Seconde Guerre mondiale et à la Shoah.",
     mainWorks: [
@@ -251,6 +261,7 @@ export const politicalMovements: PoliticalMovementItem[] = [
     nationality: "Soviétique",
     movement: "XXe siècle",
     family: "XXe siècle",
+    influences: ["marxisme"],
     summary:
       "Application du marxisme-léninisme en URSS. Parti unique, économie planifiée, terreur stalinienne. Modèle exporté dans le monde entier pendant la Guerre froide, jusqu'à l'effondrement de 1991.",
     mainWorks: [
@@ -268,6 +279,7 @@ export const politicalMovements: PoliticalMovementItem[] = [
     nationality: "Global",
     movement: "XXe siècle",
     family: "XXe siècle",
+    influences: ["nationalisme", "marxisme"],
     summary:
       "Mouvements de libération des peuples colonisés après 1945. De l'Inde à l'Algérie, du Vietnam au Congo, les empires coloniaux s'effondrent. Émergence du tiers-monde et du non-alignement.",
     mainWorks: [
@@ -285,6 +297,7 @@ export const politicalMovements: PoliticalMovementItem[] = [
     nationality: "Anglo-saxon",
     movement: "Fin XXe siècle",
     family: "Époque contemporaine",
+    influences: ["liberalisme"],
     summary:
       "Doctrine économique et politique prônant la dérégulation, les privatisations et le libre marché. Thatcher et Reagan l'imposent, il devient dominant après la chute du communisme.",
     mainWorks: [
@@ -318,6 +331,7 @@ export const politicalMovements: PoliticalMovementItem[] = [
     nationality: "Global",
     movement: "XXIe siècle",
     family: "Époque contemporaine",
+    influences: ["nationalisme"],
     summary:
       "Résurgence de mouvements opposant le 'peuple' aux 'élites'. De droite ou de gauche, ils contestent la mondialisation et les institutions. Brexit, Trump, montée des extrêmes en Europe.",
     mainWorks: [

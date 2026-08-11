@@ -7,6 +7,7 @@ export interface Composer {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -42,6 +43,7 @@ Monteverdi pose les fondements du langage musical occidental pour deux siècles.
     nationality: "Allemand",
     movement: "Baroque",
     family: "Baroque",
+    influences: ["vivaldi"],
     summary: `Jean-Sébastien Bach naît à Eisenach dans une famille de musiciens. Organiste, maître de chapelle, Cantor à Leipzig, il mène une carrière provinciale mais produit une œuvre monumentale qui résume et transcende tout le baroque.
 
 Les Passions selon saint Jean et selon saint Matthieu, la Messe en si mineur, les cantates (plus de 200) portent la musique sacrée à son apogée. Le Clavier bien tempéré explore les 24 tonalités en préludes et fugues d'une perfection absolue.
@@ -99,6 +101,7 @@ Célèbre dans toute l'Europe de son vivant, Vivaldi meurt pauvre et oublié à 
     nationality: "Autrichien",
     movement: "Classicisme",
     family: "Classicisme",
+    influences: ["haendel"],
     summary: `Joseph Haydn naît dans un village autrichien et devient maître de chapelle des princes Esterházy pendant trente ans. Cette stabilité lui permet d'expérimenter sans relâche, inventant les formes classiques que Mozart et Beethoven porteront à leur perfection.
 
 Haydn est le "père de la symphonie" : ses 104 symphonies définissent le genre, des premières œuvres galantes aux grandes symphonies londoniennes. Il est aussi le "père du quatuor à cordes" : ses 68 quatuors inventent la conversation à quatre voix égales.
@@ -118,6 +121,7 @@ Haydn connaît une gloire européenne de son vivant. Ses voyages à Londres sont
     nationality: "Autrichien",
     movement: "Classicisme",
     family: "Classicisme",
+    influences: ["haydn", "bach", "haendel"],
     summary: `Wolfgang Amadeus Mozart naît à Salzbourg, enfant prodige exhibé dans toutes les cours d'Europe par son père Leopold. À cinq ans, il compose ses premières pièces. À trente-cinq ans, il meurt, laissant plus de 600 œuvres d'une perfection inouïe.
 
 Mozart excelle dans tous les genres : symphonies, concertos, musique de chambre, sonates. Mais c'est l'opéra qui révèle le mieux son génie dramatique : Les Noces de Figaro, Don Giovanni, Così fan tutte, La Flûte enchantée restent au sommet du répertoire.
@@ -137,6 +141,7 @@ Mozart meurt pauvre à Vienne, enterré dans une fosse commune. Mais sa légende
     nationality: "Allemand",
     movement: "Classicisme / Romantisme",
     family: "Classicisme",
+    influences: ["haydn", "mozart", "haendel"],
     summary: `Ludwig van Beethoven naît à Bonn et s'installe à Vienne où il s'impose comme pianiste virtuose et compositeur. Vers trente ans, la surdité le frappe. Il surmonte ce désastre pour créer une œuvre titanesque qui ouvre l'ère romantique.
 
 Les neuf symphonies jalonnent son évolution : de l'héritage classique (Première, Deuxième) à l'héroïsme (Troisième "Eroica", Cinquième) puis à la transcendance (Neuvième avec son "Ode à la joie"). Chacune est un monde.
@@ -156,6 +161,7 @@ Beethoven transforme le statut du compositeur : non plus serviteur, mais artiste
     nationality: "Autrichien",
     movement: "Romantisme",
     family: "Romantisme",
+    influences: ["beethoven", "mozart"],
     summary: `Franz Schubert naît à Vienne dans une famille modeste. Il vit dans l'ombre de Beethoven, gagnant péniblement sa vie, compose plus de 600 lieder (mélodies), des symphonies, de la musique de chambre d'une beauté poignante.
 
 Le lied schubertien atteint une perfection inégalée : Erlkönig, La Truite, La Belle Meunière, Le Voyage d'hiver. La voix et le piano dialoguent pour exprimer toute la gamme des émotions humaines, de la joie à la désolation.
@@ -175,6 +181,7 @@ Schubert meurt à trente et un ans, probablement de la syphilis. Beaucoup de ses
     nationality: "Polonais",
     movement: "Romantisme",
     family: "Romantisme",
+    influences: ["bach", "mozart"],
     summary: `Frédéric Chopin naît près de Varsovie, s'installe à Paris à vingt ans et ne revoit jamais sa Pologne natale. Pianiste virtuose au jeu délicat, il se consacre presque exclusivement à son instrument, créant un univers sonore unique.
 
 Les nocturnes, préludes, études, valses, mazurkas, polonaises explorent toutes les possibilités du piano romantique. Chopin invente un rubato subtil, une harmonie raffinée, une ornementation qui chante. Chaque pièce est un joyau.
@@ -194,6 +201,7 @@ Chopin meurt à Paris à trente-neuf ans. Son influence sur la technique pianist
     nationality: "Allemand",
     movement: "Romantisme",
     family: "Romantisme",
+    influences: ["beethoven", "schubert", "bach"],
     summary: `Robert Schumann naît à Zwickau. Destiné au droit, il choisit la musique et se blesse la main en voulant devenir virtuose. Il se consacre alors à la composition et à la critique musicale, défendant Chopin, Berlioz et le jeune Brahms.
 
 Ses cycles pour piano (Carnaval, Kreisleriana, Scènes d'enfants) et ses lieder (Dichterliebe, L'Amour et la vie d'une femme) incarnent le romantisme allemand. Personnages doubles (Florestan et Eusebius), références littéraires, intimité du sentiment caractérisent son style.
@@ -213,6 +221,7 @@ Schumann sombre dans la folie et meurt dans un asile à quarante-six ans. Son in
     nationality: "Hongrois",
     movement: "Romantisme",
     family: "Romantisme",
+    influences: ["beethoven", "chopin"],
     summary: `Franz Liszt naît en Hongrie et devient le plus grand pianiste virtuose du XIXe siècle. Ses tournées triomphales inventent le récital solo et le culte de la star. Les femmes se pâment, on se dispute ses gants et ses mégots.
 
 Liszt repousse les limites techniques du piano : les Études d'exécution transcendante, la Sonate en si mineur, les Rhapsodies hongroises exigent une virtuosité inouïe. Mais derrière le spectacle, une invention harmonique audacieuse annonce Wagner et Debussy.
@@ -232,6 +241,7 @@ L'influence de Liszt est immense : il invente le poème symphonique, anticipe l'
     nationality: "Allemand",
     movement: "Romantisme tardif",
     family: "Romantisme tardif",
+    influences: ["beethoven", "liszt"],
     summary: `Richard Wagner naît à Leipzig et révolutionne l'opéra pour en faire un "drame musical" total. Il écrit ses propres livrets, conçoit les décors, fait construire un théâtre à Bayreuth dédié à ses œuvres. Son ambition est démesurée.
 
 La Tétralogie de l'Anneau du Nibelung (L'Or du Rhin, La Walkyrie, Siegfried, Le Crépuscule des Dieux), Tristan et Isolde, Les Maîtres Chanteurs, Parsifal sont des monuments de plusieurs heures. Le leitmotiv tisse un réseau de significations dans une musique continue.
@@ -251,6 +261,7 @@ Wagner est aussi une figure controversée : nationaliste, antisémite, mégaloma
     nationality: "Allemand",
     movement: "Romantisme",
     family: "Romantisme",
+    influences: ["beethoven", "schumann", "bach"],
     summary: `Johannes Brahms naît à Hambourg dans un milieu modeste. Révélé par Schumann comme le successeur de Beethoven, il porte ce fardeau toute sa vie, attendant quarante ans avant de publier sa Première Symphonie.
 
 Brahms refuse le théâtralisme wagnérien pour cultiver les formes classiques : symphonies, concertos, musique de chambre. Mais sous l'apparence austère, une passion intense, une mélancolie automnale, un raffinement harmonique uniques.
@@ -270,6 +281,7 @@ Brahms vit à Vienne, célibataire bourru, ami de Clara Schumann jusqu'à sa mor
     nationality: "Russe",
     movement: "Romantisme russe",
     family: "Romantisme tardif",
+    influences: ["mozart"],
     summary: `Piotr Ilitch Tchaïkovsky naît à Votkinsk et devient le premier compositeur russe à acquérir une renommée mondiale. Formé au Conservatoire de Saint-Pétersbourg, il synthétise l'héritage occidental et la sensibilité slave.
 
 Ses ballets - Le Lac des cygnes, La Belle au bois dormant, Casse-Noisette - sont les plus célèbres du répertoire. Ses symphonies (surtout les trois dernières), ses concertos pour piano et violon, ses opéras (Eugène Onéguine, La Dame de Pique) sont des classiques.
@@ -289,6 +301,7 @@ Tchaïkovsky meurt mystérieusement à Saint-Pétersbourg, peut-être du cholér
     nationality: "Tchèque",
     movement: "Romantisme / Nationalisme",
     family: "Romantisme tardif",
+    influences: ["brahms", "wagner"],
     summary: `Antonín Dvořák naît en Bohême et devient le champion de la musique tchèque. Encouragé par Brahms, il acquiert une renommée européenne puis américaine. Directeur du Conservatoire de New York, il s'inspire des musiques noire et amérindienne.
 
 La Symphonie "Du Nouveau Monde" (1893), composée en Amérique, est l'une des plus jouées au monde. Le Concerto pour violoncelle est le sommet du genre. Les Danses slaves, les opéras (Rusalka) ancrent son art dans le folklore tchèque.
@@ -308,6 +321,7 @@ De retour en Bohême, Dvořák compose ses derniers opéras et poèmes symphoniq
     nationality: "Autrichien",
     movement: "Post-romantisme",
     family: "Romantisme tardif",
+    influences: ["wagner", "beethoven"],
     summary: `Gustav Mahler naît en Bohême dans une famille juive. Il devient le plus grand chef d'orchestre de son temps, dirigeant l'Opéra de Vienne puis le Metropolitan de New York. Il compose l'été, entre deux saisons.
 
 Ses neuf symphonies (plus une inachevée) portent l'orchestre romantique à ses limites : effectifs gigantesques, durées d'une heure ou plus, ambitions cosmiques. "La symphonie doit être comme le monde, elle doit tout embrasser."
@@ -327,6 +341,7 @@ Méconnu comme compositeur de son vivant, Mahler prédit : "Mon temps viendra." 
     nationality: "Français",
     movement: "Impressionnisme",
     family: "Modernité",
+    influences: ["chopin", "wagner", "liszt"],
     summary: `Claude Debussy naît à Saint-Germain-en-Laye. Prix de Rome, il rompt vite avec l'académisme pour créer un langage nouveau : l'impressionnisme musical. La découverte du gamelan javanais à l'Exposition de 1889 le marque profondément.
 
 Prélude à l'après-midi d'un faune (1894) inaugure la musique moderne. Pelléas et Mélisande, unique opéra, refuse tous les effets wagnériens pour une prosodie fluide et des harmonies flottantes. La Mer, les Images, les Préludes pour piano sont des chefs-d'œuvre.
@@ -346,6 +361,7 @@ Debussy meurt à Paris pendant les bombardements allemands. Son influence sur to
     nationality: "Français",
     movement: "Impressionnisme / Néoclassicisme",
     family: "Modernité",
+    influences: ["debussy", "liszt"],
     summary: `Maurice Ravel naît à Ciboure, au Pays basque. Considéré comme l'héritier de Debussy, il s'en distingue par une rigueur formelle, un sens de l'artisanat, une ironie qui tempère l'émotion.
 
 Le Boléro (1928), crescendo hypnotique sur un thème unique, est l'œuvre française la plus jouée au monde. Ma mère l'Oye, le Concerto en sol, l'orchestration des Tableaux d'une exposition de Moussorgski témoignent d'une maîtrise orchestrale inégalée.
@@ -365,6 +381,7 @@ Frappé d'une maladie dégénérative, Ravel passe ses dernières années dans l
     nationality: "Russe / Américain",
     movement: "Modernisme",
     family: "Modernité",
+    influences: ["debussy", "tchaikovsky"],
     summary: `Igor Stravinsky naît près de Saint-Pétersbourg. Élève de Rimski-Korsakov, il explose avec les Ballets russes de Diaghilev : L'Oiseau de feu (1910), Petrouchka (1911), Le Sacre du printemps (1913) révolutionnent la musique.
 
 Le Sacre, avec ses rythmes sauvages et ses dissonances brutales, provoque un scandale légendaire à sa création. C'est l'acte de naissance de la musique moderne. Stravinsky ne cessera de se réinventer, refusant tout système.
@@ -384,6 +401,7 @@ Exilé en France puis aux États-Unis, Stravinsky traverse le siècle comme sa f
     nationality: "Autrichien / Américain",
     movement: "Expressionnisme / Dodécaphonisme",
     family: "Modernité",
+    influences: ["wagner", "brahms", "mahler"],
     summary: `Arnold Schoenberg naît à Vienne. Autodidacte, il pousse le chromatisme wagnérien jusqu'à la rupture avec la tonalité. La Nuit transfigurée (1899), Pelléas et Mélisande montrent un post-romantisme exacerbé.
 
 Avec les Trois pièces pour piano op. 11 (1909) et Pierrot lunaire (1912), Schoenberg entre dans l'atonalité libre, où aucune note ne prévaut. L'expressionnisme viennois atteint une intensité psychologique inouïe. C'est une révolution.
@@ -403,6 +421,7 @@ Exilé aux États-Unis par le nazisme, Schoenberg enseigne à UCLA et revient pa
     nationality: "Hongrois",
     movement: "Modernisme / Nationalisme",
     family: "Modernité",
+    influences: ["liszt", "debussy"],
     summary: `Béla Bartók naît en Hongrie et consacre sa vie à la collecte et l'étude des musiques paysannes d'Europe centrale. Ce travail ethnomusicologique nourrit une œuvre qui synthétise folklore authentique et langage moderniste.
 
 Le Château de Barbe-Bleue (opéra), Le Mandarin merveilleux (ballet), les six Quatuors à cordes, la Musique pour cordes, percussion et célesta, le Concerto pour orchestre sont des sommets du XXe siècle. La violence rythmique, les clusters, les modes populaires caractérisent son style.
@@ -422,6 +441,7 @@ Exilé aux États-Unis en 1940, Bartók y meurt pauvre et méconnu. Sa réhabili
     nationality: "Russe / Soviétique",
     movement: "Modernisme soviétique",
     family: "XXe siècle",
+    influences: ["mahler", "bach"],
     summary: `Dmitri Chostakovitch naît à Saint-Pétersbourg et traverse l'ère soviétique, de la révolution à la stagnation brejnévienne. Son œuvre immense porte la marque de cette histoire tragique, entre soumission apparente et résistance intérieure.
 
 Dénoncé par la Pravda en 1936 ("Chaos au lieu de musique"), Chostakovitch frôle la déportation. Il adopte un langage plus accessible mais truffé de références ambiguës. Ses symphonies (quinze), quatuors à cordes (quinze) forment un journal intime codé.
@@ -441,6 +461,7 @@ Chostakovitch meurt à Moscou, couvert d'honneurs officiels mais amer. Ses Mémo
     nationality: "Français",
     movement: "Modernisme / Musique spectrale",
     family: "XXe siècle",
+    influences: ["debussy", "stravinsky"],
     summary: `Olivier Messiaen naît à Avignon. Organiste de la Trinité à Paris pendant soixante ans, compositeur et pédagogue, il forme des générations de musiciens : Boulez, Stockhausen, Xenakis passent par sa classe.
 
 Son langage est unique : modes à transpositions limitées, rythmes hindous, chants d'oiseaux (il en transcrit des centaines), couleurs-sons (synesthésie). Sa foi catholique inspire des œuvres monumentales : Vingt Regards sur l'Enfant-Jésus, Quatuor pour la fin du Temps.

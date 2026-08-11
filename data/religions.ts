@@ -7,6 +7,7 @@ export interface ReligionItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -90,6 +91,7 @@ export const religions: ReligionItem[] = [
     nationality: "Indien",
     movement: "Religions orientales",
     family: "Religions orientales",
+    influences: ["hindouisme"],
     summary:
       "Fondé par Siddhartha Gautama (Bouddha). Quatre nobles vérités, Noble Sentier Octuple, nirvana. Se répand en Asie : Theravada, Mahayana, Vajrayana. 500 millions de fidèles.",
     mainWorks: [
@@ -140,6 +142,7 @@ export const religions: ReligionItem[] = [
     nationality: "Judée",
     movement: "Religions abrahamiques",
     family: "Monothéismes",
+    influences: ["judaisme"],
     summary:
       "Fondé sur la vie et l'enseignement de Jésus de Nazareth, considéré comme le Messie. Trinité (Père, Fils, Esprit). Église primitive, schismes (1054, 1517). 2,4 milliards de fidèles.",
     mainWorks: [
@@ -157,6 +160,7 @@ export const religions: ReligionItem[] = [
     nationality: "Chrétien",
     movement: "Christianisme antique",
     family: "Réformes et schismes",
+    influences: ["christianisme"],
     summary:
       "Sept conciles définissent la doctrine chrétienne. Nicée (325) établit le Credo, Chalcédoine (451) la double nature du Christ. Fondements de l'orthodoxie chrétienne.",
     mainWorks: [
@@ -174,6 +178,7 @@ export const religions: ReligionItem[] = [
     nationality: "Arabe",
     movement: "Religions abrahamiques",
     family: "Monothéismes",
+    influences: ["judaisme", "christianisme"],
     summary:
       "Fondé par le prophète Mahomet, qui reçoit le Coran d'Allah. Cinq piliers : profession de foi, prière, aumône, jeûne, pèlerinage. Sunnites et chiites. 1,9 milliard de fidèles.",
     mainWorks: [
@@ -190,6 +195,7 @@ export const religions: ReligionItem[] = [
     nationality: "Chrétien",
     movement: "Christianisme médiéval",
     family: "Réformes et schismes",
+    influences: ["christianisme"],
     summary:
       "Rupture entre l'Église de Rome (catholique) et les Églises d'Orient (orthodoxes). Différences théologiques (Filioque), liturgiques et de pouvoir (primauté papale). Division durable.",
     mainWorks: [
@@ -208,6 +214,7 @@ export const religions: ReligionItem[] = [
     nationality: "Européen",
     movement: "Christianisme moderne",
     family: "Réformes et schismes",
+    influences: ["christianisme"],
     summary:
       "Luther affiche ses 95 thèses (1517), contestant les indulgences et l'autorité papale. Calvin, Zwingli développent le protestantisme. Guerres de religion, paix de Westphalie.",
     mainWorks: [
@@ -225,6 +232,7 @@ export const religions: ReligionItem[] = [
     nationality: "Indien",
     movement: "Religions orientales",
     family: "Religions orientales",
+    influences: ["hindouisme", "islam"],
     summary:
       "Fondé par Guru Nanak au Pendjab, synthétise hindouisme et islam. Monothéisme, égalité, service. Dix gurus, puis le Guru Granth Sahib (livre sacré). 30 millions de fidèles.",
     mainWorks: [
@@ -242,6 +250,7 @@ export const religions: ReligionItem[] = [
     nationality: "Européen",
     movement: "Modernité",
     family: "Époque moderne",
+    influences: ["reforme"],
     summary:
       "Les philosophes des Lumières critiquent la religion révélée. Déisme (Voltaire), athéisme (d'Holbach). Séparation de l'Église et de l'État, liberté de conscience.",
     mainWorks: [
@@ -259,6 +268,7 @@ export const religions: ReligionItem[] = [
     nationality: "Américain",
     movement: "Nouveaux mouvements",
     family: "Époque moderne",
+    influences: ["christianisme", "reforme"],
     summary:
       "Joseph Smith fonde l'Église de Jésus-Christ des saints des derniers jours. Livre de Mormon, migration vers l'Utah. 17 millions de membres, croissance rapide.",
     mainWorks: [
@@ -275,6 +285,7 @@ export const religions: ReligionItem[] = [
     nationality: "Persan",
     movement: "Nouveaux mouvements",
     family: "Époque moderne",
+    influences: ["islam"],
     summary:
       "Fondé par Baha'u'llah en Perse. Unité de Dieu, des religions et de l'humanité. Paix mondiale, égalité hommes-femmes, éducation universelle. 5-8 millions de fidèles.",
     mainWorks: [
@@ -291,6 +302,7 @@ export const religions: ReligionItem[] = [
     nationality: "Mondial",
     movement: "XXe siècle",
     family: "Monde contemporain",
+    influences: ["reforme", "lumieres-religion"],
     summary:
       "Retour aux fondements de la foi face à la modernité. Fondamentalisme protestant américain, islamisme, hindutva. Réaction à la sécularisation et à la mondialisation.",
     mainWorks: [
@@ -308,6 +320,7 @@ export const religions: ReligionItem[] = [
     nationality: "Mondial",
     movement: "XXe siècle",
     family: "Monde contemporain",
+    influences: ["schisme-1054", "reforme"],
     summary:
       "Mouvement pour l'unité des Églises chrétiennes. Conseil œcuménique des Églises (1948). Vatican II rapproche catholiques et protestants. Dialogue interreligieux.",
     mainWorks: [
@@ -325,6 +338,7 @@ export const religions: ReligionItem[] = [
     nationality: "Occidental",
     movement: "Contemporain",
     family: "Monde contemporain",
+    influences: ["lumieres-religion"],
     summary:
       "Déclin de la pratique religieuse en Occident depuis les années 1960. Baisse de la fréquentation des églises, montée des 'sans religion'. Mais recomposition plutôt que disparition.",
     mainWorks: [

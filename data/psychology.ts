@@ -7,6 +7,7 @@ export interface PsychologyItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -76,6 +77,7 @@ export const psychology: PsychologyItem[] = [
     nationality: "Suisse",
     movement: "Psychologie analytique",
     family: "Psychanalyse",
+    influences: ["freud"],
     summary:
       "Disciple puis rival de Freud, il fonde la psychologie analytique. Introduit les notions d'inconscient collectif, d'archétypes, et de types psychologiques (introversion/extraversion).",
     mainWorks: [
@@ -94,6 +96,7 @@ export const psychology: PsychologyItem[] = [
     nationality: "Autrichien",
     movement: "Psychologie individuelle",
     family: "Psychanalyse",
+    influences: ["freud"],
     summary:
       "Autre dissident de Freud, il met l'accent sur le complexe d'infériorité et la volonté de puissance. Sa psychologie individuelle influence la psychothérapie et l'éducation.",
     mainWorks: [
@@ -112,6 +115,7 @@ export const psychology: PsychologyItem[] = [
     nationality: "Américain",
     movement: "Behaviorisme",
     family: "Béhaviorisme",
+    influences: ["pavlov"],
     summary:
       "Fondateur du behaviorisme, il rejette l'introspection et l'inconscient pour ne s'intéresser qu'au comportement observable. L'expérience du petit Albert montre le conditionnement de la peur.",
     mainWorks: [
@@ -148,6 +152,7 @@ export const psychology: PsychologyItem[] = [
     nationality: "Américain",
     movement: "Behaviorisme radical",
     family: "Béhaviorisme",
+    influences: ["watson", "pavlov"],
     summary:
       "Principal représentant du behaviorisme, il développe le conditionnement opérant. La boîte de Skinner permet d'étudier le renforcement. Applique ses idées à l'éducation et à la société.",
     mainWorks: [
@@ -202,6 +207,7 @@ export const psychology: PsychologyItem[] = [
     nationality: "Américain",
     movement: "Psychologie humaniste",
     family: "Psychologie humaniste",
+    influences: ["adler"],
     summary:
       "Père de la psychologie humaniste, il propose la pyramide des besoins, de la survie à l'accomplissement de soi. S'intéresse aux 'expériences paroxystiques' et au potentiel humain.",
     mainWorks: [
@@ -220,6 +226,7 @@ export const psychology: PsychologyItem[] = [
     nationality: "Américain",
     movement: "Psychologie humaniste",
     family: "Psychologie humaniste",
+    influences: ["freud"],
     summary:
       "Fondateur de la thérapie centrée sur la personne, il met l'accent sur l'empathie, l'authenticité et l'acceptation inconditionnelle. Influence majeure sur la psychothérapie moderne.",
     mainWorks: [
@@ -238,6 +245,7 @@ export const psychology: PsychologyItem[] = [
     nationality: "Anglais",
     movement: "Théorie de l'attachement",
     family: "Développement",
+    influences: ["freud"],
     summary:
       "Fondateur de la théorie de l'attachement, il montre l'importance du lien mère-enfant pour le développement. Les styles d'attachement (sécurisé, anxieux, évitant) influencent la vie adulte.",
     mainWorks: [
@@ -273,6 +281,7 @@ export const psychology: PsychologyItem[] = [
     nationality: "Canadien/Américain",
     movement: "Apprentissage social",
     family: "Béhaviorisme",
+    influences: ["skinner"],
     summary:
       "Théoricien de l'apprentissage social, il montre qu'on apprend par observation (expérience de la poupée Bobo). Concept d'auto-efficacité : croire en ses capacités influence la réussite.",
     mainWorks: [
@@ -290,6 +299,7 @@ export const psychology: PsychologyItem[] = [
     nationality: "Américain",
     movement: "Thérapie cognitive",
     family: "Cognition et société",
+    influences: ["freud"],
     summary:
       "Père de la thérapie cognitive, il montre que la dépression vient de pensées négatives automatiques. Les TCC (thérapies cognitives et comportementales) deviennent le traitement de référence.",
     mainWorks: [
@@ -307,6 +317,7 @@ export const psychology: PsychologyItem[] = [
     nationality: "Américain",
     movement: "Psychologie positive",
     family: "Psychologie humaniste",
+    influences: ["maslow", "beck"],
     summary:
       "Fondateur de la psychologie positive, il étudie le bonheur et l'épanouissement plutôt que les pathologies. Concept de 'résignation apprise' puis de 'flourishing' (épanouissement).",
     mainWorks: [

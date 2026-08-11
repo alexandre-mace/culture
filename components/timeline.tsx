@@ -26,6 +26,7 @@ interface TimelineItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   keyIdeas?: string[];
@@ -219,6 +220,31 @@ function TimelineContent({
       .sort((a, b) => a.birthYear - b.birthYear);
   }, [items, activeFamily]);
 
+  // Influence links (same-subject): direct and reverse maps over ALL items
+  const itemById = useMemo(() => new Map(items.map((item) => [item.id, item])), [items]);
+  const influenceOf = useMemo(() => {
+    const map = new Map<string, TimelineItem[]>();
+    for (const item of items) {
+      for (const id of item.influences ?? []) {
+        const list = map.get(id) ?? [];
+        list.push(item);
+        map.set(id, list);
+      }
+    }
+    return map;
+  }, [items]);
+
+  // Jump to another item of the subject (clearing any family filter first)
+  const jumpToItem = (id: string) => {
+    setActiveFamily(null);
+    const full = [...items].sort((a, b) => a.birthYear - b.birthYear);
+    const index = full.findIndex((item) => item.id === id);
+    if (index >= 0) {
+      setSelectedIndex(index);
+      updateUrlWithItem(full[index]);
+    }
+  };
+
   // Keep the selection valid when the item list shrinks (e.g. /tout filters)
   useEffect(() => {
     if (selectedIndex >= sortedItems.length) {
@@ -358,6 +384,44 @@ function TimelineContent({
     const newIndex = selectedIndex < sortedItems.length - 1 ? selectedIndex + 1 : 0;
     setSelectedIndex(newIndex);
     updateUrlWithItem(sortedItems[newIndex]);
+  };
+
+  // "Influencé par / A influencé" chips (shared by desktop panel and mobile drawer)
+  const renderInfluences = (item: TimelineItem) => {
+    const upstream = (item.influences ?? [])
+      .map((id) => itemById.get(id))
+      .filter((other): other is TimelineItem => Boolean(other));
+    const downstream = influenceOf.get(item.id) ?? [];
+    if (upstream.length === 0 && downstream.length === 0) return null;
+    const chip = (other: TimelineItem, arrow: string) => (
+      <button
+        key={other.id}
+        onClick={() => jumpToItem(other.id)}
+        className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium hover:bg-accent hover:border-primary/50 transition-colors"
+      >
+        <span className="text-muted-foreground">{arrow}</span>
+        {other.name}
+      </button>
+    );
+    return (
+      <div>
+        <h3 className="font-semibold mb-2">Influences</h3>
+        <div className="space-y-2">
+          {upstream.length > 0 && (
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs text-muted-foreground w-24 shrink-0">Influencé par</span>
+              {upstream.map((other) => chip(other, "←"))}
+            </div>
+          )}
+          {downstream.length > 0 && (
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs text-muted-foreground w-24 shrink-0">A influencé</span>
+              {downstream.map((other) => chip(other, "→"))}
+            </div>
+          )}
+        </div>
+      </div>
+    );
   };
 
   // Scroll-snap container ref for fullscreen drawer
@@ -736,6 +800,8 @@ function TimelineContent({
                   </div>
                 </div>
               )}
+
+              {renderInfluences(selectedItem)}
             </div>
 
             {/* Navigation indicator */}
@@ -885,6 +951,8 @@ function TimelineContent({
                       </div>
                     </div>
                   )}
+
+                  {renderInfluences(item)}
                 </div>
 
               </div>

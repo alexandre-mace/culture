@@ -7,6 +7,7 @@ export interface BiologyItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -40,6 +41,7 @@ export const biology: BiologyItem[] = [
     nationality: "Romain",
     movement: "Histoire naturelle antique",
     family: "Histoire naturelle",
+    influences: ["aristote-bio"],
     summary:
       "Son Histoire naturelle en 37 volumes est une encyclopédie monumentale des connaissances antiques sur la nature. Mélange de science et de légendes, elle influence le Moyen Âge.",
     mainWorks: [
@@ -58,6 +60,7 @@ export const biology: BiologyItem[] = [
     nationality: "Suédois",
     movement: "Classification",
     family: "Histoire naturelle",
+    influences: ["aristote-bio"],
     summary:
       "Fondateur de la taxonomie moderne avec sa nomenclature binomiale (genre + espèce). Son Systema Naturae classe tout le vivant. Chaque espèce porte encore un nom latinisé à la Linné.",
     mainWorks: [
@@ -93,6 +96,7 @@ export const biology: BiologyItem[] = [
     nationality: "Français",
     movement: "Transformisme",
     family: "Naturalistes du XIXe",
+    influences: ["buffon"],
     summary:
       "Premier à proposer une théorie cohérente de l'évolution : les espèces se transforment par l'usage et le désusage des organes. Fonde le terme 'biologie'. Précurseur méconnu de Darwin.",
     mainWorks: [
@@ -146,6 +150,7 @@ export const biology: BiologyItem[] = [
     nationality: "Anglais",
     movement: "Théorie de l'évolution",
     family: "Révolution darwinienne",
+    influences: ["lamarck", "humboldt-bio"],
     summary:
       "Révolutionne la biologie avec la théorie de l'évolution par sélection naturelle. Le voyage du Beagle et l'Origine des espèces (1859) changent notre compréhension du vivant et de notre place dans la nature.",
     mainWorks: [
@@ -163,6 +168,7 @@ export const biology: BiologyItem[] = [
     nationality: "Anglais",
     movement: "Théorie de l'évolution",
     family: "Révolution darwinienne",
+    influences: ["darwin", "humboldt-bio"],
     summary:
       "Co-découvreur de la sélection naturelle, indépendamment de Darwin. Naturaliste et biogéographe, il définit la ligne Wallace séparant les faunes asiatique et australienne.",
     mainWorks: [
@@ -216,6 +222,7 @@ export const biology: BiologyItem[] = [
     nationality: "Allemand",
     movement: "Darwinisme",
     family: "Révolution darwinienne",
+    influences: ["darwin"],
     summary:
       "Principal promoteur du darwinisme en Allemagne. Invente le terme 'écologie' et dessine de magnifiques planches de formes naturelles. Propose des arbres phylogénétiques.",
     mainWorks: [
@@ -233,6 +240,7 @@ export const biology: BiologyItem[] = [
     nationality: "Américain",
     movement: "Génétique",
     family: "Génétique & microbiologie",
+    influences: ["mendel", "darwin"],
     summary:
       "Avec ses études sur la mouche drosophile, il localise les gènes sur les chromosomes et découvre la liaison génétique. Fonde la génétique expérimentale moderne.",
     mainWorks: [
@@ -249,6 +257,7 @@ export const biology: BiologyItem[] = [
     nationality: "Américain / Anglais",
     movement: "Biologie moléculaire",
     family: "Biologie contemporaine",
+    influences: ["mendel", "morgan"],
     summary:
       "Découvrent la structure en double hélice de l'ADN en 1953, avec les données de Rosalind Franklin. Cette découverte fonde la biologie moléculaire et ouvre l'ère de la génétique moderne.",
     mainWorks: [
@@ -266,6 +275,7 @@ export const biology: BiologyItem[] = [
     nationality: "Autrichien",
     movement: "Éthologie",
     family: "Biologie contemporaine",
+    influences: ["darwin"],
     summary:
       "Fondateur de l'éthologie moderne avec Tinbergen. Étudie les comportements innés, notamment l'empreinte chez les oiseaux. Ses oies cendrées le suivent comme leur mère.",
     mainWorks: [
@@ -299,6 +309,7 @@ export const biology: BiologyItem[] = [
     nationality: "Américaine",
     movement: "Biologie moléculaire",
     family: "Biologie contemporaine",
+    influences: ["crick-watson-bio"],
     summary:
       "Co-découvreuse de CRISPR-Cas9 avec Emmanuelle Charpentier. Cette technique d'édition génétique révolutionne la biologie et ouvre des perspectives thérapeutiques et éthiques majeures.",
     mainWorks: [

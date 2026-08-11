@@ -7,6 +7,7 @@ export interface MathematicsItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -40,6 +41,7 @@ export const mathematics: MathematicsItem[] = [
     nationality: "Grec",
     movement: "Mathématiques grecques",
     family: "Antiquité & Moyen Âge",
+    influences: ["thales"],
     summary:
       "Fondateur d'une école mystique vouée aux mathématiques. Son théorème sur le triangle rectangle est fondamental. Découvre aussi les rapports numériques dans la musique.",
     mainWorks: [
@@ -58,6 +60,7 @@ export const mathematics: MathematicsItem[] = [
     nationality: "Grec (Alexandrie)",
     movement: "Mathématiques grecques",
     family: "Antiquité & Moyen Âge",
+    influences: ["thales", "pythagore"],
     summary:
       "Père de la géométrie, ses Éléments sont le manuel de mathématiques le plus influent de l'histoire. Méthode axiomatique qui restera la référence pendant 2000 ans.",
     mainWorks: [
@@ -76,6 +79,7 @@ export const mathematics: MathematicsItem[] = [
     nationality: "Grec (Syracuse)",
     movement: "Mathématiques grecques",
     family: "Antiquité & Moyen Âge",
+    influences: ["euclide"],
     summary:
       "Plus grand mathématicien de l'Antiquité, il calcule pi avec précision, détermine les volumes et surfaces de solides, et invente le calcul intégral sous forme primitive.",
     mainWorks: [
@@ -112,6 +116,7 @@ export const mathematics: MathematicsItem[] = [
     nationality: "Italien",
     movement: "Mathématiques médiévales",
     family: "Antiquité & Moyen Âge",
+    influences: ["al-khwarizmi"],
     summary:
       "Introduit les chiffres arabes et le zéro en Europe avec son Liber Abaci. La suite de Fibonacci, qu'il découvre en étudiant la reproduction des lapins, apparaît partout dans la nature.",
     mainWorks: [
@@ -166,6 +171,7 @@ export const mathematics: MathematicsItem[] = [
     nationality: "Français",
     movement: "Révolution scientifique",
     family: "Révolution scientifique",
+    influences: ["fermat"],
     summary:
       "Génie précoce, il invente une machine à calculer à 19 ans. Co-fondateur des probabilités, il découvre le triangle de Pascal et pose les bases du calcul infinitésimal.",
     mainWorks: [
@@ -184,6 +190,7 @@ export const mathematics: MathematicsItem[] = [
     nationality: "Anglais",
     movement: "Révolution scientifique",
     family: "Révolution scientifique",
+    influences: ["descartes-math", "fermat"],
     summary:
       "Co-inventeur du calcul infinitésimal (avec Leibniz), outil mathématique le plus puissant de l'histoire. Ses séries et son binôme généralisent l'algèbre.",
     mainWorks: [
@@ -201,6 +208,7 @@ export const mathematics: MathematicsItem[] = [
     nationality: "Allemand",
     movement: "Révolution scientifique",
     family: "Révolution scientifique",
+    influences: ["descartes-math", "pascal"],
     summary:
       "Co-inventeur du calcul infinitésimal, sa notation (dy/dx, ∫) est celle utilisée aujourd'hui. Pionnier de la logique formelle et inventeur d'une machine à calculer.",
     mainWorks: [
@@ -219,6 +227,7 @@ export const mathematics: MathematicsItem[] = [
     nationality: "Suisse",
     movement: "Mathématiques des Lumières",
     family: "Analyse moderne",
+    influences: ["newton-math", "leibniz"],
     summary:
       "Mathématicien le plus prolifique de l'histoire (plus de 800 articles). Unifie l'analyse, introduit de nombreuses notations (e, π, i, f(x), Σ) et fonde la théorie des graphes.",
     mainWorks: [
@@ -237,6 +246,7 @@ export const mathematics: MathematicsItem[] = [
     nationality: "Allemand",
     movement: "Mathématiques du XIXe",
     family: "Analyse moderne",
+    influences: ["euler", "newton-math"],
     summary:
       "Prince des mathématiques, il contribue à presque tous les domaines : théorie des nombres, statistiques, géométrie non euclidienne, électromagnétisme. Enfant prodige.",
     mainWorks: [
@@ -255,6 +265,7 @@ export const mathematics: MathematicsItem[] = [
     nationality: "Allemand",
     movement: "Mathématiques du XIXe",
     family: "Analyse moderne",
+    influences: ["gauss"],
     summary:
       "Révolutionne la géométrie avec les espaces courbes qui serviront à Einstein. L'hypothèse de Riemann sur les nombres premiers reste le problème ouvert le plus célèbre.",
     mainWorks: [
@@ -291,6 +302,7 @@ export const mathematics: MathematicsItem[] = [
     nationality: "Français",
     movement: "Mathématiques du XXe",
     family: "Fondements & logique",
+    influences: ["riemann"],
     summary:
       "Dernier mathématicien universel, il excelle dans tous les domaines. Fondateur de la topologie et précurseur de la théorie du chaos. La conjecture de Poincaré a été résolue en 2003.",
     mainWorks: [
@@ -309,6 +321,7 @@ export const mathematics: MathematicsItem[] = [
     nationality: "Allemand",
     movement: "Mathématiques du XXe",
     family: "Fondements & logique",
+    influences: ["euclide", "cantor"],
     summary:
       "Leader des mathématiques au début du XXe siècle. Ses 23 problèmes (1900) guident la recherche pendant un siècle. Formaliste, il tente de fonder les mathématiques sur la logique.",
     mainWorks: [
@@ -327,6 +340,7 @@ export const mathematics: MathematicsItem[] = [
     nationality: "Autrichien/Américain",
     movement: "Logique mathématique",
     family: "Fondements & logique",
+    influences: ["hilbert"],
     summary:
       "Ses théorèmes d'incomplétude (1931) démontrent qu'aucun système mathématique cohérent ne peut démontrer toutes les vérités. Bouleverse les fondements des mathématiques.",
     mainWorks: [
@@ -345,6 +359,7 @@ export const mathematics: MathematicsItem[] = [
     nationality: "Anglais",
     movement: "Informatique théorique",
     family: "Ère contemporaine",
+    influences: ["hilbert", "godel"],
     summary:
       "Père de l'informatique théorique, il définit la notion d'algorithme avec la machine de Turing. Déchiffre Enigma pendant la guerre. Pionnier de l'intelligence artificielle.",
     mainWorks: [

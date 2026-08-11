@@ -7,6 +7,7 @@ export interface Camera {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -41,6 +42,7 @@ Il ne manquait qu'un moyen de fixer l'image projetée : c'est tout l'enjeu des r
     nationality: "Français",
     movement: "Naissance de la photographie",
     family: "Origines",
+    influences: ["camera-obscura"],
     summary: `Le daguerréotype, inventé par Louis Daguerre et présenté à l'Académie des sciences le 19 août 1839, est le premier procédé photographique commercialisé. Cette date marque la naissance officielle de la photographie. Le gouvernement français achète le brevet et l'offre "au monde entier".
 
 Le procédé utilise une plaque de cuivre argentée, sensibilisée aux vapeurs d'iode, exposée dans une chambre photographique puis développée aux vapeurs de mercure. L'image obtenue est d'une précision extraordinaire, unique et non reproductible, comme un miroir gardant le souvenir.
@@ -60,6 +62,7 @@ Le daguerréotype connaît un immense succès, notamment aux États-Unis, avant 
     nationality: "Britannique",
     movement: "Naissance de la photographie",
     family: "Origines",
+    influences: ["camera-obscura"],
     summary: `Le calotype, inventé par l'Anglais William Henry Fox Talbot et breveté en 1841, introduit un principe révolutionnaire : le négatif-positif. Une image négative sur papier permet de tirer un nombre illimité d'épreuves positives. C'est le fondement de toute la photographie argentique ultérieure.
 
 Le papier est sensibilisé à l'iodure d'argent, exposé dans la chambre noire, puis développé au nitrate d'argent et à l'acide gallique. L'image négative obtenue est ensuite placée sur un autre papier sensibilisé et exposée au soleil pour créer le positif.
@@ -79,6 +82,7 @@ Le brevet de Talbot, contrairement au daguerréotype offert au monde, freine l'a
     nationality: "Britannique",
     movement: "Âge d'or du portrait",
     family: "Origines",
+    influences: ["daguerreotype", "calotype"],
     summary: `Le procédé au collodion humide, inventé par Frederick Scott Archer en 1851, combine les avantages du daguerréotype (netteté) et du calotype (reproductibilité). Il domine la photographie pendant trente ans et produit certaines des images les plus célèbres du XIXe siècle.
 
 Le collodion, solution de nitrocellulose dans l'éther, est versé sur une plaque de verre, sensibilisé au nitrate d'argent, exposé et développé avant qu'il ne sèche - d'où le nom "humide". Cette contrainte impose de préparer et développer sur place, nécessitant une chambre noire mobile.
@@ -97,6 +101,7 @@ Le collodion humide démocratise aussi la photographie avec les ferrotypes (tint
     nationality: "Britannique",
     movement: "Démocratisation de la photographie",
     family: "Argentique",
+    influences: ["collodion-humide"],
     summary: `La plaque sèche au gélatino-bromure d'argent, mise au point par Richard Leach Maddox en 1871 et perfectionnée dans les années suivantes, libère enfin la photographie des contraintes du collodion humide. Les plaques peuvent être préparées à l'avance et conservées des mois.
 
 La gélatine, extraite d'os et de peaux animales, remplace le collodion comme liant pour les sels d'argent. Les plaques sont fabriquées industriellement, standardisées, vendues prêtes à l'emploi. Le photographe n'a plus besoin de maîtriser la chimie.
@@ -114,6 +119,7 @@ La plaque sèche permet aussi les premières expériences de chronophotographie 
     nationality: "Américain",
     movement: "Photographie grand public",
     family: "Argentique",
+    influences: ["plaque-seche"],
     summary: `En 1888, George Eastman lance le Kodak n°1 avec un slogan révolutionnaire : "You press the button, we do the rest." (Vous appuyez sur le bouton, nous faisons le reste.) L'appareil est vendu chargé d'un rouleau de film pour 100 photos. Une fois terminé, on renvoie l'appareil entier à l'usine.
 
 Cette approche élimine toute la complexité technique. Plus besoin de plaques, de chambre noire, de connaissances chimiques. La photographie devient accessible à tous. Eastman invente un mot facile à prononcer dans toutes les langues : Kodak.
@@ -132,6 +138,7 @@ Le succès de Kodak est fulgurant. L'entreprise domine le marché photographique
     nationality: "Allemand",
     movement: "Photographie moderne",
     family: "Argentique",
+    influences: ["kodak-box"],
     summary: `En 1925, l'ingénieur allemand Oskar Barnack commercialise le Leica (Leitz Camera), premier appareil compact utilisant le film cinéma 35mm. Ce format, standardisé à 24x36mm, devient la norme mondiale pour la photographie pendant 75 ans.
 
 La réduction du format, compensée par des objectifs de haute qualité, permet un appareil de poche capable de 36 poses. Le photographe devient mobile, discret, réactif. Henri Cartier-Bresson fera du Leica son instrument de l'"instant décisif".
@@ -150,6 +157,7 @@ Le système Leica, avec ses objectifs interchangeables et son télémètre, infl
     nationality: "Allemand",
     movement: "Moyen format",
     family: "Argentique",
+    influences: ["kodak-box"],
     summary: `La Rolleiflex, créée par Franke & Heidecke en 1929, est le reflex bi-objectif (TLR) le plus célèbre de l'histoire. Un objectif sert à la visée, l'autre à la prise de vue. Le format 6x6 cm sur film 120 offre une qualité supérieure au 35mm.
 
 La visée par le dessus, sur un dépoli, permet une discrétion appréciée des photographes de rue et des portraitistes. Le format carré élimine le choix entre horizontal et vertical. Diane Arbus, Irving Penn, Richard Avedon feront de la Rolleiflex leur outil de prédilection.
@@ -185,6 +193,7 @@ La révolution numérique semble condamner Polaroid, qui fait faillite en 2001. 
     nationality: "Japonais",
     movement: "Photographie professionnelle",
     family: "Ère moderne",
+    influences: ["leica"],
     summary: `Le Nikon F, lancé en 1959, impose le reflex mono-objectif (SLR) comme standard professionnel. La visée à travers l'objectif de prise de vue, via un miroir et un prisme, permet un cadrage précis et l'utilisation de toute une gamme d'optiques interchangeables.
 
 Nikon, fabricant d'optiques militaires reconverti, propose un système complet : boîtier robuste, moteur, objectifs, accessoires. La fiabilité du Nikon F pendant la guerre du Vietnam le consacre comme l'outil des photojournalistes. Don McCullin, Larry Burrows ne jurent que par lui.
@@ -202,6 +211,7 @@ Le système F évolue pendant des décennies : F2, F3, F4, F5, F6. La monture F,
     nationality: "Japonais",
     movement: "Photographie familiale",
     family: "Ère moderne",
+    influences: ["leica"],
     summary: `Le Konica C35 AF de 1977 est le premier appareil photo autofocus commercial. Cette innovation, combinée à l'automatisation de l'exposition, produit des appareils "point and shoot" où l'utilisateur n'a plus qu'à cadrer et déclencher.
 
 Les compacts automatiques des années 1980-90 (Olympus Stylus, Yashica T4, Contax T2) démontrent que simplicité et qualité peuvent coexister. Certains, équipés d'objectifs Zeiss ou Tessar, produisent des images remarquables et deviennent cultes.
@@ -219,6 +229,7 @@ L'avènement du numérique puis du smartphone semble condamner le compact argent
     nationality: "Japonais",
     movement: "Photographie démocratisée",
     family: "Ère moderne",
+    influences: ["kodak-box"],
     summary: `Le Fujifilm QuickSnap, lancé en 1986, est le premier appareil jetable à succès commercial. Pré-chargé avec un rouleau de film, il est rendu entier au laboratoire après utilisation. Simple, bon marché, disponible partout, il dématérialise l'acte d'achat d'un appareil.
 
 L'appareil jetable répond à un besoin : photographier quand on n'a pas son appareil. Touristes, fêtards, participants à des mariages l'adoptent massivement. Kodak, Agfa, Konica proposent leurs versions. Des modèles étanches, panoramiques ou avec flash apparaissent.
@@ -236,6 +247,7 @@ Malgré l'avènement du numérique, le jetable survit. Fujifilm continue d'en pr
     nationality: "Américain / Japonais",
     movement: "Révolution numérique",
     family: "Numérique",
+    influences: ["nikon-f"],
     summary: `Le Kodak DCS 100 de 1991, basé sur un boîtier Nikon F3 avec un dos numérique, est le premier appareil numérique professionnel. Avec 1,3 mégapixels et un prix de 13 000 dollars, il est réservé aux agences de presse. Mais la révolution est en marche.
 
 Le capteur CCD remplace le film argentique. L'image est stockée sur un support magnétique puis numérique. Plus de pellicule, plus de développement, plus d'attente. On peut voir l'image immédiatement, l'effacer, recommencer. Le coût marginal de chaque photo devient nul.
@@ -253,6 +265,7 @@ Kodak, ironiquement inventeur de la technologie qu'il commercialisera trop tard,
     nationality: "Japonais",
     movement: "Photographie numérique professionnelle",
     family: "Numérique",
+    influences: ["nikon-f", "numerique-debut"],
     summary: `Le Nikon D1, lancé en 1999, est le premier reflex numérique entièrement conçu comme tel (et non un boîtier argentique modifié). À 5 000 dollars pour 2,7 mégapixels, il rend la photographie numérique professionnelle accessible aux photojournalistes et studios.
 
 Le reflex numérique combine les avantages du système reflex (visée optique, objectifs interchangeables, ergonomie) avec la flexibilité du numérique (visualisation immédiate, sensibilité variable, post-traitement). Canon et Nikon se livrent une guerre technologique intense.
@@ -271,6 +284,7 @@ Le reflex numérique domine la photographie professionnelle pendant vingt ans. M
     nationality: "Américain",
     movement: "Photographie ubiquitaire",
     family: "Numérique",
+    influences: ["numerique-debut"],
     summary: `L'iPhone original de 2007, avec son appareil photo de 2 mégapixels sans autofocus, semble dérisoire. Mais Steve Jobs comprend que l'appareil photo sera une fonction clé du smartphone. "The best camera is the one you have with you" : le téléphone, toujours présent, devient l'appareil photo universel.
 
 L'intégration du partage (email, réseaux sociaux) transforme la photographie. Instagram (2010), avec ses filtres et son format carré, crée une nouvelle esthétique. La photo n'est plus un objet à imprimer mais un message à partager. Un milliard d'images sont partagées chaque jour.
@@ -288,6 +302,7 @@ Le smartphone a tué l'appareil compact et menace le reflex amateur. Mais il a a
     nationality: "Japonais",
     movement: "Photographie numérique actuelle",
     family: "Numérique",
+    influences: ["reflex-numerique"],
     summary: `Le Panasonic Lumix G1 de 2008 inaugure l'ère des appareils hybrides (mirrorless). En supprimant le miroir du reflex, on réduit l'encombrement tout en conservant les objectifs interchangeables. La visée électronique (EVF) affiche l'image telle qu'elle sera capturée.
 
 Sony bouleverse le marché avec la série Alpha (A7, A7R, A7S) : plein format, compacité, performances vidéo exceptionnelles. Les vidéographes et créateurs de contenu adoptent massivement ces boîtiers polyvalents. La frontière entre photo et vidéo s'estompe.

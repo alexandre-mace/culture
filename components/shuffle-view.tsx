@@ -14,6 +14,7 @@ interface ShuffleItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   keyIdeas?: string[];

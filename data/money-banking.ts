@@ -7,6 +7,7 @@ export interface MoneyBankingItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -37,6 +38,7 @@ export const moneyBanking: MoneyBankingItem[] = [
     nationality: "Grec",
     movement: "Antiquité",
     family: "Monnaies antiques",
+    influences: ["monnaie-lydienne"],
     summary:
       "Chaque cité grecque frappe sa propre monnaie. La drachme athénienne (chouette) et le statère de Corinthe circulent dans toute la Méditerranée. Alexandre unifie les standards.",
     mainWorks: [
@@ -54,6 +56,7 @@ export const moneyBanking: MoneyBankingItem[] = [
     nationality: "Romain",
     movement: "Antiquité",
     family: "Monnaies antiques",
+    influences: ["monnaie-grecque"],
     summary:
       "Rome développe un système monétaire élaboré : as de bronze, denarius d'argent, aureus d'or. Débasement progressif de la monnaie contribue à l'inflation et au déclin de l'Empire.",
     mainWorks: [
@@ -71,6 +74,7 @@ export const moneyBanking: MoneyBankingItem[] = [
     nationality: "Byzantin",
     movement: "Moyen Âge",
     family: "Banque médiévale",
+    influences: ["monnaie-romaine"],
     summary:
       "Constantin crée le solidus, monnaie d'or stable pendant 700 ans. 'Dollar du Moyen Âge', il domine le commerce international et influence les systèmes monétaires européens.",
     mainWorks: [
@@ -106,6 +110,7 @@ export const moneyBanking: MoneyBankingItem[] = [
     nationality: "Florentin",
     movement: "Moyen Âge",
     family: "Banque médiévale",
+    influences: ["banques-italiennes"],
     summary:
       "Florence frappe le florin, première grande monnaie d'or médiévale. Sa qualité constante en fait la référence du commerce européen pendant trois siècles.",
     mainWorks: [
@@ -123,6 +128,7 @@ export const moneyBanking: MoneyBankingItem[] = [
     nationality: "Néerlandais",
     movement: "Moderne",
     family: "Banques modernes",
+    influences: ["banques-italiennes"],
     summary:
       "Première banque centrale moderne, elle garantit les dépôts et facilite les paiements. Le florin-banco devient une monnaie de compte stable, faisant d'Amsterdam le centre financier mondial.",
     mainWorks: [
@@ -140,6 +146,7 @@ export const moneyBanking: MoneyBankingItem[] = [
     nationality: "Anglais",
     movement: "Moderne",
     family: "Banques modernes",
+    influences: ["banque-amsterdam"],
     summary:
       "Fondée pour financer la guerre contre Louis XIV, elle devient le modèle des banques centrales modernes. Émission de billets, prêteur en dernier ressort, régulation monétaire.",
     mainWorks: [
@@ -158,6 +165,7 @@ export const moneyBanking: MoneyBankingItem[] = [
     nationality: "Français",
     movement: "Moderne",
     family: "Banques modernes",
+    influences: ["banque-amsterdam", "banque-angleterre"],
     summary:
       "John Law tente de remplacer l'or par le papier-monnaie en France. Spéculation sur la Compagnie du Mississippi, bulle et effondrement (1720). Traumatisme durable sur le crédit en France.",
     mainWorks: [
@@ -175,6 +183,7 @@ export const moneyBanking: MoneyBankingItem[] = [
     nationality: "International",
     movement: "XIXe siècle",
     family: "Système international",
+    influences: ["banque-angleterre"],
     summary:
       "La Grande-Bretagne adopte l'étalon-or : chaque livre est convertible en or. Le système se généralise, assurant stabilité des changes et libre circulation des capitaux. Abandonné lors de la Grande Dépression.",
     mainWorks: [
@@ -192,6 +201,7 @@ export const moneyBanking: MoneyBankingItem[] = [
     nationality: "Américain",
     movement: "XXe siècle",
     family: "Système international",
+    influences: ["banque-angleterre"],
     summary:
       "Banque centrale des États-Unis, créée après les paniques bancaires de 1907. Système fédéral de 12 banques régionales. Politique monétaire, supervision bancaire, stabilité financière.",
     mainWorks: [
@@ -209,6 +219,7 @@ export const moneyBanking: MoneyBankingItem[] = [
     nationality: "International",
     movement: "XXe siècle",
     family: "Système international",
+    influences: ["etalon-or"],
     summary:
       "Conférence qui établit l'ordre monétaire d'après-guerre. Dollar convertible en or, autres monnaies arrimées au dollar. FMI et Banque mondiale. Nixon met fin au système en 1971.",
     mainWorks: [
@@ -225,6 +236,7 @@ export const moneyBanking: MoneyBankingItem[] = [
     nationality: "International",
     movement: "XXe siècle",
     family: "Système international",
+    influences: ["bretton-woods"],
     summary:
       "Les dollars déposés hors des USA (eurodollars) échappent aux régulations. Naissance de la finance offshore, marchés de Londres et paradis fiscaux. Mondialisation financière.",
     mainWorks: [
@@ -241,6 +253,7 @@ export const moneyBanking: MoneyBankingItem[] = [
     nationality: "International",
     movement: "XXe siècle",
     family: "Système international",
+    influences: ["bretton-woods"],
     summary:
       "Fin de Bretton Woods, les monnaies flottent librement. Volatilité des changes, développement des marchés dérivés (futures, options). Spéculation et crises monétaires.",
     mainWorks: [
@@ -258,6 +271,7 @@ export const moneyBanking: MoneyBankingItem[] = [
     nationality: "Européen",
     movement: "XXIe siècle",
     family: "Finance contemporaine",
+    influences: ["changes-flottants"],
     summary:
       "Monnaie unique européenne, adoptée par 20 pays. BCE à Francfort. Deuxième monnaie mondiale, mais crises (dette grecque, 2010) révèlent les tensions de la zone euro.",
     mainWorks: [
@@ -292,6 +306,7 @@ export const moneyBanking: MoneyBankingItem[] = [
     nationality: "Mondial",
     movement: "XXIe siècle",
     family: "Finance contemporaine",
+    influences: ["crise-2008"],
     summary:
       "Satoshi Nakamoto crée le Bitcoin, première cryptomonnaie décentralisée. Blockchain, spéculation, prolifération des cryptomonnaies. Débat sur l'avenir de la monnaie.",
     mainWorks: [
@@ -308,6 +323,7 @@ export const moneyBanking: MoneyBankingItem[] = [
     nationality: "Mondial",
     movement: "XXIe siècle",
     family: "Finance contemporaine",
+    influences: ["crise-2008"],
     summary:
       "Les banques centrales (Fed, BCE, BoJ) créent massivement de la monnaie pour racheter des actifs. Taux zéro ou négatifs. Débat sur l'inflation et les inégalités.",
     mainWorks: [

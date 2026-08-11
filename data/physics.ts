@@ -7,6 +7,7 @@ export interface PhysicsItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -57,6 +58,7 @@ export const physics: PhysicsItem[] = [
     nationality: "Italien",
     movement: "Révolution scientifique",
     family: "Révolution scientifique",
+    influences: ["archimede-physique"],
     summary:
       "Père de la physique moderne, il introduit la méthode expérimentale et mathématise la nature. Découvre les lois de la chute des corps et défend l'héliocentrisme face à l'Inquisition.",
     mainWorks: [
@@ -75,6 +77,7 @@ export const physics: PhysicsItem[] = [
     nationality: "Anglais",
     movement: "Révolution scientifique",
     family: "Révolution scientifique",
+    influences: ["galilee-physique"],
     summary:
       "Unifie la mécanique terrestre et céleste avec la gravitation universelle. Ses trois lois du mouvement fondent la mécanique classique. Aussi inventeur du calcul infinitésimal.",
     mainWorks: [
@@ -93,6 +96,7 @@ export const physics: PhysicsItem[] = [
     nationality: "Français",
     movement: "Électromagnétisme",
     family: "Physique classique",
+    influences: ["newton-physique"],
     summary:
       "Établit la loi fondamentale de l'électrostatique qui porte son nom. La force entre charges électriques varie comme l'inverse du carré de la distance, comme la gravitation.",
     mainWorks: [
@@ -129,6 +133,7 @@ export const physics: PhysicsItem[] = [
     nationality: "Écossais",
     movement: "Électromagnétisme",
     family: "Physique classique",
+    influences: ["faraday", "newton-physique"],
     summary:
       "Unifie électricité, magnétisme et optique dans les équations de Maxwell. Prédit l'existence des ondes électromagnétiques, confirmée par Hertz. Deuxième grande unification après Newton.",
     mainWorks: [
@@ -147,6 +152,7 @@ export const physics: PhysicsItem[] = [
     nationality: "Autrichien",
     movement: "Thermodynamique",
     family: "Physique classique",
+    influences: ["maxwell"],
     summary:
       "Fonde la mécanique statistique, expliquant la thermodynamique par le comportement des atomes. Sa formule S = k log W relie entropie et probabilité. Combat pour l'existence des atomes.",
     mainWorks: [
@@ -183,6 +189,7 @@ export const physics: PhysicsItem[] = [
     nationality: "Français",
     movement: "Radioactivité",
     family: "Radioactivité & atome",
+    influences: ["roentgen-physique"],
     summary:
       "Découvre la radioactivité en 1896 en étudiant la fluorescence de l'uranium. Ouvre la voie à la physique nucléaire et aux travaux des Curie.",
     mainWorks: [
@@ -201,6 +208,7 @@ export const physics: PhysicsItem[] = [
     nationality: "Polonaise/Française",
     movement: "Radioactivité",
     family: "Radioactivité & atome",
+    influences: ["becquerel"],
     summary:
       "Pionnière de la radioactivité, elle découvre le polonium et le radium avec Pierre Curie. Première femme Prix Nobel, seule personne à recevoir deux Nobel dans deux sciences différentes.",
     mainWorks: [
@@ -219,6 +227,7 @@ export const physics: PhysicsItem[] = [
     nationality: "Allemand",
     movement: "Mécanique quantique",
     family: "Relativité & quanta",
+    influences: ["boltzmann"],
     summary:
       "Père de la théorie quantique, il introduit en 1900 l'idée que l'énergie est échangée par quanta discrets. Cette révolution conceptuelle fonde la physique moderne.",
     mainWorks: [
@@ -237,6 +246,7 @@ export const physics: PhysicsItem[] = [
     nationality: "Allemand/Américain",
     movement: "Relativité",
     family: "Relativité & quanta",
+    influences: ["newton-physique", "maxwell", "planck"],
     summary:
       "Révolutionne la physique avec la relativité restreinte (1905) et générale (1915). L'espace et le temps sont relatifs, la masse courbe l'espace-temps, E=mc². Icône de la science moderne.",
     mainWorks: [
@@ -255,6 +265,7 @@ export const physics: PhysicsItem[] = [
     nationality: "Danois",
     movement: "Mécanique quantique",
     family: "Relativité & quanta",
+    influences: ["planck", "einstein"],
     summary:
       "Son modèle de l'atome (1913) explique les spectres atomiques par la quantification des orbites électroniques. Leader de l'interprétation de Copenhague de la mécanique quantique.",
     mainWorks: [
@@ -273,6 +284,7 @@ export const physics: PhysicsItem[] = [
     nationality: "Allemand",
     movement: "Mécanique quantique",
     family: "Relativité & quanta",
+    influences: ["bohr"],
     summary:
       "Formule la mécanique quantique matricielle et le principe d'incertitude : on ne peut connaître simultanément position et vitesse d'une particule. Bouleverse notre conception de la réalité.",
     mainWorks: [
@@ -291,6 +303,7 @@ export const physics: PhysicsItem[] = [
     nationality: "Autrichien",
     movement: "Mécanique quantique",
     family: "Relativité & quanta",
+    influences: ["einstein"],
     summary:
       "Son équation d'onde (1926) décrit l'évolution des systèmes quantiques. Le paradoxe du chat de Schrödinger illustre l'étrangeté de la superposition quantique.",
     mainWorks: [
@@ -309,6 +322,7 @@ export const physics: PhysicsItem[] = [
     nationality: "Anglais",
     movement: "Mécanique quantique",
     family: "Relativité & quanta",
+    influences: ["heisenberg", "schrodinger"],
     summary:
       "Son équation relativiste de l'électron prédit l'existence de l'antimatière. Unifie mécanique quantique et relativité restreinte. Style mathématique d'une élégance légendaire.",
     mainWorks: [
@@ -345,6 +359,7 @@ export const physics: PhysicsItem[] = [
     nationality: "Américain",
     movement: "Physique des particules",
     family: "Physique contemporaine",
+    influences: ["dirac"],
     summary:
       "Reformule l'électrodynamique quantique avec ses célèbres diagrammes. Pédagogue exceptionnel, personnalité flamboyante. Élucide la cause de l'accident de Challenger.",
     mainWorks: [
@@ -363,6 +378,7 @@ export const physics: PhysicsItem[] = [
     nationality: "Anglais",
     movement: "Modèle standard",
     family: "Physique contemporaine",
+    influences: ["dirac"],
     summary:
       "Propose en 1964 le mécanisme donnant leur masse aux particules. Le boson de Higgs, découvert au CERN en 2012, confirme sa théorie. Prix Nobel 2013.",
     mainWorks: [
@@ -381,6 +397,7 @@ export const physics: PhysicsItem[] = [
     nationality: "Anglais",
     movement: "Cosmologie",
     family: "Physique contemporaine",
+    influences: ["einstein"],
     summary:
       "Malgré la maladie de Charcot, révolutionne notre compréhension des trous noirs. Le rayonnement de Hawking montre qu'ils peuvent s'évaporer. Vulgarisateur célèbre.",
     mainWorks: [

@@ -7,6 +7,7 @@ export interface EconomicsItem {
   nationality: string;
   movement: string;
   family?: string;
+  influences?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -40,6 +41,7 @@ export const economics: EconomicsItem[] = [
     nationality: "Italien",
     movement: "Scolastique",
     family: "Précurseurs",
+    influences: ["aristote-eco"],
     summary:
       "Théologien qui élabore la doctrine du 'juste prix' et condamne l'usure. Ses idées dominent la pensée économique médiévale et influencent l'éthique des affaires.",
     mainWorks: [
@@ -76,6 +78,7 @@ export const economics: EconomicsItem[] = [
     nationality: "Français",
     movement: "Physiocratie",
     family: "Précurseurs",
+    influences: ["mercantilistes"],
     itemType: "topic",
     summary:
       "Première école économique, menée par Quesnay. Seule la terre produit de la richesse, l'industrie et le commerce sont stériles. Précurseurs du libéralisme avec 'laissez faire, laissez passer'.",
@@ -95,6 +98,7 @@ export const economics: EconomicsItem[] = [
     nationality: "Écossais",
     movement: "Économie classique",
     family: "Classiques & Marx",
+    influences: ["mercantilistes"],
     summary:
       "Père de l'économie politique moderne. La Richesse des nations (1776) fonde le libéralisme économique : la 'main invisible' du marché coordonne les intérêts individuels vers le bien commun.",
     mainWorks: [
@@ -113,6 +117,7 @@ export const economics: EconomicsItem[] = [
     nationality: "Anglais",
     movement: "Économie classique",
     family: "Classiques & Marx",
+    influences: ["adam-smith"],
     summary:
       "Son Essai sur le principe de population (1798) prédit que la population croît plus vite que les ressources. Vision pessimiste qui influence Darwin et les débats sur la démographie.",
     mainWorks: [
@@ -131,6 +136,7 @@ export const economics: EconomicsItem[] = [
     nationality: "Anglais",
     movement: "Économie classique",
     family: "Classiques & Marx",
+    influences: ["adam-smith", "malthus"],
     summary:
       "Théoricien de l'avantage comparatif justifiant le libre-échange. Sa théorie de la rente foncière et de la valeur-travail influencera Marx.",
     mainWorks: [
@@ -149,6 +155,7 @@ export const economics: EconomicsItem[] = [
     nationality: "Allemand",
     movement: "Critique de l'économie politique",
     family: "Classiques & Marx",
+    influences: ["adam-smith", "ricardo"],
     summary:
       "Critique radicale du capitalisme : la plus-value exploite les travailleurs, les crises sont inhérentes au système. Le Capital reste la plus grande analyse du capitalisme.",
     mainWorks: [
@@ -185,6 +192,7 @@ export const economics: EconomicsItem[] = [
     nationality: "Anglais",
     movement: "École néoclassique",
     family: "Tournant de 1900",
+    influences: ["adam-smith", "ricardo"],
     summary:
       "Synthétise l'économie classique et marginaliste. Ses Principes d'économie (1890) dominent l'enseignement pendant 50 ans. Concepts d'élasticité, surplus du consommateur, équilibre partiel.",
     mainWorks: [
@@ -221,6 +229,7 @@ export const economics: EconomicsItem[] = [
     nationality: "Anglais",
     movement: "Keynésianisme",
     family: "XXe siècle",
+    influences: ["marshall", "malthus"],
     summary:
       "Révolutionne l'économie pendant la Grande Dépression. L'État doit intervenir par la dépense publique pour soutenir la demande et l'emploi. Architecte de Bretton Woods.",
     mainWorks: [
@@ -239,6 +248,7 @@ export const economics: EconomicsItem[] = [
     nationality: "Autrichien/Américain",
     movement: "Économie de l'innovation",
     family: "XXe siècle",
+    influences: ["walras", "marx-eco"],
     summary:
       "Théoricien de l'innovation et de l'entrepreneur. La 'destruction créatrice' renouvelle le capitalisme par l'innovation. Analyse des cycles économiques.",
     mainWorks: [
@@ -257,6 +267,7 @@ export const economics: EconomicsItem[] = [
     nationality: "Autrichien/Britannique",
     movement: "École autrichienne",
     family: "XXe siècle",
+    influences: ["keynes"],
     summary:
       "Champion du libéralisme contre le socialisme et l'interventionnisme. Le marché traite l'information mieux que toute planification centrale. Influence Thatcher et Reagan.",
     mainWorks: [
@@ -275,6 +286,7 @@ export const economics: EconomicsItem[] = [
     nationality: "Américain",
     movement: "Monétarisme",
     family: "XXe siècle",
+    influences: ["keynes", "hayek"],
     summary:
       "Chef de file du monétarisme et du libéralisme économique. L'inflation est toujours un phénomène monétaire. Conseiller de Reagan, influence les politiques néolibérales.",
     mainWorks: [
@@ -293,6 +305,7 @@ export const economics: EconomicsItem[] = [
     nationality: "Américain",
     movement: "Synthèse néoclassique",
     family: "XXe siècle",
+    influences: ["keynes", "walras"],
     summary:
       "Premier Américain Prix Nobel d'économie, il synthétise Keynes et les néoclassiques. Son manuel Economics forme des générations d'économistes. Mathématisation de l'économie.",
     mainWorks: [
@@ -327,6 +340,7 @@ export const economics: EconomicsItem[] = [
     nationality: "Américain",
     movement: "Économie de l'information",
     family: "Contemporains",
+    influences: ["samuelson", "keynes"],
     summary:
       "Théoricien de l'information asymétrique qui justifie l'intervention de l'État. Critique de la mondialisation et des institutions financières internationales.",
     mainWorks: [
@@ -344,6 +358,7 @@ export const economics: EconomicsItem[] = [
     nationality: "Français",
     movement: "Économie des inégalités",
     family: "Contemporains",
+    influences: ["marx-eco"],
     summary:
       "Son Capital au XXIe siècle (2013) documente la montée des inégalités. Quand le rendement du capital dépasse la croissance, les inégalités explosent. Best-seller mondial.",
     mainWorks: [
