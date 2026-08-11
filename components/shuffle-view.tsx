@@ -18,6 +18,7 @@ interface ShuffleItem {
   keyIdeas?: string[];
   category?: string;
   categoryEmoji?: string;
+  itemType?: "person" | "topic";
 }
 
 interface ShuffleViewProps {
@@ -240,14 +241,14 @@ export function ShuffleView({ items }: ShuffleViewProps) {
             {/* Content */}
             <div className="space-y-5 max-w-2xl">
               <div>
-                <h3 className="font-semibold mb-2">Biographie</h3>
+                <h3 className="font-semibold mb-2">{item.itemType === "topic" ? "Description" : "Biographie"}</h3>
                 <p className="text-sm text-muted-foreground whitespace-pre-line leading-relaxed">
                   {item.summary}
                 </p>
               </div>
 
               <div>
-                <h3 className="font-semibold mb-2">Œuvres principales</h3>
+                <h3 className="font-semibold mb-2">{item.itemType === "topic" ? "Points clés" : "Œuvres principales"}</h3>
                 <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                   {item.mainWorks.map((work, i) => (
                     <li key={i}>{work}</li>

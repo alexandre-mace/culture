@@ -9,37 +9,37 @@ const categories = [
       {
         name: "Astronomie",
         href: "/astronomie",
-        description: "De Babylone au telescope James Webb",
+        description: "De Babylone au télescope James Webb",
         emoji: "🔭",
       },
       {
         name: "Physique",
         href: "/physique",
-        description: "De Galilee a Hawking, les lois de l'univers",
+        description: "De Galilée à Hawking, les lois de l'univers",
         emoji: "⚛️",
       },
       {
-        name: "Mathematiques",
+        name: "Mathématiques",
         href: "/mathematiques",
-        description: "D'Euclide a Grothendieck",
+        description: "D'Euclide à Grothendieck",
         emoji: "🔢",
       },
       {
         name: "Biologie",
         href: "/biologie",
-        description: "De Linne a CRISPR, la science du vivant",
+        description: "De Linné à CRISPR, la science du vivant",
         emoji: "🧬",
       },
       {
-        name: "Medecine",
+        name: "Médecine",
         href: "/medecine",
-        description: "D'Hippocrate aux vaccins ARN",
+        description: "D'Hippocrate aux vaccins à ARN",
         emoji: "⚕️",
       },
       {
         name: "Inventions",
         href: "/inventions",
-        description: "De la roue a CRISPR",
+        description: "De la roue à CRISPR",
         emoji: "💡",
       },
     ],
@@ -49,37 +49,37 @@ const categories = [
     emoji: "📜",
     subjects: [
       {
-        name: "Epoques",
+        name: "Époques",
         href: "/epoques",
-        description: "De la formation de la Terre a l'Anthropocene",
+        description: "De la formation de la Terre à l'Anthropocène",
         emoji: "🦕",
       },
       {
         name: "Explorations",
         href: "/explorations",
-        description: "De Colomb a Armstrong",
+        description: "De Colomb à Armstrong",
         emoji: "🧭",
       },
       {
         name: "Empires",
         href: "/empires",
-        description: "De Rome aux Etats-Unis",
+        description: "De Rome aux États-Unis",
         emoji: "👑",
       },
       {
         name: "Guerres",
         href: "/guerres",
-        description: "Des guerres mediques a l'Ukraine",
+        description: "Des guerres médiques à l'Ukraine",
         emoji: "⚔️",
       },
       {
         name: "Esclavage",
         href: "/esclavage",
-        description: "De l'Antiquite a l'abolition",
+        description: "De l'Antiquité à l'abolition",
         emoji: "⛓️",
       },
       {
-        name: "Pandemies",
+        name: "Pandémies",
         href: "/pandemies",
         description: "De la peste noire au COVID",
         emoji: "🦠",
@@ -93,53 +93,53 @@ const categories = [
       {
         name: "Philosophie",
         href: "/philosophie",
-        description: "De Socrate a Sartre",
+        description: "De Socrate à Sartre",
         emoji: "🏛️",
       },
       {
-        name: "Litterature",
+        name: "Littérature",
         href: "/litterature",
-        description: "D'Homere a Garcia Marquez",
+        description: "D'Homère à García Márquez",
         emoji: "✍️",
       },
       {
         name: "Peinture",
         href: "/peinture",
-        description: "De Giotto a Bacon",
+        description: "De Giotto à Bacon",
         emoji: "🎨",
       },
       {
         name: "Architecture",
         href: "/architecture",
-        description: "De l'Egypte antique au durable",
+        description: "De l'Égypte antique au durable",
         emoji: "🏗️",
       },
       {
         name: "Musique classique",
         href: "/musique-classique",
-        description: "De Monteverdi a Glass",
+        description: "De Monteverdi à Glass",
         emoji: "🎼",
       },
       {
         name: "Jazz",
         href: "/jazz",
-        description: "De Louis Armstrong a Esperanza Spalding",
+        description: "De Louis Armstrong à Esperanza Spalding",
         emoji: "🎺",
       },
       {
         name: "Photographie",
         href: "/photographie",
-        description: "Du daguerreotype au smartphone",
+        description: "Du daguerréotype au smartphone",
         emoji: "📷",
       },
       {
-        name: "Cinema",
+        name: "Cinéma",
         href: "/cinema",
-        description: "De Melies a Bong Joon-ho",
+        description: "De Méliès à Bong Joon-ho",
         emoji: "🎬",
       },
       {
-        name: "Arts decoratifs",
+        name: "Arts décoratifs",
         href: "/arts-decoratifs",
         description: "Du Gothique au design contemporain",
         emoji: "🪑",
@@ -147,37 +147,37 @@ const categories = [
     ],
   },
   {
-    name: "Societe",
+    name: "Société",
     emoji: "🏛️",
     subjects: [
       {
         name: "Mouvements politiques",
         href: "/mouvements-politiques",
-        description: "De la Republique romaine au populisme",
+        description: "De la République romaine au populisme",
         emoji: "⚖️",
       },
       {
-        name: "Democratie",
+        name: "Démocratie",
         href: "/democratie",
-        description: "D'Athenes au recul democratique",
+        description: "D'Athènes au recul démocratique",
         emoji: "🗳️",
       },
       {
         name: "Droits civiques",
         href: "/droits-civiques",
-        description: "De l'abolition a #MeToo",
+        description: "De l'abolition à #MeToo",
         emoji: "✊",
       },
       {
-        name: "Revolutions industrielles",
+        name: "Révolutions industrielles",
         href: "/revolutions-industrielles",
-        description: "De la vapeur a l'IA",
+        description: "De la vapeur à l'IA",
         emoji: "🏭",
       },
       {
-        name: "Economie",
+        name: "Économie",
         href: "/economie",
-        description: "D'Adam Smith a Piketty",
+        description: "D'Adam Smith à Piketty",
         emoji: "📈",
       },
       {
@@ -189,7 +189,7 @@ const categories = [
       {
         name: "Psychologie",
         href: "/psychologie",
-        description: "De Freud a Kahneman",
+        description: "De Freud à Kahneman",
         emoji: "🧠",
       },
     ],
@@ -201,13 +201,13 @@ const categories = [
       {
         name: "Religions",
         href: "/religions",
-        description: "De l'animisme a l'oecumenisme",
+        description: "De l'animisme à l'œcuménisme",
         emoji: "🕊️",
       },
       {
         name: "Mythologies",
         href: "/mythologies",
-        description: "Des dieux grecs aux reves aborigenes",
+        description: "Des dieux grecs aux rêves aborigènes",
         emoji: "🐉",
       },
     ],
@@ -224,14 +224,14 @@ export default function HomePage() {
           Culture
         </h1>
         <p className="mt-3 max-w-xl text-muted-foreground sm:text-lg">
-          Explorez l'histoire des idees, des arts et des techniques a travers des frises chronologiques interactives.
+          Explorez l’histoire des idées, des arts et des techniques à travers des frises chronologiques interactives.
         </p>
         <Link
           href="/tout"
           className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow hover:bg-primary/90 transition-colors"
         >
           <Shuffle className="h-4 w-4" />
-          Explorer toutes les categories
+          Explorer toutes les catégories
         </Link>
       </section>
 

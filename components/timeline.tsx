@@ -19,12 +19,22 @@ interface TimelineItem {
   keyIdeas?: string[];
   category?: string;
   categoryEmoji?: string;
+  itemType?: "person" | "topic";
 }
 
 interface TimelineProps {
   items: TimelineItem[];
   title: string;
   showCategory?: boolean;
+  itemType?: "person" | "topic";
+}
+
+// Section labels: "Biographie / Œuvres" for people, "Description / Points clés" for concepts and events
+function sectionLabels(item: TimelineItem, defaultType: "person" | "topic") {
+  const type = item.itemType ?? defaultType;
+  return type === "person"
+    ? { summary: "Biographie", works: "Œuvres principales" }
+    : { summary: "Description", works: "Points clés" };
 }
 
 interface PositionedItem extends TimelineItem {
@@ -142,7 +152,7 @@ function calculatePositions(
   return result;
 }
 
-function TimelineContent({ items, title, showCategory }: TimelineProps) {
+function TimelineContent({ items, title, showCategory, itemType = "person" }: TimelineProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -165,14 +175,10 @@ function TimelineContent({ items, title, showCategory }: TimelineProps) {
     const index = sortedItems.findIndex((item) => item.id === urlItemId);
     if (index === -1) return;
 
-    // Only update if different from current selection
-    if (index !== selectedIndex) {
-      setSelectedIndex(index);
-      // Open drawer on mobile
-      const isMobile = window.innerWidth < 768;
-      if (isMobile) {
-        setDrawerOpen(true);
-      }
+    setSelectedIndex(index);
+    // Open drawer on mobile (also for index 0, selected by default)
+    if (window.innerWidth < 768) {
+      setDrawerOpen(true);
     }
   }, [urlItemId, sortedItems]);
 
@@ -347,11 +353,11 @@ function TimelineContent({ items, title, showCategory }: TimelineProps) {
                 className={cn(
                   "absolute flex items-center cursor-pointer group",
                   // Mobile: all items on the right of the line
-                  "left-6 pl-10",
-                  // Desktop: alternate left/right
+                  "left-6 pl-10 max-w-[calc(100%-1.5rem)]",
+                  // Desktop: alternate left/right, capped at half the column so cards never overflow the edges
                   item.isLeft
-                    ? "md:left-auto md:right-1/2 md:pl-0 md:pr-20 md:flex-row-reverse"
-                    : "md:left-1/2 md:pl-20"
+                    ? "md:left-auto md:right-1/2 md:pl-0 md:pr-20 md:flex-row-reverse md:max-w-[50%]"
+                    : "md:left-1/2 md:pl-20 md:max-w-[50%]"
                 )}
                 style={{ top: `${item.displayPosition}px` }}
                 onClick={() => {
@@ -379,7 +385,7 @@ function TimelineContent({ items, title, showCategory }: TimelineProps) {
                 {/* Card */}
                 <div
                   className={cn(
-                    "flex items-center gap-2 md:gap-3 p-2 md:p-3 rounded-lg border bg-card shadow-sm transition-all",
+                    "flex items-center gap-2 md:gap-3 p-2 md:p-3 rounded-lg border bg-card shadow-sm transition-all min-w-0",
                     // Desktop: reverse direction for left items
                     item.isLeft ? "md:flex-row-reverse" : "flex-row",
                     selectedItem?.id === item.id
@@ -394,7 +400,7 @@ function TimelineContent({ items, title, showCategory }: TimelineProps) {
                     </AvatarFallback>
                   </Avatar>
                   <div className={cn("flex flex-col min-w-0", item.isLeft ? "md:items-end" : "items-start")}>
-                    <span className="font-semibold text-xs md:text-sm truncate max-w-[140px] md:max-w-none">{item.name}</span>
+                    <span className="font-semibold text-xs md:text-sm truncate max-w-[140px] md:max-w-full">{item.name}</span>
                     <span className="text-[10px] md:text-xs text-muted-foreground">
                       {formatYear(item.birthYear)}
                       {item.deathYear && ` - ${formatYear(item.deathYear)}`}
@@ -415,14 +421,14 @@ function TimelineContent({ items, title, showCategory }: TimelineProps) {
           <button
             onClick={goToPrevious}
             className="p-2 rounded-full bg-background border shadow-md hover:bg-accent transition-colors"
-            aria-label="Element precedent"
+            aria-label="Élément précédent"
           >
             <ChevronUp className="h-4 w-4" />
           </button>
           <button
             onClick={goToNext}
             className="p-2 rounded-full bg-background border shadow-md hover:bg-accent transition-colors"
-            aria-label="Element suivant"
+            aria-label="Élément suivant"
           >
             <ChevronDown className="h-4 w-4" />
           </button>
@@ -473,14 +479,14 @@ function TimelineContent({ items, title, showCategory }: TimelineProps) {
             {/* Content */}
             <div className="mt-6 space-y-6">
               <div>
-                <h3 className="font-semibold mb-2">Biographie</h3>
+                <h3 className="font-semibold mb-2">{sectionLabels(selectedItem, itemType).summary}</h3>
                 <p className="text-sm text-muted-foreground whitespace-pre-line leading-relaxed">
                   {selectedItem.summary}
                 </p>
               </div>
 
               <div>
-                <h3 className="font-semibold mb-2">Oeuvres principales</h3>
+                <h3 className="font-semibold mb-2">{sectionLabels(selectedItem, itemType).works}</h3>
                 <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                   {selectedItem.mainWorks.map((work, i) => (
                     <li key={i}>{work}</li>
@@ -490,7 +496,7 @@ function TimelineContent({ items, title, showCategory }: TimelineProps) {
 
               {selectedItem.keyIdeas && selectedItem.keyIdeas.length > 0 && (
                 <div>
-                  <h3 className="font-semibold mb-2">Idees cles</h3>
+                  <h3 className="font-semibold mb-2">Idées clés</h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedItem.keyIdeas.map((idea, i) => (
                       <span
@@ -551,7 +557,7 @@ function TimelineContent({ items, title, showCategory }: TimelineProps) {
             {sortedItems.map((item, index) => (
               <div
                 key={item.id}
-                className="flex-shrink-0 w-full snap-center overflow-y-auto px-4 py-4"
+                className="flex-shrink-0 w-full snap-center overflow-y-auto px-4 pt-4 pb-24"
               >
                 {/* Item header */}
                 <div className="flex items-center gap-4 mb-4">
@@ -589,14 +595,14 @@ function TimelineContent({ items, title, showCategory }: TimelineProps) {
                 {/* Content */}
                 <div className="space-y-5">
                   <div>
-                    <h3 className="font-semibold mb-2">Biographie</h3>
+                    <h3 className="font-semibold mb-2">{sectionLabels(item, itemType).summary}</h3>
                     <p className="text-sm text-muted-foreground whitespace-pre-line leading-relaxed">
                       {item.summary}
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="font-semibold mb-2">Œuvres principales</h3>
+                    <h3 className="font-semibold mb-2">{sectionLabels(item, itemType).works}</h3>
                     <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                       {item.mainWorks.map((work, i) => (
                         <li key={i}>{work}</li>
@@ -626,18 +632,17 @@ function TimelineContent({ items, title, showCategory }: TimelineProps) {
           </div>
 
           {/* Bottom navigation */}
-          <div className="fixed bottom-14 left-0 right-0 h-14 flex items-center justify-center gap-6 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-t">
+          <div className="absolute bottom-[4.5rem] left-0 right-0 flex items-center justify-center gap-8 pointer-events-none">
             <button
               onClick={() => scrollToItemInDrawer(selectedIndex > 0 ? selectedIndex - 1 : sortedItems.length - 1)}
-              className="p-3 rounded-full bg-background border shadow-sm hover:bg-accent transition-colors"
+              className="pointer-events-auto p-2.5 rounded-full bg-background/80 backdrop-blur border shadow-sm hover:bg-accent transition-colors"
               aria-label="Précédent"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
-            <span className="text-xs text-muted-foreground">Swipez pour naviguer</span>
             <button
               onClick={() => scrollToItemInDrawer(selectedIndex < sortedItems.length - 1 ? selectedIndex + 1 : 0)}
-              className="p-3 rounded-full bg-background border shadow-sm hover:bg-accent transition-colors"
+              className="pointer-events-auto p-2.5 rounded-full bg-background/80 backdrop-blur border shadow-sm hover:bg-accent transition-colors"
               aria-label="Suivant"
             >
               <ChevronRight className="h-5 w-5" />

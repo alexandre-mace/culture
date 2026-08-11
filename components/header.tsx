@@ -23,6 +23,7 @@ import {
 import { Search, Shuffle } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { navigationCategories, searchItems } from "@/lib/search-data";
+import { stripAccents } from "@/lib/utils";
 
 export function Header() {
   const [open, setOpen] = React.useState(false);
@@ -112,12 +113,12 @@ export function Header() {
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Rechercher..." />
         <CommandList className="max-h-[400px]">
-          <CommandEmpty>Aucun resultat.</CommandEmpty>
+          <CommandEmpty>Aucun résultat.</CommandEmpty>
           <CommandGroup heading="Timelines">
             {navigationCategories.flatMap((cat) => cat.items).map((item) => (
               <CommandItem
                 key={item.href}
-                value={`timeline ${item.name}`}
+                value={`timeline ${item.name} ${stripAccents(item.name)}`}
                 onSelect={() => {
                   router.push(item.href);
                   setOpen(false);
@@ -127,11 +128,11 @@ export function Header() {
               </CommandItem>
             ))}
           </CommandGroup>
-          <CommandGroup heading="Personnes & Evenements">
+          <CommandGroup heading="Personnes & Événements">
             {searchItems.map((item) => (
               <CommandItem
                 key={item.href}
-                value={`${item.name} ${item.category}`}
+                value={`${item.name} ${item.category} ${stripAccents(`${item.name} ${item.category}`)}`}
                 onSelect={() => {
                   router.push(item.href);
                   setOpen(false);

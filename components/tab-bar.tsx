@@ -21,35 +21,36 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer";
 import { navigationCategories, searchItems } from "@/lib/search-data";
+import { stripAccents } from "@/lib/utils";
 
 // Category emojis mapping
 const categoryEmojis: Record<string, string> = {
   "Astronomie": "🔭",
   "Physique": "⚛️",
-  "Mathematiques": "🔢",
+  "Mathématiques": "🔢",
   "Biologie": "🧬",
-  "Medecine": "⚕️",
+  "Médecine": "⚕️",
   "Inventions": "💡",
-  "Epoques": "🦕",
+  "Époques": "🦕",
   "Explorations": "🧭",
   "Empires": "👑",
   "Guerres": "⚔️",
   "Esclavage": "⛓️",
-  "Pandemies": "🦠",
+  "Pandémies": "🦠",
   "Philosophie": "🏛️",
-  "Litterature": "✍️",
+  "Littérature": "✍️",
   "Peinture": "🎨",
   "Architecture": "🏗️",
   "Musique classique": "🎼",
   "Jazz": "🎺",
   "Photographie": "📷",
-  "Cinema": "🎬",
-  "Arts decoratifs": "🪑",
+  "Cinéma": "🎬",
+  "Arts décoratifs": "🪑",
   "Mouvements politiques": "⚖️",
-  "Democratie": "🗳️",
+  "Démocratie": "🗳️",
   "Droits civiques": "✊",
-  "Revolutions industrielles": "🏭",
-  "Economie": "📈",
+  "Révolutions industrielles": "🏭",
+  "Économie": "📈",
   "Monnaies & Banques": "💰",
   "Psychologie": "🧠",
   "Religions": "🕊️",
@@ -61,7 +62,7 @@ export function TabBar() {
   const router = useRouter();
   const [searchOpen, setSearchOpen] = useState(false);
   const [subjectOpen, setSubjectOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -115,16 +116,16 @@ export function TabBar() {
 
           {/* Theme toggle */}
           <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
             className="flex flex-col items-center justify-center gap-1 flex-1 h-full text-muted-foreground hover:text-foreground transition-colors"
           >
-            {mounted && theme === "dark" ? (
+            {mounted && resolvedTheme === "dark" ? (
               <Sun className="h-5 w-5" />
             ) : (
               <Moon className="h-5 w-5" />
             )}
             <span className="text-[10px]">
-              {mounted && theme === "dark" ? "Clair" : "Sombre"}
+              {mounted && resolvedTheme === "dark" ? "Clair" : "Sombre"}
             </span>
           </button>
         </div>
@@ -194,12 +195,12 @@ export function TabBar() {
       <CommandDialog open={searchOpen} onOpenChange={setSearchOpen}>
         <CommandInput placeholder="Rechercher..." />
         <CommandList className="max-h-[60vh]">
-          <CommandEmpty>Aucun resultat.</CommandEmpty>
+          <CommandEmpty>Aucun résultat.</CommandEmpty>
           <CommandGroup heading="Timelines">
             {navigationCategories.flatMap((cat) => cat.items).map((item) => (
               <CommandItem
                 key={item.href}
-                value={`timeline ${item.name}`}
+                value={`timeline ${item.name} ${stripAccents(item.name)}`}
                 onSelect={() => {
                   router.push(item.href);
                   setSearchOpen(false);
@@ -209,11 +210,11 @@ export function TabBar() {
               </CommandItem>
             ))}
           </CommandGroup>
-          <CommandGroup heading="Personnes & Evenements">
+          <CommandGroup heading="Personnes & Événements">
             {searchItems.map((item) => (
               <CommandItem
                 key={item.href}
-                value={`${item.name} ${item.category}`}
+                value={`${item.name} ${item.category} ${stripAccents(`${item.name} ${item.category}`)}`}
                 onSelect={() => {
                   router.push(item.href);
                   setSearchOpen(false);
