@@ -30,7 +30,7 @@ import { wars } from "@/data/wars";
 import { moneyBanking } from "@/data/money-banking";
 import { religions } from "@/data/religions";
 import { industrialRevolutions } from "@/data/industrial-revolutions";
-// epochs excluded - geological timescales (-5Ga) break the timeline scale
+import { epochs } from "@/data/epochs";
 import { pandemics } from "@/data/pandemics";
 import { civilRights } from "@/data/civil-rights";
 import { democracy } from "@/data/democracy";
@@ -64,6 +64,7 @@ const categories = [
   { data: religions, prefix: "rel", name: "Religions", emoji: "🕊️" , type: "topic" as const },
   { data: industrialRevolutions, prefix: "indus", name: "Révolutions industrielles", emoji: "🏭" , type: "topic" as const },
   { data: pandemics, prefix: "pand", name: "Pandémies", emoji: "🦠" , type: "topic" as const },
+  { data: epochs, prefix: "epoch", name: "Époques", emoji: "🦕", type: "topic" as const },
   { data: civilRights, prefix: "civil", name: "Droits civiques", emoji: "✊" , type: "topic" as const },
   { data: democracy, prefix: "demo", name: "Démocratie", emoji: "🗳️" , type: "topic" as const },
   { data: mythologies, prefix: "myth", name: "Mythologies", emoji: "🐉" , type: "topic" as const },
@@ -85,35 +86,36 @@ const allItems = categories.flatMap((cat) =>
 export default function ToutPage() {
   const [mode, setMode] = useState<"timeline" | "shuffle">("timeline");
 
+  // Rendered inside each view's header row (Timeline title / ShuffleView header)
+  const modeToggle = (
+    <div className="flex bg-background/95 backdrop-blur border rounded-lg p-1 shadow-sm">
+      <Button
+        variant={mode === "timeline" ? "secondary" : "ghost"}
+        size="sm"
+        onClick={() => setMode("timeline")}
+        className="gap-1.5 h-7"
+      >
+        <ListOrdered className="h-4 w-4" />
+        <span className="hidden sm:inline">Chrono</span>
+      </Button>
+      <Button
+        variant={mode === "shuffle" ? "secondary" : "ghost"}
+        size="sm"
+        onClick={() => setMode("shuffle")}
+        className="gap-1.5 h-7"
+      >
+        <Shuffle className="h-4 w-4" />
+        <span className="hidden sm:inline">Shuffle</span>
+      </Button>
+    </div>
+  );
+
   return (
     <div className="relative">
-      {/* Mode toggle - fixed position */}
-      <div className="fixed top-12 md:top-14 right-4 z-40 flex bg-background/95 backdrop-blur border rounded-lg p-1 shadow-sm">
-        <Button
-          variant={mode === "timeline" ? "secondary" : "ghost"}
-          size="sm"
-          onClick={() => setMode("timeline")}
-          className="gap-1.5 h-8"
-        >
-          <ListOrdered className="h-4 w-4" />
-          <span className="hidden sm:inline">Chrono</span>
-        </Button>
-        <Button
-          variant={mode === "shuffle" ? "secondary" : "ghost"}
-          size="sm"
-          onClick={() => setMode("shuffle")}
-          className="gap-1.5 h-8"
-        >
-          <Shuffle className="h-4 w-4" />
-          <span className="hidden sm:inline">Shuffle</span>
-        </Button>
-      </div>
-
-      {/* Content based on mode */}
       {mode === "timeline" ? (
-        <Timeline items={allItems} title="Toutes les catégories" showCategory />
+        <Timeline items={allItems} title="Toutes les catégories" showCategory titleExtra={modeToggle} />
       ) : (
-        <ShuffleView items={allItems} />
+        <ShuffleView items={allItems} headerExtra={modeToggle} />
       )}
     </div>
   );

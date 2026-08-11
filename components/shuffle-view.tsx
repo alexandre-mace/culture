@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect, useMemo, useCallback } from "react";
+import { useState, useRef, useEffect, useMemo, useCallback, type ReactNode } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ChevronLeft, ChevronRight, Share2, Check, Dices } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -23,6 +23,8 @@ interface ShuffleItem {
 
 interface ShuffleViewProps {
   items: ShuffleItem[];
+  /** Extra controls rendered at the right of the header (e.g. /tout mode toggle) */
+  headerExtra?: ReactNode;
 }
 
 function formatYear(year: number): string {
@@ -78,7 +80,7 @@ function shuffleArray<T>(array: T[], seed: number): T[] {
   return result;
 }
 
-export function ShuffleView({ items }: ShuffleViewProps) {
+export function ShuffleView({ items, headerExtra }: ShuffleViewProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [shuffleSeed, setShuffleSeed] = useState(() =>
     typeof window !== "undefined" ? Math.floor(Math.random() * 10000) : 42
@@ -183,8 +185,7 @@ export function ShuffleView({ items }: ShuffleViewProps) {
             </span>
           )}
         </div>
-        {/* right padding keeps these clear of the fixed Chrono/Shuffle toggle on /tout */}
-        <div className="flex items-center gap-1 pr-24 sm:pr-56">
+        <div className="flex items-center gap-1">
           <Button
             variant="ghost"
             size="icon"
@@ -197,6 +198,7 @@ export function ShuffleView({ items }: ShuffleViewProps) {
           <Button variant="ghost" size="icon" onClick={shareItem} className="h-9 w-9">
             {copied ? <Check className="h-4 w-4" /> : <Share2 className="h-4 w-4" />}
           </Button>
+          {headerExtra}
         </div>
       </div>
 

@@ -123,6 +123,11 @@ const dataCategories = [
   { data: decorativeStyles, href: "/arts-decoratifs", name: "Arts décoratifs" },
 ];
 
+// Number of entries per subject route (used on the home page cards)
+export const subjectCounts: Record<string, number> = Object.fromEntries(
+  dataCategories.map((cat) => [cat.href, cat.data.length])
+);
+
 // All searchable items with their routes
 export interface SearchItem {
   id: string;

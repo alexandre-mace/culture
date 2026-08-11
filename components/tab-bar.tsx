@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Home, Library, Search, Moon, Sun, Shuffle } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useState, useEffect } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
 import {
   CommandDialog,
@@ -63,11 +63,12 @@ export function TabBar() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [subjectOpen, setSubjectOpen] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  // true after hydration, false during SSR — avoids a theme-dependent hydration mismatch
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
 
   const isHome = pathname === "/";
   const isTout = pathname === "/tout";

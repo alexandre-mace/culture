@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, Suspense, useCallback, useMemo } from "react";
+import { useState, useEffect, useRef, Suspense, useCallback, useMemo, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, Share2, Check, X } from "lucide-react";
@@ -27,6 +27,8 @@ interface TimelineProps {
   title: string;
   showCategory?: boolean;
   itemType?: "person" | "topic";
+  /** Extra controls rendered at the right of the sticky title row (e.g. /tout mode toggle) */
+  titleExtra?: ReactNode;
 }
 
 // Section labels: "Biographie / Œuvres" for people, "Description / Points clés" for concepts and events
@@ -163,7 +165,7 @@ function buildTimeScale(sortedItems: TimelineItem[]): TimeScale {
   return { positions, yearToY, totalHeight: y + 100 };
 }
 
-function TimelineContent({ items, title, showCategory, itemType = "person" }: TimelineProps) {
+function TimelineContent({ items, title, showCategory, itemType = "person", titleExtra }: TimelineProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -230,15 +232,39 @@ function TimelineContent({ items, title, showCategory, itemType = "person" }: Ti
     [sortedItems, positions]
   );
 
-  // Markers mapped on the compressed scale; drop the ones that would pile up
-  // inside a compressed stretch
+  // Markers mapped on the compressed scale:
+  // - dense stretches get extra "nice" sub-markers so long pixel spans keep landmarks
+  // - markers that would pile up inside a compressed stretch are dropped
   const markerPoints = useMemo(() => {
+    const niceCeil = (value: number): number => {
+      const magnitude = Math.pow(10, Math.floor(Math.log10(value)));
+      const normalized = value / magnitude;
+      const multiplier = normalized <= 1 ? 1 : normalized <= 2 ? 2 : normalized <= 5 ? 5 : 10;
+      return multiplier * magnitude;
+    };
+
+    const base = getYearMarkers(items);
+    const years = new Set(base);
+    for (let i = 0; i < base.length - 1; i++) {
+      const gapPx = yearToY(base[i + 1]) - yearToY(base[i]);
+      if (gapPx > 400) {
+        const parts = Math.min(10, Math.ceil(gapPx / 300));
+        const sub = Math.max(1, niceCeil((base[i + 1] - base[i]) / parts));
+        for (let year = base[i] + sub; year < base[i + 1]; year += sub) {
+          years.add(year);
+        }
+      }
+    }
+
     const points: { year: number; y: number }[] = [];
-    for (const year of getYearMarkers(items)) {
-      // keep the first marker low enough for its label (rendered above the dot on mobile)
+    for (const year of [...years].sort((a, b) => a - b)) {
+      // keep markers low enough for their label (rendered above the dot on mobile)
       const y = Math.max(28, yearToY(year));
       if (points.length === 0 || y - points[points.length - 1].y >= 48) {
         points.push({ year, y });
+      } else if (points[points.length - 1].y <= 28) {
+        // a clamped edge marker yields to the first real one (e.g. -5.0 Ga vs -4.5 Ga)
+        points[points.length - 1] = { year, y };
       }
     }
     return points;
@@ -344,9 +370,19 @@ function TimelineContent({ items, title, showCategory, itemType = "person" }: Ti
     <div className="relative w-full h-[calc(100vh-3.5rem)] md:h-[calc(100vh-3rem)] flex">
       {/* Left side - Timeline */}
       <div ref={timelineContainerRef} className="w-full md:w-1/2 overflow-y-auto relative">
-        <h1 className="sticky top-0 z-20 text-xl font-semibold text-center py-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-          {title}
-        </h1>
+        <div className="sticky top-0 z-20 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+          <h1
+            className={cn(
+              "font-semibold text-center py-4",
+              titleExtra ? "text-lg md:text-xl px-14 md:px-28 truncate" : "text-xl"
+            )}
+          >
+            {title}
+          </h1>
+          {titleExtra && (
+            <div className="absolute right-3 top-1/2 -translate-y-1/2">{titleExtra}</div>
+          )}
+        </div>
 
         <div className="relative mx-auto max-w-4xl pb-8 px-4 md:px-0">
           {/* Timeline container */}
@@ -658,20 +694,20 @@ function TimelineContent({ items, title, showCategory, itemType = "person" }: Ti
           </div>
 
           {/* Bottom navigation */}
-          <div className="absolute bottom-[4.5rem] left-0 right-0 flex items-center justify-center gap-8 pointer-events-none">
+          <div className="absolute bottom-[4.25rem] left-0 right-0 flex items-center justify-center gap-6 pointer-events-none">
             <button
               onClick={() => scrollToItemInDrawer(selectedIndex > 0 ? selectedIndex - 1 : sortedItems.length - 1)}
-              className="pointer-events-auto p-2.5 rounded-full bg-background/80 backdrop-blur border shadow-sm hover:bg-accent transition-colors"
+              className="pointer-events-auto p-2 rounded-full bg-background/70 backdrop-blur border shadow-sm hover:bg-accent transition-colors"
               aria-label="Précédent"
             >
-              <ChevronLeft className="h-5 w-5" />
+              <ChevronLeft className="h-4 w-4" />
             </button>
             <button
               onClick={() => scrollToItemInDrawer(selectedIndex < sortedItems.length - 1 ? selectedIndex + 1 : 0)}
-              className="pointer-events-auto p-2.5 rounded-full bg-background/80 backdrop-blur border shadow-sm hover:bg-accent transition-colors"
+              className="pointer-events-auto p-2 rounded-full bg-background/70 backdrop-blur border shadow-sm hover:bg-accent transition-colors"
               aria-label="Suivant"
             >
-              <ChevronRight className="h-5 w-5" />
+              <ChevronRight className="h-4 w-4" />
             </button>
           </div>
         </div>

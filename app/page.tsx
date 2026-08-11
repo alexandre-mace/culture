@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Shuffle } from "lucide-react";
+import { subjectCounts } from "@/lib/search-data";
 
 const categories = [
   {
@@ -259,6 +260,11 @@ export default function HomePage() {
                       {subject.description}
                     </p>
                   </div>
+                  {subjectCounts[subject.href] && (
+                    <span className="ml-auto shrink-0 text-xs text-muted-foreground tabular-nums">
+                      {subjectCounts[subject.href]}
+                    </span>
+                  )}
                 </Link>
               ))}
             </div>
