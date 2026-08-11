@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Shuffle } from "lucide-react";
 import { subjectCounts } from "@/lib/search-data";
+import { SubjectProgress } from "@/components/subject-progress";
+import { FavoritesLink } from "@/components/favorites-link";
 
 const categories = [
   {
@@ -234,6 +236,7 @@ export default function HomePage() {
           <Shuffle className="h-4 w-4" />
           Explorer toutes les catégories
         </Link>
+        <FavoritesLink />
       </section>
 
       {/* Categories */}
@@ -261,8 +264,8 @@ export default function HomePage() {
                     </p>
                   </div>
                   {subjectCounts[subject.href] && (
-                    <span className="ml-auto shrink-0 text-xs text-muted-foreground tabular-nums">
-                      {subjectCounts[subject.href]}
+                    <span className="ml-auto shrink-0">
+                      <SubjectProgress href={subject.href} total={subjectCounts[subject.href]} />
                     </span>
                   )}
                 </Link>

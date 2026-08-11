@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Home, Library, Search, Moon, Sun, Shuffle } from "lucide-react";
+import { Home, Library, Search, Moon, Sun, Shuffle, Brain } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState, useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
@@ -72,7 +72,8 @@ export function TabBar() {
 
   const isHome = pathname === "/";
   const isTout = pathname === "/tout";
-  const isTimeline = !isHome && pathname !== "/tout";
+  const isQuiz = pathname === "/quiz";
+  const isTimeline = !isHome && !isTout && !isQuiz && pathname !== "/favoris";
 
   return (
     <>
@@ -114,6 +115,20 @@ export function TabBar() {
             <Search className="h-5 w-5" />
             <span className="text-[10px]">Recherche</span>
           </button>
+
+          {/* Quiz */}
+          <Link
+            href="/quiz"
+            className={cn(
+              "flex flex-col items-center justify-center gap-1 flex-1 h-full",
+              isQuiz
+                ? "text-primary"
+                : "text-muted-foreground hover:text-foreground transition-colors"
+            )}
+          >
+            <Brain className="h-5 w-5" />
+            <span className="text-[10px]">Quiz</span>
+          </Link>
 
           {/* Theme toggle */}
           <button
@@ -215,7 +230,7 @@ export function TabBar() {
             {searchItems.map((item) => (
               <CommandItem
                 key={item.href}
-                value={`${item.name} ${item.category} ${stripAccents(`${item.name} ${item.category}`)}`}
+                value={`${item.name} ${item.category} ${item.movement} ${stripAccents(`${item.name} ${item.category} ${item.movement}`)}`}
                 onSelect={() => {
                   router.push(item.href);
                   setSearchOpen(false);

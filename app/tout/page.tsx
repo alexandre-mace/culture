@@ -1,122 +1,139 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Timeline } from "@/components/timeline";
 import { ShuffleView } from "@/components/shuffle-view";
 import { Button } from "@/components/ui/button";
-import { ListOrdered, Shuffle } from "lucide-react";
+import { ListOrdered, Shuffle, Funnel } from "lucide-react";
+import { allItems, categoryRegistry } from "@/lib/all-items";
+import { cn } from "@/lib/utils";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+} from "@/components/ui/drawer";
 
-// Import all data
-import { philosophers } from "@/data/philosophers";
-import { writers } from "@/data/writers";
-import { painters } from "@/data/painters";
-import { filmmakers } from "@/data/filmmakers";
-import { architecturalStyles } from "@/data/architecture";
-import { composers } from "@/data/classical-music";
-import { inventions } from "@/data/inventions";
-import { astronomyItems } from "@/data/astronomy";
-import { medicine } from "@/data/medicine";
-import { explorations } from "@/data/explorations";
-import { politicalMovements } from "@/data/political-movements";
-import { mathematics } from "@/data/mathematics";
-import { physics } from "@/data/physics";
-import { biology } from "@/data/biology";
-import { jazz } from "@/data/jazz";
-import { economics } from "@/data/economics";
-import { empires } from "@/data/empires";
-import { slavery } from "@/data/slavery";
-import { psychology } from "@/data/psychology";
-import { wars } from "@/data/wars";
-import { moneyBanking } from "@/data/money-banking";
-import { religions } from "@/data/religions";
-import { industrialRevolutions } from "@/data/industrial-revolutions";
-import { epochs } from "@/data/epochs";
-import { pandemics } from "@/data/pandemics";
-import { civilRights } from "@/data/civil-rights";
-import { democracy } from "@/data/democracy";
-import { mythologies } from "@/data/mythologies";
-import { cameras } from "@/data/cameras";
-import { decorativeStyles } from "@/data/decorative-arts";
-
-// Categories with metadata
-const categories = [
-  { data: philosophers, prefix: "philo", name: "Philosophie", emoji: "🏛️" , type: "person" as const },
-  { data: writers, prefix: "lit", name: "Littérature", emoji: "✍️" , type: "person" as const },
-  { data: painters, prefix: "paint", name: "Peinture", emoji: "🎨" , type: "person" as const },
-  { data: filmmakers, prefix: "film", name: "Cinéma", emoji: "🎬" , type: "person" as const },
-  { data: architecturalStyles, prefix: "archi", name: "Architecture", emoji: "🏗️" , type: "topic" as const },
-  { data: composers, prefix: "music", name: "Musique classique", emoji: "🎼" , type: "person" as const },
-  { data: inventions, prefix: "inv", name: "Inventions", emoji: "💡" , type: "topic" as const },
-  { data: astronomyItems, prefix: "astro", name: "Astronomie", emoji: "🔭" , type: "person" as const },
-  { data: medicine, prefix: "med", name: "Médecine", emoji: "⚕️" , type: "person" as const },
-  { data: explorations, prefix: "explo", name: "Explorations", emoji: "🧭" , type: "topic" as const },
-  { data: politicalMovements, prefix: "pol", name: "Mouvements politiques", emoji: "⚖️" , type: "topic" as const },
-  { data: mathematics, prefix: "math", name: "Mathématiques", emoji: "🔢" , type: "person" as const },
-  { data: physics, prefix: "phys", name: "Physique", emoji: "⚛️" , type: "person" as const },
-  { data: biology, prefix: "bio", name: "Biologie", emoji: "🧬" , type: "person" as const },
-  { data: jazz, prefix: "jazz", name: "Jazz", emoji: "🎺" , type: "person" as const },
-  { data: economics, prefix: "eco", name: "Économie", emoji: "📈" , type: "person" as const },
-  { data: empires, prefix: "emp", name: "Empires", emoji: "👑" , type: "topic" as const },
-  { data: slavery, prefix: "slav", name: "Esclavage", emoji: "⛓️" , type: "topic" as const },
-  { data: psychology, prefix: "psy", name: "Psychologie", emoji: "🧠" , type: "person" as const },
-  { data: wars, prefix: "war", name: "Guerres", emoji: "⚔️" , type: "topic" as const },
-  { data: moneyBanking, prefix: "money", name: "Monnaies", emoji: "💰" , type: "topic" as const },
-  { data: religions, prefix: "rel", name: "Religions", emoji: "🕊️" , type: "topic" as const },
-  { data: industrialRevolutions, prefix: "indus", name: "Révolutions industrielles", emoji: "🏭" , type: "topic" as const },
-  { data: pandemics, prefix: "pand", name: "Pandémies", emoji: "🦠" , type: "topic" as const },
-  { data: epochs, prefix: "epoch", name: "Époques", emoji: "🦕", type: "topic" as const },
-  { data: civilRights, prefix: "civil", name: "Droits civiques", emoji: "✊" , type: "topic" as const },
-  { data: democracy, prefix: "demo", name: "Démocratie", emoji: "🗳️" , type: "topic" as const },
-  { data: mythologies, prefix: "myth", name: "Mythologies", emoji: "🐉" , type: "topic" as const },
-  { data: cameras, prefix: "photo", name: "Photographie", emoji: "📷" , type: "topic" as const },
-  { data: decorativeStyles, prefix: "deco", name: "Arts décoratifs", emoji: "🪑" , type: "topic" as const },
-];
-
-// Combine all items with prefixed IDs and category info
-const allItems = categories.flatMap((cat) =>
-  cat.data.map((item) => ({
-    ...item,
-    id: `${cat.prefix}-${item.id}`,
-    category: cat.name,
-    categoryEmoji: cat.emoji,
-    itemType: item.itemType ?? cat.type,
-  }))
-);
+const categories = categoryRegistry.map((cat) => ({ name: cat.name, emoji: cat.emoji }));
 
 export default function ToutPage() {
   const [mode, setMode] = useState<"timeline" | "shuffle">("timeline");
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  // empty set = everything visible
+  const [hidden, setHidden] = useState<Set<string>>(new Set());
+
+  const filteredItems = useMemo(() => {
+    if (hidden.size === 0 || hidden.size === categories.length) return allItems;
+    return allItems.filter((item) => !item.category || !hidden.has(item.category));
+  }, [hidden]);
+
+  const activeCount = categories.length - hidden.size;
+  const filterActive = hidden.size > 0 && hidden.size < categories.length;
+
+  const toggleCategory = (name: string) => {
+    setHidden((prev) => {
+      const next = new Set(prev);
+      if (next.has(name)) next.delete(name);
+      else next.add(name);
+      return next;
+    });
+  };
 
   // Rendered inside each view's header row (Timeline title / ShuffleView header)
-  const modeToggle = (
-    <div className="flex bg-background/95 backdrop-blur border rounded-lg p-1 shadow-sm">
+  const controls = (
+    <div className="flex items-center gap-1.5">
       <Button
-        variant={mode === "timeline" ? "secondary" : "ghost"}
+        variant={filterActive ? "secondary" : "ghost"}
         size="sm"
-        onClick={() => setMode("timeline")}
-        className="gap-1.5 h-7"
+        onClick={() => setFiltersOpen(true)}
+        className="gap-1.5 h-7 px-2"
+        aria-label="Filtrer les catégories"
       >
-        <ListOrdered className="h-4 w-4" />
-        <span className="hidden sm:inline">Chrono</span>
+        <Funnel className="h-4 w-4" />
+        {filterActive && <span className="text-xs tabular-nums">{activeCount}</span>}
       </Button>
-      <Button
-        variant={mode === "shuffle" ? "secondary" : "ghost"}
-        size="sm"
-        onClick={() => setMode("shuffle")}
-        className="gap-1.5 h-7"
-      >
-        <Shuffle className="h-4 w-4" />
-        <span className="hidden sm:inline">Shuffle</span>
-      </Button>
+      <div className="flex bg-background/95 backdrop-blur border rounded-lg p-1 shadow-sm">
+        <Button
+          variant={mode === "timeline" ? "secondary" : "ghost"}
+          size="sm"
+          onClick={() => setMode("timeline")}
+          className="gap-1.5 h-7"
+        >
+          <ListOrdered className="h-4 w-4" />
+          <span className="hidden sm:inline">Chrono</span>
+        </Button>
+        <Button
+          variant={mode === "shuffle" ? "secondary" : "ghost"}
+          size="sm"
+          onClick={() => setMode("shuffle")}
+          className="gap-1.5 h-7"
+        >
+          <Shuffle className="h-4 w-4" />
+          <span className="hidden sm:inline">Shuffle</span>
+        </Button>
+      </div>
     </div>
   );
 
   return (
     <div className="relative">
       {mode === "timeline" ? (
-        <Timeline items={allItems} title="Toutes les catégories" showCategory titleExtra={modeToggle} />
+        <Timeline
+          items={filteredItems}
+          title="Toutes les catégories"
+          showCategory
+          titleExtra={controls}
+        />
       ) : (
-        <ShuffleView items={allItems} headerExtra={modeToggle} />
+        <ShuffleView items={filteredItems} headerExtra={controls} />
       )}
+
+      {/* Category filters */}
+      <Drawer open={filtersOpen} onOpenChange={setFiltersOpen}>
+        <DrawerContent className="max-h-[85vh]">
+          <DrawerHeader className="pb-2">
+            <DrawerTitle className="flex items-center justify-between">
+              <span>Filtrer les catégories</span>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-7 text-xs text-muted-foreground"
+                onClick={() => setHidden(new Set())}
+                disabled={hidden.size === 0}
+              >
+                Tout afficher
+              </Button>
+            </DrawerTitle>
+          </DrawerHeader>
+          <div className="px-4 pb-8 overflow-y-auto">
+            <div className="flex flex-wrap gap-2">
+              {categories.map((cat) => {
+                const active = !hidden.has(cat.name);
+                return (
+                  <button
+                    key={cat.name}
+                    onClick={() => toggleCategory(cat.name)}
+                    className={cn(
+                      "inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm transition-colors",
+                      active
+                        ? "bg-primary/10 border-primary/40 text-primary"
+                        : "text-muted-foreground opacity-60 hover:opacity-100"
+                    )}
+                  >
+                    <span>{cat.emoji}</span>
+                    {cat.name}
+                  </button>
+                );
+              })}
+            </div>
+            <p className="mt-4 text-xs text-muted-foreground">
+              {filterActive
+                ? `${activeCount} catégorie${activeCount > 1 ? "s" : ""} affichée${activeCount > 1 ? "s" : ""} · ${filteredItems.length} entrées`
+                : `Toutes les catégories · ${allItems.length} entrées`}
+            </p>
+          </div>
+        </DrawerContent>
+      </Drawer>
     </div>
   );
 }

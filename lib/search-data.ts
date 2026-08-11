@@ -133,6 +133,7 @@ export interface SearchItem {
   id: string;
   name: string;
   category: string;
+  movement: string;
   href: string;
 }
 
@@ -141,6 +142,7 @@ export const searchItems: SearchItem[] = dataCategories.flatMap((cat) =>
     id: item.id,
     name: item.name,
     category: cat.name,
+    movement: item.movement,
     href: `${cat.href}?id=${item.id}`,
   }))
 );

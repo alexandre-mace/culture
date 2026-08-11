@@ -1,10 +1,21 @@
 "use client";
 
-import { useState, useEffect, useRef, Suspense, useCallback, useMemo, type ReactNode } from "react";
+import {
+  useState,
+  useEffect,
+  useRef,
+  Suspense,
+  useCallback,
+  useMemo,
+  useSyncExternalStore,
+  type ReactNode,
+} from "react";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, Share2, Check, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, Share2, Check, X, Star } from "lucide-react";
 import { useSearchParams, usePathname } from "next/navigation";
+import { markRead, isFavorite, toggleFavorite } from "@/lib/user-data";
+import { subjectEmojis } from "@/lib/subject-meta";
 
 interface TimelineItem {
   id: string;
@@ -22,6 +33,13 @@ interface TimelineItem {
   itemType?: "person" | "topic";
 }
 
+interface ContemporaryRef {
+  name: string;
+  href: string;
+  emoji: string;
+  category: string;
+}
+
 interface TimelineProps {
   items: TimelineItem[];
   title: string;
@@ -29,6 +47,8 @@ interface TimelineProps {
   itemType?: "person" | "topic";
   /** Extra controls rendered at the right of the sticky title row (e.g. /tout mode toggle) */
   titleExtra?: ReactNode;
+  /** "Pendant ce temps…" cross-subject links, keyed by item id (computed server-side) */
+  contemporaries?: Record<string, ContemporaryRef[]>;
 }
 
 // Section labels: "Biographie / Œuvres" for people, "Description / Points clés" for concepts and events
@@ -165,7 +185,14 @@ function buildTimeScale(sortedItems: TimelineItem[]): TimeScale {
   return { positions, yearToY, totalHeight: y + 100 };
 }
 
-function TimelineContent({ items, title, showCategory, itemType = "person", titleExtra }: TimelineProps) {
+function TimelineContent({
+  items,
+  title,
+  showCategory,
+  itemType = "person",
+  titleExtra,
+  contemporaries,
+}: TimelineProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -178,6 +205,13 @@ function TimelineContent({ items, title, showCategory, itemType = "person", titl
   const sortedItems = useMemo(() => {
     return [...items].sort((a, b) => a.birthYear - b.birthYear);
   }, [items]);
+
+  // Keep the selection valid when the item list shrinks (e.g. /tout filters)
+  useEffect(() => {
+    if (selectedIndex >= sortedItems.length) {
+      setSelectedIndex(0);
+    }
+  }, [selectedIndex, sortedItems.length]);
 
   // Sync selection with URL param (both on mount and when URL changes via search)
   const urlItemId = searchParams.get("id");
@@ -271,6 +305,35 @@ function TimelineContent({ items, title, showCategory, itemType = "person", titl
   }, [items, yearToY]);
 
   const selectedItem = sortedItems[selectedIndex];
+
+  // Reading history: an item counts as read when its sheet is actually shown
+  useEffect(() => {
+    if (!selectedItem) return;
+    if (drawerOpen || window.innerWidth >= 768) {
+      markRead(pathname, selectedItem.id);
+    }
+  }, [selectedItem, drawerOpen, pathname]);
+
+  // Favorites (favTick forces a re-render after toggling; hydrated avoids an
+  // SSR/client mismatch since localStorage only exists client-side)
+  const [, setFavTick] = useState(0);
+  const hydrated = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
+  const selectedIsFavorite =
+    hydrated && selectedItem ? isFavorite(pathname, selectedItem.id) : false;
+  const handleToggleFavorite = (item: TimelineItem) => {
+    toggleFavorite({
+      href: pathname,
+      id: item.id,
+      name: item.name,
+      category: item.category ?? title,
+      emoji: item.categoryEmoji ?? subjectEmojis[pathname] ?? "📚",
+    });
+    setFavTick((t) => t + 1);
+  };
 
   const goToPrevious = () => {
     const newIndex = selectedIndex > 0 ? selectedIndex - 1 : sortedItems.length - 1;
@@ -374,7 +437,7 @@ function TimelineContent({ items, title, showCategory, itemType = "person", titl
           <h1
             className={cn(
               "font-semibold text-center py-4",
-              titleExtra ? "text-lg md:text-xl px-14 md:px-28 truncate" : "text-xl"
+              titleExtra ? "text-lg md:text-xl px-16 md:px-72 truncate" : "text-xl"
             )}
           >
             {title}
@@ -529,8 +592,21 @@ function TimelineContent({ items, title, showCategory, itemType = "person", titl
                   {selectedItem.movement}
                 </span>
                 <button
-                  onClick={shareItem}
+                  onClick={() => handleToggleFavorite(selectedItem)}
                   className="ml-auto inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
+                  aria-label={selectedIsFavorite ? "Retirer des favoris" : "Ajouter aux favoris"}
+                >
+                  <Star
+                    className={cn(
+                      "h-3 w-3",
+                      selectedIsFavorite && "fill-yellow-500 text-yellow-500"
+                    )}
+                  />
+                  {selectedIsFavorite ? "Favori" : "Favoris"}
+                </button>
+                <button
+                  onClick={shareItem}
+                  className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {copied ? <Check className="h-3 w-3" /> : <Share2 className="h-3 w-3" />}
                   {copied ? "Copié!" : "Partager"}
@@ -571,6 +647,25 @@ function TimelineContent({ items, title, showCategory, itemType = "person", titl
                   </div>
                 </div>
               )}
+
+              {contemporaries?.[selectedItem.id] && (
+                <div>
+                  <h3 className="font-semibold mb-2">Pendant ce temps…</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {contemporaries[selectedItem.id].map((ref) => (
+                      <a
+                        key={ref.href}
+                        href={ref.href}
+                        title={ref.category}
+                        className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium hover:bg-accent hover:border-primary/50 transition-colors"
+                      >
+                        <span>{ref.emoji}</span>
+                        {ref.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Navigation indicator */}
@@ -592,6 +687,20 @@ function TimelineContent({ items, title, showCategory, itemType = "person", titl
               {selectedIndex + 1} / {sortedItems.length}
             </span>
             <div className="flex items-center gap-2">
+              {selectedItem && (
+                <button
+                  onClick={() => handleToggleFavorite(selectedItem)}
+                  className="p-2 rounded-full hover:bg-accent transition-colors"
+                  aria-label={selectedIsFavorite ? "Retirer des favoris" : "Ajouter aux favoris"}
+                >
+                  <Star
+                    className={cn(
+                      "h-5 w-5",
+                      selectedIsFavorite && "fill-yellow-500 text-yellow-500"
+                    )}
+                  />
+                </button>
+              )}
               <button
                 onClick={shareItem}
                 className="p-2 rounded-full hover:bg-accent transition-colors"
@@ -683,6 +792,25 @@ function TimelineContent({ items, title, showCategory, itemType = "person", titl
                           >
                             {idea}
                           </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {contemporaries?.[item.id] && (
+                    <div>
+                      <h3 className="font-semibold mb-2">Pendant ce temps…</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {contemporaries[item.id].map((ref) => (
+                          <a
+                            key={ref.href}
+                            href={ref.href}
+                            title={ref.category}
+                            className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium hover:bg-accent hover:border-primary/50 transition-colors"
+                          >
+                            <span>{ref.emoji}</span>
+                            {ref.name}
+                          </a>
                         ))}
                       </div>
                     </div>

@@ -20,7 +20,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { Search, Shuffle } from "lucide-react";
+import { Search, Shuffle, Brain, Star } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { navigationCategories, searchItems } from "@/lib/search-data";
 import { stripAccents } from "@/lib/utils";
@@ -90,8 +90,33 @@ export function Header() {
           </Link>
         </Button>
 
+        {/* Quiz button */}
+        <Button
+          variant={pathname === "/quiz" ? "secondary" : "ghost"}
+          size="sm"
+          asChild
+          className="gap-1.5"
+        >
+          <Link href="/quiz">
+            <Brain className="h-4 w-4" />
+            Quiz
+          </Link>
+        </Button>
+
         {/* Spacer */}
         <div className="flex-1" />
+
+        {/* Favorites */}
+        <Button
+          variant={pathname === "/favoris" ? "secondary" : "ghost"}
+          size="icon"
+          asChild
+          className="h-8 w-8"
+        >
+          <Link href="/favoris" aria-label="Mes favoris">
+            <Star className="h-4 w-4" />
+          </Link>
+        </Button>
 
         {/* Search button */}
         <Button
@@ -132,7 +157,7 @@ export function Header() {
             {searchItems.map((item) => (
               <CommandItem
                 key={item.href}
-                value={`${item.name} ${item.category} ${stripAccents(`${item.name} ${item.category}`)}`}
+                value={`${item.name} ${item.category} ${item.movement} ${stripAccents(`${item.name} ${item.category} ${item.movement}`)}`}
                 onSelect={() => {
                   router.push(item.href);
                   setOpen(false);

@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { TabBar } from "@/components/tab-bar";
+import { SwRegister } from "@/components/sw-register";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,8 +17,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "http://localhost:3000"
+  ),
   title: "Culture - Frise chronologique interactive",
-  description: "Explorez l'histoire de la philosophie, de la litterature, de l'art et du cinema",
+  description: "Explorez l'histoire de la philosophie, de la littérature, de l'art et du cinéma",
   icons: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' style='dominant-baseline:central;text-anchor:middle;font-size:90px;'>📚</text></svg>",
   manifest: "/manifest.json",
   appleWebApp: {
@@ -46,6 +52,7 @@ export default function RootLayout({
             {children}
           </main>
           <TabBar />
+          <SwRegister />
         </ThemeProvider>
       </body>
     </html>
