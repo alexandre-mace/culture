@@ -83,7 +83,7 @@ export function TabBar() {
 
   return (
     <>
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 pb-[env(safe-area-inset-bottom)]">
         <div className="flex items-center justify-around h-14">
           {/* Accueil */}
           <Link
@@ -136,20 +136,6 @@ export function TabBar() {
             <span className="text-[10px]">Quiz</span>
           </Link>
 
-          {/* Theme toggle */}
-          <button
-            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-            className="flex flex-col items-center justify-center gap-1 flex-1 h-full text-muted-foreground hover:text-foreground transition-colors"
-          >
-            {mounted && resolvedTheme === "dark" ? (
-              <Sun className="h-5 w-5" />
-            ) : (
-              <Moon className="h-5 w-5" />
-            )}
-            <span className="text-[10px]">
-              {mounted && resolvedTheme === "dark" ? "Clair" : "Sombre"}
-            </span>
-          </button>
         </div>
       </nav>
 
@@ -209,6 +195,23 @@ export function TabBar() {
                 </div>
               </div>
             ))}
+
+            {/* Appearance */}
+            <div className="mt-2 border-t pt-4">
+              <button
+                onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-accent transition-colors"
+              >
+                {mounted && resolvedTheme === "dark" ? (
+                  <Sun className="h-5 w-5 text-muted-foreground" />
+                ) : (
+                  <Moon className="h-5 w-5 text-muted-foreground" />
+                )}
+                <span className="text-sm">
+                  {mounted && resolvedTheme === "dark" ? "Passer en thème clair" : "Passer en thème sombre"}
+                </span>
+              </button>
+            </div>
           </div>
         </DrawerContent>
       </Drawer>

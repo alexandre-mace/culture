@@ -174,7 +174,7 @@ export function ShuffleView({ items, headerExtra }: ShuffleViewProps) {
   }, [goToNext, goToPrevious]);
 
   return (
-    <div className="h-[calc(100vh-3.5rem)] md:h-[calc(100vh-3rem)] flex flex-col bg-background">
+    <div className="h-[calc(100dvh-3.5rem-env(safe-area-inset-bottom))] md:h-[calc(100vh-3rem)] flex flex-col bg-background">
       {/* Header */}
       <div className="flex items-center justify-between px-4 h-14 border-b bg-background/95 backdrop-blur">
         <div className="flex items-center gap-3">
@@ -291,7 +291,7 @@ export function ShuffleView({ items, headerExtra }: ShuffleViewProps) {
       </div>
 
       {/* Bottom navigation */}
-      <div className="flex items-center justify-center gap-6 h-16 border-t bg-background/95 backdrop-blur">
+      <div className="flex items-center justify-center gap-6 border-t bg-background/95 backdrop-blur py-2.5">
         <button
           onClick={goToPrevious}
           className="p-3 rounded-full bg-background border shadow-sm hover:bg-accent transition-colors"

@@ -51,7 +51,7 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
-          <main className="pb-14 md:pb-0">
+          <main className="pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-0">
             {children}
           </main>
           <TabBar />

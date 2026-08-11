@@ -530,7 +530,7 @@ function TimelineContent({
   // Mobile: no header, but tab bar (56px = 3.5rem)
   // Desktop: header (48px = 3rem)
   return (
-    <div className="relative w-full h-[calc(100vh-3.5rem)] md:h-[calc(100vh-3rem)] flex">
+    <div className="relative w-full h-[calc(100dvh-3.5rem-env(safe-area-inset-bottom))] md:h-[calc(100vh-3rem)] flex">
       {/* Left side - Timeline */}
       <div ref={timelineContainerRef} className="w-full md:w-1/2 overflow-y-auto relative">
         <div className="sticky top-0 z-20 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -893,7 +893,7 @@ function TimelineContent({
           <div
             ref={drawerScrollRef}
             onScroll={handleDrawerScroll}
-            className="flex overflow-x-auto snap-x snap-mandatory h-[calc(100dvh-3.5rem-3.5rem)] scrollbar-hide"
+            className="flex overflow-x-auto snap-x snap-mandatory h-[calc(100dvh-3.5rem-3.5rem-env(safe-area-inset-bottom))] scrollbar-hide"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {sortedItems.map((item, index) => (
@@ -997,7 +997,7 @@ function TimelineContent({
           </div>
 
           {/* Bottom navigation */}
-          <div className="absolute bottom-[4.25rem] left-0 right-0 flex items-center justify-center gap-6 pointer-events-none">
+          <div className="absolute bottom-[calc(4.25rem+env(safe-area-inset-bottom))] left-0 right-0 flex items-center justify-center gap-6 pointer-events-none">
             <button
               onClick={() => scrollToItemInDrawer(selectedIndex > 0 ? selectedIndex - 1 : sortedItems.length - 1)}
               className="pointer-events-auto p-2 rounded-full bg-background/70 backdrop-blur border shadow-sm hover:bg-accent transition-colors"
