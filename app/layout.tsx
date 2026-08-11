@@ -24,7 +24,10 @@ export const metadata: Metadata = {
   ),
   title: "Culture - Frise chronologique interactive",
   description: "Explorez l'histoire de la philosophie, de la littérature, de l'art et du cinéma",
-  icons: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' style='dominant-baseline:central;text-anchor:middle;font-size:90px;'>📚</text></svg>",
+  icons: {
+    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' style='dominant-baseline:central;text-anchor:middle;font-size:90px;'>📚</text></svg>",
+    apple: "/apple-touch-icon",
+  },
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,

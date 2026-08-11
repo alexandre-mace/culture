@@ -265,7 +265,7 @@ export default function HomePage() {
                   <h3 className="font-medium group-hover:text-primary transition-colors truncate">
                     {parcours.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground truncate">{parcours.description}</p>
+                  <p className="text-sm text-muted-foreground line-clamp-2">{parcours.description}</p>
                 </div>
                 <span className="ml-auto shrink-0 text-xs text-muted-foreground tabular-nums">
                   {parcours.stepCount} ét.
@@ -292,7 +292,7 @@ export default function HomePage() {
                     <h3 className="font-medium group-hover:text-primary transition-colors truncate">
                       {subject.name}
                     </h3>
-                    <p className="text-sm text-muted-foreground truncate">
+                    <p className="text-sm text-muted-foreground line-clamp-2">
                       {subject.description}
                     </p>
                   </div>
