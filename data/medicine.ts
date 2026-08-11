@@ -8,6 +8,7 @@ export interface MedicineItem {
   movement: string;
   family?: string;
   influences?: string[];
+  quotes?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -23,6 +24,9 @@ export const medicine: MedicineItem[] = [
     nationality: "Grec",
     movement: "Médecine antique",
     family: "Médecine ancienne",
+    quotes: [
+      "La vie est courte, l'art est long, l'occasion fugitive, l'expérience trompeuse, le jugement difficile.",
+    ],
     summary:
       "Père de la médecine occidentale, il établit la médecine comme discipline rationnelle séparée de la magie et de la religion. Son serment reste la base de l'éthique médicale.",
     mainWorks: [
@@ -97,6 +101,9 @@ export const medicine: MedicineItem[] = [
     nationality: "Français",
     movement: "Chirurgie de la Renaissance",
     family: "Renaissance & anatomie",
+    quotes: [
+      "Je le pansai, Dieu le guérit.",
+    ],
     summary:
       "Père de la chirurgie moderne, il abandonne la cautérisation au fer rouge pour la ligature des vaisseaux. Chirurgien des rois de France, il humanise la pratique chirurgicale.",
     mainWorks: [
@@ -188,6 +195,10 @@ export const medicine: MedicineItem[] = [
     nationality: "Français",
     movement: "Microbiologie",
     family: "Révolution microbienne",
+    quotes: [
+      "La science n'a pas de patrie, parce que le savoir est le patrimoine de l'humanité.",
+      "Le hasard ne favorise que les esprits préparés.",
+    ],
     summary:
       "Fondateur de la microbiologie, il réfute la génération spontanée et établit la théorie des germes. Ses vaccins contre la rage et le charbon ouvrent l'ère de l'immunologie.",
     mainWorks: [
@@ -244,6 +255,9 @@ export const medicine: MedicineItem[] = [
     nationality: "Allemand",
     movement: "Imagerie médicale",
     family: "Médecine moderne",
+    quotes: [
+      "Je n'ai pas réfléchi, j'ai cherché.",
+    ],
     summary:
       "Découvre les rayons X en 1895, révolutionnant le diagnostic médical. Pour la première fois, on peut voir l'intérieur du corps sans l'ouvrir.",
     mainWorks: [
@@ -262,6 +276,10 @@ export const medicine: MedicineItem[] = [
     nationality: "Autrichien",
     movement: "Psychanalyse",
     family: "Médecine moderne",
+    quotes: [
+      "Le rêve est la voie royale qui mène à la connaissance de l'inconscient.",
+      "Le moi n'est pas maître dans sa propre maison.",
+    ],
     summary:
       "Fondateur de la psychanalyse, il explore l'inconscient et développe une théorie de l'appareil psychique. Influence majeure sur la psychiatrie et la culture du XXe siècle.",
     mainWorks: [
@@ -281,6 +299,9 @@ export const medicine: MedicineItem[] = [
     movement: "Antibiothérapie",
     family: "Médecine moderne",
     influences: ["pasteur", "koch"],
+    quotes: [
+      "Je n'ai pas inventé la pénicilline. La nature l'a faite. Je n'ai fait que la découvrir par accident.",
+    ],
     summary:
       "Découvre la pénicilline en 1928, premier antibiotique. Cette découverte fortuite ouvre l'ère des antibiotiques et sauve des millions de vies.",
     mainWorks: [
@@ -316,6 +337,9 @@ export const medicine: MedicineItem[] = [
     movement: "Vaccination moderne",
     family: "Médecine moderne",
     influences: ["jenner", "pasteur"],
+    quotes: [
+      "Il n'y a pas de brevet. Pourrait-on breveter le soleil ?",
+    ],
     summary:
       "Développe le premier vaccin efficace contre la poliomyélite en 1955. Refuse de breveter son vaccin pour qu'il soit accessible à tous.",
     mainWorks: [

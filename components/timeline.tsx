@@ -12,10 +12,11 @@ import {
 } from "react";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, Share2, Check, X, Star, Pin } from "lucide-react";
+import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, Share2, Check, X, Star, Pin, Waypoints } from "lucide-react";
 import { useSearchParams, usePathname } from "next/navigation";
 import { markRead, isFavorite, toggleFavorite, isPinnedSubject, togglePinnedSubject } from "@/lib/user-data";
 import { subjectEmojis } from "@/lib/subject-meta";
+import { InfluenceGraph } from "@/components/influence-graph";
 
 interface TimelineItem {
   id: string;
@@ -27,6 +28,7 @@ interface TimelineItem {
   movement: string;
   family?: string;
   influences?: string[];
+  quotes?: string[];
   summary: string;
   mainWorks: string[];
   keyIdeas?: string[];
@@ -197,6 +199,7 @@ function TimelineContent({
 }: TimelineProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [graphOpen, setGraphOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const timelineContainerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<Map<string, HTMLDivElement>>(new Map());
@@ -386,6 +389,26 @@ function TimelineContent({
     updateUrlWithItem(sortedItems[newIndex]);
   };
 
+  // Famous quotes (shared by desktop panel and mobile drawer)
+  const renderQuotes = (item: TimelineItem) => {
+    if (!item.quotes || item.quotes.length === 0) return null;
+    return (
+      <div>
+        <h3 className="font-semibold mb-2">Citations</h3>
+        <div className="space-y-2">
+          {item.quotes.map((quote, i) => (
+            <blockquote
+              key={i}
+              className="border-l-2 border-primary/40 pl-3 text-sm text-muted-foreground italic leading-relaxed"
+            >
+              « {quote} »
+            </blockquote>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
   // "Influencé par / A influencé" chips (shared by desktop panel and mobile drawer)
   const renderInfluences = (item: TimelineItem) => {
     const upstream = (item.influences ?? [])
@@ -522,6 +545,16 @@ function TimelineContent({
             </h1>
             {titleExtra && (
               <div className="absolute right-3 top-1/2 -translate-y-1/2">{titleExtra}</div>
+            )}
+            {/* Influence graph (only when the subject has influence links) */}
+            {!showCategory && influenceOf.size > 0 && (
+              <button
+                onClick={() => setGraphOpen(true)}
+                className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+                aria-label="Voir le graphe d'influences"
+              >
+                <Waypoints className="h-4 w-4" />
+              </button>
             )}
             {/* Pin the whole subject (not shown on /tout, which has its own controls) */}
             {!showCategory && !titleExtra && (
@@ -782,6 +815,8 @@ function TimelineContent({
                 </div>
               )}
 
+              {renderQuotes(selectedItem)}
+
               {contemporaries?.[selectedItem.id] && (
                 <div>
                   <h3 className="font-semibold mb-2">Pendant ce temps…</h3>
@@ -933,6 +968,8 @@ function TimelineContent({
                     </div>
                   )}
 
+                  {renderQuotes(item)}
+
                   {contemporaries?.[item.id] && (
                     <div>
                       <h3 className="font-semibold mb-2">Pendant ce temps…</h3>
@@ -977,6 +1014,19 @@ function TimelineContent({
             </button>
           </div>
         </div>
+      )}
+
+      {/* Influence graph overlay */}
+      {graphOpen && (
+        <InfluenceGraph
+          items={items}
+          title={title}
+          onClose={() => setGraphOpen(false)}
+          onSelect={(id) => {
+            setGraphOpen(false);
+            jumpToItem(id);
+          }}
+        />
       )}
     </div>
   );

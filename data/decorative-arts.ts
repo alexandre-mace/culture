@@ -8,6 +8,7 @@ export interface DecorativeStyle {
   movement: string;
   family?: string;
   influences?: string[];
+  quotes?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";

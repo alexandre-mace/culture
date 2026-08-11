@@ -1,116 +1,33 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Brain, ListOrdered, UserRoundSearch, RotateCcw, Check, X } from "lucide-react";
-import { allItems } from "@/lib/all-items";
+import {
+  Brain,
+  ListOrdered,
+  UserRoundSearch,
+  RotateCcw,
+  Check,
+  X,
+  Quote,
+  CalendarDays,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  makeQuestion,
+  quizPool,
+  type Question,
+} from "@/lib/quiz-engine";
 
 const QUESTIONS_PER_RUN = 10;
 
-type GameMode = "mixte" | "chrono" | "quisuisje";
-
-interface QuizItem {
-  id: string;
-  name: string;
-  birthYear: number;
-  deathYear?: number;
-  summary: string;
-  category?: string;
-  categoryEmoji?: string;
-}
-
-interface ChronoQuestion {
-  type: "chrono";
-  items: QuizItem[]; // shuffled, to be ordered by birthYear
-}
-
-interface WhoQuestion {
-  type: "quisuisje";
-  answer: QuizItem;
-  choices: QuizItem[]; // 4, shuffled, contains answer
-  excerpt: string;
-}
-
-type Question = ChronoQuestion | WhoQuestion;
+type GameMode = "mixte" | "chrono" | "quisuisje" | "citation";
 
 function formatYear(year: number): string {
   const abs = Math.abs(year);
   if (abs >= 10_000) return year < 0 ? `-${Math.round(abs / 1000)} ka` : `${Math.round(abs / 1000)} ka`;
   return year < 0 ? `${abs} av. J.-C.` : `${year}`;
-}
-
-function shuffle<T>(array: T[]): T[] {
-  const result = [...array];
-  for (let i = result.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j], result[i]];
-  }
-  return result;
-}
-
-// Candidates: historical range only, with a real summary
-const pool: QuizItem[] = allItems.filter(
-  (item) => item.birthYear > -10000 && item.summary.length > 120
-);
-
-function makeChronoQuestion(): ChronoQuestion {
-  // draw items with birth years at least 15 years apart to avoid ambiguity
-  for (let attempt = 0; attempt < 50; attempt++) {
-    const drawn = shuffle(pool).slice(0, 12);
-    const picked: QuizItem[] = [];
-    for (const item of drawn) {
-      if (picked.every((p) => Math.abs(p.birthYear - item.birthYear) >= 15)) {
-        picked.push(item);
-        if (picked.length === 4) break;
-      }
-    }
-    if (picked.length === 4) return { type: "chrono", items: shuffle(picked) };
-  }
-  // fallback: whatever we can get
-  return { type: "chrono", items: shuffle(pool).slice(0, 4) };
-}
-
-function maskName(text: string, name: string): string {
-  let masked = text;
-  for (const part of name.split(/[\s-]+/)) {
-    if (part.length < 3) continue;
-    masked = masked.replace(
-      new RegExp(part.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi"),
-      "▮▮▮"
-    );
-  }
-  return masked;
-}
-
-function makeWhoQuestion(): WhoQuestion {
-  const answer = pool[Math.floor(Math.random() * pool.length)];
-  const sameCategory = pool.filter(
-    (item) => item.category === answer.category && item.id !== answer.id
-  );
-  const others = pool.filter(
-    (item) => item.category !== answer.category && item.id !== answer.id
-  );
-  const distractors = shuffle(sameCategory).slice(0, 3);
-  if (distractors.length < 3) {
-    distractors.push(...shuffle(others).slice(0, 3 - distractors.length));
-  }
-
-  const sentences = answer.summary.split("\n")[0].split(". ");
-  const excerpt = maskName(sentences.slice(0, 2).join(". "), answer.name);
-
-  return {
-    type: "quisuisje",
-    answer,
-    choices: shuffle([answer, ...distractors]),
-    excerpt: excerpt.length > 340 ? excerpt.slice(0, 340) + "…" : excerpt,
-  };
-}
-
-function makeQuestion(mode: GameMode): Question {
-  if (mode === "chrono") return makeChronoQuestion();
-  if (mode === "quisuisje") return makeWhoQuestion();
-  return Math.random() < 0.5 ? makeChronoQuestion() : makeWhoQuestion();
 }
 
 export default function QuizPage() {
@@ -122,7 +39,7 @@ export default function QuizPage() {
 
   // per-question state
   const [chronoPicks, setChronoPicks] = useState<string[]>([]);
-  const [whoPick, setWhoPick] = useState<string | null>(null);
+  const [choicePick, setChoicePick] = useState<string | null>(null);
   const [revealed, setRevealed] = useState(false);
   const [lastCorrect, setLastCorrect] = useState(false);
 
@@ -135,9 +52,9 @@ export default function QuizPage() {
   };
 
   const nextQuestion = (m: GameMode) => {
-    setQuestion(makeQuestion(m));
+    setQuestion(makeQuestion(m, Math.random));
     setChronoPicks([]);
-    setWhoPick(null);
+    setChoicePick(null);
     setRevealed(false);
   };
 
@@ -169,9 +86,9 @@ export default function QuizPage() {
     }
   };
 
-  const pickWho = (id: string) => {
-    if (revealed || !question || question.type !== "quisuisje") return;
-    setWhoPick(id);
+  const pickChoice = (id: string) => {
+    if (revealed || !question || question.type === "chrono") return;
+    setChoicePick(id);
     const correct = id === question.answer.id;
     setLastCorrect(correct);
     if (correct) setScore((s) => s + 1);
@@ -202,7 +119,7 @@ export default function QuizPage() {
             <h1 className="text-3xl font-bold mb-2">Quiz</h1>
             <p className="text-muted-foreground mb-8">
               Testez votre culture sur {QUESTIONS_PER_RUN} questions tirées des{" "}
-              {pool.length} fiches.
+              {quizPool.length} fiches.
             </p>
           </>
         )}
@@ -213,11 +130,21 @@ export default function QuizPage() {
           </Button>
           <Button size="lg" variant="outline" onClick={() => start("chrono")} className="gap-2">
             <ListOrdered className="h-4 w-4" />
-            Chronologie seulement
+            Chronologie
           </Button>
           <Button size="lg" variant="outline" onClick={() => start("quisuisje")} className="gap-2">
             <UserRoundSearch className="h-4 w-4" />
-            Qui suis-je ? seulement
+            Qui suis-je ?
+          </Button>
+          <Button size="lg" variant="outline" onClick={() => start("citation")} className="gap-2">
+            <Quote className="h-4 w-4" />
+            Qui a dit ça ?
+          </Button>
+          <Button size="lg" variant="ghost" asChild className="gap-2 text-primary">
+            <Link href="/defi">
+              <CalendarDays className="h-4 w-4" />
+              Défi du jour
+            </Link>
           </Button>
         </div>
       </div>
@@ -287,18 +214,20 @@ export default function QuizPage() {
         </>
       ) : (
         <>
-          <h2 className="font-semibold text-lg mb-1">Qui suis-je ?</h2>
+          <h2 className="font-semibold text-lg mb-1">
+            {question.type === "citation" ? "Qui a dit ça ?" : "Qui suis-je ?"}
+          </h2>
           <blockquote className="text-sm text-muted-foreground border-l-2 pl-3 my-4 leading-relaxed">
-            {question.excerpt}
+            {question.type === "citation" ? `« ${question.quote} »` : question.excerpt}
           </blockquote>
           <div className="grid gap-2">
             {question.choices.map((choice) => {
               const isAnswer = choice.id === question.answer.id;
-              const isPick = choice.id === whoPick;
+              const isPick = choice.id === choicePick;
               return (
                 <button
                   key={choice.id}
-                  onClick={() => pickWho(choice.id)}
+                  onClick={() => pickChoice(choice.id)}
                   className={cn(
                     "flex items-center gap-2 rounded-lg border p-3 text-left font-medium transition-all",
                     !revealed && "hover:border-primary/50",

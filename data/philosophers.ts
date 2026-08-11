@@ -8,6 +8,7 @@ export interface Philosopher {
   movement: string;
   family?: string;
   influences?: string[];
+  quotes?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -24,6 +25,7 @@ export const philosophers: Philosopher[] = [
     nationality: "Grec",
     movement: "Philosophie antique",
     family: "Antiquité",
+    quotes: ["Je sais que je ne sais rien.", "Une vie sans examen ne vaut pas la peine d'être vécue."],
     summary: `Socrate est considéré comme le père de la philosophie occidentale. Né à Athènes vers 470 av. J.-C., fils d'un sculpteur et d'une sage-femme, il passa sa vie à arpenter les rues de la cité pour questionner ses concitoyens. Contrairement aux sophistes de son époque qui monnayaient leur savoir, il ne prétendait pas détenir la vérité mais cherchait à la découvrir par le dialogue.
 
 Sa méthode, la maïeutique (l'art d'accoucher les esprits), consiste à faire émerger la vérité par un questionnement systématique. En posant des questions apparemment naïves, il amenait ses interlocuteurs à prendre conscience de leurs contradictions et de leur ignorance. Cette ironie socratique visait à les conduire vers une connaissance plus authentique.
@@ -44,6 +46,7 @@ Accusé de corrompre la jeunesse et de ne pas reconnaître les dieux de la cité
     movement: "Philosophie antique",
     family: "Antiquité",
     influences: ["socrates"],
+    quotes: ["Nul n'est méchant volontairement.", "Le commencement est la moitié de tout."],
     summary: `Platon, né vers 428 av. J.-C. dans une famille aristocratique athénienne, fut le disciple le plus célèbre de Socrate et le maître d'Aristote. Profondément marqué par la condamnation à mort de son maître, il consacra sa vie à la philosophie et fonda l'Académie à Athènes vers 387 av. J.-C., considérée comme la première université du monde occidental.
 
 Sa philosophie repose sur la théorie des Idées (ou Formes) : le monde sensible que nous percevons n'est qu'une copie imparfaite d'un monde intelligible peuplé d'Idées éternelles et parfaites. L'Idée du Bien, au sommet de cette hiérarchie, illumine toutes les autres. L'allégorie de la caverne, dans "La République", illustre magistralement cette vision : les hommes sont comme des prisonniers enchaînés qui ne voient que des ombres projetées sur un mur, prenant ces apparences pour la réalité.
@@ -64,6 +67,7 @@ Son influence sur la philosophie, la théologie et la pensée politique occident
     movement: "Philosophie antique",
     family: "Antiquité",
     influences: ["platon"],
+    quotes: ["L'homme est un animal politique.", "Une hirondelle ne fait pas le printemps."],
     summary: `Aristote naquit en 384 av. J.-C. à Stagire, en Macédoine. Fils du médecin personnel du roi de Macédoine, il entra à l'Académie de Platon à l'âge de dix-sept ans et y resta vingt ans. Après la mort de Platon, il devint le précepteur du jeune Alexandre le Grand, puis fonda sa propre école à Athènes, le Lycée, où il enseignait en se promenant (d'où le nom de "péripatétisme").
 
 Contrairement à Platon, Aristote s'intéresse au monde sensible et développe une approche empirique de la connaissance. Il rejette la théorie des Idées séparées et affirme que la forme est inséparable de la matière (hyléomorphisme). Pour lui, la connaissance commence par l'expérience sensible, et c'est par abstraction que nous parvenons aux concepts universels.
@@ -83,6 +87,7 @@ En éthique, son "Éthique à Nicomaque" définit le bonheur (eudaimonia) comme 
     nationality: "Grec",
     movement: "Épicurisme",
     family: "Antiquité",
+    quotes: ["La mort n'est rien pour nous : quand nous sommes, la mort n'est pas là ; quand la mort est là, nous ne sommes plus.", "Le plaisir est le commencement et la fin de la vie heureuse."],
     summary: `Épicure naquit à Samos en 341 av. J.-C. et fonda à Athènes une école philosophique originale, le Jardin, vers 306 av. J.-C. Contrairement aux autres écoles, le Jardin était ouvert à tous, y compris aux femmes et aux esclaves, ce qui était révolutionnaire pour l'époque. On y pratiquait une vie simple, fondée sur l'amitié et la recherche du bonheur.
 
 Sa philosophie vise le bonheur, défini comme l'ataraxie (absence de trouble de l'âme) et l'aponie (absence de douleur du corps). Contrairement à la caricature qui en est souvent faite, l'épicurisme n'est pas une quête des plaisirs débridés. Épicure distingue soigneusement les désirs naturels et nécessaires (manger, boire, s'abriter) des désirs naturels non nécessaires (manger raffiné) et des désirs vains (gloire, richesse) qu'il faut éliminer.
@@ -102,6 +107,7 @@ Le "tétrapharmakon" (quadruple remède) résume sa doctrine : les dieux ne sont
     nationality: "Romain",
     movement: "Stoïcisme",
     family: "Antiquité",
+    quotes: ["Ce n'est pas parce que les choses sont difficiles que nous n'osons pas, c'est parce que nous n'osons pas qu'elles sont difficiles.", "Ce n'est pas que nous ayons peu de temps, c'est que nous en perdons beaucoup."],
     summary: `Sénèque naquit à Cordoue, en Espagne, vers 4 av. J.-C., dans une famille de rang équestre. Formé à la rhétorique et à la philosophie à Rome, il mena d'abord une brillante carrière politique avant d'être exilé en Corse par l'empereur Claude en 41 ap. J.-C. Rappelé huit ans plus tard, il devint le précepteur du jeune Néron puis son conseiller politique.
 
 Philosophe stoïcien, Sénèque enseigne que le bonheur dépend de notre attitude intérieure, non des circonstances extérieures. La distinction fondamentale du stoïcisme est celle entre ce qui dépend de nous (nos jugements, nos désirs, nos actions) et ce qui n'en dépend pas (la fortune, la santé, la réputation, la mort). La sagesse consiste à vouloir ce qui arrive et à accepter sereinement ce qui ne dépend pas de nous.
@@ -121,6 +127,7 @@ Accusé de conspiration contre Néron en 65 ap. J.-C., Sénèque reçut l'ordre 
     nationality: "Romain",
     movement: "Stoïcisme",
     family: "Antiquité",
+    quotes: ["La perfection morale consiste à passer chaque jour comme si c'était le dernier.", "Ce qui n'est pas utile à la ruche n'est pas utile à l'abeille."],
     summary: `Marc Aurèle naquit à Rome en 121 ap. J.-C. dans une famille patricienne. Remarqué par l'empereur Hadrien pour ses qualités morales et intellectuelles, il fut adopté par Antonin le Pieux et lui succéda comme empereur en 161. Son règne fut marqué par des guerres incessantes aux frontières et par une terrible épidémie de peste.
 
 Ses "Pensées pour moi-même", écrites en grec lors de ses campagnes militaires, constituent un document unique : le journal intime philosophique d'un empereur romain. Ces réflexions, qui n'étaient pas destinées à la publication, révèlent un homme en perpétuel combat avec lui-même pour atteindre la sagesse stoïcienne et accomplir son devoir d'empereur avec justice.
@@ -140,6 +147,7 @@ Sa philosophie insiste sur l'instant présent comme seule réalité sur laquelle
     movement: "Philosophie médiévale / Patristique",
     family: "Moyen Âge",
     influences: ["platon"],
+    quotes: ["Aime, et fais ce que tu veux.", "Notre cœur est sans repos tant qu'il ne repose pas en toi."],
     summary: `Augustin naquit en 354 à Thagaste, en Numidie (actuelle Algérie), d'un père païen et d'une mère chrétienne fervente, Monique. Après une jeunesse qu'il qualifiera lui-même de dissolue, marquée par une liaison dont naquit un fils, il adhéra au manichéisme, doctrine dualiste qui opposait le Bien et le Mal comme deux principes éternels. Brillant rhéteur, il enseigna à Carthage, Rome puis Milan.
 
 C'est à Milan, sous l'influence de l'évêque Ambroise et après une crise spirituelle intense, qu'il se convertit au christianisme en 386. Il raconte cette conversion dans ses "Confessions", première véritable autobiographie de l'histoire occidentale, où il analyse avec une profondeur inégalée sa vie intérieure et son cheminement vers Dieu. "Tu nous as faits pour toi, Seigneur, et notre cœur est inquiet jusqu'à ce qu'il repose en toi."
@@ -160,6 +168,7 @@ Sa philosophie opère une synthèse originale entre le néoplatonisme et le chri
     movement: "Scolastique",
     family: "Moyen Âge",
     influences: ["aristote", "augustin"],
+    quotes: ["La grâce ne détruit pas la nature, mais la perfectionne."],
     summary: `Thomas d'Aquin naquit vers 1225 dans une famille noble du royaume de Naples. Contre la volonté de sa famille qui le destinait à une carrière ecclésiastique prestigieuse, il entra chez les Dominicains, ordre mendiant voué à l'étude et à la prédication. Il étudia à Paris et à Cologne sous la direction d'Albert le Grand, puis enseigna lui-même à Paris et en Italie.
 
 Son œuvre majeure fut de réconcilier la philosophie d'Aristote, récemment redécouverte en Occident via les traductions arabes, avec la foi chrétienne. Cette entreprise était audacieuse car Aristote était alors suspect d'hérésie. Thomas montra que la raison naturelle et la foi révélée sont deux voies complémentaires vers la vérité, la première préparant à la seconde sans pouvoir l'atteindre pleinement.
@@ -179,6 +188,7 @@ Le thomisme distingue soigneusement l'essence (ce qu'une chose est) de l'existen
     nationality: "Français",
     movement: "Rationalisme",
     family: "Âge classique",
+    quotes: ["Je pense, donc je suis.", "Le bon sens est la chose du monde la mieux partagée."],
     summary: `René Descartes naquit en 1596 à La Haye en Touraine dans une famille de petite noblesse. Formé chez les jésuites au collège de La Flèche, il étudia le droit à Poitiers puis s'engagea comme soldat pour parcourir l'Europe. C'est dans un "poêle" en Allemagne, en novembre 1619, qu'il eut la révélation de sa méthode. Il s'installa ensuite aux Pays-Bas pour travailler en paix.
 
 Mathématicien de génie - il inventa la géométrie analytique qui unifie algèbre et géométrie - Descartes chercha à fonder une science certaine sur le modèle des mathématiques. Sa méthode du doute radical l'amène à remettre en question systématiquement toutes ses croyances pour trouver une certitude indubitable, un point fixe à partir duquel reconstruire l'édifice du savoir.
@@ -199,6 +209,7 @@ Le dualisme cartésien sépare radicalement l'âme (res cogitans, substance pens
     movement: "Rationalisme",
     family: "Âge classique",
     influences: ["descartes"],
+    quotes: ["Ne pas rire, ne pas déplorer, ne pas détester, mais comprendre.", "Le désir est l'essence même de l'homme."],
     summary: `Baruch Spinoza naquit à Amsterdam en 1632 dans une famille juive d'origine portugaise, réfugiée aux Pays-Bas pour fuir l'Inquisition. Formé dans la tradition juive, il s'ouvrit aussi à la philosophie moderne, notamment cartésienne. En 1656, à vingt-trois ans, il fut excommunié (herem) de la communauté juive d'Amsterdam pour ses idées hétérodoxes, avec une violence inouïe.
 
 Après son excommunication, Spinoza vécut modestement en polissant des lentilles optiques, refusant les postes universitaires pour préserver sa liberté de pensée. Son œuvre majeure, l'"Éthique", rédigée more geometrico (à la manière des géomètres, avec définitions, axiomes et théorèmes), développe un système philosophique d'une cohérence et d'une audace extraordinaires.
@@ -218,6 +229,7 @@ La liberté, pour Spinoza, n'est pas le libre arbitre, qui est une illusion née
     movement: "Rationalisme",
     family: "Âge classique",
     influences: ["descartes", "spinoza"],
+    quotes: ["Dieu a choisi le meilleur de tous les mondes possibles.", "Rien ne se fait sans raison suffisante."],
     summary: `Gottfried Wilhelm Leibniz naquit à Leipzig en 1646. Génie universel, il fut à la fois philosophe, mathématicien (co-inventeur du calcul infinitésimal, indépendamment de Newton), physicien, juriste, diplomate, historien et théologien. Il correspondit avec les plus grands esprits de son temps et consacra une partie de sa vie à tenter de réconcilier catholiques et protestants.
 
 Sa métaphysique des monades, exposée dans la "Monadologie", décrit l'univers comme composé d'une infinité de substances simples, les monades, qui sont comme des "points métaphysiques" sans parties ni étendue. Chaque monade est unique, "sans fenêtres" (elle ne reçoit rien de l'extérieur), et reflète l'univers entier selon son propre point de vue, comme un miroir vivant.
@@ -238,6 +250,7 @@ Cette thèse de l'optimisme leibnizien fut violemment satirisée par Voltaire da
     movement: "Empirisme",
     family: "Âge classique",
     influences: ["descartes"],
+    quotes: ["Là où il n'y a pas de loi, il n'y a pas de liberté."],
     summary: `John Locke naquit en 1632 dans le Somerset, en Angleterre, dans une famille puritaine. Formé à Oxford en médecine et en philosophie, il devint le secrétaire et médecin du comte de Shaftesbury, figure de l'opposition libérale. Contraint à l'exil en Hollande après la disgrâce de son protecteur, il revint en Angleterre après la Glorieuse Révolution de 1688.
 
 Contre les rationalistes qui affirmaient l'existence d'idées innées, Locke soutient dans son "Essai sur l'entendement humain" que l'esprit à la naissance est une "table rase" (tabula rasa) : toutes nos idées viennent de l'expérience, soit par sensation (expérience externe), soit par réflexion (expérience interne). Cette thèse fonde l'empirisme moderne et aura une influence décisive sur la philosophie des Lumières.
@@ -258,6 +271,7 @@ L'État n'est donc légitime que s'il protège ces droits ; s'il les viole, le p
     movement: "Empirisme",
     family: "Lumières & idéalisme",
     influences: ["locke"],
+    quotes: ["La raison est, et ne doit qu'être, l'esclave des passions.", "L'habitude est le grand guide de la vie humaine."],
     summary: `David Hume naquit à Édimbourg en 1711 dans une famille de petite noblesse écossaise. Précocement passionné par la philosophie, il écrivit son œuvre majeure, le "Traité de la nature humaine", à seulement vingt-six ans. L'ouvrage fut un échec commercial ("mort-né", dira-t-il), mais Hume devint plus tard célèbre par ses essais et son "Histoire d'Angleterre".
 
 Hume pousse l'empirisme de Locke à ses conséquences les plus radicales, aboutissant à un scepticisme qui ébranle nos certitudes les plus fondamentales. Sa critique de la causalité est célèbre : nous ne percevons jamais la causalité elle-même, mais seulement des successions régulières d'événements. Notre croyance que le soleil se lèvera demain n'est qu'une habitude psychologique, non une certitude rationnelle.
@@ -278,6 +292,7 @@ Ce scepticisme radical eut un effet décisif sur l'histoire de la philosophie : 
     movement: "Lumières / Préromantisme",
     family: "Lumières & idéalisme",
     influences: ["locke"],
+    quotes: ["L'homme est né libre, et partout il est dans les fers.", "Tout est bien sortant des mains de l'Auteur des choses, tout dégénère entre les mains de l'homme."],
     summary: `Jean-Jacques Rousseau naquit à Genève en 1712. Sa mère mourut en lui donnant naissance, et son père, horloger fantasque, l'abandonna à dix ans. Autodidacte, il mena une vie errante avant de connaître la célébrité avec son "Discours sur les sciences et les arts" (1750), où il soutenait, contre l'optimisme des Lumières, que le progrès des arts et des sciences avait corrompu les mœurs.
 
 Le "Discours sur l'origine de l'inégalité" (1755) développe cette critique de la civilisation. Pour Rousseau, l'homme est naturellement bon, libre et heureux dans l'état de nature ; c'est la société qui l'a corrompu. "L'homme naît libre et partout il est dans les fers." La propriété privée est à l'origine de l'inégalité et de tous les maux sociaux : "Le premier qui, ayant enclos un terrain, s'avisa de dire : Ceci est à moi, fut le vrai fondateur de la société civile."
@@ -298,6 +313,7 @@ Le "Discours sur l'origine de l'inégalité" (1755) développe cette critique de
     movement: "Idéalisme transcendantal",
     family: "Lumières & idéalisme",
     influences: ["leibniz", "hume", "rousseau"],
+    quotes: ["Deux choses remplissent le cœur d'une admiration toujours croissante : le ciel étoilé au-dessus de moi et la loi morale en moi.", "Aie le courage de te servir de ton propre entendement !"],
     summary: `Emmanuel Kant naquit à Königsberg en Prusse orientale en 1724 et ne quitta jamais sa ville natale. Issu d'une famille modeste et pieuse, il mena une vie d'une régularité légendaire - on dit que les habitants réglaient leurs montres sur sa promenade quotidienne. Il enseigna à l'université de Königsberg pendant plus de quarante ans, d'abord comme précepteur privé puis comme professeur.
 
 Kant opère une "révolution copernicienne" en philosophie : de même que Copernic avait montré que c'est la Terre qui tourne autour du Soleil et non l'inverse, Kant montre que ce n'est pas notre connaissance qui se règle sur les objets, mais les objets qui se règlent sur notre connaissance. Notre esprit n'est pas passif ; il structure l'expérience selon des formes a priori (l'espace et le temps comme formes de la sensibilité, les catégories comme concepts purs de l'entendement).
@@ -318,6 +334,7 @@ La "Critique de la raison pratique" fonde la morale sur l'impératif catégoriqu
     movement: "Idéalisme allemand",
     family: "Lumières & idéalisme",
     influences: ["spinoza", "kant"],
+    quotes: ["Rien de grand ne s'est accompli dans le monde sans passion.", "La chouette de Minerve ne prend son envol qu'à la tombée de la nuit."],
     summary: `Georg Wilhelm Friedrich Hegel naquit à Stuttgart en 1770. Après des études de théologie à Tübingen, où il se lia d'amitié avec le poète Hölderlin et le philosophe Schelling, il fut précepteur puis professeur à Iéna, Heidelberg et enfin Berlin, où il devint le philosophe officiel de l'État prussien et régna sur la vie intellectuelle allemande jusqu'à sa mort en 1831.
 
 Hegel développe le système philosophique le plus ambitieux de l'histoire moderne. Pour lui, la réalité est Esprit (Geist), et cet Esprit est un processus dialectique par lequel il prend progressivement conscience de lui-même à travers l'histoire. La dialectique hégélienne procède par négation et dépassement : chaque moment de la pensée (thèse) appelle son contraire (antithèse), et leur confrontation produit un dépassement (synthèse) qui les réconcilie à un niveau supérieur.
@@ -338,6 +355,7 @@ L'histoire universelle est pour Hegel "le progrès de la conscience de la libert
     movement: "Pessimisme philosophique",
     family: "XIXe siècle",
     influences: ["platon", "kant"],
+    quotes: ["Le monde est ma représentation.", "La vie oscille, comme un pendule, de la souffrance à l'ennui."],
     summary: `Arthur Schopenhauer naquit à Dantzig en 1788 dans une famille de riches négociants. Après la mort de son père, probablement par suicide, il se consacra à la philosophie. Son œuvre majeure, "Le Monde comme volonté et comme représentation" (1818), passa d'abord inaperçue, éclipsée par le succès de Hegel qu'il détestait. Ce n'est qu'à la fin de sa vie qu'il connut enfin la célébrité.
 
 Schopenhauer développe une métaphysique pessimiste influencée par la philosophie indienne, notamment les Upanishads et le bouddhisme. Le monde phénoménal, le monde comme représentation, n'est que le "voile de Maya", une illusion. La réalité ultime, la chose en soi kantienne, c'est la Volonté : une force aveugle, irrationnelle et insatiable qui se manifeste dans tous les êtres sous forme de vouloir-vivre.
@@ -358,6 +376,7 @@ L'art, particulièrement la musique, nous offre une contemplation désintéress�
     movement: "Existentialisme chrétien",
     family: "XIXe siècle",
     influences: ["socrates", "hegel"],
+    quotes: ["La vie ne peut être comprise qu'en regardant en arrière, mais elle doit être vécue en regardant en avant.", "La subjectivité est la vérité."],
     summary: `Søren Kierkegaard naquit à Copenhague en 1813 dans une famille marquée par la mélancolie et une religiosité austère. Son père, riche négociant, lui transmit un sentiment de culpabilité et une angoisse qui marquèrent toute son œuvre. Après des études de théologie et une thèse sur l'ironie socratique, il vécut de sa fortune, consacrant sa brève existence à l'écriture philosophique.
 
 Kierkegaard s'oppose violemment aux systèmes abstraits, particulièrement celui de Hegel. Pour lui, la philosophie doit partir non de concepts universels mais de l'existence concrète de l'individu singulier, avec son angoisse, ses choix, sa subjectivité irréductible. "La vérité est la subjectivité", proclame-t-il : ce qui importe n'est pas ce qu'on pense mais comment on le vit, avec quelle passion on s'y engage.
@@ -378,6 +397,7 @@ L'angoisse, concept central de sa pensée, révèle notre liberté vertigineuse 
     movement: "Matérialisme historique",
     family: "XIXe siècle",
     influences: ["hegel"],
+    quotes: ["Les philosophes n'ont fait qu'interpréter le monde de diverses manières ; ce qui importe, c'est de le transformer.", "La religion est l'opium du peuple."],
     summary: `Karl Marx naquit à Trèves en 1818 dans une famille juive convertie au protestantisme. Après des études de droit et de philosophie, il se tourna vers le journalisme radical et dut s'exiler à Paris, Bruxelles puis Londres, où il passa la majeure partie de sa vie dans la pauvreté, soutenu financièrement par son ami Friedrich Engels. Il y rédigea "Le Capital", son œuvre maîtresse.
 
 Le matérialisme historique affirme que ce sont les conditions matérielles de la vie, et non les idées, qui déterminent l'évolution des sociétés. L'infrastructure économique (forces productives et rapports de production) conditionne la superstructure (institutions politiques, juridiques, religieuses, idéologiques). L'histoire est mue par les contradictions entre les forces productives en développement et les rapports de production existants.
@@ -398,6 +418,7 @@ Marx annonce le dépassement inévitable du capitalisme par ses propres contradi
     movement: "Philosophie de la vie",
     family: "XIXe siècle",
     influences: ["schopenhauer"],
+    quotes: ["Dieu est mort.", "Ce qui ne me tue pas me rend plus fort."],
     summary: `Friedrich Nietzsche naquit en 1844 à Röcken, en Saxe prussienne, dans une famille de pasteurs luthériens. Brillant philologue, il fut nommé professeur à l'université de Bâle à vingt-quatre ans, mais dut démissionner dix ans plus tard pour raisons de santé. Il mena ensuite une vie errante en Suisse et en Italie, minée par la maladie, jusqu'à son effondrement mental en 1889.
 
 Nietzsche annonce "la mort de Dieu" : non pas une thèse sur l'existence divine, mais le constat que les valeurs chrétiennes qui structuraient la civilisation occidentale ont perdu leur crédibilité. Cette mort ouvre l'ère du nihilisme, danger suprême mais aussi opportunité pour une "transvaluation de toutes les valeurs". Il faut créer de nouvelles valeurs, non plus fondées sur l'au-delà mais sur l'affirmation de la vie.
@@ -418,6 +439,7 @@ L'Éternel Retour pose une question existentielle décisive : vivrais-tu ta vie 
     movement: "Psychanalyse",
     family: "XIXe siècle",
     influences: ["schopenhauer", "nietzsche"],
+    quotes: ["Le moi n'est pas maître dans sa propre maison.", "L'interprétation des rêves est la voie royale qui mène à la connaissance de l'inconscient."],
     summary: `Sigmund Freud naquit en 1856 à Freiberg, en Moravie, dans une famille juive. Formé en médecine à Vienne, il se spécialisa en neurologie et s'intéressa aux troubles hystériques. C'est en collaboration avec Josef Breuer, puis seul, qu'il développa la psychanalyse, méthode d'investigation de l'inconscient par la parole, l'association libre et l'interprétation des rêves.
 
 La découverte majeure de Freud est l'inconscient : une grande partie de notre vie psychique nous échappe et détermine nos pensées, nos émotions et nos actes à notre insu. L'appareil psychique se divise en trois instances : le Ça (réservoir des pulsions inconscientes), le Moi (instance rationnelle en contact avec la réalité) et le Surmoi (conscience morale intériorisée, héritière du complexe d'Œdipe). Les névroses résultent des conflits entre ces instances.
@@ -438,6 +460,7 @@ Freud accomplit ainsi une troisième "blessure narcissique" à l'humanité, apr�
     movement: "Phénoménologie",
     family: "Phénoménologie & existentialisme",
     influences: ["descartes", "kant"],
+    quotes: ["Retour aux choses mêmes !"],
     summary: `Edmund Husserl naquit en 1859 à Prossnitz, en Moravie, dans une famille juive. D'abord mathématicien, élève de Weierstrass, il se tourna vers la philosophie sous l'influence de Franz Brentano. Professeur à Göttingen puis à Fribourg, il fut marginalisé à la fin de sa vie en raison de ses origines juives. Il mourut en 1938, ses manuscrits sauvés de la destruction par le père franciscain Herman Leo Van Breda.
 
 Husserl est le fondateur de la phénoménologie, courant majeur de la philosophie du XXe siècle. Son mot d'ordre : "retour aux choses mêmes" (zu den Sachen selbst). Il s'agit d'étudier les phénomènes tels qu'ils apparaissent à la conscience, en suspendant (épochè) toute présupposition sur leur existence réelle ou sur les théories scientifiques qui prétendent les expliquer.
@@ -458,6 +481,7 @@ Dans ses derniers travaux, Husserl développe le concept de "Lebenswelt" (monde 
     movement: "Phénoménologie / Existentialisme",
     family: "Phénoménologie & existentialisme",
     influences: ["kierkegaard", "nietzsche", "husserl"],
+    quotes: ["Le langage est la maison de l'Être.", "La science ne pense pas."],
     summary: `Martin Heidegger naquit en 1889 à Messkirch, en Forêt-Noire, dans une famille catholique modeste. Après des études de théologie et de philosophie, il devint l'assistant de Husserl à Fribourg et lui succéda en 1928. Son engagement en faveur du nazisme en 1933, lorsqu'il accepta le rectorat de l'université de Fribourg, reste une tache sur sa biographie que les interprètes n'ont cessé de discuter.
 
 "Être et Temps" (1927), son œuvre majeure restée inachevée, pose la question de l'Être que la métaphysique occidentale aurait oubliée au profit de l'étant. Pour accéder à l'Être, Heidegger analyse l'existence humaine, le Dasein (l'être-là), car c'est le seul étant pour qui son être est en question. Le Dasein est "être-au-monde" : il n'est pas d'abord un sujet isolé qui rencontrerait ensuite le monde, il est toujours déjà engagé dans un monde.
@@ -478,6 +502,7 @@ Après le "tournant" des années 1930, Heidegger s'éloigne de l'analytique exis
     movement: "Philosophie analytique",
     family: "Pensée contemporaine",
     influences: ["schopenhauer"],
+    quotes: ["Ce dont on ne peut parler, il faut le taire.", "Les limites de mon langage signifient les limites de mon propre monde."],
     summary: `Ludwig Wittgenstein naquit à Vienne en 1889 dans une des familles les plus riches d'Autriche, au carrefour de la haute finance, de la culture et de l'art. Après des études d'ingénieur en aéronautique, il se tourna vers la logique et la philosophie, d'abord à Iéna auprès de Frege, puis à Cambridge auprès de Russell. Il abandonna sa fortune à ses frères et sœurs et mena une vie d'une austérité monacale.
 
 Le "Tractatus logico-philosophicus" (1921), seul livre publié de son vivant, analyse la relation entre le langage et le monde. Le langage est une image logique de la réalité : une proposition a un sens si et seulement si elle représente un état de choses possible. Les propositions de la logique sont des tautologies, vraies quelle que soit la réalité. Quant aux propositions métaphysiques, éthiques ou esthétiques, elles sont des non-sens : "Ce dont on ne peut parler, il faut le taire."
@@ -498,6 +523,7 @@ Les problèmes philosophiques naissent quand "le langage part en vacances", quan
     movement: "Existentialisme",
     family: "Phénoménologie & existentialisme",
     influences: ["hegel", "husserl", "heidegger"],
+    quotes: ["L'existence précède l'essence.", "L'enfer, c'est les autres."],
     summary: `Jean-Paul Sartre naquit à Paris en 1905. Orphelin de père à deux ans, il fut élevé par sa mère et son grand-père, Charles Schweitzer, oncle d'Albert Schweitzer. Brillant élève de l'École normale supérieure, il y rencontra Simone de Beauvoir avec qui il forma un couple légendaire. Professeur de philosophie, il connut la célébrité avec "La Nausée" (1938) et devint après la guerre la figure emblématique de l'existentialisme.
 
 "L'existence précède l'essence" : telle est la formule centrale de l'existentialisme sartrien. Contrairement aux objets fabriqués (un coupe-papier est fait pour couper), l'homme n'a pas de nature prédéterminée, pas d'essence qui précéderait son existence. Il existe d'abord, se trouve "jeté" dans le monde, puis se définit par ses choix, ses actes, ses projets. L'homme est "condamné à être libre".
@@ -518,6 +544,7 @@ Sartre en tire les conséquences politiques : si je suis libre, je dois lutter p
     movement: "Phénoménologie",
     family: "Phénoménologie & existentialisme",
     influences: ["husserl", "heidegger"],
+    quotes: ["Le corps est notre moyen général d'avoir un monde.", "La vraie philosophie est de rapprendre à voir le monde."],
     summary: `Maurice Merleau-Ponty naquit à Rochefort-sur-Mer en 1908. Condisciple de Sartre et de Beauvoir à l'École normale supérieure, il fut d'abord proche de l'existentialisme sartrien avant de s'en distancer. Professeur à Lyon puis à la Sorbonne, il fut élu au Collège de France en 1952 où il enseigna jusqu'à sa mort prématurée en 1961, à cinquante-trois ans, d'une crise cardiaque.
 
 La "Phénoménologie de la perception" (1945) développe une philosophie du corps propre qui dépasse le dualisme cartésien. Contre l'idée d'une conscience désincarnée, pure intériorité sans épaisseur, Merleau-Ponty montre que nous sommes d'abord corps percevant, engagé dans le monde. Le corps n'est pas un objet parmi d'autres que je posséderais, mais "le véhicule de l'être au monde", mon ancrage dans les choses.
@@ -538,6 +565,7 @@ Dans ses derniers travaux, restés inachevés, Merleau-Ponty développe le conce
     movement: "Existentialisme / Féminisme",
     family: "Phénoménologie & existentialisme",
     influences: ["hegel", "sartre"],
+    quotes: ["On ne naît pas femme : on le devient.", "Se vouloir libre, c'est aussi vouloir les autres libres."],
     summary: `Simone de Beauvoir naquit à Paris en 1908 dans une famille bourgeoise. Brillante élève, elle fut reçue deuxième à l'agrégation de philosophie en 1929, juste derrière Sartre, avec qui elle forma un couple mythique, fondé sur la liberté et la transparence. Professeure, puis écrivaine à plein temps, elle fut une figure centrale de la vie intellectuelle française, engagée dans tous les combats progressistes.
 
 "Le Deuxième Sexe" (1949) est le texte fondateur du féminisme moderne. "On ne naît pas femme, on le devient" : cette formule célèbre affirme que le genre est une construction sociale, non une essence naturelle. La femme a été historiquement constituée comme "l'Autre" de l'homme, définie non par elle-même mais par rapport au sujet masculin. Enfermée dans l'immanence (la répétition du quotidien, la maternité), elle se voit interdire la transcendance (la création, l'action sur le monde).
@@ -558,6 +586,7 @@ Sa philosophie, exposée dans "Pour une morale de l'ambiguïté", développe une
     movement: "Philosophie politique",
     family: "Pensée contemporaine",
     influences: ["augustin", "heidegger"],
+    quotes: ["Personne n'a le droit d'obéir."],
     summary: `Hannah Arendt naquit en 1906 à Hanovre dans une famille juive assimilée. Élève de Husserl, Heidegger (avec qui elle eut une liaison) et Jaspers, elle dut fuir l'Allemagne nazie en 1933. Après un séjour en France, où elle fut internée au camp de Gurs, elle émigra aux États-Unis en 1941 et devint citoyenne américaine. Elle enseigna dans plusieurs universités américaines jusqu'à sa mort en 1975.
 
 "Les Origines du totalitarisme" (1951) analyse le nazisme et le stalinisme comme des phénomènes radicalement nouveaux, irréductibles aux formes antérieures de tyrannie. Le totalitarisme vise à rendre les hommes "superflus", à détruire leur spontanéité et leur pluralité par la terreur et l'idéologie. Les camps de concentration et d'extermination en sont la manifestation la plus extrême, où meurent l'individualité juridique, morale et enfin l'individualité tout court.
@@ -578,6 +607,7 @@ Son reportage sur le procès d'Adolf Eichmann à Jérusalem (1961) introduit le 
     movement: "Absurdisme",
     family: "Phénoménologie & existentialisme",
     influences: ["nietzsche", "kierkegaard"],
+    quotes: ["Il faut imaginer Sisyphe heureux.", "Je me révolte, donc nous sommes."],
     summary: `Albert Camus naquit en 1913 à Mondovi, en Algérie, dans une famille très pauvre. Son père, ouvrier agricole, mourut à la bataille de la Marne en 1914 ; sa mère, d'origine espagnole, quasi analphabète et à moitié sourde, éleva seule ses deux fils. Grâce à son instituteur Louis Germain, puis à Jean Grenier, Camus put poursuivre des études. Il fut journaliste, résistant, et reçut le prix Nobel de littérature en 1957.
 
 "Le Mythe de Sisyphe" (1942) pose la question fondamentale : "Il n'y a qu'un problème philosophique vraiment sérieux : c'est le suicide. Juger que la vie vaut ou ne vaut pas la peine d'être vécue, c'est répondre à la question fondamentale de la philosophie." L'absurde naît de la confrontation entre l'appel humain au sens et le silence déraisonnable du monde. Mais le suicide n'est pas la réponse : il faut "imaginer Sisyphe heureux", trouvant dans la lutte elle-même une raison de vivre.
@@ -598,6 +628,7 @@ Bien qu'ami de Sartre, Camus refusait l'étiquette d'existentialiste. Sa pensée
     movement: "Post-structuralisme",
     family: "Pensée contemporaine",
     influences: ["nietzsche", "heidegger"],
+    quotes: ["Là où il y a du pouvoir, il y a de la résistance."],
     summary: `Michel Foucault naquit à Poitiers en 1926 dans une famille de médecins. Élève brillant mais tourmenté (il fit plusieurs tentatives de suicide), il intégra l'École normale supérieure où il eut pour professeurs Althusser et Hyppolite. Après des séjours à l'étranger (Suède, Pologne, Allemagne), il fut élu au Collège de France en 1970 à la chaire d'"Histoire des systèmes de pensée".
 
 Son œuvre analyse les rapports entre savoir et pouvoir à travers l'histoire de différentes pratiques : la folie ("Histoire de la folie", 1961), la médecine clinique, les sciences humaines ("Les Mots et les Choses", 1966), la prison ("Surveiller et punir", 1975), la sexualité. Foucault montre comment ce qui nous semble naturel ou universel est en fait historiquement constitué, produit par des dispositifs de savoir-pouvoir.
@@ -618,6 +649,7 @@ L'"Histoire de la sexualité" critique l'"hypothèse répressive" : loin d'avoir
     movement: "Déconstruction",
     family: "Pensée contemporaine",
     influences: ["husserl", "heidegger", "nietzsche"],
+    quotes: ["Il n'y a pas de hors-texte."],
     summary: `Jacques Derrida naquit à El-Biar, près d'Alger, en 1930, dans une famille juive séfarade. Élève de l'École normale supérieure, où il eut pour condisciples Althusser, Foucault et Bourdieu, il enseigna d'abord à la Sorbonne puis à l'École des hautes études en sciences sociales. Sa pensée, d'abord controversée en France, connut un succès considérable aux États-Unis, particulièrement dans les départements de littérature.
 
 La déconstruction, méthode de lecture qu'il développe à partir de 1967, révèle les tensions, les hiérarchies et les présupposés cachés dans les textes philosophiques. La métaphysique occidentale, depuis Platon, repose sur des oppositions binaires (parole/écriture, présence/absence, nature/culture, homme/femme) où un terme est privilégié et l'autre subordonné. La déconstruction montre que le terme subordonné est en fait nécessaire au terme dominant, minant ainsi la hiérarchie.
@@ -638,6 +670,7 @@ L'influence de Derrida sur la philosophie, la théorie littéraire, l'architectu
     movement: "Post-structuralisme",
     family: "Pensée contemporaine",
     influences: ["spinoza", "hume", "nietzsche"],
+    quotes: ["La philosophie est l'art de former, d'inventer, de fabriquer des concepts."],
     summary: `Gilles Deleuze naquit à Paris en 1925 et y passa toute sa vie, à l'exception des années d'enseignement à Lyon. Formé à la Sorbonne, il consacra d'abord son œuvre à des monographies originales sur des philosophes (Hume, Nietzsche, Bergson, Spinoza) qu'il lisait "à contre-courant", cherchant ce qui dans leur pensée échappait à la tradition. Il enseigna à l'université de Paris VIII-Vincennes de 1969 à 1987.
 
 "Différence et Répétition" (1968) et "Logique du sens" (1969) développent une philosophie de la différence qui rompt avec la tradition platonicienne. Contre la philosophie de l'identité et de la représentation, qui subordonne la différence au même et au semblable, Deleuze pense la différence en elle-même, affirmative et créatrice. Le réel est fait de singularités, d'intensités, de devenirs, non d'essences fixes ou de formes éternelles.

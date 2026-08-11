@@ -5,6 +5,7 @@ import { subjectCounts } from "@/lib/search-data";
 import { SubjectProgress } from "@/components/subject-progress";
 import { FavoritesLink } from "@/components/favorites-link";
 import { PinnedSubjects } from "@/components/pinned-subjects";
+import { FicheDuJour } from "@/components/fiche-du-jour";
 
 const categories = [
   {
@@ -243,6 +244,7 @@ export default function HomePage() {
 
       {/* Categories */}
       <section className="container pb-16 space-y-10">
+        <FicheDuJour />
         <PinnedSubjects />
 
         {/* Guided tours */}

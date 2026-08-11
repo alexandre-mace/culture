@@ -8,6 +8,7 @@ export interface MathematicsItem {
   movement: string;
   family?: string;
   influences?: string[];
+  quotes?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -61,6 +62,9 @@ export const mathematics: MathematicsItem[] = [
     movement: "Mathématiques grecques",
     family: "Antiquité & Moyen Âge",
     influences: ["thales", "pythagore"],
+    quotes: [
+      "Il n'y a pas de voie royale pour accéder à la géométrie.",
+    ],
     summary:
       "Père de la géométrie, ses Éléments sont le manuel de mathématiques le plus influent de l'histoire. Méthode axiomatique qui restera la référence pendant 2000 ans.",
     mainWorks: [
@@ -80,6 +84,10 @@ export const mathematics: MathematicsItem[] = [
     movement: "Mathématiques grecques",
     family: "Antiquité & Moyen Âge",
     influences: ["euclide"],
+    quotes: [
+      "Eurêka ! J'ai trouvé !",
+      "Donnez-moi un point d'appui et je soulèverai le monde.",
+    ],
     summary:
       "Plus grand mathématicien de l'Antiquité, il calcule pi avec précision, détermine les volumes et surfaces de solides, et invente le calcul intégral sous forme primitive.",
     mainWorks: [
@@ -135,6 +143,10 @@ export const mathematics: MathematicsItem[] = [
     nationality: "Français",
     movement: "Révolution scientifique",
     family: "Révolution scientifique",
+    quotes: [
+      "Je pense, donc je suis.",
+      "Le bon sens est la chose du monde la mieux partagée.",
+    ],
     summary:
       "Inventeur de la géométrie analytique, il unifie algèbre et géométrie. Les coordonnées cartésiennes permettent de représenter les équations par des courbes.",
     mainWorks: [
@@ -153,6 +165,9 @@ export const mathematics: MathematicsItem[] = [
     nationality: "Français",
     movement: "Révolution scientifique",
     family: "Révolution scientifique",
+    quotes: [
+      "J'en ai découvert une démonstration véritablement merveilleuse que cette marge est trop étroite pour contenir.",
+    ],
     summary:
       "Mathématicien amateur de génie, co-fondateur de la théorie des probabilités avec Pascal. Son 'dernier théorème' restera non démontré pendant 358 ans.",
     mainWorks: [
@@ -172,6 +187,10 @@ export const mathematics: MathematicsItem[] = [
     movement: "Révolution scientifique",
     family: "Révolution scientifique",
     influences: ["fermat"],
+    quotes: [
+      "Le cœur a ses raisons que la raison ne connaît point.",
+      "Le silence éternel de ces espaces infinis m'effraie.",
+    ],
     summary:
       "Génie précoce, il invente une machine à calculer à 19 ans. Co-fondateur des probabilités, il découvre le triangle de Pascal et pose les bases du calcul infinitésimal.",
     mainWorks: [
@@ -191,6 +210,9 @@ export const mathematics: MathematicsItem[] = [
     movement: "Révolution scientifique",
     family: "Révolution scientifique",
     influences: ["descartes-math", "fermat"],
+    quotes: [
+      "Si j'ai vu plus loin, c'est en montant sur les épaules de géants.",
+    ],
     summary:
       "Co-inventeur du calcul infinitésimal (avec Leibniz), outil mathématique le plus puissant de l'histoire. Ses séries et son binôme généralisent l'algèbre.",
     mainWorks: [
@@ -209,6 +231,9 @@ export const mathematics: MathematicsItem[] = [
     movement: "Révolution scientifique",
     family: "Révolution scientifique",
     influences: ["descartes-math", "pascal"],
+    quotes: [
+      "Dieu a choisi le meilleur de tous les mondes possibles.",
+    ],
     summary:
       "Co-inventeur du calcul infinitésimal, sa notation (dy/dx, ∫) est celle utilisée aujourd'hui. Pionnier de la logique formelle et inventeur d'une machine à calculer.",
     mainWorks: [
@@ -247,6 +272,9 @@ export const mathematics: MathematicsItem[] = [
     movement: "Mathématiques du XIXe",
     family: "Analyse moderne",
     influences: ["euler", "newton-math"],
+    quotes: [
+      "Les mathématiques sont la reine des sciences, et l'arithmétique est la reine des mathématiques.",
+    ],
     summary:
       "Prince des mathématiques, il contribue à presque tous les domaines : théorie des nombres, statistiques, géométrie non euclidienne, électromagnétisme. Enfant prodige.",
     mainWorks: [
@@ -284,6 +312,9 @@ export const mathematics: MathematicsItem[] = [
     nationality: "Allemand",
     movement: "Fondements des mathématiques",
     family: "Fondements & logique",
+    quotes: [
+      "L'essence des mathématiques, c'est la liberté.",
+    ],
     summary:
       "Créateur de la théorie des ensembles, il démontre qu'il existe différentes tailles d'infini. Ses idées révolutionnaires provoquent une crise des fondements des mathématiques.",
     mainWorks: [
@@ -303,6 +334,9 @@ export const mathematics: MathematicsItem[] = [
     movement: "Mathématiques du XXe",
     family: "Fondements & logique",
     influences: ["riemann"],
+    quotes: [
+      "On fait la science avec des faits, comme on fait une maison avec des pierres : mais une accumulation de faits n'est pas plus une science qu'un tas de pierres n'est une maison.",
+    ],
     summary:
       "Dernier mathématicien universel, il excelle dans tous les domaines. Fondateur de la topologie et précurseur de la théorie du chaos. La conjecture de Poincaré a été résolue en 2003.",
     mainWorks: [
@@ -322,6 +356,9 @@ export const mathematics: MathematicsItem[] = [
     movement: "Mathématiques du XXe",
     family: "Fondements & logique",
     influences: ["euclide", "cantor"],
+    quotes: [
+      "Nous devons savoir, nous saurons.",
+    ],
     summary:
       "Leader des mathématiques au début du XXe siècle. Ses 23 problèmes (1900) guident la recherche pendant un siècle. Formaliste, il tente de fonder les mathématiques sur la logique.",
     mainWorks: [
@@ -360,6 +397,10 @@ export const mathematics: MathematicsItem[] = [
     movement: "Informatique théorique",
     family: "Ère contemporaine",
     influences: ["hilbert", "godel"],
+    quotes: [
+      "Je propose de réfléchir à la question : les machines peuvent-elles penser ?",
+      "Nous ne voyons qu'à courte distance devant nous, mais nous pouvons y voir bien des choses à accomplir.",
+    ],
     summary:
       "Père de l'informatique théorique, il définit la notion d'algorithme avec la machine de Turing. Déchiffre Enigma pendant la guerre. Pionnier de l'intelligence artificielle.",
     mainWorks: [
@@ -378,6 +419,9 @@ export const mathematics: MathematicsItem[] = [
     nationality: "Apatride/Français",
     movement: "Mathématiques contemporaines",
     family: "Ère contemporaine",
+    quotes: [
+      "La découverte est le privilège de l'enfant.",
+    ],
     summary:
       "Refonde la géométrie algébrique avec une vision unificatrice radicale. Ses schémas et topos révolutionnent les mathématiques. Se retire du monde en 1991.",
     mainWorks: [

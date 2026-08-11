@@ -8,6 +8,7 @@ export interface Painter {
   movement: string;
   family?: string;
   influences?: string[];
+  quotes?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -81,6 +82,7 @@ Oublié après sa mort, Botticelli est redécouvert par les Préraphaélites au 
     nationality: "Italien",
     movement: "Haute Renaissance",
     family: "Renaissance",
+    quotes: ["La peinture est une poésie qui se voit au lieu de se sentir.", "De même qu'une journée bien remplie donne un doux sommeil, une vie bien employée donne une mort paisible."],
     summary: `Leonardo di ser Piero da Vinci naît à Vinci, en Toscane, fils illégitime d'un notaire. Formé dans l'atelier de Verrocchio à Florence, il manifeste très tôt des dons exceptionnels. Son insatiable curiosité l'amène à étudier l'anatomie, la botanique, la géologie, l'hydraulique, l'optique.
 
 Peintre, Léonard produit peu mais chaque œuvre est une révolution. La Cène (1495-1498) réinvente la composition narrative. La Joconde, portrait de Lisa Gherardini, devient l'image la plus célèbre du monde grâce au sfumato, cette technique de fondu atmosphérique qu'il invente.
@@ -140,6 +142,7 @@ Raphaël meurt à trente-sept ans, peut-être d'épuisement ou de fièvre. Rome 
     nationality: "Allemand",
     movement: "Renaissance nordique",
     family: "Renaissance",
+    quotes: ["L'art véritable est caché dans la nature ; qui peut l'en arracher, le possède."],
     summary: `Albrecht Dürer naît à Nuremberg, fils d'un orfèvre hongrois. Après un apprentissage dans l'atelier paternel puis chez le peintre Wolgemut, il voyage en Italie où il découvre la Renaissance. Il devient le passeur entre l'art italien et le monde germanique.
 
 Dürer élève la gravure au rang d'art majeur. Ses séries de l'Apocalypse, de la Grande Passion et de la Vie de la Vierge, ses gravures sur cuivre comme Melencolia I ou Le Chevalier, la Mort et le Diable atteignent une virtuosité technique et une profondeur symbolique inégalées.
@@ -259,6 +262,7 @@ Vermeer meurt à quarante-trois ans, laissant onze enfants et des dettes. Oubli�
     movement: "Romantisme",
     family: "Romantisme & réalisme",
     influences: ["velazquez", "rembrandt"],
+    quotes: ["Le sommeil de la raison engendre des monstres."],
     summary: `Francisco José de Goya y Lucientes naît à Fuendetodos, en Aragon. Formé à Saragosse puis à Madrid, il voyage en Italie avant de revenir travailler pour la manufacture royale de tapisseries. Ses cartons joyeux montrent une Espagne populaire et festive.
 
 Peintre de la cour de Charles IV, Goya est frappé de surdité vers 1793. Cette épreuve transforme son art. Les Caprices, série de gravures, dénoncent avec une ironie féroce les superstitions et l'injustice sociale. "Le sommeil de la raison engendre des monstres."
@@ -298,6 +302,7 @@ Turner meurt à Chelsea, riche et célèbre mais solitaire. Il lègue son œuvre
     movement: "Romantisme",
     family: "Romantisme & réalisme",
     influences: ["rubens", "goya"],
+    quotes: ["Le premier mérite d'un tableau est d'être une fête pour l'œil.", "La peinture n'est qu'un pont jeté entre l'esprit du peintre et celui du spectateur."],
     summary: `Eugène Delacroix naît à Charenton-Saint-Maurice, officiellement fils d'un préfet, peut-être en réalité de Talleyrand. Orphelin à seize ans, il entre dans l'atelier de Guérin et se lie avec Géricault dont le Radeau de la Méduse l'impressionne profondément.
 
 Les Massacres de Scio (1824) et La Mort de Sardanapale (1827) scandalisent l'Académie par leur violence colorée. La Liberté guidant le peuple (1830) devient l'icône de la révolution de Juillet. Delacroix incarne le romantisme en peinture face au classicisme d'Ingres.
@@ -318,6 +323,7 @@ Décorateur du Palais-Bourbon et de Saint-Sulpice, portraitiste, Delacroix tient
     movement: "Réalisme",
     family: "Romantisme & réalisme",
     influences: ["rembrandt"],
+    quotes: ["Montrez-moi un ange, et j'en peindrai un.", "Savoir pour pouvoir, telle fut ma pensée."],
     summary: `Gustave Courbet naît à Ornans, dans le Doubs, dans une famille de propriétaires terriens. Monté à Paris, il se forme en copiant les maîtres au Louvre plutôt qu'en suivant l'enseignement académique. Son tempérament provocateur le destine au scandale.
 
 Un enterrement à Ornans (1850) et L'Atelier du peintre (1855) rompent avec les conventions : Courbet peint des gens ordinaires à l'échelle des tableaux d'histoire, affirmant la dignité du quotidien. Rejeté par le Salon, il organise sa propre exposition, le "Pavillon du Réalisme".
@@ -338,6 +344,7 @@ Engagé dans la Commune de Paris, Courbet est emprisonné puis condamné à paye
     movement: "Impressionnisme / Réalisme",
     family: "Impressionnisme & post-impressionnisme",
     influences: ["velazquez", "goya", "courbet"],
+    quotes: ["Il n'y a qu'une chose vraie : faire du premier coup ce que l'on voit."],
     summary: `Édouard Manet naît à Paris dans une famille de la haute bourgeoisie. Après un échec au concours de l'École navale, il entre dans l'atelier de Couture. Ses voyages en Hollande, en Allemagne et en Espagne nourrissent son admiration pour Velázquez et Goya.
 
 Le Déjeuner sur l'herbe (1863) et Olympia (1865) provoquent des scandales retentissants. Ce n'est pas tant le nu qui choque que son traitement : aplats de couleur, suppression des demi-teintes, regard direct de la modèle qui défie le spectateur. La modernité en peinture est née.
@@ -358,6 +365,7 @@ Atteint de syphilis, Manet meurt à cinquante et un ans après l'amputation d'un
     movement: "Impressionnisme",
     family: "Impressionnisme & post-impressionnisme",
     influences: ["turner", "manet"],
+    quotes: ["Je voudrais peindre comme l'oiseau chante.", "Mon jardin est mon plus beau chef-d'œuvre."],
     summary: `Claude Monet naît à Paris mais grandit au Havre où il rencontre Boudin qui l'initie à la peinture en plein air. À Paris, il se lie avec Renoir, Sisley et Bazille. Impression, soleil levant (1872), exposé en 1874, donne involontairement son nom au mouvement impressionniste.
 
 Monet poursuit toute sa vie la même quête : saisir les variations de la lumière sur les choses. Ses séries - les Meules, les Cathédrales de Rouen, les Peupliers - montrent le même motif à différentes heures et saisons, explorant la perception pure.
@@ -378,6 +386,7 @@ Presque aveugle dans ses dernières années, Monet continue de peindre. Il meurt
     movement: "Impressionnisme",
     family: "Impressionnisme & post-impressionnisme",
     influences: ["delacroix", "courbet", "rubens"],
+    quotes: ["La douleur passe, la beauté reste."],
     summary: `Pierre-Auguste Renoir naît à Limoges dans une famille modeste. Apprenti peintre sur porcelaine, il monte à Paris et entre à l'École des Beaux-Arts. Aux côtés de Monet, Sisley et Bazille, il participe à l'aventure impressionniste des années 1870.
 
 Le Moulin de la Galette (1876) et Le Déjeuner des canotiers (1881) célèbrent les plaisirs de la vie parisienne avec une joie sensuelle. La touche de Renoir, fluide et chaude, caresse les corps féminins et les paysages ensoleillés d'une même tendresse.
@@ -398,6 +407,7 @@ Installé à Cagnes-sur-Mer, Renoir meurt à soixante-dix-huit ans. Sa célébra
     movement: "Post-impressionnisme",
     family: "Impressionnisme & post-impressionnisme",
     influences: ["delacroix", "courbet", "manet"],
+    quotes: ["Traiter la nature par le cylindre, la sphère, le cône.", "Je vous dois la vérité en peinture et je vous la dirai."],
     summary: `Paul Cézanne naît à Aix-en-Provence, fils d'un banquier. Ami d'enfance de Zola, il monte à Paris et fréquente les impressionnistes sans jamais se sentir des leurs. Timide, irascible, doutant constamment de son talent, il travaille dans une solitude obstinée.
 
 Cézanne veut "traiter la nature par le cylindre, la sphère, le cône", retrouver une structure sous les apparences. Ses natures mortes, ses portraits, ses paysages de Provence construisent l'espace par la couleur, par des "modulations" plutôt que par le modelé traditionnel.
@@ -418,6 +428,7 @@ Incompris de son vivant, Cézanne est découvert par la jeune génération au Sa
     movement: "Post-impressionnisme",
     family: "Impressionnisme & post-impressionnisme",
     influences: ["delacroix", "gauguin"],
+    quotes: ["Il y a un grand feu dans mon âme, mais personne ne vient jamais s'y réchauffer."],
     summary: `Vincent Willem van Gogh naît à Groot-Zundert, aux Pays-Bas, fils d'un pasteur. Après des échecs comme marchand d'art et prédicateur, il se tourne vers la peinture à vingt-sept ans. Ses premières œuvres, sombres et terreuses, montrent les paysans et mineurs du Borinage.
 
 À Paris (1886-1888), il découvre l'impressionnisme et les estampes japonaises. Sa palette s'éclaircit, sa touche s'accélère. À Arles, il rêve d'une communauté d'artistes. L'arrivée de Gauguin tourne au drame : crise de folie, oreille coupée, internement.
@@ -438,6 +449,7 @@ Van Gogh se tire une balle dans la poitrine et meurt deux jours plus tard à tre
     movement: "Post-impressionnisme / Synthétisme",
     family: "Impressionnisme & post-impressionnisme",
     influences: ["cezanne"],
+    quotes: ["Je ferme les yeux afin de voir.", "L'art est un plagiat ou une révolution."],
     summary: `Paul Gauguin naît à Paris mais passe son enfance au Pérou. Agent de change prospère, il peint en amateur avant de tout quitter pour l'art à trente-cinq ans. Cette rupture radicale ruine sa vie familiale et le condamne à la misère.
 
 En Bretagne, à Pont-Aven, Gauguin développe le synthétisme : formes cernées, couleurs aplaties, abandon de la perspective. La Vision après le sermon (1888) marque la rupture avec l'impressionnisme. La forme doit exprimer l'idée, non imiter la nature.
@@ -476,6 +488,7 @@ L'alcool mine sa santé. Interné puis libéré, il meurt à trente-six ans dans
     nationality: "Autrichien",
     movement: "Art nouveau / Sécession viennoise",
     family: "Avant-gardes",
+    quotes: ["Qui veut savoir quelque chose sur moi doit regarder attentivement mes tableaux."],
     summary: `Gustav Klimt naît à Baumgarten près de Vienne, fils d'un orfèvre. Formé à l'École des arts décoratifs, il connaît un succès précoce comme décorateur officiel. Mais en 1897, il fonde la Sécession viennoise, rompant avec l'académisme pour promouvoir un art total.
 
 Les peintures allégoriques pour l'Université de Vienne provoquent un scandale : leur érotisme et leur pessimisme choquent. Klimt renonce aux commandes officielles et développe son style caractéristique : figures réalistes sur fonds ornementaux abstraits, or et motifs décoratifs.
@@ -496,6 +509,7 @@ Klimt meurt de la grippe espagnole, laissant des œuvres inachevées. Longtemps 
     movement: "Fauvisme",
     family: "Avant-gardes",
     influences: ["cezanne", "gauguin", "van-gogh"],
+    quotes: ["Ce que je rêve, c'est un art d'équilibre, de pureté et de tranquillité, quelque chose d'analogue à un bon fauteuil."],
     summary: `Henri Matisse naît au Cateau-Cambrésis, dans le Nord. Clerc de notaire, il découvre la peinture pendant une convalescence et y trouve sa vocation. Formé chez Gustave Moreau, il évolue rapidement vers une liberté chromatique radicale.
 
 Au Salon d'Automne de 1905, ses toiles aux couleurs pures et violentes provoquent le scandale : un critique parle de "cage aux fauves". La Femme au chapeau et La Joie de vivre affirment une couleur autonome, libérée de la représentation. Le fauvisme est né.
@@ -516,6 +530,7 @@ Dans ses dernières années, immobilisé, Matisse invente les gouaches découpé
     movement: "Cubisme / Surréalisme",
     family: "Avant-gardes",
     influences: ["cezanne", "toulouse-lautrec", "velazquez"],
+    quotes: ["Je ne cherche pas, je trouve.", "À douze ans, je dessinais comme Raphaël ; il m'a fallu toute une vie pour apprendre à dessiner comme un enfant."],
     summary: `Pablo Ruiz Picasso naît à Málaga, fils d'un professeur de dessin. Enfant prodige, il maîtrise tous les styles académiques avant vingt ans. À Paris, ses périodes bleue et rose explorent la mélancolie et la tendresse avec une maîtrise classique.
 
 Les Demoiselles d'Avignon (1907) rompt avec cinq siècles de représentation occidentale. Avec Braque, Picasso invente le cubisme : l'objet est décomposé, montré sous plusieurs angles simultanément. Collages, papiers collés poussent l'expérimentation plus loin.
@@ -536,6 +551,7 @@ Picasso meurt à Mougins à quatre-vingt-onze ans, laissant une œuvre immense :
     movement: "Abstraction",
     family: "Avant-gardes",
     influences: ["monet"],
+    quotes: ["La couleur est la touche, l'œil le marteau, l'âme le piano aux mille cordes."],
     summary: `Vassily Kandinsky naît à Moscou dans une famille aisée. Juriste et économiste, il abandonne une carrière universitaire à trente ans pour étudier la peinture à Munich. Une révélation devant une meule de Monet et l'écoute de Wagner déclenchent sa vocation.
 
 En 1910, Kandinsky peint ce qui est considéré comme la première aquarelle abstraite. Du Spirituel dans l'art (1911) théorise cette révolution : l'art doit exprimer la "nécessité intérieure", non imiter la nature. Formes et couleurs ont une valeur en soi, comme les notes musicales.
@@ -575,6 +591,7 @@ Exilé à Londres puis à New York, Mondrian découvre le jazz et peint ses dern
     movement: "Surréalisme",
     family: "Art moderne & contemporain",
     influences: ["vermeer", "velazquez", "picasso"],
+    quotes: ["Le surréalisme, c'est moi.", "La seule différence entre un fou et moi, c'est que je ne suis pas fou."],
     summary: `Salvador Domingo Felipe Jacinto Dalí i Domènech naît à Figueras, en Catalogne. Enfant prodige narcissique, il étudie à l'Académie de Madrid où il se lie avec Lorca et Buñuel. Ses premières œuvres oscillent entre cubisme, réalisme et métaphysique.
 
 En 1929, Dalí rejoint le groupe surréaliste et développe sa "méthode paranoïaque-critique" : hallucinations et délires systématisés produisent des images doubles, des formes molles, des paysages oniriques. La Persistance de la mémoire et ses montres molles deviennent iconiques.
@@ -594,6 +611,7 @@ Installé à Port Lligat avec Gala, sa muse et manager, Dalí crée un musée-th
     nationality: "Mexicaine",
     movement: "Surréalisme / Art mexicain",
     family: "Art moderne & contemporain",
+    quotes: ["Je me peins moi-même parce que je suis si souvent seule.", "Je ne peins jamais de rêves ni de cauchemars, je peins ma propre réalité."],
     summary: `Magdalena Carmen Frida Kahlo Calderón naît à Coyoacán, près de Mexico. À six ans, la poliomyélite atrophie sa jambe droite. À dix-huit ans, un terrible accident de bus la laisse brisée, condamnée à des dizaines d'opérations et à une souffrance chronique.
 
 Immobilisée, Frida commence à peindre, surtout des autoportraits : "Je me peins moi-même parce que je suis si souvent seule." Ses tableaux, petits et intenses, mêlent réalisme mexicain, symbolisme précolombien et imagerie populaire. La douleur physique et émotionnelle y est omniprésente.
@@ -614,6 +632,7 @@ Frida meurt à quarante-sept ans, épuisée par la maladie. Longtemps éclipsée
     movement: "Expressionnisme abstrait",
     family: "Art moderne & contemporain",
     influences: ["picasso"],
+    quotes: ["La peinture a une vie propre. J'essaie de la laisser transparaître.", "Je suis la nature."],
     summary: `Jackson Pollock naît à Cody, dans le Wyoming. Élève de Thomas Hart Benton à New York, il est marqué par les muralistes mexicains et l'art des Indiens Navajos. L'analyse jungienne l'aide à surmonter son alcoolisme tout en nourrissant son imaginaire.
 
 En 1947, Pollock invente le "dripping" : la toile posée au sol, il projette, goutte, fait couler la peinture avec des bâtons, des truelles. Ce geste libéré de tout contrôle conscient produit des entrelacs rythmiques d'une énergie primitive. L'action painting est née.
@@ -633,6 +652,7 @@ Pollock meurt à quarante-quatre ans dans un accident de voiture, ivre, tuant un
     nationality: "Américain",
     movement: "Pop Art",
     family: "Art moderne & contemporain",
+    quotes: ["À l'avenir, chacun aura droit à quinze minutes de célébrité mondiale.", "Je voudrais être une machine."],
     summary: `Andrew Warhola naît à Pittsburgh dans une famille d'immigrés slovaques. Illustrateur publicitaire à succès à New York, il se tourne vers l'art en reproduisant des images de la culture de masse : boîtes de soupe Campbell, bouteilles de Coca-Cola, billets de banque.
 
 La Factory, son atelier, devient le lieu de toutes les expérimentations : sérigraphies reproduites mécaniquement, films d'avant-garde, musique avec le Velvet Underground. Warhol cultive l'ambiguïté entre art et commerce, original et reproduction, surface et profondeur.
@@ -653,6 +673,7 @@ En 1968, Valerie Solanas lui tire dessus ; il survit de justesse. Ce trauma asso
     movement: "Expressionnisme / Art figuratif",
     family: "Art moderne & contemporain",
     influences: ["velazquez", "van-gogh", "picasso"],
+    quotes: ["J'ai voulu peindre le cri plutôt que l'horreur."],
     summary: `Francis Bacon naît à Dublin de parents anglais. Chassé de chez lui à seize ans pour son homosexualité, il vit entre Londres, Berlin et Paris, travaillant comme décorateur. Autodidacte en peinture, il détruit la plupart de ses œuvres de jeunesse.
 
 Trois études de figures au pied d'une Crucifixion (1944) révèle une vision cauchemardesque qui choque le Londres d'après-guerre. Bacon peint des corps déformés, des visages dissous, des figures hurlantes dans des espaces clos, cage de verre ou arène circulaire.

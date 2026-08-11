@@ -8,6 +8,7 @@ export interface BiologyItem {
   movement: string;
   family?: string;
   influences?: string[];
+  quotes?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -42,6 +43,9 @@ export const biology: BiologyItem[] = [
     movement: "Histoire naturelle antique",
     family: "Histoire naturelle",
     influences: ["aristote-bio"],
+    quotes: [
+      "La seule certitude est qu'il n'y a rien de certain.",
+    ],
     summary:
       "Son Histoire naturelle en 37 volumes est une encyclopédie monumentale des connaissances antiques sur la nature. Mélange de science et de légendes, elle influence le Moyen Âge.",
     mainWorks: [
@@ -61,6 +65,9 @@ export const biology: BiologyItem[] = [
     movement: "Classification",
     family: "Histoire naturelle",
     influences: ["aristote-bio"],
+    quotes: [
+      "Dieu a créé, Linné a classé.",
+    ],
     summary:
       "Fondateur de la taxonomie moderne avec sa nomenclature binomiale (genre + espèce). Son Systema Naturae classe tout le vivant. Chaque espèce porte encore un nom latinisé à la Linné.",
     mainWorks: [
@@ -78,6 +85,9 @@ export const biology: BiologyItem[] = [
     nationality: "Français",
     movement: "Histoire naturelle",
     family: "Histoire naturelle",
+    quotes: [
+      "Le style est l'homme même.",
+    ],
     summary:
       "Son Histoire naturelle en 36 volumes est un best-seller des Lumières. Intendant du Jardin du Roi, il propose une vision dynamique de la nature et suggère l'ancienneté de la Terre.",
     mainWorks: [
@@ -132,6 +142,9 @@ export const biology: BiologyItem[] = [
     nationality: "Allemand",
     movement: "Biogéographie",
     family: "Naturalistes du XIXe",
+    quotes: [
+      "Tout est interaction.",
+    ],
     summary:
       "Père de l'écologie et de la biogéographie. Ses voyages en Amérique latine révèlent les liens entre climat, altitude et végétation. Vision holistique de la nature comme système interconnecté.",
     mainWorks: [
@@ -151,6 +164,9 @@ export const biology: BiologyItem[] = [
     movement: "Théorie de l'évolution",
     family: "Révolution darwinienne",
     influences: ["lamarck", "humboldt-bio"],
+    quotes: [
+      "Il y a de la grandeur dans cette conception de la vie, qui, d'un commencement aussi simple, a fait naître des formes infinies, toujours plus belles et plus admirables.",
+    ],
     summary:
       "Révolutionne la biologie avec la théorie de l'évolution par sélection naturelle. Le voyage du Beagle et l'Origine des espèces (1859) changent notre compréhension du vivant et de notre place dans la nature.",
     mainWorks: [
@@ -187,6 +203,9 @@ export const biology: BiologyItem[] = [
     nationality: "Autrichien",
     movement: "Génétique",
     family: "Génétique & microbiologie",
+    quotes: [
+      "Mon temps viendra.",
+    ],
     summary:
       "Père de la génétique, il découvre les lois de l'hérédité en croisant des pois. Ignoré de son vivant, ses travaux sont redécouverts en 1900 et fondent la génétique moderne.",
     mainWorks: [
@@ -205,6 +224,9 @@ export const biology: BiologyItem[] = [
     nationality: "Français",
     movement: "Microbiologie",
     family: "Génétique & microbiologie",
+    quotes: [
+      "Dans les champs de l'observation, le hasard ne favorise que les esprits préparés.",
+    ],
     summary:
       "Fondateur de la microbiologie, il démontre que les micro-organismes causent fermentation et maladies. Réfute la génération spontanée, invente la pasteurisation et les vaccins.",
     mainWorks: [
@@ -293,6 +315,9 @@ export const biology: BiologyItem[] = [
     nationality: "Anglaise",
     movement: "Primatologie",
     family: "Biologie contemporaine",
+    quotes: [
+      "Chacun de nous compte, chacun a un rôle à jouer, et chacun de nous fait une différence.",
+    ],
     summary:
       "Pionnière de l'étude des chimpanzés, elle révolutionne notre vision des grands singes. Découvre leur usage d'outils et leur vie sociale complexe. Militante pour la conservation.",
     mainWorks: [

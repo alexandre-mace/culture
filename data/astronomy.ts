@@ -8,6 +8,7 @@ export interface AstronomyItem {
   movement: string;
   family?: string;
   influences?: string[];
+  quotes?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -104,6 +105,9 @@ L'Église catholique condamne l'héliocentrisme en 1616. Mais la révolution cop
     movement: "Renaissance",
     family: "Révolution copernicienne",
     influences: ["ptolemee", "copernic"],
+    quotes: [
+      "Que je ne paraisse pas avoir vécu en vain.",
+    ],
     summary: `Tycho Brahe est le plus grand astronome observateur avant l'invention du télescope. Depuis son observatoire d'Uraniborg, il accumule des mesures d'une précision inégalée, dix fois supérieure à ses prédécesseurs.
 
 Tycho observe la supernova de 1572 et la comète de 1577, prouvant que le ciel n'est pas immuable comme le croyait Aristote. Ces phénomènes se produisent au-delà de la Lune, dans le monde supposé parfait des étoiles.
@@ -124,6 +128,9 @@ Ses observations, transmises à son assistant Kepler, permettront à celui-ci de
     movement: "Révolution scientifique",
     family: "Révolution copernicienne",
     influences: ["copernic", "brahe"],
+    quotes: [
+      "Mon livre peut attendre cent ans son lecteur : Dieu lui-même a bien attendu six mille ans un témoin de son œuvre.",
+    ],
     summary: `Johannes Kepler, mathématicien et astronome allemand, découvre les trois lois du mouvement planétaire. Utilisant les observations de Tycho Brahe, il rompt avec deux millénaires de cercles parfaits : les planètes décrivent des ellipses.
 
 Première loi : les orbites sont des ellipses dont le Soleil occupe un foyer. Deuxième loi : le rayon Soleil-planète balaie des aires égales en temps égaux. Troisième loi : le carré de la période est proportionnel au cube du demi-grand axe.
@@ -144,6 +151,9 @@ Les lois de Kepler, purement descriptives, seront expliquées par Newton grâce 
     movement: "Révolution scientifique",
     family: "Révolution copernicienne",
     influences: ["copernic"],
+    quotes: [
+      "Le livre de la nature est écrit en langage mathématique.",
+    ],
     summary: `Galileo Galilei, savant florentin, est le père de la physique moderne et de la méthode expérimentale. En 1609, il tourne vers le ciel une lunette améliorée et fait des découvertes qui bouleversent la cosmologie.
 
 Il observe les montagnes de la Lune (le ciel n'est pas parfait), les satellites de Jupiter (la Terre n'est pas le centre unique), les phases de Vénus (elle tourne autour du Soleil), les taches solaires. Le Sidereus Nuncius (1610) rend ces découvertes célèbres.
@@ -164,6 +174,9 @@ Galilée fonde aussi la cinématique (chute des corps, mouvement parabolique). S
     movement: "Révolution scientifique",
     family: "Révolution copernicienne",
     influences: ["galilee", "kepler"],
+    quotes: [
+      "Si j'ai vu plus loin, c'est en montant sur les épaules de géants.",
+    ],
     summary: `Isaac Newton achève la révolution scientifique en unifiant la mécanique terrestre et céleste. Les Principia Mathematica (1687) établissent les lois du mouvement et la gravitation universelle : la même force fait tomber la pomme et orbiter la Lune.
 
 La loi de la gravitation (attraction proportionnelle aux masses, inversement proportionnelle au carré de la distance) explique les lois de Kepler, les marées, la forme de la Terre, les trajectoires des comètes. L'univers devient une horloge mécanique.
@@ -203,6 +216,9 @@ Herschel découvre aussi le rayonnement infrarouge en 1800, ouvrant l'astronomie
     nationality: "Américain",
     movement: "Cosmologie moderne",
     family: "Cosmologie moderne",
+    quotes: [
+      "Équipé de ses cinq sens, l'homme explore l'univers qui l'entoure et appelle cette aventure la Science.",
+    ],
     summary: `Edwin Hubble révolutionne notre vision de l'univers. En 1924, il prouve que la nébuleuse d'Andromède est une galaxie extérieure à la Voie lactée. L'univers s'avère immensément plus grand que prévu, peuplé de milliards de galaxies.
 
 En 1929, Hubble découvre que les galaxies s'éloignent de nous à une vitesse proportionnelle à leur distance (loi de Hubble). L'univers est en expansion. Cette observation fonde la cosmologie du Big Bang.

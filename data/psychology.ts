@@ -8,6 +8,7 @@ export interface PsychologyItem {
   movement: string;
   family?: string;
   influences?: string[];
+  quotes?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -41,6 +42,7 @@ export const psychology: PsychologyItem[] = [
     nationality: "Américain",
     movement: "Fonctionnalisme",
     family: "Fondateurs",
+    quotes: ["L'art d'être sage, c'est l'art de savoir ce qu'il faut négliger."],
     summary:
       "Père de la psychologie américaine, il s'intéresse aux fonctions de la conscience plutôt qu'à sa structure. Pragmatiste, il lie psychologie et philosophie. Étudie les expériences religieuses.",
     mainWorks: [
@@ -59,6 +61,7 @@ export const psychology: PsychologyItem[] = [
     nationality: "Autrichien",
     movement: "Psychanalyse",
     family: "Psychanalyse",
+    quotes: ["Le moi n'est pas maître dans sa propre maison.", "L'interprétation des rêves est la voie royale qui mène à la connaissance de l'inconscient."],
     summary:
       "Fondateur de la psychanalyse, il explore l'inconscient et ses mécanismes : refoulement, complexe d'Œdipe, pulsions. Révolutionne la compréhension de la psyché. Influence culturelle immense.",
     mainWorks: [
@@ -78,6 +81,7 @@ export const psychology: PsychologyItem[] = [
     movement: "Psychologie analytique",
     family: "Psychanalyse",
     influences: ["freud"],
+    quotes: ["Qui regarde à l'extérieur rêve ; qui regarde à l'intérieur s'éveille.", "Tout ce qui nous irrite chez les autres peut nous conduire à une meilleure compréhension de nous-mêmes."],
     summary:
       "Disciple puis rival de Freud, il fonde la psychologie analytique. Introduit les notions d'inconscient collectif, d'archétypes, et de types psychologiques (introversion/extraversion).",
     mainWorks: [
@@ -97,6 +101,7 @@ export const psychology: PsychologyItem[] = [
     movement: "Psychologie individuelle",
     family: "Psychanalyse",
     influences: ["freud"],
+    quotes: ["Il est plus facile de se battre pour ses principes que de vivre en accord avec eux."],
     summary:
       "Autre dissident de Freud, il met l'accent sur le complexe d'infériorité et la volonté de puissance. Sa psychologie individuelle influence la psychothérapie et l'éducation.",
     mainWorks: [
@@ -116,6 +121,7 @@ export const psychology: PsychologyItem[] = [
     movement: "Behaviorisme",
     family: "Béhaviorisme",
     influences: ["pavlov"],
+    quotes: ["Donnez-moi une douzaine d'enfants sains et je garantis de faire de chacun d'eux le spécialiste de mon choix : médecin, avocat, artiste, et même mendiant ou voleur."],
     summary:
       "Fondateur du behaviorisme, il rejette l'introspection et l'inconscient pour ne s'intéresser qu'au comportement observable. L'expérience du petit Albert montre le conditionnement de la peur.",
     mainWorks: [
@@ -134,6 +140,7 @@ export const psychology: PsychologyItem[] = [
     nationality: "Russe",
     movement: "Réflexologie",
     family: "Béhaviorisme",
+    quotes: ["N'oubliez pas que la science exige d'un homme toute sa vie."],
     summary:
       "Physiologiste découvreur du conditionnement classique. Ses expériences sur les chiens (réflexe de salivation) fondent la psychologie de l'apprentissage. Prix Nobel de médecine 1904.",
     mainWorks: [
@@ -153,6 +160,7 @@ export const psychology: PsychologyItem[] = [
     movement: "Behaviorisme radical",
     family: "Béhaviorisme",
     influences: ["watson", "pavlov"],
+    quotes: ["L'éducation est ce qui survit lorsque ce qui a été appris a été oublié."],
     summary:
       "Principal représentant du behaviorisme, il développe le conditionnement opérant. La boîte de Skinner permet d'étudier le renforcement. Applique ses idées à l'éducation et à la société.",
     mainWorks: [
@@ -171,6 +179,7 @@ export const psychology: PsychologyItem[] = [
     nationality: "Suisse",
     movement: "Psychologie du développement",
     family: "Développement",
+    quotes: ["Le but principal de l'éducation est de créer des hommes capables de faire des choses nouvelles, et non de simplement répéter ce que les autres générations ont fait.", "Comprendre, c'est inventer."],
     summary:
       "Fondateur de l'épistémologie génétique, il révolutionne la compréhension du développement cognitif de l'enfant. Stades du développement (sensori-moteur, préopératoire, opératoire).",
     mainWorks: [
@@ -189,6 +198,7 @@ export const psychology: PsychologyItem[] = [
     nationality: "Soviétique",
     movement: "Psychologie socio-culturelle",
     family: "Développement",
+    quotes: ["Ce que l'enfant sait faire aujourd'hui en collaboration, il saura le faire seul demain."],
     summary:
       "Psychologue soviétique mort jeune, il insiste sur le rôle de la culture et du langage dans le développement cognitif. Concept de zone proximale de développement. Redécouvert dans les années 60.",
     mainWorks: [
@@ -208,6 +218,7 @@ export const psychology: PsychologyItem[] = [
     movement: "Psychologie humaniste",
     family: "Psychologie humaniste",
     influences: ["adler"],
+    quotes: ["Si le seul outil que vous avez est un marteau, vous aurez tendance à voir chaque problème comme un clou.", "Ce qu'un homme peut être, il doit l'être."],
     summary:
       "Père de la psychologie humaniste, il propose la pyramide des besoins, de la survie à l'accomplissement de soi. S'intéresse aux 'expériences paroxystiques' et au potentiel humain.",
     mainWorks: [
@@ -227,6 +238,7 @@ export const psychology: PsychologyItem[] = [
     movement: "Psychologie humaniste",
     family: "Psychologie humaniste",
     influences: ["freud"],
+    quotes: ["Le curieux paradoxe, c'est que lorsque je m'accepte tel que je suis, alors je peux changer."],
     summary:
       "Fondateur de la thérapie centrée sur la personne, il met l'accent sur l'empathie, l'authenticité et l'acceptation inconditionnelle. Influence majeure sur la psychothérapie moderne.",
     mainWorks: [
@@ -246,6 +258,7 @@ export const psychology: PsychologyItem[] = [
     movement: "Théorie de l'attachement",
     family: "Développement",
     influences: ["freud"],
+    quotes: ["Ce qui ne peut être communiqué à la mère ne peut être communiqué au soi."],
     summary:
       "Fondateur de la théorie de l'attachement, il montre l'importance du lien mère-enfant pour le développement. Les styles d'attachement (sécurisé, anxieux, évitant) influencent la vie adulte.",
     mainWorks: [
@@ -264,6 +277,7 @@ export const psychology: PsychologyItem[] = [
     nationality: "Américain",
     movement: "Psychologie sociale",
     family: "Cognition et société",
+    quotes: ["Souvent, ce n'est pas tant le genre de personne qu'un homme est, que le genre de situation dans laquelle il se trouve, qui détermine sa façon d'agir."],
     summary:
       "Ses expériences sur l'obéissance à l'autorité montrent comment des gens ordinaires peuvent commettre des actes cruels sur ordre. Révèle le poids de l'autorité sur le comportement.",
     mainWorks: [
@@ -336,6 +350,7 @@ export const psychology: PsychologyItem[] = [
     nationality: "Israélien/Américain",
     movement: "Économie comportementale",
     family: "Cognition et société",
+    quotes: ["Rien dans la vie n'est aussi important que vous le pensez au moment où vous y pensez.", "Nous pouvons être aveugles à l'évidence, et aveugles de surcroît à notre aveuglement."],
     summary:
       "Psychologue Prix Nobel d'économie, il révèle les biais cognitifs qui faussent nos décisions. Système 1 (rapide, intuitif) vs Système 2 (lent, analytique). Révolutionne l'économie.",
     mainWorks: [

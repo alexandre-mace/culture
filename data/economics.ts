@@ -8,6 +8,7 @@ export interface EconomicsItem {
   movement: string;
   family?: string;
   influences?: string[];
+  quotes?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -23,6 +24,9 @@ export const economics: EconomicsItem[] = [
     nationality: "Grec",
     movement: "Économie antique",
     family: "Précurseurs",
+    quotes: [
+      "L'homme est par nature un animal politique.",
+    ],
     summary:
       "Premier penseur de l'économie, il distingue l'économie domestique (oikonomia) de la chrématistique (enrichissement). Critique du prêt à intérêt et réflexion sur la valeur.",
     mainWorks: [
@@ -99,6 +103,10 @@ export const economics: EconomicsItem[] = [
     movement: "Économie classique",
     family: "Classiques & Marx",
     influences: ["mercantilistes"],
+    quotes: [
+      "Ce n'est pas de la bienveillance du boucher, du brasseur ou du boulanger que nous attendons notre dîner, mais du soin qu'ils apportent à leurs propres intérêts.",
+      "Il est conduit par une main invisible à remplir une fin qui n'entre nullement dans ses intentions.",
+    ],
     summary:
       "Père de l'économie politique moderne. La Richesse des nations (1776) fonde le libéralisme économique : la 'main invisible' du marché coordonne les intérêts individuels vers le bien commun.",
     mainWorks: [
@@ -118,6 +126,9 @@ export const economics: EconomicsItem[] = [
     movement: "Économie classique",
     family: "Classiques & Marx",
     influences: ["adam-smith"],
+    quotes: [
+      "La population, quand elle n'est pas freinée, s'accroît en progression géométrique, et les subsistances en progression arithmétique.",
+    ],
     summary:
       "Son Essai sur le principe de population (1798) prédit que la population croît plus vite que les ressources. Vision pessimiste qui influence Darwin et les débats sur la démographie.",
     mainWorks: [
@@ -156,6 +167,10 @@ export const economics: EconomicsItem[] = [
     movement: "Critique de l'économie politique",
     family: "Classiques & Marx",
     influences: ["adam-smith", "ricardo"],
+    quotes: [
+      "Les philosophes n'ont fait qu'interpréter le monde de diverses manières ; ce qui importe, c'est de le transformer.",
+      "Prolétaires de tous les pays, unissez-vous !",
+    ],
     summary:
       "Critique radicale du capitalisme : la plus-value exploite les travailleurs, les crises sont inhérentes au système. Le Capital reste la plus grande analyse du capitalisme.",
     mainWorks: [
@@ -230,6 +245,9 @@ export const economics: EconomicsItem[] = [
     movement: "Keynésianisme",
     family: "XXe siècle",
     influences: ["marshall", "malthus"],
+    quotes: [
+      "Le long terme est un mauvais guide pour les affaires courantes : à long terme, nous serons tous morts.",
+    ],
     summary:
       "Révolutionne l'économie pendant la Grande Dépression. L'État doit intervenir par la dépense publique pour soutenir la demande et l'emploi. Architecte de Bretton Woods.",
     mainWorks: [
@@ -249,6 +267,9 @@ export const economics: EconomicsItem[] = [
     movement: "Économie de l'innovation",
     family: "XXe siècle",
     influences: ["walras", "marx-eco"],
+    quotes: [
+      "Ce processus de destruction créatrice constitue la donnée fondamentale du capitalisme.",
+    ],
     summary:
       "Théoricien de l'innovation et de l'entrepreneur. La 'destruction créatrice' renouvelle le capitalisme par l'innovation. Analyse des cycles économiques.",
     mainWorks: [
@@ -268,6 +289,9 @@ export const economics: EconomicsItem[] = [
     movement: "École autrichienne",
     family: "XXe siècle",
     influences: ["keynes"],
+    quotes: [
+      "La tâche singulière de l'économie est de montrer aux hommes combien ils savent peu de choses sur ce qu'ils s'imaginent pouvoir organiser.",
+    ],
     summary:
       "Champion du libéralisme contre le socialisme et l'interventionnisme. Le marché traite l'information mieux que toute planification centrale. Influence Thatcher et Reagan.",
     mainWorks: [
@@ -287,6 +311,10 @@ export const economics: EconomicsItem[] = [
     movement: "Monétarisme",
     family: "XXe siècle",
     influences: ["keynes", "hayek"],
+    quotes: [
+      "L'inflation est toujours et partout un phénomène monétaire.",
+      "Un repas gratuit, ça n'existe pas.",
+    ],
     summary:
       "Chef de file du monétarisme et du libéralisme économique. L'inflation est toujours un phénomène monétaire. Conseiller de Reagan, influence les politiques néolibérales.",
     mainWorks: [
@@ -306,6 +334,9 @@ export const economics: EconomicsItem[] = [
     movement: "Synthèse néoclassique",
     family: "XXe siècle",
     influences: ["keynes", "walras"],
+    quotes: [
+      "Les indices boursiers ont prédit neuf des cinq dernières récessions.",
+    ],
     summary:
       "Premier Américain Prix Nobel d'économie, il synthétise Keynes et les néoclassiques. Son manuel Economics forme des générations d'économistes. Mathématisation de l'économie.",
     mainWorks: [
@@ -323,6 +354,9 @@ export const economics: EconomicsItem[] = [
     nationality: "Indien",
     movement: "Économie du développement",
     family: "Contemporains",
+    quotes: [
+      "Aucune famine importante n'a jamais eu lieu dans une démocratie dotée d'une presse libre.",
+    ],
     summary:
       "Philosophe et économiste, il redéfinit le développement comme expansion des 'capabilités' humaines. Ses travaux sur la pauvreté et les famines humanisent l'économie.",
     mainWorks: [

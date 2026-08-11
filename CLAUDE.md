@@ -73,8 +73,13 @@ Shared libs:
 - `app/<subject>/page.tsx` - One static page per subject (e.g. `/philosophie`);
   passes `itemType="topic"` for non-person subjects and `contemporaries={...}`
 - `app/tout/page.tsx` - All categories combined, Chrono/Shuffle modes + category filters
-- `app/quiz/page.tsx` - Quiz (chronological ordering + masked-bio guessing)
+- `app/quiz/page.tsx` - Free quiz (chronology, masked bio, quote guessing); shares
+  generators with `app/defi/page.tsx` (daily challenge, seeded via `lib/quiz-engine`
+  so everyone gets the same grid, Wordle-style emoji share, streak in localStorage)
 - `app/favoris/page.tsx` - Starred items (localStorage)
+- `app/fiche-index/route.ts` - Static JSON index for the home "Fiche du jour" card
+- `components/influence-graph.tsx` - Fullscreen SVG influence graph per subject
+  (chronological x-axis, family lanes), opened from the timeline title row
 
 ### PWA / Offline
 

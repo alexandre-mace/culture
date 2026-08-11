@@ -15,6 +15,7 @@ interface ShuffleItem {
   movement: string;
   family?: string;
   influences?: string[];
+  quotes?: string[];
   summary: string;
   mainWorks: string[];
   keyIdeas?: string[];

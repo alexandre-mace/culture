@@ -8,6 +8,7 @@ export interface JazzItem {
   movement: string;
   family?: string;
   influences?: string[];
+  quotes?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -48,6 +49,7 @@ Sa légende, transmise oralement par les musiciens qui l'ont entendu — King Ol
     movement: "Jazz Nouvelle-Orléans",
     family: "Origines & Nouvelle-Orléans",
     influences: ["buddy-bolden"],
+    quotes: ["C'est moi qui ai inventé le jazz, en 1902."],
     summary: `Jelly Roll Morton, né Ferdinand LaMothe à la Nouvelle-Orléans, se proclamait sans modestie « inventeur du jazz ». Si cette prétention est exagérée, il est indiscutablement le premier grand compositeur et arrangeur de l'histoire du jazz, celui qui a donné une forme écrite à une musique d'abord orale.
 
 Avec ses Red Hot Peppers, il réalise entre 1926 et 1930 des enregistrements qui sont des chefs-d'œuvre d'équilibre entre composition et improvisation. Chaque instrument a un rôle précis, les breaks sont savamment placés, les dynamiques contrôlées — mais le swing et la spontanéité restent intacts.
@@ -73,6 +75,7 @@ En 1938, ruiné et oublié, il enregistre pour la Library of Congress des heures
     movement: "Jazz classique",
     family: "Origines & Nouvelle-Orléans",
     influences: ["buddy-bolden"],
+    quotes: ["Ce que nous jouons, c'est la vie.", "Il y a deux sortes de musique : la bonne et la mauvaise. Je joue la bonne."],
     summary: `Louis Armstrong est sans doute le musicien le plus important du XXe siècle. Né dans la misère à la Nouvelle-Orléans, formé au cornet dans un orphelinat, il révolutionne la musique en inventant le solo improvisé moderne — l'idée qu'un individu peut s'exprimer seul, avec sa voix propre, au-dessus d'un orchestre.
 
 Ses enregistrements avec les Hot Five et Hot Seven (1925-1928) transforment le jazz d'une musique collective en un art du soliste. West End Blues, avec son introduction à la trompette, reste l'un des moments les plus stupéfiants de l'histoire de la musique enregistrée. Son phrasé, son sens du swing et sa créativité mélodique influencent tous les musiciens qui suivent.
@@ -97,6 +100,7 @@ Armstrong est aussi un pont entre les époques : il accompagne la naissance du j
     nationality: "Américain",
     movement: "Big Band / Swing",
     family: "Swing & big bands",
+    quotes: ["Il n'y a que deux sortes de musique : la bonne et l'autre.", "Un problème est une chance de faire de votre mieux."],
     summary: `Edward Kennedy « Duke » Ellington est le plus grand compositeur de l'histoire du jazz et l'un des plus importants de la musique américaine. Pendant cinquante ans, de 1924 à 1974, son orchestre est un laboratoire sonore permanent, un instrument à lui seul dont Ellington joue avec une maîtrise incomparable.
 
 Sa résidence au Cotton Club de Harlem (1927-1931) lui permet de développer un style orchestral unique, le « jungle sound », mêlant growls des cuivres, clarinettes sinueuses et harmonies sophistiquées. Chaque musicien de l'orchestre — Johnny Hodges, Harry Carney, Cootie Williams — est un soliste irremplaçable dont Ellington exploite la personnalité sonore.
@@ -144,6 +148,7 @@ L'orchestre de Basie traverse les décennies, s'adaptant à chaque époque sans 
     movement: "Jazz vocal",
     family: "Swing & big bands",
     influences: ["louis-armstrong"],
+    quotes: ["Je ne chante jamais une chanson deux fois de la même manière."],
     summary: `Billie Holiday, surnommée Lady Day, possède l'une des voix les plus reconnaissables et les plus émouvantes de l'histoire de la musique. Sans formation technique, elle invente un phrasé qui transforme chaque chanson en confession intime, jouant avec le tempo comme un instrumentiste, en retard ou en avance sur le beat.
 
 Strange Fruit (1939), qui décrit le lynchage des Noirs dans le Sud américain, est sans doute la première chanson de protestation de la musique populaire. L'image des « fruits étranges » pendant aux arbres provoque un choc qui dépasse le cadre du jazz. Le morceau est interdit de radio mais devient un symbole de la lutte pour les droits civiques.
@@ -169,6 +174,7 @@ Holiday meurt à 44 ans, sous surveillance policière à l'hôpital, arrêtée p
     movement: "Jazz vocal",
     family: "Swing & big bands",
     influences: ["louis-armstrong"],
+    quotes: ["La seule chose meilleure que chanter, c'est chanter davantage."],
     summary: `Ella Fitzgerald, la « First Lady of Song », possède une voix d'une pureté, d'une justesse et d'une étendue exceptionnelles. Sa technique vocale est si parfaite que les musiciens la considèrent comme un instrument à part entière, capable de rivaliser avec n'importe quel saxophoniste en improvisation scat.
 
 Son scat — l'art d'improviser vocalement avec des syllabes sans signification — atteint des sommets de virtuosité et d'invention. Son Mack the Knife enregistré en concert à Berlin en 1960, où elle oublie les paroles et improvise avec un aplomb éblouissant, est un monument du jazz en live.
@@ -193,6 +199,7 @@ Contrairement à Billie Holiday, Fitzgerald incarne la joie de chanter, la lumi�
     nationality: "Américain",
     movement: "Bebop",
     family: "Bebop",
+    quotes: ["La musique est votre propre expérience, vos pensées, votre sagesse. Si vous ne la vivez pas, elle ne sortira jamais de votre instrument.", "Maîtrise ton instrument, maîtrise la musique, puis oublie tout ça et joue."],
     summary: `Charlie « Bird » Parker est le révolutionnaire du jazz. Au début des années 1940, dans les clubs de la 52e rue à New York — le Minton's Playhouse, le Three Deuces —, il invente avec Dizzy Gillespie un nouveau langage musical : le bebop. Tempos fulgurants, harmonies complexes, phrasés asymétriques : le jazz cesse d'être une musique de danse pour devenir un art.
 
 Son saxophone alto produit un torrent de notes d'une logique mélodique implacable. Ses improvisations sur des grilles d'accords enrichies de substitutions chromatiques créent un vocabulaire que tous les jazzmen qui suivent devront assimiler. Ko-Ko, Ornithology, Confirmation sont des études de virtuosité et d'invention.
@@ -217,6 +224,7 @@ Il meurt à 34 ans, le corps usé au point que le médecin légiste lui donne en
     movement: "Bebop",
     family: "Bebop",
     influences: ["louis-armstrong"],
+    quotes: ["Il m'a fallu toute ma vie pour apprendre ce qu'il ne faut pas jouer."],
     summary: `Dizzy Gillespie, avec sa trompette coudée à 45 degrés et ses joues gonflées comme des ballons, est l'image même du jazz. Co-inventeur du bebop avec Charlie Parker, il apporte à la révolution bop ce que Parker ne pouvait pas : la discipline, l'organisation et le sens du spectacle.
 
 Là où Parker improvise dans l'instant, Gillespie compose, arrange et structure. A Night in Tunisia, Salt Peanuts, Groovin' High sont des compositions pensées, avec des introductions élaborées et des harmonies savantes. Il forme des big bands bop, prouvant que le nouveau langage peut fonctionner à grande échelle.
@@ -242,6 +250,7 @@ Personnalité généreuse et pédagogue, Gillespie forme des générations de mu
     movement: "Bebop",
     family: "Bebop",
     influences: ["duke-ellington"],
+    quotes: ["Il n'y a pas de fausses notes sur un piano.", "Un génie est celui qui ressemble le plus à lui-même."],
     summary: `Thelonious Monk est l'un des musiciens les plus singuliers de l'histoire du jazz. Son style pianistique — anguleux, percussif, plein de silences inattendus et de dissonances délibérées — déroute ses contemporains. Pendant des années, il est considéré comme un amateur maladroit. Il faudra du temps pour comprendre que chaque note « fausse » est parfaitement intentionnelle.
 
 Présent aux jam sessions fondatrices du Minton's Playhouse dans les années 1940, il est l'un des architectes du bebop, mais son style n'appartient à aucune école. Ses compositions — 'Round Midnight, Straight No Chaser, Blue Monk, Ruby My Dear — sont des miniatures parfaites, immédiatement reconnaissables par leurs mélodies tordues et leurs harmonies étranges.
@@ -267,6 +276,7 @@ Sa réhabilitation, à partir de la fin des années 1950, en fait une icône. La
     movement: "Cool / Modal / Fusion",
     family: "Jazz moderne",
     influences: ["charlie-parker", "dizzy-gillespie"],
+    quotes: ["Ne joue pas ce qui est là, joue ce qui n'est pas là.", "N'aie pas peur des erreurs : il n'y en a pas."],
     summary: `Miles Davis est le musicien qui a réinventé le jazz le plus grand nombre de fois. À chaque décennie, il abandonne ce qu'il maîtrise pour explorer un territoire inconnu, entraînant avec lui les meilleurs musiciens de sa génération.
 
 Dans les années 1940, il joue avec Charlie Parker. En 1949, Birth of the Cool invente le cool jazz — des arrangements feutrés et sophistiqués, à l'opposé du bebop brûlant. Son premier grand quintette avec John Coltrane (1955-1957) définit le hard bop. En 1959, Kind of Blue, enregistré en deux sessions avec une préparation minimale, devient l'album de jazz le plus vendu de l'histoire et invente le jazz modal.
@@ -291,6 +301,7 @@ Personnalité complexe — élégant et brutal, génial et cruel, dandy et rebel
     movement: "Hard Bop / Free Jazz",
     family: "Jazz moderne",
     influences: ["charlie-parker", "thelonious-monk"],
+    quotes: ["Mon but est de vivre une vie véritablement religieuse et de l'exprimer dans ma musique."],
     summary: `John Coltrane incarne la quête spirituelle dans le jazz. En onze ans de carrière en leader (1957-1967), il parcourt un chemin musical immense, du hard bop le plus sophistiqué au free jazz le plus radical, chaque album étant une étape d'une recherche intérieure insatiable.
 
 Ses « sheets of sound » — des cascades de notes d'une densité hallucinante — redéfinissent les possibilités du saxophone ténor. Giant Steps (1960) pousse les substitutions harmoniques à leur limite mathématique, avec des enchaînements d'accords si rapides qu'ils défient la plupart des musiciens. My Favorite Things transforme une mélodie de comédie musicale en transe modale hypnotique au saxophone soprano.
@@ -341,6 +352,7 @@ Sa carrière, qui s'étend sur six décennies, montre qu'innovation et accessibi
     movement: "Free Jazz",
     family: "Jazz moderne",
     influences: ["charlie-parker"],
+    quotes: ["C'est quand j'ai découvert que je pouvais faire des erreurs que j'ai su que j'étais sur la bonne voie."],
     summary: `Ornette Coleman est le révolutionnaire le plus radical du jazz. Quand il arrive à New York en 1959 avec son saxophone alto en plastique blanc et son quartette sans piano, il provoque un scandale comparable à celui du Sacre du printemps de Stravinsky. The Shape of Jazz to Come annonce dans son titre même une rupture.
 
 Sa révolution consiste à abolir la grille d'accords, pilier du jazz depuis ses origines. Les musiciens improvisent librement, guidés par la mélodie et l'émotion plutôt que par des enchaînements harmoniques prédéterminés. Lonely Woman, thème d'une beauté déchirante, prouve que cette liberté peut produire une musique profondément émouvante.
@@ -365,6 +377,7 @@ Sa théorie de l'« harmolodie » — fusion de harmonie, mouvement et mélodie 
     nationality: "Américain",
     movement: "Piano jazz moderne",
     family: "Jazz moderne",
+    quotes: ["Le jazz n'est pas un quoi, c'est un comment."],
     summary: `Bill Evans redéfinit le trio piano-contrebasse-batterie en en faisant une conversation entre trois voix égales, là où le format traditionnel subordonnait la rythmique au pianiste. Avec Scott LaFaro à la contrebasse et Paul Motian à la batterie, son premier trio (1959-1961) invente une interaction télépathique qui influence tous les trios qui suivent.
 
 Son jeu pianistique, d'un lyrisme introspectif marqué par Debussy, Ravel et Chopin, introduit dans le jazz une sensibilité harmonique impressionniste. Ses voicings — la manière de répartir les notes d'un accord — deviennent la référence pour des générations de pianistes, de Herbie Hancock à Brad Mehldau.
@@ -390,6 +403,7 @@ Héroïnomane puis cocaïnomane pendant vingt ans, Evans meurt à 51 ans, le cor
     movement: "Post-Bop",
     family: "Jazz moderne",
     influences: ["duke-ellington", "charlie-parker"],
+    quotes: ["Rendre compliqué le simple est banal ; rendre simple le compliqué, formidablement simple, c'est ça la créativité."],
     summary: `Charles Mingus est le compositeur le plus ambitieux du jazz après Ellington, et sa personnalité la plus volcanique. Contrebassiste virtuose et chef d'orchestre tyrannique, il exige de ses musiciens une intensité émotionnelle totale, quitte à les insulter, les frapper ou les renvoyer en plein concert.
 
 Sa musique fusionne tout ce qu'il a absorbé : le blues du holiness church de son enfance, le bebop de Parker, la polyphonie de la Nouvelle-Orléans, la musique classique de Debussy et Stravinsky, le gospel, le flamenco. The Black Saint and the Sinner Lady est une suite orchestrale d'une puissance et d'une complexité rares. Goodbye Pork Pie Hat, hommage à Lester Young, est un blues d'une beauté déchirante.
@@ -414,6 +428,7 @@ Son autobiographie, Beneath the Underdog, mélange faits et fiction dans un réc
     movement: "Jazz Fusion",
     family: "Fusion & contemporain",
     influences: ["miles-davis", "bill-evans"],
+    quotes: ["Le jazz, c'est être dans l'instant."],
     summary: `Herbie Hancock est le musicien de jazz le plus versatile de sa génération. Pianiste prodige formé au classique, il rejoint le quintette de Miles Davis en 1963 à seulement 23 ans. Pendant cinq ans, aux côtés de Wayne Shorter, Ron Carter et Tony Williams, il participe à l'un des groupes les plus créatifs de l'histoire du jazz.
 
 En 1973, Head Hunters marque un virage radical : Hancock plonge dans le funk électrique, les claviers synthétiques et les grooves hypnotiques. L'album se vend à un million d'exemplaires, record pour un disque de jazz. Chameleon, avec son riff de basse Moog, devient un classique du funk-jazz.
@@ -439,6 +454,7 @@ Hancock ne cesse de se réinventer : acoustique, électrique, collaborations ave
     movement: "Post-Bop / Fusion",
     family: "Fusion & contemporain",
     influences: ["john-coltrane"],
+    quotes: ["Pour moi, jazz veut dire : « Je te mets au défi. »"],
     summary: `Wayne Shorter est l'un des compositeurs et saxophonistes les plus profonds du jazz moderne. Ses compositions — Footprints, Speak No Evil, Nefertiti, Juju — sont des énigmes musicales où chaque note compte, des miniatures d'une densité et d'une beauté saisissantes qui sont devenues des standards incontournables.
 
 Directeur musical des Jazz Messengers d'Art Blakey de 1959 à 1964, il transforme le répertoire du groupe avec des compositions d'une sophistication harmonique nouvelle. Il rejoint ensuite le second grand quintette de Miles Davis (1964-1970), contribuant à l'exploration modale et à la liberté croissante du groupe.

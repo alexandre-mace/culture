@@ -8,6 +8,7 @@ export interface PhysicsItem {
   movement: string;
   family?: string;
   influences?: string[];
+  quotes?: string[];
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -41,6 +42,10 @@ export const physics: PhysicsItem[] = [
     nationality: "Grec (Syracuse)",
     movement: "Physique antique",
     family: "Antiquité & fondations",
+    quotes: [
+      "Eurêka ! J'ai trouvé !",
+      "Donnez-moi un point d'appui et je soulèverai le monde.",
+    ],
     summary:
       "Fondateur de la statique et de l'hydrostatique. La poussée d'Archimède et le principe du levier sont ses contributions majeures. 'Donnez-moi un point d'appui et je soulèverai le monde.'",
     mainWorks: [
@@ -59,6 +64,9 @@ export const physics: PhysicsItem[] = [
     movement: "Révolution scientifique",
     family: "Révolution scientifique",
     influences: ["archimede-physique"],
+    quotes: [
+      "Le livre de la nature est écrit en langage mathématique.",
+    ],
     summary:
       "Père de la physique moderne, il introduit la méthode expérimentale et mathématise la nature. Découvre les lois de la chute des corps et défend l'héliocentrisme face à l'Inquisition.",
     mainWorks: [
@@ -78,6 +86,10 @@ export const physics: PhysicsItem[] = [
     movement: "Révolution scientifique",
     family: "Révolution scientifique",
     influences: ["galilee-physique"],
+    quotes: [
+      "Si j'ai vu plus loin, c'est en montant sur les épaules de géants.",
+      "Il me semble n'avoir été qu'un enfant jouant sur le rivage, tandis que le grand océan de la vérité s'étendait, inexploré, devant moi.",
+    ],
     summary:
       "Unifie la mécanique terrestre et céleste avec la gravitation universelle. Ses trois lois du mouvement fondent la mécanique classique. Aussi inventeur du calcul infinitésimal.",
     mainWorks: [
@@ -115,6 +127,9 @@ export const physics: PhysicsItem[] = [
     nationality: "Anglais",
     movement: "Électromagnétisme",
     family: "Physique classique",
+    quotes: [
+      "Rien n'est trop merveilleux pour être vrai, si cela est conforme aux lois de la nature.",
+    ],
     summary:
       "Autodidacte de génie, il découvre l'induction électromagnétique et invente le moteur électrique. Introduit les concepts de champ et de lignes de force.",
     mainWorks: [
@@ -171,6 +186,9 @@ export const physics: PhysicsItem[] = [
     nationality: "Allemand",
     movement: "Physique moderne",
     family: "Radioactivité & atome",
+    quotes: [
+      "Je n'ai pas réfléchi, j'ai cherché.",
+    ],
     summary:
       "Découvre les rayons X en 1895, révolutionnant la médecine et ouvrant l'exploration de la matière. Premier Prix Nobel de physique en 1901.",
     mainWorks: [
@@ -209,6 +227,10 @@ export const physics: PhysicsItem[] = [
     movement: "Radioactivité",
     family: "Radioactivité & atome",
     influences: ["becquerel"],
+    quotes: [
+      "Dans la vie, rien n'est à craindre, tout est à comprendre.",
+      "Je suis parmi ceux qui pensent que la science a une grande beauté.",
+    ],
     summary:
       "Pionnière de la radioactivité, elle découvre le polonium et le radium avec Pierre Curie. Première femme Prix Nobel, seule personne à recevoir deux Nobel dans deux sciences différentes.",
     mainWorks: [
@@ -228,6 +250,9 @@ export const physics: PhysicsItem[] = [
     movement: "Mécanique quantique",
     family: "Relativité & quanta",
     influences: ["boltzmann"],
+    quotes: [
+      "Une vérité scientifique nouvelle ne triomphe pas en convainquant ses adversaires, mais plutôt parce que ceux-ci finissent par mourir.",
+    ],
     summary:
       "Père de la théorie quantique, il introduit en 1900 l'idée que l'énergie est échangée par quanta discrets. Cette révolution conceptuelle fonde la physique moderne.",
     mainWorks: [
@@ -247,6 +272,10 @@ export const physics: PhysicsItem[] = [
     movement: "Relativité",
     family: "Relativité & quanta",
     influences: ["newton-physique", "maxwell", "planck"],
+    quotes: [
+      "Dieu ne joue pas aux dés.",
+      "L'imagination est plus importante que le savoir.",
+    ],
     summary:
       "Révolutionne la physique avec la relativité restreinte (1905) et générale (1915). L'espace et le temps sont relatifs, la masse courbe l'espace-temps, E=mc². Icône de la science moderne.",
     mainWorks: [
@@ -266,6 +295,9 @@ export const physics: PhysicsItem[] = [
     movement: "Mécanique quantique",
     family: "Relativité & quanta",
     influences: ["planck", "einstein"],
+    quotes: [
+      "Quiconque n'est pas choqué par la théorie quantique ne l'a pas comprise.",
+    ],
     summary:
       "Son modèle de l'atome (1913) explique les spectres atomiques par la quantification des orbites électroniques. Leader de l'interprétation de Copenhague de la mécanique quantique.",
     mainWorks: [
@@ -285,6 +317,9 @@ export const physics: PhysicsItem[] = [
     movement: "Mécanique quantique",
     family: "Relativité & quanta",
     influences: ["bohr"],
+    quotes: [
+      "Ce que nous observons n'est pas la nature elle-même, mais la nature exposée à notre méthode d'interrogation.",
+    ],
     summary:
       "Formule la mécanique quantique matricielle et le principe d'incertitude : on ne peut connaître simultanément position et vitesse d'une particule. Bouleverse notre conception de la réalité.",
     mainWorks: [
@@ -323,6 +358,9 @@ export const physics: PhysicsItem[] = [
     movement: "Mécanique quantique",
     family: "Relativité & quanta",
     influences: ["heisenberg", "schrodinger"],
+    quotes: [
+      "Il est plus important d'avoir de la beauté dans ses équations que de les voir s'accorder avec l'expérience.",
+    ],
     summary:
       "Son équation relativiste de l'électron prédit l'existence de l'antimatière. Unifie mécanique quantique et relativité restreinte. Style mathématique d'une élégance légendaire.",
     mainWorks: [
@@ -360,6 +398,10 @@ export const physics: PhysicsItem[] = [
     movement: "Physique des particules",
     family: "Physique contemporaine",
     influences: ["dirac"],
+    quotes: [
+      "Ce que je ne peux pas créer, je ne le comprends pas.",
+      "Je crois pouvoir affirmer que personne ne comprend vraiment la mécanique quantique.",
+    ],
     summary:
       "Reformule l'électrodynamique quantique avec ses célèbres diagrammes. Pédagogue exceptionnel, personnalité flamboyante. Élucide la cause de l'accident de Challenger.",
     mainWorks: [
@@ -398,6 +440,10 @@ export const physics: PhysicsItem[] = [
     movement: "Cosmologie",
     family: "Physique contemporaine",
     influences: ["einstein"],
+    quotes: [
+      "Souvenez-vous de regarder les étoiles, et non vos pieds.",
+      "Si nous découvrons une théorie complète de l'Univers, alors nous connaîtrions la pensée de Dieu.",
+    ],
     summary:
       "Malgré la maladie de Charcot, révolutionne notre compréhension des trous noirs. Le rayonnement de Hawking montre qu'ils peuvent s'évaporer. Vulgarisateur célèbre.",
     mainWorks: [
