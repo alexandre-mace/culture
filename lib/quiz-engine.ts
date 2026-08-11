@@ -61,12 +61,16 @@ export const quizPool: QuizItem[] = allItems.filter(
   (item) => item.birthYear > -10000 && item.summary.length > 120
 );
 
-const quotePool: QuizItem[] = quizPool.filter((item) => (item.quotes ?? []).length > 0);
+// Pool restricted to one category (or the full pool)
+export function buildPool(category: string | null): QuizItem[] {
+  if (!category) return quizPool;
+  return quizPool.filter((item) => item.category === category);
+}
 
-export function makeChronoQuestion(rng: Rng): ChronoQuestion {
+export function makeChronoQuestion(rng: Rng, pool: QuizItem[] = quizPool): ChronoQuestion {
   // draw items with birth years at least 15 years apart to avoid ambiguity
   for (let attempt = 0; attempt < 50; attempt++) {
-    const drawn = shuffleWith(quizPool, rng).slice(0, 12);
+    const drawn = shuffleWith(pool, rng).slice(0, 12);
     const picked: QuizItem[] = [];
     for (const item of drawn) {
       if (picked.every((p) => Math.abs(p.birthYear - item.birthYear) >= 15)) {
@@ -76,7 +80,7 @@ export function makeChronoQuestion(rng: Rng): ChronoQuestion {
     }
     if (picked.length === 4) return { type: "chrono", items: shuffleWith(picked, rng) };
   }
-  return { type: "chrono", items: shuffleWith(quizPool, rng).slice(0, 4) };
+  return { type: "chrono", items: shuffleWith(pool, rng).slice(0, 4) };
 }
 
 function maskName(text: string, name: string): string {
@@ -91,11 +95,11 @@ function maskName(text: string, name: string): string {
   return masked;
 }
 
-function pickDistractors(answer: QuizItem, rng: Rng): QuizItem[] {
-  const sameCategory = quizPool.filter(
+function pickDistractors(answer: QuizItem, rng: Rng, pool: QuizItem[]): QuizItem[] {
+  const sameCategory = pool.filter(
     (item) => item.category === answer.category && item.id !== answer.id
   );
-  const others = quizPool.filter(
+  const others = pool.filter(
     (item) => item.category !== answer.category && item.id !== answer.id
   );
   const distractors = shuffleWith(sameCategory, rng).slice(0, 3);
@@ -105,36 +109,45 @@ function pickDistractors(answer: QuizItem, rng: Rng): QuizItem[] {
   return distractors;
 }
 
-export function makeWhoQuestion(rng: Rng): WhoQuestion {
-  const answer = quizPool[Math.floor(rng() * quizPool.length)];
+export function makeWhoQuestion(rng: Rng, pool: QuizItem[] = quizPool): WhoQuestion {
+  const answer = pool[Math.floor(rng() * pool.length)];
   const sentences = answer.summary.split("\n")[0].split(". ");
   const excerpt = maskName(sentences.slice(0, 2).join(". "), answer.name);
   return {
     type: "quisuisje",
     answer,
-    choices: shuffleWith([answer, ...pickDistractors(answer, rng)], rng),
+    choices: shuffleWith([answer, ...pickDistractors(answer, rng, pool)], rng),
     excerpt: excerpt.length > 340 ? excerpt.slice(0, 340) + "…" : excerpt,
   };
 }
 
-export function makeQuoteQuestion(rng: Rng): QuoteQuestion | null {
-  if (quotePool.length < 8) return null;
-  const answer = quotePool[Math.floor(rng() * quotePool.length)];
+export function quotableCount(pool: QuizItem[] = quizPool): number {
+  return pool.filter((item) => (item.quotes ?? []).length > 0).length;
+}
+
+export function makeQuoteQuestion(rng: Rng, pool: QuizItem[] = quizPool): QuoteQuestion | null {
+  const quotable = pool.filter((item) => (item.quotes ?? []).length > 0);
+  if (quotable.length < 4 || pool.length < 4) return null;
+  const answer = quotable[Math.floor(rng() * quotable.length)];
   const quotes = answer.quotes ?? [];
   return {
     type: "citation",
     answer,
-    choices: shuffleWith([answer, ...pickDistractors(answer, rng)], rng),
+    choices: shuffleWith([answer, ...pickDistractors(answer, rng, pool)], rng),
     quote: quotes[Math.floor(rng() * quotes.length)],
   };
 }
 
-export function makeQuestion(mode: "mixte" | "chrono" | "quisuisje" | "citation", rng: Rng): Question {
-  if (mode === "chrono") return makeChronoQuestion(rng);
-  if (mode === "quisuisje") return makeWhoQuestion(rng);
-  if (mode === "citation") return makeQuoteQuestion(rng) ?? makeWhoQuestion(rng);
+export function makeQuestion(
+  mode: "mixte" | "chrono" | "quisuisje" | "citation",
+  rng: Rng,
+  pool: QuizItem[] = quizPool
+): Question {
+  if (mode === "chrono") return makeChronoQuestion(rng, pool);
+  if (mode === "quisuisje") return makeWhoQuestion(rng, pool);
+  if (mode === "citation") return makeQuoteQuestion(rng, pool) ?? makeWhoQuestion(rng, pool);
   const roll = rng();
-  if (roll < 0.4) return makeChronoQuestion(rng);
-  if (roll < 0.75) return makeWhoQuestion(rng);
-  return makeQuoteQuestion(rng) ?? makeWhoQuestion(rng);
+  if (roll < 0.4) return makeChronoQuestion(rng, pool);
+  if (roll < 0.75) return makeWhoQuestion(rng, pool);
+  return makeQuoteQuestion(rng, pool) ?? makeWhoQuestion(rng, pool);
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,9 +16,20 @@ import {
 import { cn } from "@/lib/utils";
 import {
   makeQuestion,
-  quizPool,
+  buildPool,
+  quotableCount,
   type Question,
 } from "@/lib/quiz-engine";
+import { categoryRegistry } from "@/lib/all-items";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+const categories = categoryRegistry.map((cat) => ({ name: cat.name, emoji: cat.emoji }));
 
 const QUESTIONS_PER_RUN = 10;
 
@@ -32,6 +43,9 @@ function formatYear(year: number): string {
 
 export default function QuizPage() {
   const [mode, setMode] = useState<GameMode | null>(null);
+  const [category, setCategory] = useState<string | null>(null);
+  const pool = useMemo(() => buildPool(category), [category]);
+  const canQuote = quotableCount(pool) >= 4;
   const [questionIndex, setQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [question, setQuestion] = useState<Question | null>(null);
@@ -52,7 +66,7 @@ export default function QuizPage() {
   };
 
   const nextQuestion = (m: GameMode) => {
-    setQuestion(makeQuestion(m, Math.random));
+    setQuestion(makeQuestion(m, Math.random, pool));
     setChronoPicks([]);
     setChoicePick(null);
     setRevealed(false);
@@ -117,13 +131,31 @@ export default function QuizPage() {
         ) : (
           <>
             <h1 className="text-3xl font-bold mb-2">Quiz</h1>
-            <p className="text-muted-foreground mb-8">
-              Testez votre culture sur {QUESTIONS_PER_RUN} questions tirées des{" "}
-              {quizPool.length} fiches.
+            <p className="text-muted-foreground mb-6">
+              {QUESTIONS_PER_RUN} questions tirées des {pool.length} fiches
+              {category ? ` de ${category}` : ""}.
             </p>
           </>
         )}
         <div className="grid grid-cols-1 gap-3 max-w-sm mx-auto">
+          {!finished && (
+            <Select
+              value={category ?? "toutes"}
+              onValueChange={(value) => setCategory(value === "toutes" ? null : value)}
+            >
+              <SelectTrigger className="w-full" aria-label="Choisir une catégorie">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent className="max-h-[50vh]">
+                <SelectItem value="toutes">🎲 Toutes les catégories</SelectItem>
+                {categories.map((cat) => (
+                  <SelectItem key={cat.name} value={cat.name}>
+                    {cat.emoji} {cat.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          )}
           <Button size="lg" onClick={() => start("mixte")} className="gap-2">
             {finished ? <RotateCcw className="h-4 w-4" /> : <Brain className="h-4 w-4" />}
             {finished ? "Rejouer en mixte" : "Mode mixte"}
@@ -136,7 +168,14 @@ export default function QuizPage() {
             <UserRoundSearch className="h-4 w-4" />
             Qui suis-je ?
           </Button>
-          <Button size="lg" variant="outline" onClick={() => start("citation")} className="gap-2">
+          <Button
+            size="lg"
+            variant="outline"
+            onClick={() => start("citation")}
+            disabled={!canQuote}
+            className="gap-2"
+            title={canQuote ? undefined : "Pas assez de citations dans cette catégorie"}
+          >
             <Quote className="h-4 w-4" />
             Qui a dit ça ?
           </Button>
