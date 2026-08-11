@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useMemo, useCallback } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ChevronLeft, ChevronRight, Share2, Check, Shuffle } from "lucide-react";
+import { ChevronLeft, ChevronRight, Share2, Check, Dices } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface ShuffleItem {
@@ -183,9 +183,16 @@ export function ShuffleView({ items }: ShuffleViewProps) {
             </span>
           )}
         </div>
-        <div className="flex items-center gap-1">
-          <Button variant="ghost" size="icon" onClick={reshuffle} className="h-9 w-9">
-            <Shuffle className="h-4 w-4" />
+        {/* right padding keeps these clear of the fixed Chrono/Shuffle toggle on /tout */}
+        <div className="flex items-center gap-1 pr-24 sm:pr-56">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={reshuffle}
+            className="h-9 w-9"
+            aria-label="Mélanger à nouveau"
+          >
+            <Dices className="h-4 w-4" />
           </Button>
           <Button variant="ghost" size="icon" onClick={shareItem} className="h-9 w-9">
             {copied ? <Check className="h-4 w-4" /> : <Share2 className="h-4 w-4" />}
@@ -205,6 +212,7 @@ export function ShuffleView({ items }: ShuffleViewProps) {
             key={item.id}
             className="flex-shrink-0 w-full snap-center overflow-y-auto px-4 py-6"
           >
+            <div className="max-w-2xl mx-auto">
             {/* Item header */}
             <div className="flex items-center gap-4 mb-4">
               <Avatar className="h-20 w-20 md:h-24 md:w-24 border-2 border-primary/20">
@@ -239,7 +247,7 @@ export function ShuffleView({ items }: ShuffleViewProps) {
             </div>
 
             {/* Content */}
-            <div className="space-y-5 max-w-2xl">
+            <div className="space-y-5">
               <div>
                 <h3 className="font-semibold mb-2">{item.itemType === "topic" ? "Description" : "Biographie"}</h3>
                 <p className="text-sm text-muted-foreground whitespace-pre-line leading-relaxed">
@@ -272,6 +280,7 @@ export function ShuffleView({ items }: ShuffleViewProps) {
                 </div>
               )}
             </div>
+            </div>
           </div>
         ))}
       </div>
@@ -285,7 +294,10 @@ export function ShuffleView({ items }: ShuffleViewProps) {
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
-        <span className="text-xs text-muted-foreground">Swipez ou utilisez ← →</span>
+        <span className="text-xs text-muted-foreground">
+          <span className="md:hidden">Swipez pour naviguer</span>
+          <span className="hidden md:inline">Utilisez ← →</span>
+        </span>
         <button
           onClick={goToNext}
           className="p-3 rounded-full bg-background border shadow-sm hover:bg-accent transition-colors"

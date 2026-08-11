@@ -111,45 +111,56 @@ function getYearMarkers(items: TimelineItem[]): number[] {
   return markers;
 }
 
-// Calculate positions with collision avoidance
-// Uses single-column calculation to prevent overlaps on mobile
-// (on desktop, cards alternate left/right visually but use same vertical spacing)
-function calculatePositions(
-  items: TimelineItem[],
-  minYear: number,
-  yearRange: number,
-  totalHeight: number
-): PositionedItem[] {
-  const sortedItems = [...items].sort((a, b) => a.birthYear - b.birthYear);
-  const cardHeight = 56; // Matches mobile card height (p-2 + avatar h-10 + gap)
-  const minGap = 8;
+// Piecewise-linear time scale shared by cards AND year markers.
+// - dense periods get at least MIN_STEP px between consecutive items (no overlap)
+// - empty stretches are compressed to at most MAX_GAP px (no endless scrolling,
+//   and geological ranges stay far below browser height limits)
+// - markers are interpolated on the same scale, so they always match the cards
+const SCALE_TOP = 40;
+const PX_PER_YEAR = 1.2;
+const MIN_STEP = 64; // >= mobile card height (56) + gap (8)
+const MAX_GAP = 240;
 
-  const result: PositionedItem[] = [];
-  const positions: number[] = []; // Single column for collision detection
+interface TimeScale {
+  positions: number[]; // y of each item, in sorted order
+  yearToY: (year: number) => number;
+  totalHeight: number;
+}
 
-  sortedItems.forEach((item, index) => {
-    const isLeft = index % 2 === 0;
+function buildTimeScale(sortedItems: TimelineItem[]): TimeScale {
+  const positions: number[] = [];
+  const anchorYears: number[] = [];
+  const anchorYs: number[] = [];
+  let y = SCALE_TOP;
 
-    const basePosition = ((item.birthYear - minYear) / yearRange) * totalHeight;
-
-    let finalPosition = basePosition;
-    for (const prevPos of positions) {
-      if (finalPosition < prevPos + cardHeight + minGap) {
-        finalPosition = prevPos + cardHeight + minGap;
-      }
+  sortedItems.forEach((item, i) => {
+    if (i > 0) {
+      const gapYears = item.birthYear - sortedItems[i - 1].birthYear;
+      y += Math.min(MAX_GAP, Math.max(MIN_STEP, gapYears * PX_PER_YEAR));
     }
-
-    positions.push(finalPosition);
-
-    result.push({
-      ...item,
-      displayPosition: finalPosition,
-      isLeft,
-      sortIndex: index,
-    });
+    positions.push(y);
+    // one anchor per distinct year (first occurrence keeps the mapping monotonic)
+    if (anchorYears.length === 0 || item.birthYear > anchorYears[anchorYears.length - 1]) {
+      anchorYears.push(item.birthYear);
+      anchorYs.push(y);
+    }
   });
 
-  return result;
+  const yearToY = (year: number): number => {
+    if (anchorYears.length === 0) return SCALE_TOP;
+    const last = anchorYears.length - 1;
+    if (year <= anchorYears[0]) {
+      return anchorYs[0] - Math.min(MAX_GAP, (anchorYears[0] - year) * PX_PER_YEAR);
+    }
+    if (year >= anchorYears[last]) {
+      return anchorYs[last] + Math.min(MAX_GAP, (year - anchorYears[last]) * PX_PER_YEAR);
+    }
+    const k = anchorYears.findIndex((ay) => ay > year);
+    const t = (year - anchorYears[k - 1]) / (anchorYears[k] - anchorYears[k - 1]);
+    return anchorYs[k - 1] + t * (anchorYs[k] - anchorYs[k - 1]);
+  };
+
+  return { positions, yearToY, totalHeight: y + 100 };
 }
 
 function TimelineContent({ items, title, showCategory, itemType = "person" }: TimelineProps) {
@@ -203,21 +214,35 @@ function TimelineContent({ items, title, showCategory, itemType = "person" }: Ti
     }
   };
 
-  const yearMarkers = getYearMarkers(items);
-  const minYear = yearMarkers[0];
-  const maxYear = yearMarkers[yearMarkers.length - 1];
-  const yearRange = maxYear - minYear;
+  const { positions, yearToY, totalHeight } = useMemo(
+    () => buildTimeScale(sortedItems),
+    [sortedItems]
+  );
 
-  const baseHeight = Math.max(yearRange * 1.2, 3000);
+  const positionedItems: PositionedItem[] = useMemo(
+    () =>
+      sortedItems.map((item, index) => ({
+        ...item,
+        displayPosition: positions[index],
+        isLeft: index % 2 === 0,
+        sortIndex: index,
+      })),
+    [sortedItems, positions]
+  );
 
-  const positionedItems = calculatePositions(items, minYear, yearRange, baseHeight);
-
-  const maxPosition = Math.max(...positionedItems.map((i) => i.displayPosition));
-  const totalHeight = Math.max(baseHeight, maxPosition + 100);
-
-  const getMarkerPosition = (year: number): number => {
-    return ((year - minYear) / yearRange) * baseHeight;
-  };
+  // Markers mapped on the compressed scale; drop the ones that would pile up
+  // inside a compressed stretch
+  const markerPoints = useMemo(() => {
+    const points: { year: number; y: number }[] = [];
+    for (const year of getYearMarkers(items)) {
+      // keep the first marker low enough for its label (rendered above the dot on mobile)
+      const y = Math.max(28, yearToY(year));
+      if (points.length === 0 || y - points[points.length - 1].y >= 48) {
+        points.push({ year, y });
+      }
+    }
+    return points;
+  }, [items, yearToY]);
 
   const selectedItem = sortedItems[selectedIndex];
 
@@ -292,26 +317,24 @@ function TimelineContent({ items, title, showCategory, itemType = "person" }: Ti
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  // Scroll to selected item when it changes
+  // Scroll the timeline to the selected card. Instant on first run so a ?id=
+  // deep link lands directly on the card; smooth for later selection changes.
+  const hasAutoScrolledRef = useRef(false);
   useEffect(() => {
-    if (selectedItem && timelineContainerRef.current) {
+    if (!selectedItem) return;
+    const frame = requestAnimationFrame(() => {
+      const container = timelineContainerRef.current;
       const cardElement = cardRefs.current.get(selectedItem.id);
-      if (cardElement) {
-        const container = timelineContainerRef.current;
-        const cardRect = cardElement.getBoundingClientRect();
-        const containerRect = container.getBoundingClientRect();
-
-        // Calculate the scroll position to center the card
-        const cardTop = cardElement.offsetTop;
-        const containerHeight = container.clientHeight;
-        const scrollTo = cardTop - containerHeight / 2 + cardRect.height / 2;
-
-        container.scrollTo({
-          top: scrollTo,
-          behavior: "smooth",
-        });
-      }
-    }
+      if (!container || !cardElement) return;
+      const scrollTo =
+        cardElement.offsetTop - container.clientHeight / 2 + cardElement.clientHeight / 2;
+      container.scrollTo({
+        top: Math.max(0, scrollTo),
+        behavior: hasAutoScrolledRef.current ? "smooth" : "auto",
+      });
+      hasAutoScrolledRef.current = true;
+    });
+    return () => cancelAnimationFrame(frame);
   }, [selectedIndex, selectedItem]);
 
   // Mobile: no header, but tab bar (56px = 3.5rem)
@@ -320,7 +343,9 @@ function TimelineContent({ items, title, showCategory, itemType = "person" }: Ti
     <div className="relative w-full h-[calc(100vh-3.5rem)] md:h-[calc(100vh-3rem)] flex">
       {/* Left side - Timeline */}
       <div ref={timelineContainerRef} className="w-full md:w-1/2 overflow-y-auto relative">
-        <h1 className="text-xl font-semibold text-center py-4">{title}</h1>
+        <h1 className="sticky top-0 z-20 text-xl font-semibold text-center py-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+          {title}
+        </h1>
 
         <div className="relative mx-auto max-w-4xl pb-8 px-4 md:px-0">
           {/* Timeline container */}
@@ -329,11 +354,11 @@ function TimelineContent({ items, title, showCategory, itemType = "person" }: Ti
             <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-border md:-translate-x-1/2" />
 
             {/* Year markers */}
-            {yearMarkers.map((year) => (
+            {markerPoints.map(({ year, y }) => (
               <div
                 key={year}
                 className="absolute left-6 md:left-1/2 md:-translate-x-1/2 flex items-center z-10"
-                style={{ top: `${getMarkerPosition(year)}px` }}
+                style={{ top: `${y}px` }}
               >
                 {/* Year label - above dot on mobile, left of dot on desktop */}
                 <div className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 md:bottom-auto md:mb-0 md:left-auto md:translate-x-0 md:right-full md:mr-4 text-[10px] md:text-sm text-muted-foreground whitespace-nowrap font-medium bg-background px-1.5 md:px-2 py-0.5 rounded">
@@ -400,7 +425,7 @@ function TimelineContent({ items, title, showCategory, itemType = "person" }: Ti
                     </AvatarFallback>
                   </Avatar>
                   <div className={cn("flex flex-col min-w-0", item.isLeft ? "md:items-end" : "items-start")}>
-                    <span className="font-semibold text-xs md:text-sm truncate max-w-[140px] md:max-w-full">{item.name}</span>
+                    <span className="font-semibold text-xs md:text-sm truncate max-w-[200px] md:max-w-full">{item.name}</span>
                     <span className="text-[10px] md:text-xs text-muted-foreground">
                       {formatYear(item.birthYear)}
                       {item.deathYear && ` - ${formatYear(item.deathYear)}`}
