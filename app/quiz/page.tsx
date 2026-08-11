@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Brain,
-  ListOrdered,
   UserRoundSearch,
   RotateCcw,
   Check,
@@ -44,6 +43,20 @@ function formatYear(year: number): string {
 export default function QuizPage() {
   const [mode, setMode] = useState<GameMode | null>(null);
   const [category, setCategory] = useState<string | null>(null);
+  const [defiToday, setDefiToday] = useState<{ score: number } | null | undefined>(undefined);
+
+  // today's daily-challenge status for the header card
+  useEffect(() => {
+    const d = new Date();
+    const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    try {
+      const history = JSON.parse(localStorage.getItem("culture:defi") ?? "{}");
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setDefiToday(history[key] ?? null);
+    } catch {
+      setDefiToday(null);
+    }
+  }, []);
   const pool = useMemo(() => buildPool(category), [category]);
   const canQuote = quotableCount(pool) >= 4;
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -138,6 +151,25 @@ export default function QuizPage() {
           </>
         )}
         <div className="grid grid-cols-1 gap-3 max-w-sm mx-auto">
+          {/* Daily challenge: the hero action of this page */}
+          <Link
+            href="/defi"
+            className="flex items-center gap-3 rounded-xl bg-primary text-primary-foreground p-4 text-left shadow-md hover:bg-primary/90 transition-colors"
+          >
+            <CalendarDays className="h-8 w-8 shrink-0" />
+            <span className="min-w-0 flex-1">
+              <span className="block font-semibold">Défi du jour</span>
+              <span className="block text-sm opacity-80">
+                {defiToday
+                  ? `Joué · ${defiToday.score}/5 — nouvelle grille demain`
+                  : "5 questions, la même grille pour tout le monde"}
+              </span>
+            </span>
+          </Link>
+
+          <p className="text-xs text-muted-foreground uppercase tracking-wider mt-3 mb-0">
+            Quiz libre
+          </p>
           {!finished && (
             <Select
               value={category ?? "toutes"}
@@ -156,18 +188,6 @@ export default function QuizPage() {
               </SelectContent>
             </Select>
           )}
-          <Button size="lg" onClick={() => start("mixte")} className="gap-2">
-            {finished ? <RotateCcw className="h-4 w-4" /> : <Brain className="h-4 w-4" />}
-            {finished ? "Rejouer en mixte" : "Mode mixte"}
-          </Button>
-          <Button size="lg" variant="outline" onClick={() => start("chrono")} className="gap-2">
-            <ListOrdered className="h-4 w-4" />
-            Chronologie
-          </Button>
-          <Button size="lg" variant="outline" onClick={() => start("quisuisje")} className="gap-2">
-            <UserRoundSearch className="h-4 w-4" />
-            Qui suis-je ?
-          </Button>
           <Button
             size="lg"
             variant="outline"
@@ -179,11 +199,13 @@ export default function QuizPage() {
             <Quote className="h-4 w-4" />
             Qui a dit ça ?
           </Button>
-          <Button size="lg" variant="ghost" asChild className="gap-2 text-primary">
-            <Link href="/defi">
-              <CalendarDays className="h-4 w-4" />
-              Défi du jour
-            </Link>
+          <Button size="lg" variant="outline" onClick={() => start("quisuisje")} className="gap-2">
+            <UserRoundSearch className="h-4 w-4" />
+            Qui suis-je ?
+          </Button>
+          <Button size="lg" variant="outline" onClick={() => start("mixte")} className="gap-2">
+            {finished ? <RotateCcw className="h-4 w-4" /> : <Brain className="h-4 w-4" />}
+            {finished ? "Rejouer en mixte" : "Mode mixte"}
           </Button>
         </div>
       </div>

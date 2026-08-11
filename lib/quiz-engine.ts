@@ -146,8 +146,8 @@ export function makeQuestion(
   if (mode === "chrono") return makeChronoQuestion(rng, pool);
   if (mode === "quisuisje") return makeWhoQuestion(rng, pool);
   if (mode === "citation") return makeQuoteQuestion(rng, pool) ?? makeWhoQuestion(rng, pool);
+  // mixte: only the two guessing games (chronology questions were retired)
   const roll = rng();
-  if (roll < 0.4) return makeChronoQuestion(rng, pool);
-  if (roll < 0.75) return makeWhoQuestion(rng, pool);
+  if (roll < 0.55) return makeWhoQuestion(rng, pool);
   return makeQuoteQuestion(rng, pool) ?? makeWhoQuestion(rng, pool);
 }
