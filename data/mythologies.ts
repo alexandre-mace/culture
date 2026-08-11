@@ -6,6 +6,7 @@ export interface MythologyItem {
   image?: string;
   nationality: string;
   movement: string;
+  family?: string;
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -21,6 +22,7 @@ export const mythologies: MythologyItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Hero_lion_Dur-Sharrukin_Louvre_AO19862.jpg/400px-Hero_lion_Dur-Sharrukin_Louvre_AO19862.jpg",
     nationality: "Mésopotamien",
     movement: "Antiquité",
+    family: "Méditerranée antique",
     summary: `La mythologie sumérienne est la plus ancienne mythologie écrite de l'humanité. Née en Mésopotamie au IVe millénaire av. J.-C., elle est gravée sur des tablettes d'argile en écriture cunéiforme, offrant les premiers récits structurés sur l'origine du monde et des dieux.
 
 Le panthéon sumérien est organisé autour de grandes forces cosmiques : An (le ciel), Enlil (l'air et l'autorité), Enki (l'eau et la sagesse), Inanna (l'amour et la guerre). Ces dieux sont capricieux, jaloux et violents — à l'image des forces naturelles qu'ils incarnent dans un pays soumis aux crues imprévisibles du Tigre et de l'Euphrate.
@@ -44,6 +46,7 @@ Le récit sumérien du Déluge — où le dieu Enki prévient Ziusudra de la cat
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/BD_Hunefer.jpg/500px-BD_Hunefer.jpg",
     nationality: "Égyptien",
     movement: "Antiquité",
+    family: "Méditerranée antique",
     summary: `La mythologie égyptienne se déploie pendant trois millénaires autour du Nil, du cycle solaire et de l'obsession de la vie après la mort. Elle produit l'un des systèmes religieux les plus élaborés et les plus durables de l'Antiquité.
 
 Le dieu-soleil Râ traverse le ciel chaque jour dans sa barque et combat chaque nuit le serpent Apophis dans les ténèbres souterraines. Ce cycle quotidien de mort et de renaissance structure toute la pensée égyptienne. Le pharaon, fils de Râ, est le garant de Maât — l'ordre cosmique — sur terre.
@@ -67,6 +70,7 @@ Le Livre des Morts accompagne le défunt dans l'au-delà. Son cœur est pesé co
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Jupiter_Smyrna_Louvre_Ma13.jpg/400px-Jupiter_Smyrna_Louvre_Ma13.jpg",
     nationality: "Grec",
     movement: "Antiquité",
+    family: "Méditerranée antique",
     summary: `La mythologie grecque est la plus influente de l'histoire occidentale. Ses dieux, ses héros et ses récits imprègnent l'art, la littérature, la philosophie et même le langage courant depuis presque trois millénaires.
 
 Les dieux de l'Olympe — Zeus, Athéna, Apollon, Aphrodite, Arès, Hermès — sont extraordinairement humains. Ils sont jaloux, amoureux, vindicatifs, vaniteux. Zeus trompe constamment Héra, Aphrodite séduit Arès, Athéna et Poséidon se disputent Athènes. Cette proximité entre dieux et hommes distingue la Grèce de la plupart des autres mythologies.
@@ -90,6 +94,7 @@ La Théogonie d'Hésiode raconte la genèse du monde : du Chaos naissent Gaïa e
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/She-wolf_suckles_Romulus_and_Remus.jpg/500px-She-wolf_suckles_Romulus_and_Remus.jpg",
     nationality: "Romain",
     movement: "Antiquité",
+    family: "Méditerranée antique",
     summary: `La mythologie romaine emprunte largement au panthéon grec — Jupiter est Zeus, Mars est Arès, Vénus est Aphrodite — mais elle y ajoute une dimension civique et politique proprement romaine. La religion n'est pas affaire de foi personnelle mais de dévotion à l'État.
 
 Les mythes fondateurs de Rome sont essentiels à l'identité romaine. Énée, prince troyen fils de Vénus, fuit Troie en flammes et fonde la lignée qui mènera à Rome. Romulus et Rémus, jumeaux allaités par une louve, fondent la ville en 753 av. J.-C. Romulus tue Rémus : la grandeur de Rome naît dans la violence fraternelle.
@@ -113,6 +118,7 @@ Le culte impérial divinise les empereurs défunts, puis les empereurs vivants. 
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Georg_von_Rosen_-_Oden_som_vandringsman%2C_1886_%28Odin%2C_the_Wanderer%29.jpg/400px-Georg_von_Rosen_-_Oden_som_vandringsman%2C_1886_%28Odin%2C_the_Wanderer%29.jpg",
     nationality: "Scandinave",
     movement: "Moyen Âge",
+    family: "Europe du Nord",
     summary: `La mythologie nordique, celle des Vikings et des peuples germaniques, est une cosmogonie tragique où les dieux eux-mêmes sont mortels. Contrairement aux Olympiens grecs, les dieux d'Asgard savent qu'ils mourront au Ragnarök — et ils combattent quand même.
 
 Odin, le père de tout, a sacrifié un œil pour boire à la source de la sagesse et s'est pendu neuf jours à l'arbre-monde Yggdrasil pour découvrir les runes. Thor, son fils, dieu du tonnerre, protège les hommes contre les géants avec son marteau Mjöllnir. Loki, le dieu trickster, mi-ami mi-ennemi des dieux, sème le chaos.
@@ -136,6 +142,7 @@ Le Ragnarök, la fin du monde, voit les forces du chaos — Loki, le loup Fenrir
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Cernunnos_on_the_Gundestrup_Cauldron.jpg/500px-Cernunnos_on_the_Gundestrup_Cauldron.jpg",
     nationality: "Celte",
     movement: "Antiquité / Moyen Âge",
+    family: "Europe du Nord",
     summary: `La mythologie celtique est la grande mythologie perdue de l'Europe occidentale. Les druides, qui en étaient les gardiens, interdisaient de la mettre par écrit. Ce que nous en connaissons vient des moines irlandais qui transcrivirent les récits au Moyen Âge, et des auteurs classiques grecs et romains.
 
 Le monde celtique est peuplé de dieux, de fées et de créatures surnaturelles. Les Tuatha Dé Danann, race divine d'Irlande, possèdent des objets magiques — la lance de Lugh, le chaudron du Dagda. Le Sidh, monde des fées, coexiste avec le monde humain, accessible par des collines creuses ou lors de la nuit de Samhain (ancêtre d'Halloween).
@@ -158,6 +165,7 @@ Mais c'est le cycle arthurien qui assure la survie mondiale de l'imaginaire celt
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Kurukshetra.jpg/330px-Kurukshetra.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Indien",
     movement: "Religions orientales",
+    family: "Asie",
     summary: `La mythologie hindoue est la seule grande mythologie antique à être encore pleinement vivante. Plus d'un milliard de personnes prient aujourd'hui les mêmes dieux que ceux des Vedas composés il y a 3 500 ans. Ses récits, d'une richesse inépuisable, continuent d'être chantés, dansés et représentés.
 
 La Trimurti — Brahma le créateur, Vishnou le préservateur, Shiva le destructeur — incarne les trois fonctions cosmiques. Vishnou descend sur terre sous forme d'avatars pour rétablir l'ordre : Rama, le prince idéal, et Krishna, le dieu espiègle et philosophe, sont les plus vénérés. Shiva, ascète et danseur, crée et détruit l'univers dans sa danse cosmique, le Tandava.
@@ -180,6 +188,7 @@ Le Ramayana raconte l'exil du prince Rama, l'enlèvement de son épouse Sita par
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Anonymous-Fuxi_and_N%C3%BCwa3.jpg/330px-Anonymous-Fuxi_and_N%C3%BCwa3.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Chinois",
     movement: "Religions orientales",
+    family: "Asie",
     summary: `La mythologie chinoise est un tissu complexe où se mêlent récits cosmogoniques anciens, légendes historiques, taoïsme, bouddhisme et confucianisme. Contrairement aux mythologies gréco-romaines, elle n'a jamais été systématisée en un corpus unifié, ce qui lui donne une richesse foisonnante.
 
 Pangu, le géant primordial, naît dans l'œuf cosmique et sépare le ciel de la terre. À sa mort, son corps devient le monde : ses yeux le soleil et la lune, son sang les rivières, ses cheveux les forêts. Nuwa, déesse à queue de serpent, façonne les humains dans la glaise et répare le ciel brisé.
@@ -201,6 +210,7 @@ Le Voyage vers l'Ouest, roman du XVIe siècle, raconte le périple du moine Xuan
     birthYear: -700,
     nationality: "Japonais",
     movement: "Religions orientales",
+    family: "Asie",
     summary: `La mythologie japonaise, fondement du shintoïsme, est intimement liée à la nature et au paysage de l'archipel. Les kami — esprits divins — habitent les montagnes, les rivières, les arbres et les rochers. Chaque élément naturel est potentiellement sacré.
 
 Le Kojiki (712) et le Nihon Shoki (720) racontent la création du Japon. Les dieux Izanagi et Izanami enfantent les îles japonaises et les divinités. De la purification d'Izanagi naissent trois kami suprêmes : Amaterasu (déesse du soleil), Tsukuyomi (dieu de la lune) et Susanoo (dieu des tempêtes).
@@ -223,6 +233,7 @@ Le shintoïsme coexiste harmonieusement avec le bouddhisme depuis le VIe siècle
     deathYear: 1500,
     nationality: "Mésoaméricain",
     movement: "Amériques",
+    family: "Amériques",
     summary: `La mythologie maya est l'une des plus complexes et des plus sophistiquées des Amériques précolombiennes. Développée par une civilisation qui invente l'écriture, l'astronomie mathématique et le concept du zéro, elle est aussi intellectuellement ambitieuse que les mythologies du Vieux Monde.
 
 Le Popol Vuh, « livre du conseil » des Mayas quichés du Guatemala, est le grand texte fondateur. Il raconte la création du monde par les dieux Tepeu et Gucumatz, l'échec des premiers humains (faits de boue puis de bois), et la création réussie des hommes de maïs — le maïs étant la substance sacrée, le sang de la terre.
@@ -246,6 +257,7 @@ Le calendrier sacré tzolk'in de 260 jours structure la vie rituelle. Les sacrif
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/She-wolf_suckles_Romulus_and_Remus.jpg/500px-She-wolf_suckles_Romulus_and_Remus.jpg",
     nationality: "Mésoaméricain",
     movement: "Amériques",
+    family: "Amériques",
     summary: `La mythologie aztèque est dominée par une vision cosmique dramatique : le monde a déjà été créé et détruit quatre fois, et le cinquième soleil — notre ère — est condamné à périr à son tour. Les dieux se sont sacrifiés pour créer ce soleil ; les humains doivent les nourrir de sang pour retarder sa fin.
 
 Quetzalcoatl, le serpent à plumes, est le dieu de la sagesse, du vent et de l'étoile du matin. Figure civilisatrice, il a donné le maïs et le calendrier aux hommes. Son départ vers l'est et sa promesse de retour auraient facilité la conquête espagnole, Cortés étant initialement pris pour le dieu revenu.
@@ -267,6 +279,7 @@ La Pierre du Soleil, disque de basalte de 3,6 mètres, résume la cosmologie azt
     birthYear: -3000,
     nationality: "Africain",
     movement: "Traditions orales",
+    family: "Océanie & Afrique",
     summary: `Les mythologies africaines forment un ensemble d'une diversité immense, reflétant les centaines de peuples et de langues du continent. Transmises oralement par les griots, les anciens et les devins, elles partagent néanmoins des thèmes communs : un dieu créateur lointain, des esprits intermédiaires actifs, et un lien profond entre vivants et ancêtres.
 
 Les Orishas de la tradition yoruba (Nigeria) sont parmi les divinités africaines les plus connues. Ogun, dieu du fer et de la guerre, Shango, dieu du tonnerre, Yemoja, déesse de la mer, forment un panthéon vivant. La traite transatlantique exporte ces divinités aux Amériques, où elles survivent et se transforment dans le vaudou haïtien, le candomblé brésilien et la santeria cubaine.
@@ -289,6 +302,7 @@ Les mythes de création africains sont d'une variété remarquable : le dieu Bum
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Migraciones_austronesias.png/330px-Migraciones_austronesias.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Polynésien",
     movement: "Océanie",
+    family: "Océanie & Afrique",
     summary: `La mythologie polynésienne est celle des peuples navigateurs qui ont colonisé le plus vaste océan du monde. De Hawaii à la Nouvelle-Zélande, de Tahiti à l'île de Pâques, des récits remarquablement cohérents témoignent d'une origine commune et d'un rapport intense avec la mer, les volcans et les étoiles.
 
 Maui, le demi-dieu trickster, est la figure centrale de toute la Polynésie. Selon les traditions, il pêche les îles du fond de l'océan avec un hameçon magique, vole le feu aux dieux pour le donner aux hommes, et ralentit le soleil pour allonger les jours. Malicieux et courageux, il meurt en tentant de vaincre la déesse de la mort.
@@ -310,6 +324,7 @@ Le mana, force spirituelle impersonnelle, imprègne les êtres et les objets. Le
     birthYear: -50000,
     nationality: "Australien",
     movement: "Traditions anciennes",
+    family: "Océanie & Afrique",
     summary: `La mythologie aborigène d'Australie est la plus ancienne tradition spirituelle continue de l'humanité, remontant à au moins 50 000 ans. Le Temps du Rêve (Dreamtime) n'est pas un passé révolu mais une dimension permanente qui coexiste avec le présent.
 
 Dans le Temps du Rêve, les Ancêtres — êtres mi-humains, mi-animaux — parcourent la terre et la créent en la nommant. Le Serpent Arc-en-ciel sculpte les rivières et les vallées dans ses déplacements. Chaque montagne, chaque point d'eau, chaque rocher est la trace visible d'un acte créateur ancestral. Le paysage entier est un texte sacré.
@@ -332,6 +347,7 @@ Les peintures rupestres, certaines vieilles de 40 000 ans, les cérémonies, les
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Albrecht_D%C3%BCrer_042.jpg/330px-Albrecht_D%C3%BCrer_042.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "International",
     movement: "Étude moderne",
+    family: "Regard moderne",
     summary: `La mythologie comparée naît au XIXe siècle de la découverte que les mythes de peuples très différents partagent des structures et des thèmes étonnamment similaires. Déluges universels, héros descendant aux enfers, dieux mourant et renaissant : ces motifs récurrents posent la question d'une grammaire universelle de l'imaginaire humain.
 
 Max Müller, philologue d'Oxford, propose que les mythes sont des métaphores solaires dégradées. James Frazer, dans Le Rameau d'or (1890), compile des milliers de rites et de mythes pour montrer les liens entre magie, religion et science. Son œuvre monumentale, malgré ses faiblesses méthodologiques, ouvre le champ.

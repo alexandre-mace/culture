@@ -6,6 +6,7 @@ export interface EmpireItem {
   image?: string;
   nationality: string;
   movement: string;
+  family?: string;
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -19,6 +20,7 @@ export const empires: EmpireItem[] = [
     deathYear: -2154,
     nationality: "Mésopotamien",
     movement: "Antiquité",
+    family: "Antiquité",
     summary:
       "Premier empire de l'histoire, fondé par Sargon d'Akkad. Unifie la Mésopotamie de la Méditerranée au golfe Persique. Modèle pour tous les empires ultérieurs.",
     mainWorks: [
@@ -36,6 +38,7 @@ export const empires: EmpireItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Egypt.Giza.Sphinx.02.jpg/330px-Egypt.Giza.Sphinx.02.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Égyptien",
     movement: "Antiquité",
+    family: "Antiquité",
     summary:
       "Plus longue civilisation de l'histoire (3000 ans). Les pharaons bâtissent pyramides et temples, développent l'écriture hiéroglyphique et une religion élaborée. S'achève avec Cléopâtre.",
     mainWorks: [
@@ -53,6 +56,7 @@ export const empires: EmpireItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Assyrie_general.PNG/330px-Assyrie_general.PNG?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Mésopotamien",
     movement: "Antiquité",
+    family: "Antiquité",
     summary:
       "Empire militaire redoutable, il domine le Moyen-Orient ancien. Armée professionnelle, déportations massives, et bibliothèque d'Assurbanipal préservant les savoirs mésopotamiens.",
     mainWorks: [
@@ -69,6 +73,7 @@ export const empires: EmpireItem[] = [
     deathYear: -330,
     nationality: "Perse",
     movement: "Antiquité",
+    family: "Antiquité",
     summary:
       "Plus grand empire du monde antique, de l'Égypte à l'Inde. Cyrus le Grand fonde un modèle de tolérance. Route royale, satrapies, et guerres médiques contre les Grecs. Conquis par Alexandre.",
     mainWorks: [
@@ -85,6 +90,7 @@ export const empires: EmpireItem[] = [
     deathYear: -323,
     nationality: "Macédonien",
     movement: "Antiquité",
+    family: "Antiquité",
     summary:
       "En 13 ans, Alexandre conquiert l'empire perse jusqu'à l'Inde. Son empire éphémère diffuse la culture grecque (hellénisation) de l'Égypte à l'Asie centrale. Divisé entre ses généraux.",
     mainWorks: [
@@ -102,6 +108,7 @@ export const empires: EmpireItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Roman_Empire_Trajan_117AD.png/330px-Roman_Empire_Trajan_117AD.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Romain",
     movement: "Antiquité",
+    family: "Antiquité",
     summary:
       "De la Bretagne à la Mésopotamie, Rome unifie le monde méditerranéen. Droit romain, routes, aqueducs, et Pax Romana. Christianisé au IVe siècle, divisé puis chute en 476 (Occident).",
     mainWorks: [
@@ -118,6 +125,7 @@ export const empires: EmpireItem[] = [
     deathYear: 220,
     nationality: "Chinois",
     movement: "Antiquité",
+    family: "Antiquité",
     summary:
       "Âge d'or de la Chine antique, contemporain de Rome. Route de la soie, papier, confucianisme d'État. Les Chinois s'appellent encore 'peuple Han'.",
     mainWorks: [
@@ -135,6 +143,7 @@ export const empires: EmpireItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Justinian555AD.png/330px-Justinian555AD.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Byzantin",
     movement: "Moyen Âge",
+    family: "Empires médiévaux",
     summary:
       "Continuation de l'Empire romain d'Orient pendant mille ans. Constantinople, la plus grande ville d'Europe. Préserve la culture grecque, orthodoxie chrétienne. Tombe face aux Ottomans.",
     mainWorks: [
@@ -152,6 +161,7 @@ export const empires: EmpireItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Umayyad_Caliphate_720_AD_%28orthographic_projection%29.svg/langfr-330px-Umayyad_Caliphate_720_AD_%28orthographic_projection%29.svg.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Arabe",
     movement: "Moyen Âge",
+    family: "Empires médiévaux",
     summary:
       "Premier grand empire islamique, de l'Espagne à l'Inde. Damas comme capitale, arabisation de l'administration. Renversé par les Abbassides, survit en Espagne (Al-Andalus).",
     mainWorks: [
@@ -169,6 +179,7 @@ export const empires: EmpireItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Francia_814.svg/langfr-330px-Francia_814.svg.png",
     nationality: "Franc",
     movement: "Moyen Âge",
+    family: "Empires médiévaux",
     summary:
       "Charlemagne reconstitue un empire en Occident, couronné empereur en 800. Renaissance carolingienne et unification de l'Europe occidentale. Divisé en 843 (traité de Verdun).",
     mainWorks: [
@@ -185,6 +196,7 @@ export const empires: EmpireItem[] = [
     deathYear: 1368,
     nationality: "Mongol",
     movement: "Moyen Âge",
+    family: "Empires médiévaux",
     summary:
       "Plus grand empire terrestre de l'histoire, de la Corée à la Pologne. Gengis Khan unifie les tribus mongoles et conquiert l'Asie. Pax Mongolica facilite les échanges sur la Route de la soie.",
     mainWorks: [
@@ -202,6 +214,7 @@ export const empires: EmpireItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Ottoman_1590_%28orthographic_projection%29.png/330px-Ottoman_1590_%28orthographic_projection%29.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Ottoman",
     movement: "Moyen Âge / Moderne",
+    family: "Empires médiévaux",
     summary:
       "Empire musulman de six siècles, des Balkans au Moyen-Orient. Prise de Constantinople (1453), apogée sous Soliman. Décline au XIXe siècle, aboli après la Première Guerre mondiale.",
     mainWorks: [
@@ -218,6 +231,7 @@ export const empires: EmpireItem[] = [
     deathYear: 1644,
     nationality: "Chinois",
     movement: "Moyen Âge / Moderne",
+    family: "Empires médiévaux",
     summary:
       "Dernière dynastie chinoise d'origine Han. Cité interdite, Grande Muraille reconstruite, expéditions de Zheng He. Repli sur soi et chute face aux Mandchous.",
     mainWorks: [
@@ -234,6 +248,7 @@ export const empires: EmpireItem[] = [
     deathYear: 1898,
     nationality: "Espagnol",
     movement: "Moderne",
+    family: "Empires modernes",
     summary:
       "Premier empire sur lequel le soleil ne se couche jamais. Amériques, Philippines, Pays-Bas. Or et argent affluent mais déclinent au XVIIe siècle. Pertes des colonies au XIXe siècle.",
     mainWorks: [
@@ -250,6 +265,7 @@ export const empires: EmpireItem[] = [
     deathYear: 1857,
     nationality: "Indien",
     movement: "Moderne",
+    family: "Empires modernes",
     summary:
       "Empire musulman en Inde, descendant de Tamerlan. Akbar le Grand instaure la tolérance religieuse. Taj Mahal, miniatures, fusion indo-persane. Absorbé par l'Empire britannique.",
     mainWorks: [
@@ -267,6 +283,7 @@ export const empires: EmpireItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/The_British_Empire.png/330px-The_British_Empire.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Britannique",
     movement: "Moderne / Contemporain",
+    family: "Empires modernes",
     summary:
       "Plus grand empire de l'histoire, un quart de la population mondiale. Inde, Afrique, Canada, Australie. Langue anglaise, common law, cricket. Décolonisation après 1945.",
     mainWorks: [
@@ -284,6 +301,7 @@ export const empires: EmpireItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Russian_Empire_%28orthographic_projection%29.svg/langfr-330px-Russian_Empire_%28orthographic_projection%29.svg.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Russe",
     movement: "Moderne",
+    family: "Empires modernes",
     summary:
       "De Pierre le Grand à Nicolas II, la Russie s'étend de la Pologne au Pacifique. Modernisation autoritaire, servage, autocratie. Révolution de 1917 et naissance de l'URSS.",
     mainWorks: [
@@ -301,6 +319,7 @@ export const empires: EmpireItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/French_empire_sept_1812_occupation_and_sphere.png/330px-French_empire_sept_1812_occupation_and_sphere.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Français",
     movement: "Moderne",
+    family: "Empires modernes",
     summary:
       "Napoléon domine l'Europe de Madrid à Moscou. Code civil, réorganisation administrative, mais guerres incessantes. Waterloo met fin à l'aventure, mais l'héritage perdure.",
     mainWorks: [
@@ -318,6 +337,7 @@ export const empires: EmpireItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Qing_dynasty_in_1760.svg/langfr-330px-Qing_dynasty_in_1760.svg.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Chinois (Mandchou)",
     movement: "Moderne",
+    family: "Empires modernes",
     summary:
       "Dernière dynastie impériale chinoise, fondée par les Mandchous. Apogée territorial (Tibet, Xinjiang, Mongolie). Guerres de l'opium, rébellions, chute et République.",
     mainWorks: [
@@ -335,6 +355,7 @@ export const empires: EmpireItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/EmpireFrench.png/330px-EmpireFrench.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Français",
     movement: "Moderne / Contemporain",
+    family: "Empires modernes",
     summary:
       "Deuxième empire colonial, d'Afrique du Nord à l'Indochine. Mission civilisatrice, assimilation. Décolonisation douloureuse : Indochine (1954), Algérie (1962).",
     mainWorks: [
@@ -352,6 +373,7 @@ export const empires: EmpireItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Union_of_Soviet_Socialist_Republics_%28orthographic_projection%29.svg/langfr-330px-Union_of_Soviet_Socialist_Republics_%28orthographic_projection%29.svg.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Soviétique",
     movement: "Contemporain",
+    family: "Ère contemporaine",
     summary:
       "Superpuissance communiste, de la Baltique au Pacifique. Industrialisation forcée, Goulag, Guerre froide, course à l'espace. Effondrement en 1991.",
     mainWorks: [
@@ -367,6 +389,7 @@ export const empires: EmpireItem[] = [
     birthYear: 1945,
     nationality: "Américain",
     movement: "Contemporain",
+    family: "Ère contemporaine",
     summary:
       "Superpuissance depuis 1945, les États-Unis dominent économiquement, militairement et culturellement. Bases mondiales, dollar, Hollywood. Hégémonie contestée au XXIe siècle.",
     mainWorks: [

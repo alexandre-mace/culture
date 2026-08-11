@@ -6,6 +6,7 @@ export interface DecorativeStyle {
   image?: string;
   nationality: string;
   movement: string;
+  family?: string;
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -20,6 +21,7 @@ export const decorativeStyles: DecorativeStyle[] = [
     deathYear: 1500,
     nationality: "Français",
     movement: "Moyen Âge",
+    family: "Styles anciens",
     summary: `Le style gothique naît en Île-de-France au milieu du XIIe siècle, d'abord en architecture avec la basilique de Saint-Denis. Il se répand ensuite au mobilier et aux arts décoratifs, dominant l'Europe occidentale pendant plus de trois siècles.
 
 Le mobilier gothique se caractérise par ses formes architecturales : arcs brisés, pinacles, rosaces et fenestrages décorent coffres, armoires et stalles. Le bois de chêne, robuste et sculpté, est le matériau dominant. Les meubles sont souvent polychromes.
@@ -38,6 +40,7 @@ Le gothique flamboyant du XVe siècle porte l'ornementation à son paroxysme. Ma
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Sandro_Botticelli_046.jpg/330px-Sandro_Botticelli_046.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Italien / Français",
     movement: "Renaissance",
+    family: "Styles anciens",
     summary: `La Renaissance naît en Italie au XVe siècle, redécouvrant l'Antiquité gréco-romaine. Les arts décoratifs s'inspirent des motifs antiques : colonnes, frontons, grotesques, rinceaux, arabesques. Le mobilier devient un art à part entière, signe de richesse et de culture.
 
 En France, les guerres d'Italie introduisent le style Renaissance sous François Ier. Le château de Fontainebleau devient un laboratoire où artistes italiens et français mêlent leurs influences. Le noyer remplace progressivement le chêne, permettant une sculpture plus fine.
@@ -55,6 +58,7 @@ Le style Henri II (1547-1610) développe un langage proprement français : caria
     deathYear: 1715,
     nationality: "Français",
     movement: "Grand Siècle",
+    family: "Styles anciens",
     summary: `Le style Louis XIV, expression française du baroque européen, incarne la grandeur et la puissance de la monarchie absolue. Versailles, chantier de cinquante ans, définit un art officiel où les arts décoratifs servent la gloire du Roi-Soleil.
 
 La Manufacture des Gobelins, fondée en 1662, réunit sous la direction de Le Brun tous les corps de métiers : ébénistes, bronziers, tapissiers, orfèvres. Cette organisation produit un mobilier d'apparat somptueux, destiné aux résidences royales et aux cadeaux diplomatiques.
@@ -72,6 +76,7 @@ Le mobilier Louis XIV est imposant, symétrique, richement orné. Armoires, comm
     deathYear: 1774,
     nationality: "Français",
     movement: "Siècle des Lumières",
+    family: "Styles anciens",
     summary: `À la mort de Louis XIV en 1715, une réaction contre la pompe versaillaise s'amorce. Le Régent puis Louis XV privilégient l'intimité, le confort, la légèreté. Le style rocaille, ou rococo, impose ses courbes, ses asymétries, ses ornements naturels.
 
 Le mobilier s'adapte aux nouveaux modes de vie. Les petits appartements remplacent les grands salons. Les meubles se multiplient et se spécialisent : bergères, duchesses, chiffonniers, bonheurs-du-jour répondent à des usages précis. Le siège devient un art français par excellence.
@@ -89,6 +94,7 @@ Les vernis Martin imitent les laques d'Extrême-Orient. La porcelaine de Sèvres
     deathYear: 1792,
     nationality: "Français",
     movement: "Siècle des Lumières",
+    family: "Styles anciens",
     summary: `Dès les années 1760, une réaction contre les excès du rococo s'amorce. Les découvertes d'Herculanum et Pompéi, les écrits de Winckelmann inspirent un retour à l'antique. Les lignes droites, les formes géométriques, les motifs grecs et romains s'imposent.
 
 Le style Louis XVI, bien que porté par le nom du roi, débute sous Louis XV. Les pieds droits cannelés, les frises de perles et rais-de-cœur, les médaillons ovales, les nœuds de ruban définissent un vocabulaire élégant et raffiné. L'acajou remplace progressivement les bois clairs.
@@ -107,6 +113,7 @@ Le néoclassicisme Louis XVI atteint une perfection formelle rarement égalée. 
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Globe_dor%C3%A9_Pont_Alexandre_III_Paris..jpg/330px-Globe_dor%C3%A9_Pont_Alexandre_III_Paris..jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Français",
     movement: "Époque napoléonienne",
+    family: "XIXe siècle",
     summary: `Le style Empire, né sous le Consulat et épanoui sous Napoléon Ier, traduit en arts décoratifs l'ambition impériale. Les architectes Percier et Fontaine, décorateurs officiels, définissent un style sévère et majestueux, inspiré de l'Antiquité romaine et de l'Égypte.
 
 L'acajou massif, les bronzes dorés, les marbres composent un mobilier monumental. Les motifs napoléoniens - aigles, abeilles, N couronnés - côtoient les références antiques : sphinges, victoires ailées, griffons, palmettes. La symétrie est absolue, la ligne droite domine.
@@ -124,6 +131,7 @@ Le style Empire rayonne sur l'Europe conquise, de Madrid à Moscou. Sa rigueur m
     deathYear: 1830,
     nationality: "Français",
     movement: "XIXe siècle",
+    family: "XIXe siècle",
     summary: `Après la chute de Napoléon, la Restauration des Bourbons (1815-1830) impose un style transitoire qui adoucit la rigueur Empire. Louis XVIII puis Charles X favorisent un mobilier plus léger, aux ornements plus discrets, adapté à la vie bourgeoise.
 
 Les bois clairs - érable moucheté, citronnier, frêne loupe - remplacent l'acajou sombre. Les incrustations de bois foncés créent des effets décoratifs élégants. Les bronzes se raréfient, les lignes s'assouplissent légèrement sans renoncer à la symétrie classique.
@@ -142,6 +150,7 @@ Le style Charles X, bref mais cohérent, marque une pause élégante entre l'Emp
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Franz_Xaver_Winterhalter_King_Louis_Philippe.jpg/330px-Franz_Xaver_Winterhalter_King_Louis_Philippe.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Français",
     movement: "XIXe siècle",
+    family: "XIXe siècle",
     summary: `La Monarchie de Juillet (1830-1848) voit l'avènement d'une bourgeoisie triomphante qui impose ses valeurs : confort, solidité, discrétion. Le style Louis-Philippe rompt avec l'élégance aristocratique pour privilégier le pratique et le durable.
 
 Le mobilier s'alourdit, les ornements se simplifient. Le bois de palissandre et l'acajou sombre dominent. Les formes s'arrondissent : dossiers renversés, accoudoirs en crosse, pieds balustres caractérisent les sièges. Le capitonnage profond invite au confort bourgeois.
@@ -159,6 +168,7 @@ Le style Louis-Philippe, longtemps méprisé comme fade et bourgeois, est aujour
     deathYear: 1870,
     nationality: "Français",
     movement: "XIXe siècle",
+    family: "XIXe siècle",
     summary: `Le Second Empire (1852-1870) porte l'éclectisme à son apogée. L'impératrice Eugénie, passionnée par Marie-Antoinette, lance la mode du "Louis XVI-Impératrice". Tous les styles du passé sont pillés, copiés, mélangés dans un faste exubérant.
 
 Le noir et or domine les intérieurs : bois noircis, bronzes dorés, soieries capitonnées. La surcharge décorative atteint des sommets. Chaque surface est sculptée, incrustée, garnie. Le confort moderne (ressorts, capitons) se cache sous des formes historicistes.
@@ -177,6 +187,7 @@ Les expositions universelles (1855, 1867) célèbrent cette profusion. Mais déj
     image: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Artichoke_wallpaper_Morris_and_Co_J_H_Dearle.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     nationality: "Britannique",
     movement: "Réaction anti-industrielle",
+    family: "Art nouveau & déco",
     summary: `Le mouvement Arts & Crafts naît en Angleterre en réaction contre l'industrialisation et l'éclectisme victorien. William Morris, inspiré par Ruskin, prône le retour à l'artisanat médiéval, au travail manuel, à la beauté utile dans les objets quotidiens.
 
 Morris fonde sa firme en 1861 : papiers peints, tissus, vitraux, meubles. Le chêne massif, la construction visible, les formes simples et fonctionnelles s'opposent au clinquant industriel. "Have nothing in your houses that you do not know to be useful or believe to be beautiful."
@@ -195,6 +206,7 @@ Arts & Crafts échoue économiquement : l'artisanat de qualité reste cher, inac
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Art_Nouveau_composition.jpg/330px-Art_Nouveau_composition.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "International",
     movement: "Belle Époque",
+    family: "Art nouveau & déco",
     summary: `L'Art Nouveau éclôt simultanément dans toute l'Europe vers 1890, sous des noms divers : Modern Style, Jugendstil, Sezessionstil, Stile Liberty. Il rompt radicalement avec l'historicisme pour créer un style original, inspiré par la nature et les formes organiques.
 
 En France, l'École de Nancy, autour d'Émile Gallé et Louis Majorelle, développe un mobilier sculptural où les motifs végétaux - nénuphars, orchidées, libellules - envahissent les structures. Les marqueteries précieuses, les bronzes souples, les patines subtiles créent un univers poétique.
@@ -213,6 +225,7 @@ L'Art Nouveau s'épuise rapidement, victime de ses excès décoratifs et de la P
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Folies_Berg%C3%A8re_%40_Paris_%2834194934306%29.jpg/330px-Folies_Berg%C3%A8re_%40_Paris_%2834194934306%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Français / International",
     movement: "Entre-deux-guerres",
+    family: "Art nouveau & déco",
     summary: `L'Art Déco, baptisé rétrospectivement d'après l'Exposition des Arts Décoratifs de Paris (1925), domine les années folles et les années 1930. Il réagit contre les sinuosités de l'Art Nouveau par un retour à la géométrie, au luxe, à l'ordre.
 
 Les ébénistes français - Ruhlmann, Leleu, Dunand, Printz - créent un mobilier d'exception. Matériaux précieux (galuchat, ivoire, ébène de Macassar, parchemin), formes épurées, surfaces laquées définissent une élégance racée. C'est le dernier éclat du meuble de luxe français.
@@ -231,6 +244,7 @@ La crise de 1929 puis la guerre freinent l'Art Déco. Mais son influence reste v
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Bauhaus-Signet.svg/langfr-330px-Bauhaus-Signet.svg.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Allemand",
     movement: "Modernisme",
+    family: "Design moderne",
     summary: `Le Bauhaus, école d'art fondée par Walter Gropius à Weimar en 1919, révolutionne le design du XXe siècle. Son ambition : réunir art et industrie, créer des objets beaux, fonctionnels et accessibles à tous. L'artisanat prépare les modèles que l'industrie produira en masse.
 
 Marcel Breuer invente le meuble en tube d'acier cintré. La chaise Wassily (1925) et la chaise Cesca (1928) utilisent un matériau industriel - le tube de bicyclette - pour créer des formes légères et élégantes. Mies van der Rohe perfectionne le principe avec la chaise Barcelona (1929).
@@ -249,6 +263,7 @@ Fermé par les nazis en 1933, le Bauhaus essaime aux États-Unis où ses maître
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/California_Mid-Century_Modern_Home_with_open-beam_ceiling_1960.jpg/330px-California_Mid-Century_Modern_Home_with_open-beam_ceiling_1960.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain / Scandinave",
     movement: "Après-guerre",
+    family: "Design moderne",
     summary: `Le Mid-century Modern, style dominant de l'après-guerre, synthétise le fonctionnalisme du Bauhaus avec une sensibilité plus organique. Aux États-Unis, Charles et Ray Eames, Eero Saarinen, George Nelson créent des icônes toujours produites aujourd'hui.
 
 Les techniques de guerre (contreplaqué moulé, fibre de verre, aluminium) se reconvertissent au mobilier. La Lounge Chair Eames (1956), la chaise Tulip de Saarinen (1956), le Marshmallow Sofa de Nelson définissent un vocabulaire optimiste et accessible. Le design se démocratise.
@@ -266,6 +281,7 @@ Le Mid-century incarne l'optimisme des Trente Glorieuses. Ses formes claires, se
     deathYear: 1975,
     nationality: "International",
     movement: "Années 1960-70",
+    family: "Design moderne",
     summary: `Les années 1960 voient émerger une nouvelle génération qui rejette le bon goût Mid-century. Le Pop Art, la conquête spatiale, la libération des mœurs inspirent un design exubérant, coloré, éphémère. Le plastique, matériau miracle, permet toutes les audaces.
 
 La chaise Panton de Verner Panton (1967), première chaise entièrement en plastique moulé d'une seule pièce, devient l'icône de l'ère spatiale. Joe Colombo imagine des habitats modulaires futuristes. Eero Aarnio enferme l'utilisateur dans des bulles (Ball Chair, 1963).
@@ -283,6 +299,7 @@ Le choc pétrolier de 1973 freine cette exubérance plastique. Mais le Pop Desig
     deathYear: 1995,
     nationality: "Italien / International",
     movement: "Fin du XXe siècle",
+    family: "Design contemporain",
     summary: `Le postmodernisme, en design comme en architecture, réagit contre le fonctionnalisme moderniste jugé froid et dogmatique. Ironie, citation historique, décoration assumée, couleurs vives caractérisent ce mouvement qui refuse les règles établies.
 
 Le groupe Memphis, fondé à Milan par Ettore Sottsass en 1981, provoque un choc esthétique. La bibliothèque Carlton, les meubles en stratifié aux motifs "bactériens", les formes disloquées rejettent le bon goût scandinave. "Less is a bore", réplique Robert Venturi à Mies van der Rohe.
@@ -301,6 +318,7 @@ Le postmodernisme s'épuise dans les années 1990, remplacé par un minimalisme 
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/USM_Haller.jpg?width=220",
     nationality: "International",
     movement: "Fin du XXe / début du XXIe siècle",
+    family: "Design contemporain",
     summary: `Les années 1990 voient un retour à la simplicité après les excès postmodernes. Le minimalisme contemporain, influencé par le Japon et le design suisse, privilégie les lignes pures, les couleurs neutres, les matériaux nobles et le moins comme plus.
 
 Le système de rangement USM Haller, conçu en 1963 mais qui triomphe dans les années 1990, incarne cette esthétique. Les tubes chromés, les panneaux colorés, la modularité infinie en font le symbole du bureau contemporain. Vitsoe, Hay, Muji diffusent une élégance discrète.
@@ -317,6 +335,7 @@ Le minimalisme contemporain dialogue avec l'écologie naissante : matériaux dur
     birthYear: 2010,
     nationality: "International",
     movement: "XXIe siècle",
+    family: "Design contemporain",
     summary: `Le design contemporain refuse les catégories. Éclectique, il puise dans tous les styles du passé, de l'artisanat à la haute technologie, du luxe au recyclé. Internet démocratise la création et la diffusion, brouillant les frontières entre amateurs et professionnels.
 
 L'écologie devient centrale. Les designers repensent les matériaux (bioplastiques, champignons, algues), les processus (impression 3D, économie circulaire) et les usages (partage, réparabilité). Le meuble jetable est contesté au profit du durable et du local.

@@ -6,6 +6,7 @@ export interface MathematicsItem {
   image?: string;
   nationality: string;
   movement: string;
+  family?: string;
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -20,6 +21,7 @@ export const mathematics: MathematicsItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Illustrerad_Verldshistoria_band_I_Ill_107.jpg/330px-Illustrerad_Verldshistoria_band_I_Ill_107.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Grec",
     movement: "Mathématiques grecques",
+    family: "Antiquité & Moyen Âge",
     summary:
       "Premier mathématicien connu, il introduit la démonstration en géométrie. Le théorème de Thalès sur les triangles semblables porte son nom. Aussi philosophe et astronome.",
     mainWorks: [
@@ -37,6 +39,7 @@ export const mathematics: MathematicsItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Kapitolinischer_Pythagoras_adjusted.jpg/330px-Kapitolinischer_Pythagoras_adjusted.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Grec",
     movement: "Mathématiques grecques",
+    family: "Antiquité & Moyen Âge",
     summary:
       "Fondateur d'une école mystique vouée aux mathématiques. Son théorème sur le triangle rectangle est fondamental. Découvre aussi les rapports numériques dans la musique.",
     mainWorks: [
@@ -54,6 +57,7 @@ export const mathematics: MathematicsItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/3/30/Euklid-von-Alexandria_1.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     nationality: "Grec (Alexandrie)",
     movement: "Mathématiques grecques",
+    family: "Antiquité & Moyen Âge",
     summary:
       "Père de la géométrie, ses Éléments sont le manuel de mathématiques le plus influent de l'histoire. Méthode axiomatique qui restera la référence pendant 2000 ans.",
     mainWorks: [
@@ -71,6 +75,7 @@ export const mathematics: MathematicsItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Retrato_de_un_erudito_%28%C2%BFArqu%C3%ADmedes%3F%29%2C_por_Domenico_Fetti.jpg/330px-Retrato_de_un_erudito_%28%C2%BFArqu%C3%ADmedes%3F%29%2C_por_Domenico_Fetti.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Grec (Syracuse)",
     movement: "Mathématiques grecques",
+    family: "Antiquité & Moyen Âge",
     summary:
       "Plus grand mathématicien de l'Antiquité, il calcule pi avec précision, détermine les volumes et surfaces de solides, et invente le calcul intégral sous forme primitive.",
     mainWorks: [
@@ -88,6 +93,7 @@ export const mathematics: MathematicsItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/1983_CPA_5426.jpg/330px-1983_CPA_5426.jpg",
     nationality: "Persan",
     movement: "Mathématiques islamiques",
+    family: "Antiquité & Moyen Âge",
     summary:
       "Père de l'algèbre, son nom a donné le mot 'algorithme'. Son traité sur le calcul algébrique introduit les méthodes systématiques de résolution des équations.",
     mainWorks: [
@@ -105,6 +111,7 @@ export const mathematics: MathematicsItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Leonardo_Fibonacci.JPG/330px-Leonardo_Fibonacci.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Italien",
     movement: "Mathématiques médiévales",
+    family: "Antiquité & Moyen Âge",
     summary:
       "Introduit les chiffres arabes et le zéro en Europe avec son Liber Abaci. La suite de Fibonacci, qu'il découvre en étudiant la reproduction des lapins, apparaît partout dans la nature.",
     mainWorks: [
@@ -122,6 +129,7 @@ export const mathematics: MathematicsItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg/330px-Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Français",
     movement: "Révolution scientifique",
+    family: "Révolution scientifique",
     summary:
       "Inventeur de la géométrie analytique, il unifie algèbre et géométrie. Les coordonnées cartésiennes permettent de représenter les équations par des courbes.",
     mainWorks: [
@@ -139,6 +147,7 @@ export const mathematics: MathematicsItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Pierre_de_Fermat3.jpg/330px-Pierre_de_Fermat3.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Français",
     movement: "Révolution scientifique",
+    family: "Révolution scientifique",
     summary:
       "Mathématicien amateur de génie, co-fondateur de la théorie des probabilités avec Pascal. Son 'dernier théorème' restera non démontré pendant 358 ans.",
     mainWorks: [
@@ -156,6 +165,7 @@ export const mathematics: MathematicsItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Blaise_Pascal_Versailles.JPG/330px-Blaise_Pascal_Versailles.JPG?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Français",
     movement: "Révolution scientifique",
+    family: "Révolution scientifique",
     summary:
       "Génie précoce, il invente une machine à calculer à 19 ans. Co-fondateur des probabilités, il découvre le triangle de Pascal et pose les bases du calcul infinitésimal.",
     mainWorks: [
@@ -173,6 +183,7 @@ export const mathematics: MathematicsItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/GodfreyKneller-IsaacNewton-1689.jpg/330px-GodfreyKneller-IsaacNewton-1689.jpg",
     nationality: "Anglais",
     movement: "Révolution scientifique",
+    family: "Révolution scientifique",
     summary:
       "Co-inventeur du calcul infinitésimal (avec Leibniz), outil mathématique le plus puissant de l'histoire. Ses séries et son binôme généralisent l'algèbre.",
     mainWorks: [
@@ -189,6 +200,7 @@ export const mathematics: MathematicsItem[] = [
     deathYear: 1716,
     nationality: "Allemand",
     movement: "Révolution scientifique",
+    family: "Révolution scientifique",
     summary:
       "Co-inventeur du calcul infinitésimal, sa notation (dy/dx, ∫) est celle utilisée aujourd'hui. Pionnier de la logique formelle et inventeur d'une machine à calculer.",
     mainWorks: [
@@ -206,6 +218,7 @@ export const mathematics: MathematicsItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Leonhard_Euler_2.jpg/330px-Leonhard_Euler_2.jpg",
     nationality: "Suisse",
     movement: "Mathématiques des Lumières",
+    family: "Analyse moderne",
     summary:
       "Mathématicien le plus prolifique de l'histoire (plus de 800 articles). Unifie l'analyse, introduit de nombreuses notations (e, π, i, f(x), Σ) et fonde la théorie des graphes.",
     mainWorks: [
@@ -223,6 +236,7 @@ export const mathematics: MathematicsItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Carl_Friedrich_Gauss.jpg/330px-Carl_Friedrich_Gauss.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Allemand",
     movement: "Mathématiques du XIXe",
+    family: "Analyse moderne",
     summary:
       "Prince des mathématiques, il contribue à presque tous les domaines : théorie des nombres, statistiques, géométrie non euclidienne, électromagnétisme. Enfant prodige.",
     mainWorks: [
@@ -240,6 +254,7 @@ export const mathematics: MathematicsItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Georg_Friedrich_Bernhard_Riemann.jpeg/330px-Georg_Friedrich_Bernhard_Riemann.jpeg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Allemand",
     movement: "Mathématiques du XIXe",
+    family: "Analyse moderne",
     summary:
       "Révolutionne la géométrie avec les espaces courbes qui serviront à Einstein. L'hypothèse de Riemann sur les nombres premiers reste le problème ouvert le plus célèbre.",
     mainWorks: [
@@ -257,6 +272,7 @@ export const mathematics: MathematicsItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Georg_Cantor2.jpg/330px-Georg_Cantor2.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Allemand",
     movement: "Fondements des mathématiques",
+    family: "Fondements & logique",
     summary:
       "Créateur de la théorie des ensembles, il démontre qu'il existe différentes tailles d'infini. Ses idées révolutionnaires provoquent une crise des fondements des mathématiques.",
     mainWorks: [
@@ -274,6 +290,7 @@ export const mathematics: MathematicsItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Henri_Poincar%C3%A9-2.jpg/330px-Henri_Poincar%C3%A9-2.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Français",
     movement: "Mathématiques du XXe",
+    family: "Fondements & logique",
     summary:
       "Dernier mathématicien universel, il excelle dans tous les domaines. Fondateur de la topologie et précurseur de la théorie du chaos. La conjecture de Poincaré a été résolue en 2003.",
     mainWorks: [
@@ -291,6 +308,7 @@ export const mathematics: MathematicsItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Hilbert.jpg/330px-Hilbert.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Allemand",
     movement: "Mathématiques du XXe",
+    family: "Fondements & logique",
     summary:
       "Leader des mathématiques au début du XXe siècle. Ses 23 problèmes (1900) guident la recherche pendant un siècle. Formaliste, il tente de fonder les mathématiques sur la logique.",
     mainWorks: [
@@ -308,6 +326,7 @@ export const mathematics: MathematicsItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Young_Kurt_G%C3%B6del_as_a_student_in_1925.jpg/330px-Young_Kurt_G%C3%B6del_as_a_student_in_1925.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Autrichien/Américain",
     movement: "Logique mathématique",
+    family: "Fondements & logique",
     summary:
       "Ses théorèmes d'incomplétude (1931) démontrent qu'aucun système mathématique cohérent ne peut démontrer toutes les vérités. Bouleverse les fondements des mathématiques.",
     mainWorks: [
@@ -325,6 +344,7 @@ export const mathematics: MathematicsItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Alan_turing_header.jpg/330px-Alan_turing_header.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Anglais",
     movement: "Informatique théorique",
+    family: "Ère contemporaine",
     summary:
       "Père de l'informatique théorique, il définit la notion d'algorithme avec la machine de Turing. Déchiffre Enigma pendant la guerre. Pionnier de l'intelligence artificielle.",
     mainWorks: [
@@ -342,6 +362,7 @@ export const mathematics: MathematicsItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Alexander_Grothendieck.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     nationality: "Apatride/Français",
     movement: "Mathématiques contemporaines",
+    family: "Ère contemporaine",
     summary:
       "Refonde la géométrie algébrique avec une vision unificatrice radicale. Ses schémas et topos révolutionnent les mathématiques. Se retire du monde en 1991.",
     mainWorks: [

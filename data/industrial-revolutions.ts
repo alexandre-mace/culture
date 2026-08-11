@@ -6,6 +6,7 @@ export interface IndustrialItem {
   image?: string;
   nationality: string;
   movement: string;
+  family?: string;
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -20,6 +21,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Batteuse_1881.jpg/330px-Batteuse_1881.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Britannique",
     movement: "Pré-industrialisation",
+    family: "Première révolution",
     summary:
       "Améliorations agricoles (rotation des cultures, enclosures, sélection animale) augmentent les rendements. Libération de main-d'œuvre pour l'industrie, croissance démographique.",
     mainWorks: [
@@ -37,6 +39,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Standard_Oil_Company_1889_CP04381_-_DPLA_-_032e381bb16b1a45abecfd1a6a86ae3a_%28cropped%29.jpg/330px-Standard_Oil_Company_1889_CP04381_-_DPLA_-_032e381bb16b1a45abecfd1a6a86ae3a_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Britannique",
     movement: "Première RI",
+    family: "Première révolution",
     summary:
       "Naissance de l'industrie moderne en Grande-Bretagne. Machine à vapeur, textile, charbon, fer. Usines, urbanisation, naissance du prolétariat. Transformation radicale de la société.",
     mainWorks: [
@@ -54,6 +57,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Mulhouse%2C_Electropolis.JPG/330px-Mulhouse%2C_Electropolis.JPG?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Britannique",
     movement: "Première RI",
+    family: "Première révolution",
     summary:
       "Newcomen invente la machine à vapeur (1712), Watt l'améliore considérablement (1769). Force motrice universelle qui transforme l'industrie, les transports, l'agriculture.",
     mainWorks: [
@@ -70,6 +74,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     deathYear: 1914,
     nationality: "International",
     movement: "Première RI",
+    family: "Première révolution",
     summary:
       "Stephenson inaugure la première ligne publique (1825). Le rail transforme les transports, unifie les marchés nationaux. Investissements massifs, spéculation, crises.",
     mainWorks: [
@@ -87,6 +92,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Standard_Oil_Company_1889_CP04381_-_DPLA_-_032e381bb16b1a45abecfd1a6a86ae3a_%28cropped%29.jpg/330px-Standard_Oil_Company_1889_CP04381_-_DPLA_-_032e381bb16b1a45abecfd1a6a86ae3a_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "International",
     movement: "Deuxième RI",
+    family: "Deuxième révolution",
     summary:
       "Électricité, acier, chimie, pétrole transforment l'économie. Grandes entreprises, taylorisme, production de masse. Allemagne et USA rattrapent la Grande-Bretagne.",
     mainWorks: [
@@ -103,6 +109,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     deathYear: 1920,
     nationality: "International",
     movement: "Deuxième RI",
+    family: "Deuxième révolution",
     summary:
       "Edison invente l'ampoule (1879) et développe le réseau électrique. Tesla et Westinghouse imposent le courant alternatif. L'électricité transforme l'industrie et la vie quotidienne.",
     mainWorks: [
@@ -119,6 +126,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     deathYear: 1930,
     nationality: "International",
     movement: "Deuxième RI",
+    family: "Deuxième révolution",
     summary:
       "Benz et Daimler inventent l'automobile à essence (1886). Ford démocratise la voiture avec la Model T et la chaîne de montage. Révolution des transports individuels.",
     mainWorks: [
@@ -135,6 +143,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     deathYear: 1970,
     nationality: "Américain",
     movement: "Deuxième RI",
+    family: "Deuxième révolution",
     summary:
       "Taylor invente l'organisation scientifique du travail. Ford applique ces principes avec la chaîne de montage et les hauts salaires. Production de masse et consommation de masse.",
     mainWorks: [
@@ -151,6 +160,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     deathYear: 1950,
     nationality: "International",
     movement: "XXe siècle",
+    family: "Deuxième révolution",
     summary:
       "Les frères Wright réalisent le premier vol motorisé (1903). L'aviation se développe pendant les guerres mondiales puis se démocratise avec l'aviation commerciale.",
     mainWorks: [
@@ -166,6 +176,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     birthYear: 1859,
     nationality: "International",
     movement: "XXe siècle",
+    family: "Deuxième révolution",
     summary:
       "Le premier puits de pétrole (1859) inaugure l'ère pétrolière. Carburant, plastiques, engrais : le pétrole transforme l'économie mondiale. Enjeu géopolitique majeur.",
     mainWorks: [
@@ -183,6 +194,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/MacII.jpg/330px-MacII.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "International",
     movement: "Troisième RI",
+    family: "Révolution numérique",
     summary:
       "Électronique, informatique, télécommunications transforment l'économie. Ordinateurs personnels, Internet, mondialisation. Désindustrialisation des pays développés.",
     mainWorks: [
@@ -200,6 +212,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/MacII.jpg/330px-MacII.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "International",
     movement: "Troisième RI",
+    family: "Révolution numérique",
     summary:
       "Des premiers ordinateurs géants (ENIAC) au PC et à Internet. Transistor, circuit intégré, microprocesseur. L'informatique transforme tous les secteurs de l'économie.",
     mainWorks: [
@@ -215,6 +228,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     birthYear: 1990,
     nationality: "International",
     movement: "Troisième RI",
+    family: "Révolution numérique",
     summary:
       "Le World Wide Web (1991) démocratise Internet. E-commerce, réseaux sociaux, économie numérique. Transformation de la communication, du travail, de la culture.",
     mainWorks: [
@@ -230,6 +244,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     birthYear: 2010,
     nationality: "International",
     movement: "Quatrième RI",
+    family: "Époque contemporaine",
     summary:
       "Fusion des technologies numériques, biologiques et physiques. Intelligence artificielle, robotique, IoT, impression 3D. Transformation du travail et de la société.",
     mainWorks: [
@@ -245,6 +260,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     birthYear: 2012,
     nationality: "International",
     movement: "Quatrième RI",
+    family: "Époque contemporaine",
     summary:
       "Le deep learning révolutionne l'IA à partir de 2012. Reconnaissance d'images, traduction, génération de texte et d'images. ChatGPT (2022) popularise l'IA générative.",
     mainWorks: [
@@ -261,6 +277,7 @@ export const industrialRevolutions: IndustrialItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Schneebergerhof_01.jpg/330px-Schneebergerhof_01.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "International",
     movement: "XXIe siècle",
+    family: "Époque contemporaine",
     summary:
       "Face au changement climatique, transition des énergies fossiles vers les renouvelables. Solaire, éolien, véhicules électriques. Défis technologiques, économiques et politiques.",
     mainWorks: [

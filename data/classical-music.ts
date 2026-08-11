@@ -6,6 +6,7 @@ export interface Composer {
   image?: string;
   nationality: string;
   movement: string;
+  family?: string;
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -21,6 +22,7 @@ export const composers: Composer[] = [
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Claudio_Monteverdi.jpg?width=220",
     nationality: "Italien",
     movement: "Baroque primitif",
+    family: "Baroque",
     summary: `Claudio Monteverdi naît à Crémone et devient maître de chapelle à la basilique Saint-Marc de Venise. Il est le pivot entre la Renaissance et le Baroque, révolutionnant l'expression musicale par l'intensité dramatique.
 
 L'Orfeo (1607) est considéré comme le premier grand opéra de l'histoire. Monteverdi y déploie tous les moyens expressifs pour traduire les émotions du texte. Le Couronnement de Poppée (1643) atteint une modernité psychologique stupéfiante.
@@ -39,6 +41,7 @@ Monteverdi pose les fondements du langage musical occidental pour deux siècles.
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Johann_Sebastian_Bach.jpg?width=220",
     nationality: "Allemand",
     movement: "Baroque",
+    family: "Baroque",
     summary: `Jean-Sébastien Bach naît à Eisenach dans une famille de musiciens. Organiste, maître de chapelle, Cantor à Leipzig, il mène une carrière provinciale mais produit une œuvre monumentale qui résume et transcende tout le baroque.
 
 Les Passions selon saint Jean et selon saint Matthieu, la Messe en si mineur, les cantates (plus de 200) portent la musique sacrée à son apogée. Le Clavier bien tempéré explore les 24 tonalités en préludes et fugues d'une perfection absolue.
@@ -57,6 +60,7 @@ Oublié après sa mort, Bach est redécouvert par Mendelssohn au XIXe siècle. I
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/George_Frideric_Handel_by_Balthasar_Denner.jpg?width=220",
     nationality: "Allemand / Britannique",
     movement: "Baroque",
+    family: "Baroque",
     summary: `Georg Friedrich Haendel naît à Halle la même année que Bach. Après des débuts en Allemagne et un séjour formateur en Italie, il s'installe à Londres où il devient le compositeur le plus célèbre de son temps.
 
 Haendel excelle dans l'opéra italien : Rinaldo, Jules César, Alcina fascinent le public londonien. Quand l'opéra décline, il invente l'oratorio anglais : le Messie (1741), avec son "Hallelujah", reste l'œuvre chorale la plus jouée au monde.
@@ -75,6 +79,7 @@ Naturalisé britannique, enterré à Westminster, Haendel incarne le musicien co
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Antonio_Vivaldi_portrait.jpg?width=220",
     nationality: "Italien",
     movement: "Baroque",
+    family: "Baroque",
     summary: `Antonio Vivaldi, le "Prêtre roux", naît à Venise. Ordonné prêtre mais dispensé de dire la messe pour raisons de santé, il consacre sa vie à la musique comme maître de violon et compositeur à l'Ospedale della Pietà, orphelinat pour jeunes filles.
 
 Les Quatre Saisons (1725), quatre concertos pour violon illustrant les saisons, restent parmi les œuvres les plus célèbres de la musique classique. Leur virtuosité, leurs effets descriptifs, leur énergie rythmique enchantent toujours.
@@ -93,6 +98,7 @@ Célèbre dans toute l'Europe de son vivant, Vivaldi meurt pauvre et oublié à 
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Joseph_Haydn.jpg?width=220",
     nationality: "Autrichien",
     movement: "Classicisme",
+    family: "Classicisme",
     summary: `Joseph Haydn naît dans un village autrichien et devient maître de chapelle des princes Esterházy pendant trente ans. Cette stabilité lui permet d'expérimenter sans relâche, inventant les formes classiques que Mozart et Beethoven porteront à leur perfection.
 
 Haydn est le "père de la symphonie" : ses 104 symphonies définissent le genre, des premières œuvres galantes aux grandes symphonies londoniennes. Il est aussi le "père du quatuor à cordes" : ses 68 quatuors inventent la conversation à quatre voix égales.
@@ -111,6 +117,7 @@ Haydn connaît une gloire européenne de son vivant. Ses voyages à Londres sont
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Mozart_Portrait_Croce.jpg?width=220",
     nationality: "Autrichien",
     movement: "Classicisme",
+    family: "Classicisme",
     summary: `Wolfgang Amadeus Mozart naît à Salzbourg, enfant prodige exhibé dans toutes les cours d'Europe par son père Leopold. À cinq ans, il compose ses premières pièces. À trente-cinq ans, il meurt, laissant plus de 600 œuvres d'une perfection inouïe.
 
 Mozart excelle dans tous les genres : symphonies, concertos, musique de chambre, sonates. Mais c'est l'opéra qui révèle le mieux son génie dramatique : Les Noces de Figaro, Don Giovanni, Così fan tutte, La Flûte enchantée restent au sommet du répertoire.
@@ -129,6 +136,7 @@ Mozart meurt pauvre à Vienne, enterré dans une fosse commune. Mais sa légende
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Beethoven.jpg?width=220",
     nationality: "Allemand",
     movement: "Classicisme / Romantisme",
+    family: "Classicisme",
     summary: `Ludwig van Beethoven naît à Bonn et s'installe à Vienne où il s'impose comme pianiste virtuose et compositeur. Vers trente ans, la surdité le frappe. Il surmonte ce désastre pour créer une œuvre titanesque qui ouvre l'ère romantique.
 
 Les neuf symphonies jalonnent son évolution : de l'héritage classique (Première, Deuxième) à l'héroïsme (Troisième "Eroica", Cinquième) puis à la transcendance (Neuvième avec son "Ode à la joie"). Chacune est un monde.
@@ -147,6 +155,7 @@ Beethoven transforme le statut du compositeur : non plus serviteur, mais artiste
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Franz_Schubert_by_Wilhelm_August_Rieder_1875.jpg?width=220",
     nationality: "Autrichien",
     movement: "Romantisme",
+    family: "Romantisme",
     summary: `Franz Schubert naît à Vienne dans une famille modeste. Il vit dans l'ombre de Beethoven, gagnant péniblement sa vie, compose plus de 600 lieder (mélodies), des symphonies, de la musique de chambre d'une beauté poignante.
 
 Le lied schubertien atteint une perfection inégalée : Erlkönig, La Truite, La Belle Meunière, Le Voyage d'hiver. La voix et le piano dialoguent pour exprimer toute la gamme des émotions humaines, de la joie à la désolation.
@@ -165,6 +174,7 @@ Schubert meurt à trente et un ans, probablement de la syphilis. Beaucoup de ses
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Frederic_Chopin_photo.jpeg?width=220",
     nationality: "Polonais",
     movement: "Romantisme",
+    family: "Romantisme",
     summary: `Frédéric Chopin naît près de Varsovie, s'installe à Paris à vingt ans et ne revoit jamais sa Pologne natale. Pianiste virtuose au jeu délicat, il se consacre presque exclusivement à son instrument, créant un univers sonore unique.
 
 Les nocturnes, préludes, études, valses, mazurkas, polonaises explorent toutes les possibilités du piano romantique. Chopin invente un rubato subtil, une harmonie raffinée, une ornementation qui chante. Chaque pièce est un joyau.
@@ -183,6 +193,7 @@ Chopin meurt à Paris à trente-neuf ans. Son influence sur la technique pianist
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Robert_Schumann_1839.jpg?width=220",
     nationality: "Allemand",
     movement: "Romantisme",
+    family: "Romantisme",
     summary: `Robert Schumann naît à Zwickau. Destiné au droit, il choisit la musique et se blesse la main en voulant devenir virtuose. Il se consacre alors à la composition et à la critique musicale, défendant Chopin, Berlioz et le jeune Brahms.
 
 Ses cycles pour piano (Carnaval, Kreisleriana, Scènes d'enfants) et ses lieder (Dichterliebe, L'Amour et la vie d'une femme) incarnent le romantisme allemand. Personnages doubles (Florestan et Eusebius), références littéraires, intimité du sentiment caractérisent son style.
@@ -201,6 +212,7 @@ Schumann sombre dans la folie et meurt dans un asile à quarante-six ans. Son in
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Franz_Liszt_1858.jpg?width=220",
     nationality: "Hongrois",
     movement: "Romantisme",
+    family: "Romantisme",
     summary: `Franz Liszt naît en Hongrie et devient le plus grand pianiste virtuose du XIXe siècle. Ses tournées triomphales inventent le récital solo et le culte de la star. Les femmes se pâment, on se dispute ses gants et ses mégots.
 
 Liszt repousse les limites techniques du piano : les Études d'exécution transcendante, la Sonate en si mineur, les Rhapsodies hongroises exigent une virtuosité inouïe. Mais derrière le spectacle, une invention harmonique audacieuse annonce Wagner et Debussy.
@@ -219,6 +231,7 @@ L'influence de Liszt est immense : il invente le poème symphonique, anticipe l'
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/RichardWagner.jpg?width=220",
     nationality: "Allemand",
     movement: "Romantisme tardif",
+    family: "Romantisme tardif",
     summary: `Richard Wagner naît à Leipzig et révolutionne l'opéra pour en faire un "drame musical" total. Il écrit ses propres livrets, conçoit les décors, fait construire un théâtre à Bayreuth dédié à ses œuvres. Son ambition est démesurée.
 
 La Tétralogie de l'Anneau du Nibelung (L'Or du Rhin, La Walkyrie, Siegfried, Le Crépuscule des Dieux), Tristan et Isolde, Les Maîtres Chanteurs, Parsifal sont des monuments de plusieurs heures. Le leitmotiv tisse un réseau de significations dans une musique continue.
@@ -237,6 +250,7 @@ Wagner est aussi une figure controversée : nationaliste, antisémite, mégaloma
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/JohannesBrahms.jpg?width=220",
     nationality: "Allemand",
     movement: "Romantisme",
+    family: "Romantisme",
     summary: `Johannes Brahms naît à Hambourg dans un milieu modeste. Révélé par Schumann comme le successeur de Beethoven, il porte ce fardeau toute sa vie, attendant quarante ans avant de publier sa Première Symphonie.
 
 Brahms refuse le théâtralisme wagnérien pour cultiver les formes classiques : symphonies, concertos, musique de chambre. Mais sous l'apparence austère, une passion intense, une mélancolie automnale, un raffinement harmonique uniques.
@@ -255,6 +269,7 @@ Brahms vit à Vienne, célibataire bourru, ami de Clara Schumann jusqu'à sa mor
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Portr%C3%A4t_des_Komponisten_Pjotr_I._Tschaikowski_%281840-1893%29.jpg?width=220",
     nationality: "Russe",
     movement: "Romantisme russe",
+    family: "Romantisme tardif",
     summary: `Piotr Ilitch Tchaïkovsky naît à Votkinsk et devient le premier compositeur russe à acquérir une renommée mondiale. Formé au Conservatoire de Saint-Pétersbourg, il synthétise l'héritage occidental et la sensibilité slave.
 
 Ses ballets - Le Lac des cygnes, La Belle au bois dormant, Casse-Noisette - sont les plus célèbres du répertoire. Ses symphonies (surtout les trois dernières), ses concertos pour piano et violon, ses opéras (Eugène Onéguine, La Dame de Pique) sont des classiques.
@@ -273,6 +288,7 @@ Tchaïkovsky meurt mystérieusement à Saint-Pétersbourg, peut-être du cholér
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Dvorak.jpg/330px-Dvorak.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Tchèque",
     movement: "Romantisme / Nationalisme",
+    family: "Romantisme tardif",
     summary: `Antonín Dvořák naît en Bohême et devient le champion de la musique tchèque. Encouragé par Brahms, il acquiert une renommée européenne puis américaine. Directeur du Conservatoire de New York, il s'inspire des musiques noire et amérindienne.
 
 La Symphonie "Du Nouveau Monde" (1893), composée en Amérique, est l'une des plus jouées au monde. Le Concerto pour violoncelle est le sommet du genre. Les Danses slaves, les opéras (Rusalka) ancrent son art dans le folklore tchèque.
@@ -291,6 +307,7 @@ De retour en Bohême, Dvořák compose ses derniers opéras et poèmes symphoniq
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Photo_of_Gustav_Mahler_by_Moritz_N%C3%A4hr_01.jpg?width=220",
     nationality: "Autrichien",
     movement: "Post-romantisme",
+    family: "Romantisme tardif",
     summary: `Gustav Mahler naît en Bohême dans une famille juive. Il devient le plus grand chef d'orchestre de son temps, dirigeant l'Opéra de Vienne puis le Metropolitan de New York. Il compose l'été, entre deux saisons.
 
 Ses neuf symphonies (plus une inachevée) portent l'orchestre romantique à ses limites : effectifs gigantesques, durées d'une heure ou plus, ambitions cosmiques. "La symphonie doit être comme le monde, elle doit tout embrasser."
@@ -309,6 +326,7 @@ Méconnu comme compositeur de son vivant, Mahler prédit : "Mon temps viendra." 
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Claude_Debussy_ca_1908%2C_foto_av_F%C3%A9lix_Nadar.jpg?width=220",
     nationality: "Français",
     movement: "Impressionnisme",
+    family: "Modernité",
     summary: `Claude Debussy naît à Saint-Germain-en-Laye. Prix de Rome, il rompt vite avec l'académisme pour créer un langage nouveau : l'impressionnisme musical. La découverte du gamelan javanais à l'Exposition de 1889 le marque profondément.
 
 Prélude à l'après-midi d'un faune (1894) inaugure la musique moderne. Pelléas et Mélisande, unique opéra, refuse tous les effets wagnériens pour une prosodie fluide et des harmonies flottantes. La Mer, les Images, les Préludes pour piano sont des chefs-d'œuvre.
@@ -327,6 +345,7 @@ Debussy meurt à Paris pendant les bombardements allemands. Son influence sur to
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Maurice_Ravel_1925.jpg?width=220",
     nationality: "Français",
     movement: "Impressionnisme / Néoclassicisme",
+    family: "Modernité",
     summary: `Maurice Ravel naît à Ciboure, au Pays basque. Considéré comme l'héritier de Debussy, il s'en distingue par une rigueur formelle, un sens de l'artisanat, une ironie qui tempère l'émotion.
 
 Le Boléro (1928), crescendo hypnotique sur un thème unique, est l'œuvre française la plus jouée au monde. Ma mère l'Oye, le Concerto en sol, l'orchestration des Tableaux d'une exposition de Moussorgski témoignent d'une maîtrise orchestrale inégalée.
@@ -345,6 +364,7 @@ Frappé d'une maladie dégénérative, Ravel passe ses dernières années dans l
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Igor_Stravinsky_LOC_32392u.jpg?width=220",
     nationality: "Russe / Américain",
     movement: "Modernisme",
+    family: "Modernité",
     summary: `Igor Stravinsky naît près de Saint-Pétersbourg. Élève de Rimski-Korsakov, il explose avec les Ballets russes de Diaghilev : L'Oiseau de feu (1910), Petrouchka (1911), Le Sacre du printemps (1913) révolutionnent la musique.
 
 Le Sacre, avec ses rythmes sauvages et ses dissonances brutales, provoque un scandale légendaire à sa création. C'est l'acte de naissance de la musique moderne. Stravinsky ne cessera de se réinventer, refusant tout système.
@@ -363,6 +383,7 @@ Exilé en France puis aux États-Unis, Stravinsky traverse le siècle comme sa f
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Arnold_Schoenberg_la_1948.jpg?width=220",
     nationality: "Autrichien / Américain",
     movement: "Expressionnisme / Dodécaphonisme",
+    family: "Modernité",
     summary: `Arnold Schoenberg naît à Vienne. Autodidacte, il pousse le chromatisme wagnérien jusqu'à la rupture avec la tonalité. La Nuit transfigurée (1899), Pelléas et Mélisande montrent un post-romantisme exacerbé.
 
 Avec les Trois pièces pour piano op. 11 (1909) et Pierrot lunaire (1912), Schoenberg entre dans l'atonalité libre, où aucune note ne prévaut. L'expressionnisme viennois atteint une intensité psychologique inouïe. C'est une révolution.
@@ -381,6 +402,7 @@ Exilé aux États-Unis par le nazisme, Schoenberg enseigne à UCLA et revient pa
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Bart%C3%B3k_B%C3%A9la_1927.jpg?width=220",
     nationality: "Hongrois",
     movement: "Modernisme / Nationalisme",
+    family: "Modernité",
     summary: `Béla Bartók naît en Hongrie et consacre sa vie à la collecte et l'étude des musiques paysannes d'Europe centrale. Ce travail ethnomusicologique nourrit une œuvre qui synthétise folklore authentique et langage moderniste.
 
 Le Château de Barbe-Bleue (opéra), Le Mandarin merveilleux (ballet), les six Quatuors à cordes, la Musique pour cordes, percussion et célesta, le Concerto pour orchestre sont des sommets du XXe siècle. La violence rythmique, les clusters, les modes populaires caractérisent son style.
@@ -399,6 +421,7 @@ Exilé aux États-Unis en 1940, Bartók y meurt pauvre et méconnu. Sa réhabili
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Dmitri_Shostakovich_credit_Deutsche_Fotothek_adjusted.jpg?width=220",
     nationality: "Russe / Soviétique",
     movement: "Modernisme soviétique",
+    family: "XXe siècle",
     summary: `Dmitri Chostakovitch naît à Saint-Pétersbourg et traverse l'ère soviétique, de la révolution à la stagnation brejnévienne. Son œuvre immense porte la marque de cette histoire tragique, entre soumission apparente et résistance intérieure.
 
 Dénoncé par la Pravda en 1936 ("Chaos au lieu de musique"), Chostakovitch frôle la déportation. Il adopte un langage plus accessible mais truffé de références ambiguës. Ses symphonies (quinze), quatuors à cordes (quinze) forment un journal intime codé.
@@ -417,6 +440,7 @@ Chostakovitch meurt à Moscou, couvert d'honneurs officiels mais amer. Ses Mémo
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Lezing_Franse_compoist_Olivier_Messiaen_in_Koninklijk_Conservatorium_in_Den_Haa%2C_Bestanddeelnr_933-8263.jpg/330px-Lezing_Franse_compoist_Olivier_Messiaen_in_Koninklijk_Conservatorium_in_Den_Haa%2C_Bestanddeelnr_933-8263.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Français",
     movement: "Modernisme / Musique spectrale",
+    family: "XXe siècle",
     summary: `Olivier Messiaen naît à Avignon. Organiste de la Trinité à Paris pendant soixante ans, compositeur et pédagogue, il forme des générations de musiciens : Boulez, Stockhausen, Xenakis passent par sa classe.
 
 Son langage est unique : modes à transpositions limitées, rythmes hindous, chants d'oiseaux (il en transcrit des centaines), couleurs-sons (synesthésie). Sa foi catholique inspire des œuvres monumentales : Vingt Regards sur l'Enfant-Jésus, Quatuor pour la fin du Temps.
@@ -434,6 +458,7 @@ Messiaen reste inclassable : ni sérialiste, ni néoclassique, ni minimaliste. S
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Philip_Glass_in_Florence%2C_Italy_-_1993.jpg?width=220",
     nationality: "Américain",
     movement: "Minimalisme",
+    family: "XXe siècle",
     summary: `Philip Glass naît à Baltimore. Formé à Juilliard et avec Nadia Boulanger à Paris, il découvre la musique indienne avec Ravi Shankar. Cette rencontre transforme son langage vers la répétition et les structures additives.
 
 Music in Twelve Parts (1974), Einstein on the Beach (1976, avec Robert Wilson) imposent le minimalisme américain. Les opéras Satyagraha et Akhnaten forment avec Einstein une trilogie sur les hommes qui ont changé le monde par les idées.

@@ -6,6 +6,7 @@ export interface SlaveryItem {
   image?: string;
   nationality: string;
   movement: string;
+  family?: string;
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -19,6 +20,7 @@ export const slavery: SlaveryItem[] = [
     deathYear: 500,
     nationality: "Méditerranéen",
     movement: "Antiquité",
+    family: "Mondes anciens",
     summary:
       "L'esclavage est universel dans l'Antiquité : Mésopotamie, Égypte, Grèce, Rome. Les esclaves sont prisonniers de guerre, débiteurs ou nés de parents esclaves. À Rome, jusqu'à 30% de la population.",
     mainWorks: [
@@ -35,6 +37,7 @@ export const slavery: SlaveryItem[] = [
     deathYear: 1920,
     nationality: "Arabe",
     movement: "Moyen Âge / Moderne",
+    family: "Mondes anciens",
     summary:
       "Pendant 13 siècles, traite d'esclaves africains vers le monde musulman : Maghreb, Égypte, Arabie, Perse, Inde. Estimations de 12-17 millions de personnes déportées. Officiellement abolie au XXe siècle.",
     mainWorks: [
@@ -51,6 +54,7 @@ export const slavery: SlaveryItem[] = [
     deathYear: 1861,
     nationality: "Européen",
     movement: "Moyen Âge",
+    family: "Mondes anciens",
     summary:
       "En Europe médiévale, le servage remplace l'esclavage antique. Les serfs sont attachés à la terre, non libres mais protégés. Décline à l'Ouest dès le XIIe siècle, persiste en Russie jusqu'en 1861.",
     mainWorks: [
@@ -67,6 +71,7 @@ export const slavery: SlaveryItem[] = [
     deathYear: 1870,
     nationality: "Européen/Américain",
     movement: "Moderne",
+    family: "Traite atlantique",
     summary:
       "Commerce triangulaire : produits européens contre esclaves africains, déportés aux Amériques pour produire sucre, coton, café. 12-15 millions d'Africains déportés, des millions morts en transit.",
     mainWorks: [
@@ -83,6 +88,7 @@ export const slavery: SlaveryItem[] = [
     deathYear: 1888,
     nationality: "Portugais",
     movement: "Moderne",
+    family: "Traite atlantique",
     summary:
       "Le Portugal initie la traite atlantique dès 1441. Brésil : plus grande destination d'esclaves (4-5 millions). Dernier pays occidental à abolir l'esclavage (1888).",
     mainWorks: [
@@ -99,6 +105,7 @@ export const slavery: SlaveryItem[] = [
     deathYear: 1886,
     nationality: "Espagnol",
     movement: "Moderne",
+    family: "Traite atlantique",
     summary:
       "L'Espagne introduit l'esclavage africain aux Amériques après le déclin des populations autochtones. Cuba et Porto Rico sont les derniers bastions. Abolition en 1886.",
     mainWorks: [
@@ -115,6 +122,7 @@ export const slavery: SlaveryItem[] = [
     deathYear: 1833,
     nationality: "Britannique",
     movement: "Moderne",
+    family: "Traite atlantique",
     summary:
       "La Grande-Bretagne domine la traite au XVIIIe siècle. Liverpool, Bristol et Londres prospèrent du commerce triangulaire. Premier pays à abolir la traite (1807) puis l'esclavage (1833).",
     mainWorks: [
@@ -131,6 +139,7 @@ export const slavery: SlaveryItem[] = [
     deathYear: 1848,
     nationality: "Français",
     movement: "Moderne",
+    family: "Traite atlantique",
     summary:
       "La France pratique l'esclavage dans ses colonies caribéennes (Saint-Domingue, Martinique, Guadeloupe). Code noir (1685). Première abolition en 1794, rétabli par Napoléon, aboli définitivement en 1848.",
     mainWorks: [
@@ -148,6 +157,7 @@ export const slavery: SlaveryItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Battle_for_Palm_Tree_Hill.jpg/330px-Battle_for_Palm_Tree_Hill.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Haïtien",
     movement: "Abolition",
+    family: "Abolitions",
     summary:
       "Seule révolte d'esclaves réussie de l'histoire. Toussaint Louverture puis Dessalines libèrent Saint-Domingue. Haïti, première république noire (1804). Inspire les mouvements abolitionnistes.",
     mainWorks: [
@@ -164,6 +174,7 @@ export const slavery: SlaveryItem[] = [
     deathYear: 1888,
     nationality: "International",
     movement: "Abolition",
+    family: "Abolitions",
     summary:
       "Mouvement né en Grande-Bretagne (Wilberforce, Clarkson) qui obtient l'abolition de la traite puis de l'esclavage. Quakers, évangéliques et libéraux unissent leurs forces.",
     mainWorks: [
@@ -181,6 +192,7 @@ export const slavery: SlaveryItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/United_States_slave_trade%2C_1830.jpg/330px-United_States_slave_trade%2C_1830.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Moderne",
+    family: "États-Unis",
     summary:
       "L'esclavage structure l'économie du Sud (coton, tabac). 4 millions d'esclaves en 1860. La question de l'esclavage divise le pays et mène à la guerre civile. Abolition par le 13e amendement.",
     mainWorks: [
@@ -198,6 +210,7 @@ export const slavery: SlaveryItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Undergroundrailroadsmall2.jpg/330px-Undergroundrailroadsmall2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Abolition",
+    family: "États-Unis",
     summary:
       "Réseau clandestin d'évasion pour les esclaves fuyant le Sud vers le Nord et le Canada. Harriet Tubman, ancienne esclave, guide plus de 70 personnes vers la liberté.",
     mainWorks: [
@@ -215,6 +228,7 @@ export const slavery: SlaveryItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/American_Civil_War_Montage_2.jpg/330px-American_Civil_War_Montage_2.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Abolition",
+    family: "États-Unis",
     summary:
       "Guerre civile américaine entre le Nord (Union) et le Sud (Confédérés). L'esclavage est la cause profonde. Proclamation d'émancipation (1863) de Lincoln. Victoire du Nord et abolition.",
     mainWorks: [
@@ -231,6 +245,7 @@ export const slavery: SlaveryItem[] = [
     deathYear: 1965,
     nationality: "Américain",
     movement: "Post-esclavage",
+    family: "États-Unis",
     summary:
       "Après l'abolition, la Reconstruction accorde des droits aux Noirs. Mais les lois Jim Crow (ségrégation) les privent de liberté réelle. Un siècle de discrimination jusqu'aux droits civiques.",
     mainWorks: [
@@ -247,6 +262,7 @@ export const slavery: SlaveryItem[] = [
     deathYear: 1960,
     nationality: "Européen",
     movement: "Contemporain",
+    family: "Héritages contemporains",
     summary:
       "Si l'esclavage est aboli, le colonialisme impose le travail forcé en Afrique. Congo belge de Léopold II : millions de morts. Travail obligé jusqu'aux indépendances.",
     mainWorks: [
@@ -263,6 +279,7 @@ export const slavery: SlaveryItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Modern_incidence_of_slavery.png/330px-Modern_incidence_of_slavery.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Global",
     movement: "Contemporain",
+    family: "Héritages contemporains",
     summary:
       "L'esclavage persiste au XXIe siècle sous diverses formes : traite des êtres humains, travail forcé, esclavage domestique, exploitation sexuelle. 50 millions de victimes estimées dans le monde.",
     mainWorks: [
@@ -278,6 +295,7 @@ export const slavery: SlaveryItem[] = [
     birthYear: 2000,
     nationality: "Global",
     movement: "Contemporain",
+    family: "Héritages contemporains",
     summary:
       "Mouvements demandant réparations pour l'esclavage et la colonisation. La CARICOM réclame des réparations aux anciennes puissances coloniales. Débats sur la mémoire et la reconnaissance.",
     mainWorks: [

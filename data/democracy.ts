@@ -6,6 +6,7 @@ export interface DemocracyItem {
   image?: string;
   nationality: string;
   movement: string;
+  family?: string;
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -21,6 +22,7 @@ export const democracy: DemocracyItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/AGMA_St%C3%A8le_de_la_d%C3%A9mocratie.jpg/330px-AGMA_St%C3%A8le_de_la_d%C3%A9mocratie.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Grec",
     movement: "Antiquité",
+    family: "Racines anciennes",
     summary: `La démocratie athénienne naît en 508 av. J.-C. avec les réformes de Clisthène, qui réorganise la cité en dix tribus et instaure l'isonomie — l'égalité de tous les citoyens devant la loi. C'est la première expérience de gouvernement du peuple par le peuple dans l'histoire.
 
 Les citoyens — hommes libres, nés de parents athéniens — se réunissent à l'Ecclésia pour voter directement les lois, déclarer la guerre et juger les magistrats. Les fonctions publiques sont attribuées par tirage au sort, garantissant que chacun puisse gouverner à son tour. Seuls les stratèges sont élus.
@@ -44,6 +46,7 @@ Ce modèle, bien que limité, pose les fondements de la pensée démocratique oc
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Republica_romana_animada.GIF/330px-Republica_romana_animada.GIF?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Romain",
     movement: "Antiquité",
+    family: "Racines anciennes",
     summary: `La République romaine s'installe en 509 av. J.-C. après l'expulsion du dernier roi étrusque. Elle met en place un système politique mixte, mêlant éléments monarchiques (les consuls), aristocratiques (le Sénat) et démocratiques (les assemblées du peuple).
 
 Le Sénat, composé d'anciens magistrats issus de l'aristocratie, domine la politique étrangère et les finances. Les magistratures (consuls, préteurs, questeurs) sont collégiales et annuelles, empêchant la concentration du pouvoir. Deux consuls gouvernent ensemble, chacun pouvant opposer son veto à l'autre.
@@ -66,6 +69,7 @@ Malgré ces mécanismes, Rome reste une oligarchie de fait : les grandes famille
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Magna_Carta_%28British_Library_Cotton_MS_Augustus_II.106%29.jpg/330px-Magna_Carta_%28British_Library_Cotton_MS_Augustus_II.106%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Anglais",
     movement: "Moyen Âge",
+    family: "Racines anciennes",
     summary: `La Magna Carta, signée le 15 juin 1215 à Runnymede, est arrachée au roi Jean sans Terre par une coalition de barons révoltés. Ce document de 63 articles impose pour la première fois des limites écrites au pouvoir royal en Angleterre.
 
 Parmi ses dispositions essentielles : aucun homme libre ne peut être emprisonné, dépossédé ou banni sans un jugement légal de ses pairs. Le roi ne peut lever d'impôt extraordinaire sans le consentement du Grand Conseil. L'Église se voit garantir ses libertés.
@@ -88,6 +92,7 @@ Au XVIIe siècle, les parlementaires anglais invoquent la Magna Carta contre les
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Medieval_parliament_edward.Jpg/330px-Medieval_parliament_edward.Jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Anglais",
     movement: "Moyen Âge",
+    family: "Racines anciennes",
     summary: `En 1265, Simon de Montfort, comte de Leicester, convoque pour la première fois une assemblée incluant des représentants des bourgs et des comtés aux côtés des barons et des prélats. C'est l'acte de naissance du Parlement représentatif anglais.
 
 Sous Édouard Ier, le « Model Parliament » de 1295 institutionnalise cette pratique. Le principe est posé : le roi ne peut lever d'impôt sans le consentement des représentants du royaume. Le Parlement se scinde progressivement en deux chambres — les Lords (noblesse et clergé) et les Communes (représentants des comtés et des villes).
@@ -110,6 +115,7 @@ Ce modèle bicaméral influence directement les institutions de nombreux pays. L
     deathYear: 1689,
     nationality: "Anglais",
     movement: "Moderne",
+    family: "Âge des révolutions",
     summary: `Les révolutions anglaises du XVIIe siècle transforment radicalement le rapport entre le roi et le Parlement. La première guerre civile (1642-1649) oppose Charles Ier, partisan du droit divin, aux parlementaires menés par Oliver Cromwell. Le roi est vaincu, jugé et décapité en 1649 — un régicide sans précédent en Europe.
 
 La république du Commonwealth, puis le Protectorat de Cromwell (1653-1658) échouent à établir un régime stable. La monarchie est restaurée en 1660 avec Charles II, mais les tensions reprennent sous Jacques II, catholique et autoritaire.
@@ -133,6 +139,7 @@ C'est la naissance de la monarchie constitutionnelle : le roi règne mais ne gou
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Declaration_of_Independence_%281819%29%2C_by_John_Trumbull.jpg/330px-Declaration_of_Independence_%281819%29%2C_by_John_Trumbull.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Révolutions",
+    family: "Âge des révolutions",
     summary: `La Révolution américaine fonde la première république démocratique moderne à grande échelle. La Déclaration d'indépendance du 4 juillet 1776, rédigée par Jefferson, proclame que tous les hommes sont créés égaux et dotés de droits inaliénables — la vie, la liberté et la recherche du bonheur.
 
 La Constitution de 1787, élaborée à Philadelphie, établit une architecture institutionnelle novatrice. Inspirée de Montesquieu, elle organise une stricte séparation des pouvoirs entre l'exécutif (président), le législatif (Congrès bicaméral) et le judiciaire (Cour suprême). Le fédéralisme partage les compétences entre l'État fédéral et les États membres.
@@ -156,6 +163,7 @@ Ce modèle reste cependant incomplet : l'esclavage est maintenu, les femmes et l
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Prise_de_la_Bastille.jpg/330px-Prise_de_la_Bastille.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Français",
     movement: "Révolutions",
+    family: "Âge des révolutions",
     summary: `La Révolution française de 1789 abolit l'Ancien Régime et proclame des principes universels qui transforment la pensée politique mondiale. La prise de la Bastille le 14 juillet symbolise la chute de l'arbitraire royal. Dans la nuit du 4 août, les privilèges féodaux sont abolis.
 
 La Déclaration des droits de l'homme et du citoyen (26 août 1789) affirme que les hommes naissent libres et égaux en droits, que la souveraineté réside dans la Nation, et que la loi est l'expression de la volonté générale. Ces principes, hérités des Lumières, deviennent la référence du droit constitutionnel moderne.
@@ -177,6 +185,7 @@ L'instabilité politique — monarchie constitutionnelle, république, Terreur, 
     birthYear: 1848,
     nationality: "Européen",
     movement: "XIXe siècle",
+    family: "Conquête du suffrage",
     summary: `Le suffrage universel masculin marque une rupture fondamentale : le droit de vote cesse d'être lié à la fortune. Jusqu'alors, le suffrage censitaire réservait la participation politique aux propriétaires — en France, seuls 250 000 hommes votaient sous la monarchie de Juillet.
 
 La révolution de février 1848 en France instaure le suffrage universel masculin d'un coup : le corps électoral passe de 250 000 à 9 millions d'électeurs. C'est une expérience fondatrice, même si le Second Empire en détourne le sens par les candidatures officielles et la pression administrative.
@@ -198,6 +207,7 @@ L'extension du suffrage transforme la vie politique : naissance des partis de ma
     birthYear: 1865,
     nationality: "International",
     movement: "XIXe siècle",
+    family: "Conquête du suffrage",
     summary: `L'abolition de l'esclavage pose la question fondamentale de l'universalité de la citoyenneté démocratique. Si tous les hommes sont égaux en droits, comment justifier l'exclusion de millions de personnes ? Le XIXe siècle voit les grandes puissances abolir progressivement l'esclavage.
 
 Aux États-Unis, le 13e amendement (1865) abolit l'esclavage après une guerre civile dévastatrice. Les 14e et 15e amendements accordent la citoyenneté et le droit de vote aux anciens esclaves. Au Brésil, la Lei Aurea de 1888 fait du dernier grand pays esclavagiste des Amériques un pays libre.
@@ -221,6 +231,7 @@ L'écart entre citoyenneté formelle et citoyenneté réelle devient un thème c
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Annie_Kenney_and_Christabel_Pankhurst.jpg/330px-Annie_Kenney_and_Christabel_Pankhurst.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "International",
     movement: "XXe siècle",
+    family: "Conquête du suffrage",
     summary: `Le droit de vote des femmes parachève le suffrage universel promis par les révolutions du XVIIIe siècle. La Nouvelle-Zélande ouvre la voie en 1893, suivie de la Finlande en 1906 — premier pays européen où les femmes peuvent aussi être élues.
 
 Le mouvement des suffragettes, né en Grande-Bretagne, recourt à des méthodes radicales : manifestations, grèves de la faim, enchaînements aux grilles du Parlement. Emmeline Pankhurst et ses filles mènent le combat. Le Royaume-Uni accorde le vote aux femmes de plus de 30 ans en 1918, puis à toutes en 1928.
@@ -243,6 +254,7 @@ L'obtention du droit de vote ne met pas fin aux inégalités politiques. La sous
     deathYear: 1975,
     nationality: "Global",
     movement: "XXe siècle",
+    family: "Conquête du suffrage",
     summary: `La décolonisation, de 1945 à 1975, voit des dizaines de nouveaux États accéder à l'indépendance et adopter des constitutions démocratiques. L'Inde de Nehru (1947) devient la plus grande démocratie du monde, un exploit sans précédent pour un pays aussi vaste et divers.
 
 Les puissances coloniales avaient exclu les populations autochtones de toute participation politique. L'indépendance promet l'autodétermination et la citoyenneté pour tous. Les constitutions s'inspirent des modèles français ou britannique, avec parlements, élections et droits fondamentaux.
@@ -266,6 +278,7 @@ Seules quelques exceptions — l'Inde, le Botswana, le Costa Rica — maintienne
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Fallen_statue_of_Lenin.JPG/330px-Fallen_statue_of_Lenin.JPG?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Européen",
     movement: "Contemporain",
+    family: "Enjeux contemporains",
     summary: `La chute du mur de Berlin le 9 novembre 1989 et l'effondrement de l'URSS en 1991 constituent le plus grand élargissement de la démocratie depuis 1945. En quelques mois, les régimes communistes d'Europe de l'Est s'effondrent les uns après les autres, souvent pacifiquement.
 
 La Pologne ouvre la voie avec les élections semi-libres de juin 1989, où Solidarnosc triomphe. La Hongrie ouvre sa frontière avec l'Autriche. La Tchécoslovaquie vit sa « Révolution de velours », la Roumanie une révolution sanglante. L'Allemagne se réunifie en 1990.
@@ -289,6 +302,7 @@ Mais la transition est inégale. Si la Pologne, la République tchèque et les p
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Arab_Spring_map.svg/langfr-330px-Arab_Spring_map.svg.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Arabe",
     movement: "Contemporain",
+    family: "Enjeux contemporains",
     summary: `Le Printemps arabe débute en décembre 2010 en Tunisie, lorsque Mohamed Bouazizi, vendeur ambulant humilié par la police, s'immole par le feu. En quelques semaines, des soulèvements populaires massifs renversent le président Ben Ali, au pouvoir depuis 23 ans.
 
 La révolte se propage à l'ensemble du monde arabe. En Égypte, des millions de manifestants occupent la place Tahrir au Caire et forcent Hosni Moubarak à démissionner après 30 ans de pouvoir. En Libye, une insurrection armée, soutenue par l'OTAN, renverse Kadhafi. La Syrie plonge dans une guerre civile dévastatrice.
@@ -310,6 +324,7 @@ Mais les espoirs démocratiques sont largement déçus. L'Égypte retourne à la
     birthYear: 2006,
     nationality: "Global",
     movement: "Contemporain",
+    family: "Enjeux contemporains",
     summary: `Depuis 2006, l'ONG Freedom House enregistre chaque année un recul net de la liberté dans le monde. Après une vague de démocratisation sans précédent (1974-2005), le mouvement s'inverse : on parle de « récession démocratique » ou d'« autocratisation ».
 
 Le phénomène touche toutes les régions. Des démocraties établies voient leurs institutions s'éroder : polarisation extrême aux États-Unis, montée des populismes en Europe, attaques contre la justice indépendante en Pologne et en Hongrie. Viktor Orban théorise ouvertement la « démocratie illibérale ».
@@ -331,6 +346,7 @@ La désinformation numérique accélère le processus. Les réseaux sociaux, qui
     birthYear: 1989,
     nationality: "Global",
     movement: "Contemporain",
+    family: "Enjeux contemporains",
     summary: `Face à la crise de confiance envers la démocratie représentative — abstention record, défiance envers les élus, sentiment d'impuissance citoyenne — de nouvelles formes de participation émergent depuis la fin du XXe siècle.
 
 Le budget participatif, inventé à Porto Alegre (Brésil) en 1989, permet aux habitants de décider directement de l'allocation d'une partie du budget municipal. L'expérience est reproduite dans des milliers de villes à travers le monde, de Paris à Séoul.

@@ -6,6 +6,7 @@ export interface ReligionItem {
   image?: string;
   nationality: string;
   movement: string;
+  family?: string;
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -20,6 +21,7 @@ export const religions: ReligionItem[] = [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Pintura_Rupestre_Cogul.jpg/400px-Pintura_Rupestre_Cogul.jpg",
     nationality: "Mondial",
     movement: "Préhistoire",
+    family: "Spiritualités anciennes",
     summary:
       "Les plus anciennes formes de spiritualité. Croyance que tous les êtres (animaux, plantes, rochers) possèdent une âme. Le chaman est l'intermédiaire avec le monde des esprits.",
     mainWorks: [
@@ -36,6 +38,7 @@ export const religions: ReligionItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Aum_calligraphy.svg/langfr-330px-Aum_calligraphy.svg.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Indien",
     movement: "Religions orientales",
+    family: "Religions orientales",
     summary:
       "Plus ancienne religion organisée encore pratiquée. Pas de fondateur unique, émerge des Vedas. Brahma, Vishnou, Shiva. Karma, dharma, samsara, moksha. Un milliard de fidèles.",
     mainWorks: [
@@ -52,6 +55,7 @@ export const religions: ReligionItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Faravahar_on_Fire_Temple%2C_Yazd.jpg/330px-Faravahar_on_Fire_Temple%2C_Yazd.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Perse",
     movement: "Religions antiques",
+    family: "Spiritualités anciennes",
     summary:
       "Religion de Zoroastre (Zarathoustra), première religion monothéiste. Dualisme bien/mal (Ahura Mazda vs Ahriman). Religion officielle des empires perses, influence le judaïsme et le christianisme.",
     mainWorks: [
@@ -68,6 +72,7 @@ export const religions: ReligionItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Judaismo.jpg/330px-Judaismo.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Hébraïque",
     movement: "Religions abrahamiques",
+    family: "Monothéismes",
     summary:
       "Première religion monothéiste abrahamique. Alliance entre Dieu et le peuple d'Israël. Torah, Talmud, synagogue. Diaspora après la destruction du Temple (70). 14 millions de fidèles.",
     mainWorks: [
@@ -84,6 +89,7 @@ export const religions: ReligionItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Dharma_Wheel_%282%29.svg/langfr-330px-Dharma_Wheel_%282%29.svg.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Indien",
     movement: "Religions orientales",
+    family: "Religions orientales",
     summary:
       "Fondé par Siddhartha Gautama (Bouddha). Quatre nobles vérités, Noble Sentier Octuple, nirvana. Se répand en Asie : Theravada, Mahayana, Vajrayana. 500 millions de fidèles.",
     mainWorks: [
@@ -100,6 +106,7 @@ export const religions: ReligionItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Konfuzius.jpg/330px-Konfuzius.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Chinois",
     movement: "Philosophies orientales",
+    family: "Religions orientales",
     summary:
       "Enseignement de Confucius sur l'éthique, la famille et l'harmonie sociale. Piété filiale, rites, étude. Influence profonde sur la Chine, la Corée, le Japon, le Vietnam.",
     mainWorks: [
@@ -116,6 +123,7 @@ export const religions: ReligionItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Dao-caoshu.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     nationality: "Chinois",
     movement: "Philosophies orientales",
+    family: "Religions orientales",
     summary:
       "Philosophie et religion fondée sur le Tao (la Voie). Laozi et le Tao Te King. Wu wei (non-agir), harmonie avec la nature, yin et yang. Pratiques alchimiques et immortalité.",
     mainWorks: [
@@ -131,6 +139,7 @@ export const religions: ReligionItem[] = [
     birthYear: 30,
     nationality: "Judée",
     movement: "Religions abrahamiques",
+    family: "Monothéismes",
     summary:
       "Fondé sur la vie et l'enseignement de Jésus de Nazareth, considéré comme le Messie. Trinité (Père, Fils, Esprit). Église primitive, schismes (1054, 1517). 2,4 milliards de fidèles.",
     mainWorks: [
@@ -147,6 +156,7 @@ export const religions: ReligionItem[] = [
     deathYear: 787,
     nationality: "Chrétien",
     movement: "Christianisme antique",
+    family: "Réformes et schismes",
     summary:
       "Sept conciles définissent la doctrine chrétienne. Nicée (325) établit le Credo, Chalcédoine (451) la double nature du Christ. Fondements de l'orthodoxie chrétienne.",
     mainWorks: [
@@ -163,6 +173,7 @@ export const religions: ReligionItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/The_Kaaba_during_Hajj.jpg/330px-The_Kaaba_during_Hajj.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Arabe",
     movement: "Religions abrahamiques",
+    family: "Monothéismes",
     summary:
       "Fondé par le prophète Mahomet, qui reçoit le Coran d'Allah. Cinq piliers : profession de foi, prière, aumône, jeûne, pèlerinage. Sunnites et chiites. 1,9 milliard de fidèles.",
     mainWorks: [
@@ -178,6 +189,7 @@ export const religions: ReligionItem[] = [
     birthYear: 1054,
     nationality: "Chrétien",
     movement: "Christianisme médiéval",
+    family: "Réformes et schismes",
     summary:
       "Rupture entre l'Église de Rome (catholique) et les Églises d'Orient (orthodoxes). Différences théologiques (Filioque), liturgiques et de pouvoir (primauté papale). Division durable.",
     mainWorks: [
@@ -195,6 +207,7 @@ export const religions: ReligionItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/95Thesen_facsimile_colour.png/330px-95Thesen_facsimile_colour.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Européen",
     movement: "Christianisme moderne",
+    family: "Réformes et schismes",
     summary:
       "Luther affiche ses 95 thèses (1517), contestant les indulgences et l'autorité papale. Calvin, Zwingli développent le protestantisme. Guerres de religion, paix de Westphalie.",
     mainWorks: [
@@ -211,6 +224,7 @@ export const religions: ReligionItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Khanda.svg/langfr-330px-Khanda.svg.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Indien",
     movement: "Religions orientales",
+    family: "Religions orientales",
     summary:
       "Fondé par Guru Nanak au Pendjab, synthétise hindouisme et islam. Monothéisme, égalité, service. Dix gurus, puis le Guru Granth Sahib (livre sacré). 30 millions de fidèles.",
     mainWorks: [
@@ -227,6 +241,7 @@ export const religions: ReligionItem[] = [
     deathYear: 1800,
     nationality: "Européen",
     movement: "Modernité",
+    family: "Époque moderne",
     summary:
       "Les philosophes des Lumières critiquent la religion révélée. Déisme (Voltaire), athéisme (d'Holbach). Séparation de l'Église et de l'État, liberté de conscience.",
     mainWorks: [
@@ -243,6 +258,7 @@ export const religions: ReligionItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Salt_Lake_Temple_UT1.jpg/330px-Salt_Lake_Temple_UT1.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Nouveaux mouvements",
+    family: "Époque moderne",
     summary:
       "Joseph Smith fonde l'Église de Jésus-Christ des saints des derniers jours. Livre de Mormon, migration vers l'Utah. 17 millions de membres, croissance rapide.",
     mainWorks: [
@@ -258,6 +274,7 @@ export const religions: ReligionItem[] = [
     birthYear: 1863,
     nationality: "Persan",
     movement: "Nouveaux mouvements",
+    family: "Époque moderne",
     summary:
       "Fondé par Baha'u'llah en Perse. Unité de Dieu, des religions et de l'humanité. Paix mondiale, égalité hommes-femmes, éducation universelle. 5-8 millions de fidèles.",
     mainWorks: [
@@ -273,6 +290,7 @@ export const religions: ReligionItem[] = [
     birthYear: 1910,
     nationality: "Mondial",
     movement: "XXe siècle",
+    family: "Monde contemporain",
     summary:
       "Retour aux fondements de la foi face à la modernité. Fondamentalisme protestant américain, islamisme, hindutva. Réaction à la sécularisation et à la mondialisation.",
     mainWorks: [
@@ -289,6 +307,7 @@ export const religions: ReligionItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/John_Raleigh_Mott_et_Nathan_S%C3%B6derblom.jpg/330px-John_Raleigh_Mott_et_Nathan_S%C3%B6derblom.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Mondial",
     movement: "XXe siècle",
+    family: "Monde contemporain",
     summary:
       "Mouvement pour l'unité des Églises chrétiennes. Conseil œcuménique des Églises (1948). Vatican II rapproche catholiques et protestants. Dialogue interreligieux.",
     mainWorks: [
@@ -305,6 +324,7 @@ export const religions: ReligionItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Secularism.jpg/330px-Secularism.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Occidental",
     movement: "Contemporain",
+    family: "Monde contemporain",
     summary:
       "Déclin de la pratique religieuse en Occident depuis les années 1960. Baisse de la fréquentation des églises, montée des 'sans religion'. Mais recomposition plutôt que disparition.",
     mainWorks: [

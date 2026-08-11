@@ -39,6 +39,33 @@ export function markRead(href: string, id: string): void {
   localStorage.setItem(READ_KEY, JSON.stringify(all));
 }
 
+// ---- Pinned subjects: string[] of hrefs (e.g. "/philosophie") ----
+
+const PIN_KEY = "culture:pinned-subjects";
+
+export function getPinnedSubjects(): string[] {
+  if (typeof window === "undefined") return [];
+  return safeParse<string[]>(localStorage.getItem(PIN_KEY), []);
+}
+
+export function isPinnedSubject(href: string): boolean {
+  return getPinnedSubjects().includes(href);
+}
+
+/** Returns the new pinned state */
+export function togglePinnedSubject(href: string): boolean {
+  const pinned = getPinnedSubjects();
+  const index = pinned.indexOf(href);
+  if (index >= 0) {
+    pinned.splice(index, 1);
+    localStorage.setItem(PIN_KEY, JSON.stringify(pinned));
+    return false;
+  }
+  pinned.push(href);
+  localStorage.setItem(PIN_KEY, JSON.stringify(pinned));
+  return true;
+}
+
 // ---- Favorites: FavoriteEntry[] ----
 
 export function getFavorites(): FavoriteEntry[] {

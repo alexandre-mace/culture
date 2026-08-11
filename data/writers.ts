@@ -6,6 +6,7 @@ export interface Writer {
   image?: string;
   nationality: string;
   movement: string;
+  family?: string;
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -21,6 +22,7 @@ export const writers: Writer[] = [
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Homer_British_Museum.jpg?width=220",
     nationality: "Grec",
     movement: "Épopée antique",
+    family: "Antiquité",
     summary: `Homère est le poète épique grec auquel la tradition attribue la composition de l'Iliade et de l'Odyssée, les deux plus grandes épopées de la littérature occidentale. Son existence historique reste débattue, certains chercheurs suggérant qu'il s'agit d'une figure légendaire représentant une tradition orale collective.
 
 L'Iliade raconte un épisode de la guerre de Troie, centrée sur la colère d'Achille, tandis que l'Odyssée narre le périlleux retour d'Ulysse vers Ithaque après la guerre. Ces deux œuvres fondatrices ont établi les conventions du genre épique et influencé toute la littérature occidentale.
@@ -39,6 +41,7 @@ Son influence sur la culture grecque était immense : ses œuvres servaient de b
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Sophocles_pushkin.jpg?width=220",
     nationality: "Grec",
     movement: "Tragédie grecque",
+    family: "Antiquité",
     summary: `Sophocle, né à Colone près d'Athènes, est l'un des trois grands tragiques grecs avec Eschyle et Euripide. Issu d'une famille aisée, il reçoit une éducation complète et participe activement à la vie politique athénienne, occupant des fonctions militaires et religieuses.
 
 Auteur de plus de 120 pièces, dont seulement 7 nous sont parvenues complètes, il remporte de nombreuses victoires aux concours dramatiques. Ses innovations techniques incluent l'introduction d'un troisième acteur et l'abandon de la trilogie liée au profit de tragédies indépendantes.
@@ -57,6 +60,7 @@ Sophocle a perfectionné la structure de la tragédie attique et approfondi la p
     image: "https://upload.wikimedia.org/wikipedia/commons/8/85/Virgilio.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     nationality: "Romain",
     movement: "Poésie latine classique",
+    family: "Antiquité",
     summary: `Publius Vergilius Maro, dit Virgile, naît près de Mantoue dans une famille modeste. Il étudie la rhétorique et la philosophie à Rome et Naples, se liant avec les cercles intellectuels proches d'Auguste. Sa jeunesse est marquée par les guerres civiles qui dévastent l'Italie.
 
 Les Bucoliques, poèmes pastoraux inspirés de Théocrite, lui valent une première reconnaissance. Les Géorgiques, traité poétique sur l'agriculture, célèbrent le travail de la terre et les valeurs rurales traditionnelles, répondant au programme de restauration morale d'Auguste.
@@ -74,6 +78,7 @@ Virgile meurt à Brindes avant d'avoir pu réviser son chef-d'œuvre, qu'il voul
     deathYear: 17,
     nationality: "Romain",
     movement: "Poésie latine classique",
+    family: "Antiquité",
     summary: `Publius Ovidius Naso naît à Sulmone dans une famille de chevaliers. Destiné à une carrière juridique, il abandonne le barreau pour se consacrer entièrement à la poésie. Il devient rapidement le poète le plus célèbre de Rome, maître de l'élégie amoureuse.
 
 Les Amours et L'Art d'aimer, poèmes érotiques spirituels et ironiques, font scandale dans la Rome d'Auguste qui prône un retour aux valeurs morales traditionnelles. Ces œuvres témoignent d'une maîtrise virtuose du vers et d'un esprit mordant.
@@ -92,6 +97,7 @@ En l'an 8, Ovide est exilé par Auguste à Tomes sur la mer Noire, pour des rais
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Portrait_de_Dante.jpg?width=220",
     nationality: "Italien",
     movement: "Dolce stil novo",
+    family: "Moyen Âge & Renaissance",
     summary: `Dante Alighieri naît à Florence dans une famille de petite noblesse guelfe. Sa rencontre avec Béatrice Portinari à l'âge de neuf ans marque profondément sa vie et son œuvre. Il reçoit une éducation soignée, étudiant la philosophie, la théologie et la poésie.
 
 La Vita Nuova, recueil de poèmes et de prose, raconte son amour idéalisé pour Béatrice et inaugure le "dolce stil novo". Après la mort de Béatrice en 1290, Dante se tourne vers la philosophie et s'engage dans la politique florentine, devenant prieur.
@@ -110,6 +116,7 @@ La Divine Comédie, écrite en langue vulgaire toscane plutôt qu'en latin, fond
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Francois_Rabelais_-_Portrait.jpg?width=220",
     nationality: "Français",
     movement: "Humanisme Renaissance",
+    family: "Moyen Âge & Renaissance",
     summary: `François Rabelais naît près de Chinon dans une famille de la bourgeoisie. Moine franciscain puis bénédictin, il étudie le grec et le droit avant de se tourner vers la médecine. Il devient médecin à Lyon, alors centre de l'imprimerie et de l'humanisme.
 
 En 1532, il publie Pantagruel sous le pseudonyme d'Alcofribas Nasier, anagramme de son nom. Le succès est immédiat malgré la condamnation de la Sorbonne. Gargantua suit en 1534, puis les trois autres livres de la geste des géants.
@@ -128,6 +135,7 @@ Rabelais crée un style unique, mêlant néologismes, jeux de mots, accumulation
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Shakespeare.jpg?width=220",
     nationality: "Anglais",
     movement: "Théâtre élisabéthain",
+    family: "Moyen Âge & Renaissance",
     summary: `William Shakespeare naît à Stratford-upon-Avon dans une famille de commerçants. On sait peu de choses sur sa jeunesse et son éducation. Vers 1590, il s'installe à Londres où il devient acteur et dramaturge, associé à la troupe du Lord Chamberlain puis des King's Men.
 
 Son œuvre théâtrale couvre tous les genres : comédies brillantes (Le Songe d'une nuit d'été, Beaucoup de bruit pour rien), tragédies profondes (Hamlet, Othello, Le Roi Lear, Macbeth), pièces historiques (Richard III, Henri V) et romances tardives (La Tempête).
@@ -146,6 +154,7 @@ Copropriétaire du Globe Theatre, Shakespeare connaît le succès et la fortune 
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Cervantes_J%C3%A1uregui.jpg?width=220",
     nationality: "Espagnol",
     movement: "Siècle d'or espagnol",
+    family: "Moyen Âge & Renaissance",
     summary: `Miguel de Cervantes Saavedra naît à Alcalá de Henares dans une famille modeste de chirurgien itinérant. Sa jeunesse aventureuse le mène en Italie où il s'engage comme soldat. À la bataille de Lépante (1571), il perd l'usage de la main gauche, d'où son surnom de "manchot de Lépante".
 
 Capturé par des pirates barbaresques, il passe cinq ans en captivité à Alger, tentant plusieurs fois de s'évader. De retour en Espagne, il mène une existence difficile, travaillant comme commissaire aux vivres. Emprisonné pour irrégularités comptables, c'est peut-être en prison qu'il commence Don Quichotte.
@@ -164,6 +173,7 @@ Don Quichotte est considéré comme le premier roman moderne, mêlant parodie et
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Moli%C3%A8re_-_Nicolas_Mignard_%281658%29.jpg/330px-Moli%C3%A8re_-_Nicolas_Mignard_%281658%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Français",
     movement: "Classicisme",
+    family: "Âge classique & Lumières",
     summary: `Jean-Baptiste Poquelin, dit Molière, naît à Paris dans une famille de tapissiers du roi. Après de bonnes études chez les jésuites, il renonce à la charge paternelle pour fonder l'Illustre Théâtre avec Madeleine Béjart. L'échec de cette entreprise l'entraîne en province pour treize ans.
 
 De retour à Paris en 1658, il obtient la protection de Monsieur, frère du roi, puis de Louis XIV lui-même. Installé au Palais-Royal, il devient le maître incontesté de la comédie, alternant farces, comédies-ballets et grandes comédies de caractère.
@@ -182,6 +192,7 @@ Acteur, directeur de troupe et auteur, Molière meurt quelques heures après avo
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Portrait_de_Jean_Racine_d%27apr%C3%A8s_Jean-Baptiste_Santerre.jpg/330px-Portrait_de_Jean_Racine_d%27apr%C3%A8s_Jean-Baptiste_Santerre.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Français",
     movement: "Classicisme",
+    family: "Âge classique & Lumières",
     summary: `Jean Racine naît à La Ferté-Milon, orphelin à quatre ans. Élevé par les jansénistes de Port-Royal, il reçoit une formation humaniste exceptionnelle, notamment en grec. Cette éducation austère marquera profondément sa vision tragique du monde et de la passion.
 
 Sa carrière dramatique débute en 1664 et culmine avec une série de chefs-d'œuvre : Andromaque, Britannicus, Bérénice, Bajazet, Mithridate, Iphigénie et surtout Phèdre (1677). Ses tragédies, fondées sur les modèles antiques, portent les passions humaines à une intensité inégalée.
@@ -200,6 +211,7 @@ Après l'échec relatif de Phèdre, Racine abandonne le théâtre profane, se r�
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Jean_de_La_Fontaine.PNG?width=220",
     nationality: "Français",
     movement: "Classicisme",
+    family: "Âge classique & Lumières",
     summary: `Jean de La Fontaine naît à Château-Thierry en Champagne. Après des études de droit et une brève vocation religieuse, il reprend la charge paternelle de maître des Eaux et Forêts. Son mariage avec Marie Héricart sera distant et il vivra surtout à Paris.
 
 Protégé par le surintendant Fouquet dont la disgrâce l'affecte profondément, La Fontaine trouve ensuite refuge auprès de la duchesse d'Orléans puis de Mme de La Sablière. Homme aimable et distrait, il fréquente les salons et se lie avec Molière, Racine et Boileau.
@@ -218,6 +230,7 @@ Outre les Fables, La Fontaine compose des Contes licencieux, des poèmes divers 
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Nicolas_de_Largilli%C3%A8re_-_Portrait_de_Voltaire_%281694-1778%29_en_1718_-_P208_-_mus%C3%A9e_Carnavalet_-_5_%28cropped%29.jpg/330px-Nicolas_de_Largilli%C3%A8re_-_Portrait_de_Voltaire_%281694-1778%29_en_1718_-_P208_-_mus%C3%A9e_Carnavalet_-_5_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Français",
     movement: "Lumières",
+    family: "Âge classique & Lumières",
     summary: `François-Marie Arouet, dit Voltaire, naît à Paris dans une famille bourgeoise aisée. Brillant élève des jésuites, il se destine aux lettres malgré l'opposition paternelle. Ses satires lui valent plusieurs séjours à la Bastille et un exil en Angleterre qui le marque profondément.
 
 De retour en France, il s'impose comme le premier écrivain de son temps : tragédies, poèmes épiques, essais historiques et philosophiques. Son Dictionnaire philosophique et ses Lettres philosophiques diffusent les idées des Lumières. Candide, conte philosophique, reste son œuvre la plus lue.
@@ -236,6 +249,7 @@ Son retour triomphal à Paris en 1778 l'épuise et il meurt quelques semaines pl
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Goethe_%28Stieler_1828%29.jpg?width=220",
     nationality: "Allemand",
     movement: "Classicisme de Weimar / Sturm und Drang",
+    family: "Romantisme",
     summary: `Johann Wolfgang von Goethe naît à Francfort dans une famille patricienne cultivée. Après des études de droit à Leipzig et Strasbourg, il publie Les Souffrances du jeune Werther (1774) qui connaît un succès européen fulgurant et inaugure le mouvement Sturm und Drang.
 
 En 1775, le duc de Saxe-Weimar l'invite à sa cour où Goethe passera le reste de sa vie, occupant diverses fonctions ministérielles. Son voyage en Italie (1786-1788) marque un tournant vers le classicisme. Il dirige le théâtre de Weimar et entretient une amitié féconde avec Schiller.
@@ -254,6 +268,7 @@ Goethe est le dernier homme universel, poète, romancier, dramaturge mais aussi 
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Victor_Hugo_by_%C3%89tienne_Carjat_1876_-_full.jpg?width=220",
     nationality: "Français",
     movement: "Romantisme",
+    family: "Romantisme",
     summary: `Victor Hugo naît à Besançon, fils d'un général napoléonien. Enfant prodige, il affirme à quinze ans vouloir être "Chateaubriand ou rien". La préface de Cromwell (1827) et la bataille d'Hernani (1830) font de lui le chef de file du romantisme français.
 
 Son œuvre poétique, de la maîtrise classique des Odes aux visions cosmiques des Contemplations et de La Légende des siècles, révolutionne la versification. Ses romans - Notre-Dame de Paris, Les Misérables - mêlent fresque historique, critique sociale et personnages inoubliables.
@@ -272,6 +287,7 @@ Hugo meurt à Paris en 1885 ; ses funérailles nationales réunissent deux milli
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Honor%C3%A9_de_Balzac_%281842%29.jpg?width=220",
     nationality: "Français",
     movement: "Réalisme",
+    family: "Réalisme & naturalisme",
     summary: `Honoré de Balzac naît à Tours dans une famille bourgeoise. Après des études de droit, il renonce à une carrière de notaire pour se consacrer à l'écriture. Ses premiers romans, publiés sous pseudonyme, échouent, tout comme ses entreprises commerciales qui le laissent couvert de dettes.
 
 À partir de 1829, il entreprend la rédaction de La Comédie humaine, vaste fresque romanesque visant à décrire l'ensemble de la société française de son temps. Plus de 90 romans et nouvelles, peuplées de 2 000 personnages récurrents, composent cette somme réaliste sans précédent.
@@ -290,6 +306,7 @@ Balzac travaille avec une énergie prodigieuse, écrivant la nuit, corrigeant in
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Stendhal.jpg?width=220",
     nationality: "Français",
     movement: "Réalisme romantique",
+    family: "Romantisme",
     summary: `Henri Beyle, dit Stendhal, naît à Grenoble dans une famille bourgeoise. Orphelin de mère à sept ans, il déteste son père et sa ville natale. Il suit les armées napoléoniennes à travers l'Europe, découvrant l'Italie dont il tombe amoureux.
 
 Après la chute de l'Empire, il s'installe à Milan puis à Paris. Il publie des essais sur l'art, la musique et l'amour (De l'Amour). Ses deux grands romans, Le Rouge et le Noir et La Chartreuse de Parme, passent relativement inaperçus de son vivant.
@@ -308,6 +325,7 @@ Nommé consul à Civitavecchia, Stendhal meurt d'apoplexie à Paris. Il avait pr
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Gustave_Flaubert.jpg?width=220",
     nationality: "Français",
     movement: "Réalisme",
+    family: "Réalisme & naturalisme",
     summary: `Gustave Flaubert naît à Rouen, fils du chirurgien-chef de l'Hôtel-Dieu. Une crise nerveuse le dispense d'études de droit et lui permet de se consacrer à l'écriture. Installé à Croisset près de Rouen, il mène une vie monastique vouée au travail littéraire.
 
 Madame Bovary (1857), récit des illusions et de la déchéance d'une femme de province, lui vaut un procès pour outrage aux mœurs, dont il est acquitté. Le roman révolutionne la technique narrative par son style impersonnel et sa précision documentaire.
@@ -326,6 +344,7 @@ Ami de Tourgueniev, Zola, Maupassant qu'il forme, Flaubert incarne l'artiste mod
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/%C3%89tienne_Carjat%2C_Portrait_of_Charles_Baudelaire%2C_circa_1862.jpg?width=220",
     nationality: "Français",
     movement: "Symbolisme",
+    family: "Symbolisme & esthétisme",
     summary: `Charles Baudelaire naît à Paris. Orphelin de père à six ans, il souffre du remariage de sa mère avec le commandant Aupick. Après une adolescence rebelle et un voyage forcé vers les Indes interrompu à l'île Maurice, il dilapide son héritage et mène une vie de dandy marginal.
 
 Les Fleurs du Mal (1857), son unique recueil, est condamné pour outrage aux bonnes mœurs. Six poèmes sont censurés. Mais ce scandale consacre l'œuvre la plus influente de la poésie moderne, où se mêlent spleen et idéal, beauté et laideur, modernité urbaine et aspirations spirituelles.
@@ -344,6 +363,7 @@ Ruiné, malade, rongé par la syphilis, Baudelaire s'exile en Belgique où il es
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Vasily_Perov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg?width=220",
     nationality: "Russe",
     movement: "Réalisme psychologique",
+    family: "Réalisme & naturalisme",
     summary: `Fiodor Mikhaïlovitch Dostoïevski naît à Moscou dans une famille de petite noblesse. Son père, médecin tyrannique, est assassiné par ses serfs. Cette violence originelle marque profondément son œuvre. Après des études d'ingénieur militaire, il se consacre à la littérature.
 
 En 1849, arrêté pour activités révolutionnaires, il est condamné à mort puis gracié au dernier moment sur l'échafaud. Quatre ans de bagne en Sibérie, suivis de cinq ans de service militaire, transforment sa vision du monde. Il en tire Souvenirs de la maison des morts.
@@ -362,6 +382,7 @@ Joueur compulsif, épileptique, Dostoïevski mène une vie tourmentée. Il meurt
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/L.N.Tolstoy_Prokudin-Gorsky.jpg?width=220",
     nationality: "Russe",
     movement: "Réalisme",
+    family: "Réalisme & naturalisme",
     summary: `Léon Nikolaïevitch Tolstoï naît à Iasnaïa Poliana dans une famille de vieille noblesse. Orphelin jeune, il mène une jeunesse dissolue avant de s'engager dans l'armée au Caucase. Ses premiers récits, fondés sur ses expériences militaires, révèlent un talent exceptionnel.
 
 Guerre et Paix (1869) et Anna Karénine (1877) sont considérés comme les sommets du roman réaliste. Le premier reconstitue l'épopée napoléonienne à travers le destin de familles aristocratiques ; le second analyse la passion adultère et les conventions sociales avec une pénétration inégalée.
@@ -380,6 +401,7 @@ Vivant en conflit croissant avec sa femme qui refuse ses idées de renoncement �
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Dickens_Gurney_head.jpg?width=220",
     nationality: "Anglais",
     movement: "Réalisme victorien",
+    family: "Réalisme & naturalisme",
     summary: `Charles Dickens naît à Portsmouth dans une famille modeste. L'emprisonnement de son père pour dettes le force à travailler enfant dans une fabrique de cirage, expérience traumatisante qui nourrit son œuvre. Devenu journaliste, il publie Les Aventures de M. Pickwick (1836) qui le rendent célèbre à vingt-quatre ans.
 
 Dickens publie ses romans en feuilletons mensuels, créant un suspense qui passionne l'Angleterre entière. Oliver Twist, David Copperfield, Bleak House, Les Grandes Espérances combinent critique sociale et mélodrame, réalisme et sentimentalisme, humour et pathos.
@@ -398,6 +420,7 @@ Dickens mène également une carrière d'éditeur de presse et de lecteur public
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Emile_Zola_1902.jpg?width=220",
     nationality: "Français",
     movement: "Naturalisme",
+    family: "Réalisme & naturalisme",
     summary: `Émile Zola naît à Paris mais grandit à Aix-en-Provence où son père, ingénieur italien, meurt prématurément. La famille connaît des difficultés financières. Monté à Paris, Zola travaille chez Hachette avant de se lancer dans le journalisme et la littérature.
 
 Il élabore la doctrine naturaliste, appliquant au roman les méthodes des sciences expérimentales. Les Rougon-Macquart, "histoire naturelle et sociale d'une famille sous le Second Empire", comprend vingt romans écrits entre 1871 et 1893, de La Fortune des Rougon à Germinal et à L'Assommoir.
@@ -416,6 +439,7 @@ En 1898, son article "J'accuse...!" en défense de Dreyfus le contraint à l'exi
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Guy_de_Maupassant_fotograferad_av_F%C3%A9lix_Nadar_1888.jpg?width=220",
     nationality: "Français",
     movement: "Naturalisme / Réalisme",
+    family: "Réalisme & naturalisme",
     summary: `Guy de Maupassant naît en Normandie dans une famille de petite noblesse. Élève de Flaubert, ami de sa mère, il reçoit une formation littéraire exigeante. Après la guerre de 1870 et dix ans de fonctionnariat, il débute brillamment avec Boule de Suif (1880) dans les Soirées de Médan.
 
 En dix ans, Maupassant produit une œuvre considérable : six romans, dont Une Vie, Bel-Ami et Pierre et Jean, et près de trois cents nouvelles. Maître de la forme brève, il excelle à saisir en quelques pages un caractère, une situation, une chute cruelle.
@@ -434,6 +458,7 @@ Devenu riche et célèbre, Maupassant s'enfonce dans la folie. Après une tentat
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Rimbaud.PNG?width=220",
     nationality: "Français",
     movement: "Symbolisme",
+    family: "Symbolisme & esthétisme",
     summary: `Arthur Rimbaud naît à Charleville dans une famille modeste. Élève brillant, il fugue plusieurs fois et commence à écrire des poèmes d'une maturité stupéfiante. À seize ans, il envoie ses vers à Verlaine qui l'invite à Paris : "Venez, chère grande âme".
 
 La relation tumultueuse entre les deux poètes s'achève par un coup de revolver. Rimbaud compose alors Une Saison en enfer et les Illuminations, poèmes en prose d'une modernité radicale. "Je est un autre", "le dérèglement de tous les sens" : ses formules fondent la poésie moderne.
@@ -452,6 +477,7 @@ Atteint d'une tumeur au genou, Rimbaud rentre en France où on l'ampute. Il meur
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Oscar_Wilde_portrait.jpg?width=220",
     nationality: "Irlandais",
     movement: "Esthétisme",
+    family: "Symbolisme & esthétisme",
     summary: `Oscar Wilde naît à Dublin dans une famille intellectuelle. Brillant étudiant à Oxford, il devient l'apôtre de l'esthétisme, prônant que l'art est sa propre fin. Son esprit étincelant, ses bons mots et son élégance provocante en font la célébrité de Londres victorien.
 
 Ses comédies - L'Éventail de Lady Windermere, L'Importance d'être Constant - satirisent avec brio l'hypocrisie de la haute société. Le Portrait de Dorian Gray explore les rapports entre beauté, morale et corruption. Ses contes et son essai Le Déclin du mensonge illustrent son esthétique paradoxale.
@@ -470,6 +496,7 @@ Libéré et ruiné, Wilde s'exile à Paris sous un faux nom. Il meurt dans un h�
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Marcel_Proust_1900.jpg?width=220",
     nationality: "Français",
     movement: "Modernisme",
+    family: "XXe siècle",
     summary: `Marcel Proust naît à Auteuil dans une famille de la haute bourgeoisie. Son père est médecin, sa mère issue d'une famille juive alsacienne. Asthmatique dès l'enfance, il est profondément attaché à sa mère dont la mort en 1905 le marquera à jamais.
 
 Mondain brillant dans sa jeunesse, chroniqueur pour Le Figaro, Proust se retire progressivement du monde après 1909. Dans sa chambre tapissée de liège, il se consacre entièrement à son œuvre, écrivant la nuit, dormant le jour, corrigeant inlassablement ses épreuves.
@@ -488,6 +515,7 @@ Proust révolutionne le roman par sa phrase sinueuse, son analyse psychologique 
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Kafka_portrait.jpg?width=220",
     nationality: "Austro-hongrois",
     movement: "Modernisme / Expressionnisme",
+    family: "XXe siècle",
     summary: `Franz Kafka naît à Prague dans une famille juive de langue allemande. Dominé par son père, commerçant autoritaire, il étudie le droit et travaille dans une compagnie d'assurances. Il écrit la nuit, menant une double vie entre bureau et littérature.
 
 La Métamorphose, Le Procès, Le Château développent un univers où l'individu affronte des puissances absurdes et écrasantes. L'écriture de Kafka, d'une clarté trompeuse, décrit des situations cauchemardesques avec une précision bureaucratique qui en renforce l'étrangeté.
@@ -506,6 +534,7 @@ Tuberculeux, Kafka meurt près de Vienne à quarante ans, peu après avoir trouv
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Revolutionary_Joyce_Better_Contrast.jpg?width=220",
     nationality: "Irlandais",
     movement: "Modernisme",
+    family: "XXe siècle",
     summary: `James Joyce naît à Dublin dans une famille catholique nombreuse dont la situation financière se dégrade. Brillant élève des jésuites, il rompt avec l'Irlande, l'Église et le nationalisme pour s'exiler à Trieste, Zurich puis Paris, ne revenant jamais dans son pays natal.
 
 Dubliners et Portrait de l'artiste en jeune homme établissent sa réputation d'innovateur. Mais c'est Ulysse (1922), récit d'une journée à Dublin calqué sur l'Odyssée, qui révolutionne le roman. Le monologue intérieur de Molly Bloom et les expérimentations formelles de chaque chapitre ouvrent des voies inédites.
@@ -524,6 +553,7 @@ Mort à Zurich lors de la Seconde Guerre mondiale, Joyce est enterré dans le ci
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Ernest_Hemingway_1923_passport_photo.jpg?width=220",
     nationality: "Américain",
     movement: "Lost Generation",
+    family: "XXe siècle",
     summary: `Ernest Hemingway naît dans l'Illinois. Ambulancier blessé en Italie pendant la Première Guerre mondiale, il devient journaliste à Paris dans les années 1920, fréquentant Gertrude Stein, Fitzgerald et la "génération perdue". Le Soleil se lève aussi et L'Adieu aux armes le rendent célèbre.
 
 Son style dépouillé, fait de phrases courtes et de dialogues tendus, rompt avec la tradition littéraire. La "théorie de l'iceberg" : l'essentiel reste sous la surface, suggéré plutôt qu'explicité. Cette écriture influence toute la littérature américaine ultérieure.
@@ -542,6 +572,7 @@ Prix Nobel de littérature en 1954, Hemingway souffre de dépression et de troub
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Albert_Camus%2C_gagnant_de_prix_Nobel%2C_portrait_en_buste%2C_pos%C3%A9_au_bureau%2C_faisant_face_%C3%A0_gauche%2C_cigarette_de_tabagisme.jpg?width=220",
     nationality: "Français",
     movement: "Absurde / Existentialisme",
+    family: "XXe siècle",
     summary: `Albert Camus naît à Mondovi en Algérie dans un milieu très pauvre. Son père meurt à la guerre de 1914. Élève boursier brillant, il étudie la philosophie à Alger. La tuberculose l'empêche de passer l'agrégation mais ne freine pas son activité de journaliste et d'homme de théâtre.
 
 L'Étranger (1942) et Le Mythe de Sisyphe fondent sa philosophie de l'absurde : la vie n'a pas de sens donné, mais l'homme peut et doit se révolter contre cette condition. "Il faut imaginer Sisyphe heureux." La Peste, allégorie de l'Occupation, célèbre la solidarité humaine face au mal.
@@ -560,6 +591,7 @@ Prix Nobel de littérature en 1957 à quarante-quatre ans, Camus meurt trois ans
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Samuel_Beckett%2C_Pic%2C_1.jpg?width=220",
     nationality: "Irlandais",
     movement: "Théâtre de l'absurde",
+    family: "XXe siècle",
     summary: `Samuel Beckett naît à Dublin dans une famille protestante aisée. Après des études brillantes au Trinity College, il enseigne l'anglais à Paris où il rencontre Joyce dont il devient proche. Après des années d'errance, il s'installe définitivement en France.
 
 Pendant la guerre, Beckett participe à la Résistance. Après 1945, il écrit directement en français, trouvant dans cette langue étrangère une distance propice à son style dépouillé. Molloy, Malone meurt et L'Innommable forment une trilogie romanesque radicale.
@@ -578,6 +610,7 @@ Prix Nobel de littérature en 1969, Beckett reste discret, refusant interviews e
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Gabriel_Garcia_Marquez.jpg?width=220",
     nationality: "Colombien",
     movement: "Réalisme magique",
+    family: "XXe siècle",
     summary: `Gabriel García Márquez naît à Aracataca, village de la côte caraïbe colombienne. Élevé par ses grands-parents, il est nourri de légendes et d'histoires fabuleuses. Journaliste à Bogota, Cartagena et Paris, il s'intéresse au cinéma et milite pour les causes de gauche.
 
 Cent ans de solitude (1967) le révèle au monde entier. Cette saga de la famille Buendía dans le village imaginaire de Macondo mêle l'histoire de la Colombie, les mythes bibliques et le merveilleux quotidien. Le "réalisme magique" devient l'emblème de la littérature latino-américaine.
@@ -596,6 +629,7 @@ Prix Nobel de littérature en 1982, "Gabo" reste l'écrivain latino-américain l
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Jorge_Luis_Borges_1951%2C_by_Grete_Stern.jpg?width=220",
     nationality: "Argentin",
     movement: "Postmodernisme",
+    family: "XXe siècle",
     summary: `Jorge Luis Borges naît à Buenos Aires dans une famille cultivée, bilingue anglais-espagnol. Il passe son adolescence en Suisse pendant la guerre, découvrant les littératures européennes. De retour en Argentine, il devient une figure centrale de l'avant-garde poétique.
 
 Ses recueils de nouvelles - Fictions, L'Aleph, Le Livre de sable - explorent des labyrinthes métaphysiques : bibliothèques infinies, livres impossibles, temps circulaire, doubles, univers parallèles. Ces fictions brèves, d'une précision intellectuelle vertigineuse, renouvellent le genre.

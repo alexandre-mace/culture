@@ -6,6 +6,7 @@ export interface JazzItem {
   image?: string;
   nationality: string;
   movement: string;
+  family?: string;
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -20,6 +21,7 @@ export const jazz: JazzItem[] = [
     deathYear: 1931,
     nationality: "Américain",
     movement: "Origines",
+    family: "Origines & Nouvelle-Orléans",
     summary: `Buddy Bolden est considéré comme le premier musicien de jazz, bien qu'aucun enregistrement de lui n'ait survécu. Dans la Nouvelle-Orléans du tournant du siècle, son cornet puissant, audible à des kilomètres selon la légende, fait danser les foules de Storyville et de Lincoln Park.
 
 Son style fusionne les marches militaires, le blues du Delta, les spirituals et le ragtime en quelque chose de nouveau : une musique improvisée, syncopée, vibrante. Il est le premier à « swinguer », à jouer entre les notes, à transformer la musique en conversation collective.
@@ -43,6 +45,7 @@ Sa légende, transmise oralement par les musiciens qui l'ont entendu — King Ol
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/TeenagedJellyRollMorton.jpg/330px-TeenagedJellyRollMorton.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Jazz Nouvelle-Orléans",
+    family: "Origines & Nouvelle-Orléans",
     summary: `Jelly Roll Morton, né Ferdinand LaMothe à la Nouvelle-Orléans, se proclamait sans modestie « inventeur du jazz ». Si cette prétention est exagérée, il est indiscutablement le premier grand compositeur et arrangeur de l'histoire du jazz, celui qui a donné une forme écrite à une musique d'abord orale.
 
 Avec ses Red Hot Peppers, il réalise entre 1926 et 1930 des enregistrements qui sont des chefs-d'œuvre d'équilibre entre composition et improvisation. Chaque instrument a un rôle précis, les breaks sont savamment placés, les dynamiques contrôlées — mais le swing et la spontanéité restent intacts.
@@ -66,6 +69,7 @@ En 1938, ruiné et oublié, il enregistre pour la Library of Congress des heures
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Louis_Armstrong_in_Color_%28restored%29.jpg/330px-Louis_Armstrong_in_Color_%28restored%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Jazz classique",
+    family: "Origines & Nouvelle-Orléans",
     summary: `Louis Armstrong est sans doute le musicien le plus important du XXe siècle. Né dans la misère à la Nouvelle-Orléans, formé au cornet dans un orphelinat, il révolutionne la musique en inventant le solo improvisé moderne — l'idée qu'un individu peut s'exprimer seul, avec sa voix propre, au-dessus d'un orchestre.
 
 Ses enregistrements avec les Hot Five et Hot Seven (1925-1928) transforment le jazz d'une musique collective en un art du soliste. West End Blues, avec son introduction à la trompette, reste l'un des moments les plus stupéfiants de l'histoire de la musique enregistrée. Son phrasé, son sens du swing et sa créativité mélodique influencent tous les musiciens qui suivent.
@@ -89,6 +93,7 @@ Armstrong est aussi un pont entre les époques : il accompagne la naissance du j
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Duke_Ellington_1964.jpg/330px-Duke_Ellington_1964.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Big Band / Swing",
+    family: "Swing & big bands",
     summary: `Edward Kennedy « Duke » Ellington est le plus grand compositeur de l'histoire du jazz et l'un des plus importants de la musique américaine. Pendant cinquante ans, de 1924 à 1974, son orchestre est un laboratoire sonore permanent, un instrument à lui seul dont Ellington joue avec une maîtrise incomparable.
 
 Sa résidence au Cotton Club de Harlem (1927-1931) lui permet de développer un style orchestral unique, le « jungle sound », mêlant growls des cuivres, clarinettes sinueuses et harmonies sophistiquées. Chaque musicien de l'orchestre — Johnny Hodges, Harry Carney, Cootie Williams — est un soliste irremplaçable dont Ellington exploite la personnalité sonore.
@@ -111,6 +116,7 @@ Billy Strayhorn, son collaborateur intime pendant 28 ans, co-signe nombre de che
     deathYear: 1984,
     nationality: "Américain",
     movement: "Big Band / Swing",
+    family: "Swing & big bands",
     summary: `Count Basie forge à Kansas City un style d'orchestre radicalement différent de celui d'Ellington : là où ce dernier compose et orchestre minutieusement, Basie mise sur le swing, le blues et l'économie de moyens. Son piano minimaliste — quelques notes placées avec une précision diabolique — est devenu légendaire.
 
 L'orchestre de Basie, formé à Kansas City dans les années 1930, incarne le swing à l'état pur. La section rythmique — Basie au piano, Freddie Green à la guitare, Walter Page à la contrebasse, Jo Jones à la batterie — est considérée comme la plus swinguante de l'histoire du jazz. Les riffs des cuivres, simples et implacables, propulsent les solistes.
@@ -133,6 +139,7 @@ L'orchestre de Basie traverse les décennies, s'adaptant à chaque époque sans 
     deathYear: 1959,
     nationality: "Américaine",
     movement: "Jazz vocal",
+    family: "Swing & big bands",
     summary: `Billie Holiday, surnommée Lady Day, possède l'une des voix les plus reconnaissables et les plus émouvantes de l'histoire de la musique. Sans formation technique, elle invente un phrasé qui transforme chaque chanson en confession intime, jouant avec le tempo comme un instrumentiste, en retard ou en avance sur le beat.
 
 Strange Fruit (1939), qui décrit le lynchage des Noirs dans le Sud américain, est sans doute la première chanson de protestation de la musique populaire. L'image des « fruits étranges » pendant aux arbres provoque un choc qui dépasse le cadre du jazz. Le morceau est interdit de radio mais devient un symbole de la lutte pour les droits civiques.
@@ -156,6 +163,7 @@ Holiday meurt à 44 ans, sous surveillance policière à l'hôpital, arrêtée p
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Ella_Fitzgerald_in_September_1947_%28cropped%29.jpg/330px-Ella_Fitzgerald_in_September_1947_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américaine",
     movement: "Jazz vocal",
+    family: "Swing & big bands",
     summary: `Ella Fitzgerald, la « First Lady of Song », possède une voix d'une pureté, d'une justesse et d'une étendue exceptionnelles. Sa technique vocale est si parfaite que les musiciens la considèrent comme un instrument à part entière, capable de rivaliser avec n'importe quel saxophoniste en improvisation scat.
 
 Son scat — l'art d'improviser vocalement avec des syllabes sans signification — atteint des sommets de virtuosité et d'invention. Son Mack the Knife enregistré en concert à Berlin en 1960, où elle oublie les paroles et improvise avec un aplomb éblouissant, est un monument du jazz en live.
@@ -179,6 +187,7 @@ Contrairement à Billie Holiday, Fitzgerald incarne la joie de chanter, la lumi�
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Portrait_of_Charlie_Parker_in_1947.jpg/330px-Portrait_of_Charlie_Parker_in_1947.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Bebop",
+    family: "Bebop",
     summary: `Charlie « Bird » Parker est le révolutionnaire du jazz. Au début des années 1940, dans les clubs de la 52e rue à New York — le Minton's Playhouse, le Three Deuces —, il invente avec Dizzy Gillespie un nouveau langage musical : le bebop. Tempos fulgurants, harmonies complexes, phrasés asymétriques : le jazz cesse d'être une musique de danse pour devenir un art.
 
 Son saxophone alto produit un torrent de notes d'une logique mélodique implacable. Ses improvisations sur des grilles d'accords enrichies de substitutions chromatiques créent un vocabulaire que tous les jazzmen qui suivent devront assimiler. Ko-Ko, Ornithology, Confirmation sont des études de virtuosité et d'invention.
@@ -201,6 +210,7 @@ Il meurt à 34 ans, le corps usé au point que le médecin légiste lui donne en
     deathYear: 1993,
     nationality: "Américain",
     movement: "Bebop",
+    family: "Bebop",
     summary: `Dizzy Gillespie, avec sa trompette coudée à 45 degrés et ses joues gonflées comme des ballons, est l'image même du jazz. Co-inventeur du bebop avec Charlie Parker, il apporte à la révolution bop ce que Parker ne pouvait pas : la discipline, l'organisation et le sens du spectacle.
 
 Là où Parker improvise dans l'instant, Gillespie compose, arrange et structure. A Night in Tunisia, Salt Peanuts, Groovin' High sont des compositions pensées, avec des introductions élaborées et des harmonies savantes. Il forme des big bands bop, prouvant que le nouveau langage peut fonctionner à grande échelle.
@@ -224,6 +234,7 @@ Personnalité généreuse et pédagogue, Gillespie forme des générations de mu
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Thelonious_Monk%2C_Minton%27s_Playhouse%2C_New_York%2C_N.Y.%2C_ca._Sept._1947_%28William_P._Gottlieb_06191%29.jpg/330px-Thelonious_Monk%2C_Minton%27s_Playhouse%2C_New_York%2C_N.Y.%2C_ca._Sept._1947_%28William_P._Gottlieb_06191%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Bebop",
+    family: "Bebop",
     summary: `Thelonious Monk est l'un des musiciens les plus singuliers de l'histoire du jazz. Son style pianistique — anguleux, percussif, plein de silences inattendus et de dissonances délibérées — déroute ses contemporains. Pendant des années, il est considéré comme un amateur maladroit. Il faudra du temps pour comprendre que chaque note « fausse » est parfaitement intentionnelle.
 
 Présent aux jam sessions fondatrices du Minton's Playhouse dans les années 1940, il est l'un des architectes du bebop, mais son style n'appartient à aucune école. Ses compositions — 'Round Midnight, Straight No Chaser, Blue Monk, Ruby My Dear — sont des miniatures parfaites, immédiatement reconnaissables par leurs mélodies tordues et leurs harmonies étranges.
@@ -247,6 +258,7 @@ Sa réhabilitation, à partir de la fin des années 1950, en fait une icône. La
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Miles_Davis_24.jpg/330px-Miles_Davis_24.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Cool / Modal / Fusion",
+    family: "Jazz moderne",
     summary: `Miles Davis est le musicien qui a réinventé le jazz le plus grand nombre de fois. À chaque décennie, il abandonne ce qu'il maîtrise pour explorer un territoire inconnu, entraînant avec lui les meilleurs musiciens de sa génération.
 
 Dans les années 1940, il joue avec Charlie Parker. En 1949, Birth of the Cool invente le cool jazz — des arrangements feutrés et sophistiqués, à l'opposé du bebop brûlant. Son premier grand quintette avec John Coltrane (1955-1957) définit le hard bop. En 1959, Kind of Blue, enregistré en deux sessions avec une préparation minimale, devient l'album de jazz le plus vendu de l'histoire et invente le jazz modal.
@@ -269,6 +281,7 @@ Personnalité complexe — élégant et brutal, génial et cruel, dandy et rebel
     deathYear: 1967,
     nationality: "Américain",
     movement: "Hard Bop / Free Jazz",
+    family: "Jazz moderne",
     summary: `John Coltrane incarne la quête spirituelle dans le jazz. En onze ans de carrière en leader (1957-1967), il parcourt un chemin musical immense, du hard bop le plus sophistiqué au free jazz le plus radical, chaque album étant une étape d'une recherche intérieure insatiable.
 
 Ses « sheets of sound » — des cascades de notes d'une densité hallucinante — redéfinissent les possibilités du saxophone ténor. Giant Steps (1960) pousse les substitutions harmoniques à leur limite mathématique, avec des enchaînements d'accords si rapides qu'ils défient la plupart des musiciens. My Favorite Things transforme une mélodie de comédie musicale en transe modale hypnotique au saxophone soprano.
@@ -292,6 +305,7 @@ Ses derniers enregistrements, de plus en plus libres et violents — Ascension, 
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/DaveBrubeckbyPabloSecca2.png/330px-DaveBrubeckbyPabloSecca2.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Cool Jazz",
+    family: "Jazz moderne",
     summary: `Dave Brubeck est le musicien qui a prouvé que le jazz pouvait être à la fois intellectuellement ambitieux et largement populaire. Formé à la musique classique auprès de Darius Milhaud, il introduit dans le jazz des mesures inhabituelles que personne n'avait osées auparavant.
 
 L'album Time Out (1959), enregistré avec son quartette légendaire incluant le saxophoniste Paul Desmond, est une révolution discrète. Take Five, en mesure 5/4, devient un tube planétaire — le premier single de jazz à dépasser le million d'exemplaires vendus. Blue Rondo à la Turk explore le 9/8 turc. Ces expériences rythmiques, loin d'être cérébrales, swinguent avec une élégance naturelle.
@@ -315,6 +329,7 @@ Sa carrière, qui s'étend sur six décennies, montre qu'innovation et accessibi
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Ornette-Coleman-2008-Heidelberg-schindelbeck.jpg/330px-Ornette-Coleman-2008-Heidelberg-schindelbeck.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Free Jazz",
+    family: "Jazz moderne",
     summary: `Ornette Coleman est le révolutionnaire le plus radical du jazz. Quand il arrive à New York en 1959 avec son saxophone alto en plastique blanc et son quartette sans piano, il provoque un scandale comparable à celui du Sacre du printemps de Stravinsky. The Shape of Jazz to Come annonce dans son titre même une rupture.
 
 Sa révolution consiste à abolir la grille d'accords, pilier du jazz depuis ses origines. Les musiciens improvisent librement, guidés par la mélodie et l'émotion plutôt que par des enchaînements harmoniques prédéterminés. Lonely Woman, thème d'une beauté déchirante, prouve que cette liberté peut produire une musique profondément émouvante.
@@ -338,6 +353,7 @@ Sa théorie de l'« harmolodie » — fusion de harmonie, mouvement et mélodie 
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Bill_Evans_%281961_publicity_photo_by_Steve_Schapiro%29.jpg/330px-Bill_Evans_%281961_publicity_photo_by_Steve_Schapiro%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Piano jazz moderne",
+    family: "Jazz moderne",
     summary: `Bill Evans redéfinit le trio piano-contrebasse-batterie en en faisant une conversation entre trois voix égales, là où le format traditionnel subordonnait la rythmique au pianiste. Avec Scott LaFaro à la contrebasse et Paul Motian à la batterie, son premier trio (1959-1961) invente une interaction télépathique qui influence tous les trios qui suivent.
 
 Son jeu pianistique, d'un lyrisme introspectif marqué par Debussy, Ravel et Chopin, introduit dans le jazz une sensibilité harmonique impressionniste. Ses voicings — la manière de répartir les notes d'un accord — deviennent la référence pour des générations de pianistes, de Herbie Hancock à Brad Mehldau.
@@ -361,6 +377,7 @@ Héroïnomane puis cocaïnomane pendant vingt ans, Evans meurt à 51 ans, le cor
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Charles_Mingus_1976_cropped.jpg/330px-Charles_Mingus_1976_cropped.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Post-Bop",
+    family: "Jazz moderne",
     summary: `Charles Mingus est le compositeur le plus ambitieux du jazz après Ellington, et sa personnalité la plus volcanique. Contrebassiste virtuose et chef d'orchestre tyrannique, il exige de ses musiciens une intensité émotionnelle totale, quitte à les insulter, les frapper ou les renvoyer en plein concert.
 
 Sa musique fusionne tout ce qu'il a absorbé : le blues du holiness church de son enfance, le bebop de Parker, la polyphonie de la Nouvelle-Orléans, la musique classique de Debussy et Stravinsky, le gospel, le flamenco. The Black Saint and the Sinner Lady est une suite orchestrale d'une puissance et d'une complexité rares. Goodbye Pork Pie Hat, hommage à Lester Young, est un blues d'une beauté déchirante.
@@ -383,6 +400,7 @@ Son autobiographie, Beneath the Underdog, mélange faits et fiction dans un réc
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Herbie_Hancock.jpg/330px-Herbie_Hancock.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Jazz Fusion",
+    family: "Fusion & contemporain",
     summary: `Herbie Hancock est le musicien de jazz le plus versatile de sa génération. Pianiste prodige formé au classique, il rejoint le quintette de Miles Davis en 1963 à seulement 23 ans. Pendant cinq ans, aux côtés de Wayne Shorter, Ron Carter et Tony Williams, il participe à l'un des groupes les plus créatifs de l'histoire du jazz.
 
 En 1973, Head Hunters marque un virage radical : Hancock plonge dans le funk électrique, les claviers synthétiques et les grooves hypnotiques. L'album se vend à un million d'exemplaires, record pour un disque de jazz. Chameleon, avec son riff de basse Moog, devient un classique du funk-jazz.
@@ -406,6 +424,7 @@ Hancock ne cesse de se réinventer : acoustique, électrique, collaborations ave
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Wayne_Shorter.jpg/330px-Wayne_Shorter.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Post-Bop / Fusion",
+    family: "Fusion & contemporain",
     summary: `Wayne Shorter est l'un des compositeurs et saxophonistes les plus profonds du jazz moderne. Ses compositions — Footprints, Speak No Evil, Nefertiti, Juju — sont des énigmes musicales où chaque note compte, des miniatures d'une densité et d'une beauté saisissantes qui sont devenues des standards incontournables.
 
 Directeur musical des Jazz Messengers d'Art Blakey de 1959 à 1964, il transforme le répertoire du groupe avec des compositions d'une sophistication harmonique nouvelle. Il rejoint ensuite le second grand quintette de Miles Davis (1964-1970), contribuant à l'exploration modale et à la liberté croissante du groupe.
@@ -427,6 +446,7 @@ Après Weather Report, Shorter mène un quartette acoustique (2001-2018) qui pro
     birthYear: 1945,
     nationality: "Américain",
     movement: "Piano jazz contemporain",
+    family: "Fusion & contemporain",
     summary: `Keith Jarrett porte l'improvisation pianistique à un niveau d'ambition sans précédent. Ses concerts solos, où il s'assoit au piano sans aucune préparation et improvise pendant plus d'une heure, sont des événements musicaux uniques, suspendus entre génie et risque absolu.
 
 Le Köln Concert (1975), enregistré sur un piano médiocre que Jarrett avait failli refuser, devient l'album de piano solo le plus vendu de l'histoire — plus de quatre millions d'exemplaires. Sa mélodie d'ouverture, d'une simplicité lumineuse, est devenue iconique bien au-delà du monde du jazz.
@@ -449,6 +469,7 @@ Son Standards Trio avec Gary Peacock et Jack DeJohnette (1983-2014) est l'un des
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Pat_metheny_orch2.jpg/330px-Pat_metheny_orch2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Jazz contemporain",
+    family: "Fusion & contemporain",
     summary: `Pat Metheny est le guitariste de jazz le plus récompensé de l'histoire — vingt Grammy Awards dans des catégories différentes, un record qui témoigne de l'étendue de son talent. Son son cristallin, obtenu avec une guitare à cordes nylon et des effets de chorus, est immédiatement reconnaissable.
 
 Avec le Pat Metheny Group, fondé en 1977 avec le claviériste Lyle Mays, il développe un jazz mélodique et lyrique, nourri de folk américain, de musique brésilienne et de rock progressif. Des albums comme Offramp, Still Life (Talking) et Letter from Home touchent un public bien au-delà des amateurs de jazz, sans jamais sacrifier l'exigence musicale.
@@ -471,6 +492,7 @@ L'Orchestrion, instrument mécanique qu'il contrôle seul en jouant de la guitar
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Esperanza_Spalding%2C_2009.jpg/330px-Esperanza_Spalding%2C_2009.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américaine",
     movement: "Jazz contemporain",
+    family: "Fusion & contemporain",
     summary: `Esperanza Spalding incarne le renouveau du jazz au XXIe siècle. Contrebassiste, chanteuse et compositrice, elle fusionne jazz, soul, R&B, bossa nova et musique classique avec une aisance qui témoigne d'une formation musicale exceptionnelle — elle enseigne au Berklee College of Music à seulement 20 ans.
 
 En 2011, elle crée la surprise en remportant le Grammy du meilleur nouvel artiste, battant Justin Bieber et Drake. Cette victoire provoque un tollé chez les fans de pop mais place le jazz sous les projecteurs médiatiques, fait rare au XXIe siècle.

@@ -6,6 +6,7 @@ export interface Filmmaker {
   image?: string;
   nationality: string;
   movement: string;
+  family?: string;
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -21,6 +22,7 @@ export const filmmakers: Filmmaker[] = [
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Georges_M%C3%A9li%C3%A8s.jpg?width=220",
     nationality: "Français",
     movement: "Cinéma des premiers temps",
+    family: "Pionniers & muet",
     summary: `Georges Méliès naît à Paris dans une famille de fabricants de chaussures. Passionné de magie et d'illusion, il reprend le théâtre Robert-Houdin et devient un prestidigitateur renommé. En 1895, il assiste à la première projection des frères Lumière et comprend immédiatement le potentiel du cinématographe.
 
 Dès 1896, il réalise ses premiers films et découvre par hasard le trucage : une panne de caméra crée une disparition magique. Il développe alors tout un arsenal d'effets spéciaux : surimpressions, fondus, arrêts de caméra, décors peints. Le cinéma devient un art de l'illusion.
@@ -39,6 +41,7 @@ Ruiné par la guerre et le piratage de ses films, Méliès finit vendeur de joue
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/David_Wark_Griffith_portrait.jpg/330px-David_Wark_Griffith_portrait.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Cinéma muet",
+    family: "Pionniers & muet",
     summary: `David Wark Griffith naît dans le Kentucky, fils d'un colonel confédéré ruiné par la guerre de Sécession. Après une carrière d'acteur itinérant, il rejoint la Biograph Company comme réalisateur et tourne plus de 400 courts métrages entre 1908 et 1913.
 
 Griffith invente le langage cinématographique moderne : gros plan, montage parallèle, travelling, flashback. Il comprend que le plan, et non la scène théâtrale, est l'unité de base du film. Ses innovations techniques sont mises au service d'une narration de plus en plus ambitieuse.
@@ -57,6 +60,7 @@ Cofondateur de United Artists avec Chaplin, Pickford et Fairbanks, Griffith déc
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Charlie_Chaplin.jpg?width=220",
     nationality: "Britannique",
     movement: "Cinéma muet / Comédie",
+    family: "Pionniers & muet",
     summary: `Charles Spencer Chaplin naît dans la misère des faubourgs londoniens. Sa mère, chanteuse de music-hall, sombre dans la folie ; son père, alcoolique, meurt jeune. Cette enfance dickensienne nourrit son œuvre. Enfant de la balle, il rejoint la troupe de Fred Karno qui l'emmène en tournée aux États-Unis.
 
 En 1914, Chaplin crée le personnage de Charlot : chapeau melon, canne, moustache, démarche dandinante. Ce vagabond poétique, mélancolique et drôle, devient en quelques années le visage le plus célèbre du monde. Chaplin contrôle bientôt tous les aspects de ses films : scénario, réalisation, musique.
@@ -75,6 +79,7 @@ Accusé de sympathies communistes pendant le maccarthysme, Chaplin s'exile en Su
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Sergei_Eisenstein_03.jpg?width=220",
     nationality: "Russe",
     movement: "Cinéma soviétique / Montage",
+    family: "Pionniers & muet",
     summary: `Sergei Mikhailovich Eisenstein naît à Riga dans une famille bourgeoise. Ingénieur de formation, il rejoint l'Armée rouge pendant la révolution et découvre le théâtre d'avant-garde. Son passage au cinéma est marqué par une réflexion théorique sur le montage.
 
 La Grève (1925) et surtout Le Cuirassé Potemkine (1925) révolutionnent le cinéma mondial. La séquence de l'escalier d'Odessa, avec son montage frénétique et ses images choc, devient le modèle du montage expressif. Eisenstein théorise le "montage des attractions" : le sens naît du choc entre les plans.
@@ -93,6 +98,7 @@ Alexandre Nevski (1938) et Ivan le Terrible (1944-1946) marquent son retour en g
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/F._W._Murnau_circa_1920-1930.jpg/330px-F._W._Murnau_circa_1920-1930.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Allemand",
     movement: "Expressionnisme allemand",
+    family: "Pionniers & muet",
     summary: `Friedrich Wilhelm Plumpe, dit Murnau, naît à Bielefeld dans une famille aisée. Étudiant en histoire de l'art et littérature, il découvre le théâtre auprès de Max Reinhardt. Pilote pendant la guerre, il échappe plusieurs fois à la mort avant de se tourner vers le cinéma.
 
 Nosferatu (1922), adaptation non autorisée de Dracula, impose une vision du fantastique par la lumière et le cadrage plutôt que par les décors expressionnistes. Le Dernier des hommes (1924) révolutionne la narration en supprimant les intertitres : la caméra raconte tout.
@@ -111,6 +117,7 @@ Son dernier film, Tabou (1931), tourné dans les mers du Sud avec le documentari
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Fritz_Lang_%281969%29.jpg?width=220",
     nationality: "Allemand / Américain",
     movement: "Expressionnisme / Film noir",
+    family: "Pionniers & muet",
     summary: `Friedrich Christian Anton Lang naît à Vienne, fils d'un architecte. Après des études d'art et d'architecture, il voyage à travers le monde avant de s'établir à Berlin. Il débute comme scénariste puis réalisateur, associé à sa femme Thea von Harbou.
 
 Metropolis (1927), vision futuriste d'une cité divisée entre maîtres et esclaves, est le film muet le plus ambitieux jamais produit. M le Maudit (1931), premier film parlant de Lang, invente le thriller psychologique avec Peter Lorre en tueur d'enfants traqué par la pègre.
@@ -129,6 +136,7 @@ De retour en Allemagne dans les années 1960, Lang tourne ses derniers films ava
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/JeanRenoir-StudioHarcourt-1955.png/330px-JeanRenoir-StudioHarcourt-1955.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Français",
     movement: "Réalisme poétique",
+    family: "Cinéma classique",
     summary: `Jean Renoir naît à Paris, deuxième fils du peintre Auguste Renoir. Élevé dans un milieu d'artistes, modèle pour son père, il découvre le cinéma après la guerre de 1914 où il est blessé. Son admiration pour Stroheim et les films américains guide ses débuts.
 
 Les années 1930 produisent ses chefs-d'œuvre : Boudu sauvé des eaux, Toni, La Grande Illusion, La Bête humaine et surtout La Règle du jeu (1939), chronique d'une société au bord de l'abîme. Échec à sa sortie, ce film est aujourd'hui considéré comme l'un des plus grands de l'histoire.
@@ -147,6 +155,7 @@ Exilé aux États-Unis pendant la guerre, Renoir y tourne plusieurs films avant 
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/John_Ford_1946.jpg?width=220",
     nationality: "Américain",
     movement: "Western / Cinéma classique hollywoodien",
+    family: "Cinéma classique",
     summary: `John Martin Feeney, dit John Ford, naît dans le Maine de parents irlandais. Il rejoint son frère à Hollywood en 1914 et devient assistant réalisateur. Ses premiers westerns muets révèlent déjà son sens du paysage et de la communauté.
 
 La Chevauchée fantastique (1939) relance le western comme genre majeur et lance la carrière de John Wayne. Ford filme Monument Valley comme un peintre, créant la mythologie visuelle de l'Ouest américain. Mais ses westerns interrogent aussi la violence et le racisme de la conquête.
@@ -165,6 +174,7 @@ Ford tourne jusqu'à Frontière chinoise (1966), dirigeant encore Wayne. Caché 
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Howard_Hawks_head_shot.jpg/330px-Howard_Hawks_head_shot.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Cinéma classique hollywoodien",
+    family: "Cinéma classique",
     summary: `Howard Winchester Hawks naît à Goshen, dans l'Indiana, dans une famille aisée. Ingénieur de formation, pilote de course, il entre à Hollywood comme accessoiriste avant de passer à la réalisation. Sa carrière couvre quatre décennies et tous les genres.
 
 Scarface (1932) définit le film de gangsters. Seuls les anges ont des ailes et Le Grand Sommeil incarnent le film noir. Rio Bravo réinvente le western. L'Impossible Monsieur Bébé et Les Hommes préfèrent les blondes sont des comédies parfaites. Hawks excelle partout.
@@ -183,6 +193,7 @@ La Nouvelle Vague, particulièrement Rivette et Godard, révèle Hawks comme un 
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Hitchcock%2C_Alfred_02.jpg?width=220",
     nationality: "Britannique / Américain",
     movement: "Suspense / Thriller",
+    family: "Cinéma classique",
     summary: `Alfred Joseph Hitchcock naît à Londres dans une famille catholique modeste. Une enfance solitaire et anxieuse nourrit ses obsessions futures. Il entre dans le cinéma comme graphiste avant de devenir réalisateur. Ses films muets britanniques révèlent déjà son goût pour le suspense.
 
 Les Trente-Neuf Marches (1935) et Une femme disparaît (1938) font de lui le maître du thriller. À Hollywood, il enchaîne les chefs-d'œuvre : Rebecca, Soupçons, L'Ombre d'un doute, La Corde, Fenêtre sur cour, Sueurs froides, La Mort aux trousses, Psychose, Les Oiseaux.
@@ -201,6 +212,7 @@ Star médiatique, silhouette rondouillarde, Hitchcock cultive son image avec hum
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Orson_Welles_1937.jpg?width=220",
     nationality: "Américain",
     movement: "Cinéma moderne",
+    family: "Cinéma classique",
     summary: `George Orson Welles naît à Kenosha, dans le Wisconsin, dans une famille cultivée. Enfant prodige, il débute au théâtre à seize ans et fonde le Mercury Theatre à vingt-deux ans. Sa radio-adaptation de La Guerre des mondes (1938) provoque une panique nationale et fait de lui une célébrité.
 
 Citizen Kane (1941), son premier film à vingt-cinq ans, est régulièrement élu meilleur film de tous les temps. Récit de la vie d'un magnat de la presse, il révolutionne le langage cinématographique : profondeur de champ, plans-séquences, structure narrative éclatée, plongées et contre-plongées extrêmes.
@@ -219,6 +231,7 @@ Welles meurt à Los Angeles, obèse et amer, mais toujours génial. Don Quichott
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Vittorio_De_Sica_%281962%29.jpg/330px-Vittorio_De_Sica_%281962%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Italien",
     movement: "Néoréalisme italien",
+    family: "Auteurs d'après-guerre",
     summary: `Vittorio De Sica naît à Sora, près de Rome. Acteur de charme très populaire dans les années 1930, il passe à la réalisation pendant la guerre. Sa rencontre avec le scénariste Cesare Zavattini détermine sa carrière : ensemble, ils inventent le néoréalisme.
 
 Sciuscià (1946) et Le Voleur de bicyclette (1948) filment l'Italie d'après-guerre avec des acteurs non professionnels, en décors naturels, racontant les drames des petites gens. Le Voleur de bicyclette, histoire d'un père et son fils cherchant une bicyclette volée, atteint une perfection tragique.
@@ -237,6 +250,7 @@ Le Jardin des Finzi-Contini (1970), sur une famille juive italienne face au fasc
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Akirakurosawa-onthesetof7samurai-1953-page88.jpg?width=220",
     nationality: "Japonais",
     movement: "Cinéma japonais classique",
+    family: "Auteurs d'après-guerre",
     summary: `Akira Kurosawa naît à Tokyo dans une famille de samouraï. Peintre et scénariste, il devient assistant réalisateur avant de tourner son premier film en 1943. Rashomon (1950), conte médiéval explorant la relativité de la vérité, remporte le Lion d'or à Venise et révèle le cinéma japonais au monde.
 
 Les Sept Samouraïs (1954), épopée de trois heures et demie, réinvente le film d'action. Son récit de guerriers défendant un village contre des bandits est adapté en western (Les Sept Mercenaires) et influence tout le cinéma d'aventure, de Star Wars aux Avengers.
@@ -255,6 +269,7 @@ Une tentative de suicide en 1971 marque une éclipse, mais Kagemusha (1980) et R
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Yasujiro_Ozu.jpg?width=220",
     nationality: "Japonais",
     movement: "Cinéma japonais classique",
+    family: "Auteurs d'après-guerre",
     summary: `Yasujiro Ozu naît à Tokyo. Cinéphile passionné, il entre à la Shochiku comme assistant et débute comme réalisateur de comédies muettes. Son style se forme progressivement : plans fixes à hauteur de tatami, faux raccords délibérés, "plans-oreillers" de paysages urbains.
 
 Voyage à Tokyo (1953), où des parents âgés rendent visite à leurs enfants ingrats, est considéré comme l'un des plus beaux films jamais réalisés. Ozu filme la dissolution de la famille traditionnelle japonaise avec une tendresse mélancolique, sans jamais juger.
@@ -273,6 +288,7 @@ Ozu meurt le jour de ses soixante ans, célibataire, vivant encore avec sa mère
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Ingmar_Bergman_%281966%29.jpg/330px-Ingmar_Bergman_%281966%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Suédois",
     movement: "Cinéma d'auteur européen",
+    family: "Auteurs d'après-guerre",
     summary: `Ernst Ingmar Bergman naît à Uppsala dans une famille de pasteur luthérien. Une enfance austère et culpabilisante marque profondément son œuvre. Il débute au théâtre avant de passer au cinéma en 1946. Sourires d'une nuit d'été (1955) lui apporte une reconnaissance internationale.
 
 Le Septième Sceau (1957) et Les Fraises sauvages (1957) imposent Bergman comme le cinéaste des grandes questions métaphysiques. La mort, Dieu, le sens de l'existence hantent ses films. Sa "trilogie du silence de Dieu" (À travers le miroir, Les Communiants, Le Silence) explore la crise spirituelle moderne.
@@ -291,6 +307,7 @@ Installé sur l'île de Faro, Bergman poursuit jusqu'à Saraband (2003) une œuv
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Federico_Fellini_NYWTS_2.jpg?width=220",
     nationality: "Italien",
     movement: "Cinéma d'auteur italien",
+    family: "Auteurs d'après-guerre",
     summary: `Federico Fellini naît à Rimini, ville de province dont il garde une nostalgie teintée d'ironie. Dessinateur et journaliste, il entre dans le cinéma comme scénariste, collaborant avec Rossellini. Sa femme, Giulietta Masina, devient son actrice fétiche.
 
 La Strada (1954) et Les Nuits de Cabiria (1957), avec Masina en femme-enfant maltraitée par la vie, révèlent son humanisme et son sens du spectacle. La Dolce Vita (1960), fresque de la décadence romaine, fait scandale et triomphe. Mastroianni devient son alter ego masculin.
@@ -309,6 +326,7 @@ Fellini invente un adjectif : "fellinien" désigne ce mélange de grotesque et d
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Jean-Luc_Godard_at_Berkeley%2C_1968.jpg?width=220",
     nationality: "Franco-suisse",
     movement: "Nouvelle Vague",
+    family: "Cinéma moderne",
     summary: `Jean-Luc Godard naît à Paris dans une famille de la grande bourgeoisie protestante. Cinéphile fanatique, il écrit aux Cahiers du cinéma avant de passer à la réalisation. À bout de souffle (1960), tourné en deux semaines avec des moyens dérisoires, réinvente le cinéma.
 
 Godard dynamite les conventions : faux raccords, regards caméra, citations, collages sonores. Ses films des années 1960 - Le Mépris, Pierrot le Fou, Masculin Féminin, Week-end - mêlent réflexion politique, amour fou et expérimentation formelle. Anna Karina est sa muse.
@@ -327,6 +345,7 @@ Installé à Rolle, en Suisse, Godard reste productif jusqu'à Adieu au langage 
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Fran%C3%A7ois_truffaut.jpg/330px-Fran%C3%A7ois_truffaut.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Français",
     movement: "Nouvelle Vague",
+    family: "Cinéma moderne",
     summary: `François Truffaut naît à Paris, enfant non désiré élevé par sa grand-mère. Adolescent délinquant, il est sauvé par le cinéma et l'amitié d'André Bazin, fondateur des Cahiers du cinéma. Ses critiques virulentes contre le "cinéma de papa" préparent la révolution à venir.
 
 Les Quatre Cents Coups (1959), récit autobiographique d'un enfant mal-aimé, inaugure la Nouvelle Vague. Le personnage d'Antoine Doinel, incarné par Jean-Pierre Léaud, reviendra dans quatre films. Truffaut filme l'enfance, l'amour et le cinéma avec une tendresse lyrique.
@@ -345,6 +364,7 @@ Truffaut meurt d'une tumeur au cerveau à cinquante-deux ans, laissant une œuvr
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Andrei_tarkovsky_stamp_russia_2007.jpg/330px-Andrei_tarkovsky_stamp_russia_2007.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Russe",
     movement: "Cinéma poétique / Cinéma d'auteur",
+    family: "Cinéma moderne",
     summary: `Andreï Arsenievitch Tarkovski naît à Zavrajie, fils du poète Arseni Tarkovski. Formé au VGIK de Moscou, il réalise L'Enfance d'Ivan (1962), récit onirique d'un enfant-espion pendant la guerre, qui remporte le Lion d'or à Venise et lance sa carrière internationale.
 
 Andreï Roublev (1966), fresque sur le peintre d'icônes médiéval, est censuré pendant cinq ans mais s'impose comme un chef-d'œuvre. Solaris (1972) et Stalker (1979), science-fictions philosophiques, explorent la conscience et la spiritualité avec une lenteur contemplative.
@@ -363,6 +383,7 @@ En conflit avec les autorités soviétiques, Tarkovski s'exile en 1982. Nostalgh
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Stanley_Kubrick_2.jpg/330px-Stanley_Kubrick_2.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Cinéma d'auteur",
+    family: "Cinéma moderne",
     summary: `Stanley Kubrick naît dans le Bronx, fils d'un médecin juif. Photographe pour Look Magazine à dix-sept ans, il se tourne vers le cinéma et tourne ses premiers films avec des moyens dérisoires. Les Sentiers de la gloire (1957) et Spartacus (1960) révèlent un perfectionniste obsessionnel.
 
 Installé en Angleterre pour échapper à Hollywood, Kubrick réalise des chefs-d'œuvre dans tous les genres : satire politique (Docteur Folamour), science-fiction (2001, l'Odyssée de l'espace), ultra-violence (Orange mécanique), horreur (Shining), film de guerre (Full Metal Jacket).
@@ -380,6 +401,7 @@ Reclus dans son manoir anglais, Kubrick meurt après avoir achevé Eyes Wide Shu
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Martin_Scorsese_Berlinale_2010_%28cropped2%29.jpg?width=220",
     nationality: "Américain",
     movement: "Nouvel Hollywood",
+    family: "Nouvel Hollywood",
     summary: `Martin Scorsese naît à New York, dans le quartier italo-américain de Little Italy. Enfant asthmatique, il découvre le cinéma dans les salles de quartier et la télévision. Formé à la NYU, il réalise ses premiers films dans l'effervescence du Nouvel Hollywood.
 
 Mean Streets (1973), avec Harvey Keitel et Robert De Niro, inaugure une collaboration légendaire. Taxi Driver (1976) et Raging Bull (1980) imposent Scorsese comme le grand cinéaste de la violence masculine, de la culpabilité catholique et de la rue new-yorkaise.
@@ -397,6 +419,7 @@ Infatigable, Scorsese continue de tourner à plus de quatre-vingts ans : The Iri
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Francis_Ford_Coppola_2011_CC.jpg?width=220",
     nationality: "Américain",
     movement: "Nouvel Hollywood",
+    family: "Nouvel Hollywood",
     summary: `Francis Ford Coppola naît à Detroit dans une famille d'artistes italo-américains. Son père est compositeur, son frère August scénariste. Formé à l'UCLA, il débute comme assistant de Roger Corman avant de fonder American Zoetrope avec George Lucas.
 
 Le Parrain (1972) et Le Parrain II (1974) réinventent le film de gangsters comme tragédie shakespearienne. La trilogie reste l'une des plus grandes réussites du cinéma américain. Coppola impose sa vision contre le studio, obtenant le montage final et le casting de Brando et Pacino.
@@ -414,6 +437,7 @@ Ruiné par des échecs commerciaux (Coup de cœur, Cotton Club), Coppola se rel�
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Steven_Spielberg_by_Gage_Skidmore.jpg?width=220",
     nationality: "Américain",
     movement: "Blockbuster / Cinéma populaire",
+    family: "Nouvel Hollywood",
     summary: `Steven Allan Spielberg naît à Cincinnati dans une famille juive. Enfant, il réalise déjà des films en 8mm. Repéré par Universal, il tourne Duel pour la télévision puis Les Dents de la mer (1975) qui invente le blockbuster moderne et bat tous les records.
 
 Rencontres du troisième type, Les Aventuriers de l'arche perdue, E.T. confirment son talent pour le spectacle populaire et l'émotion. Spielberg sait toucher le public comme personne, mêlant effets spéciaux, humour et sentimentalisme. Il domine le box-office mondial.
@@ -431,6 +455,7 @@ Cofondateur de DreamWorks, producteur prolifique, Spielberg est le cinéaste le 
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/David_Lynch_Cannes_2017.jpg/330px-David_Lynch_Cannes_2017.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Cinéma surréaliste / Art et Essai",
+    family: "Nouvel Hollywood",
     summary: `David Keith Lynch naît à Missoula, Montana. Peintre de formation, il étudie à l'American Film Institute où il réalise Eraserhead, cauchemar en noir et blanc autoproduit sur cinq ans. Ce film culte lui ouvre les portes d'Hollywood.
 
 Elephant Man (1980) révèle son humanisme sous l'étrangeté. Mais c'est Blue Velvet (1986) qui définit son univers : sous la surface idyllique de l'Amérique se cachent violence et perversion. Mulholland Drive (2001), rêve hollywoodien décomposé, est régulièrement élu meilleur film du XXIe siècle.
@@ -448,6 +473,7 @@ Peintre, musicien, adepte de la méditation transcendantale, Lynch refuse de s'e
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Wong_Kar-wai_Berlin_cropped.jpg/330px-Wong_Kar-wai_Berlin_cropped.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Hongkongais",
     movement: "Cinéma d'auteur asiatique",
+    family: "Cinéma contemporain",
     summary: `Wong Kar-wai naît à Shanghai et émigre à Hong Kong à cinq ans. Scénariste pour la télévision et le cinéma, il passe à la réalisation avec As Tears Go By (1988), film de gangsters stylisé. Ses films suivants imposent une esthétique unique, immédiatement reconnaissable.
 
 Chungking Express (1994) et Fallen Angels (1995), tournés dans les ruelles néon de Hong Kong, capturent la solitude urbaine avec une caméra nerveuse et une bande-son pop. In the Mood for Love (2000), histoire d'amour inassouvie dans le Hong Kong des années 1960, est salué comme un chef-d'œuvre.
@@ -465,6 +491,7 @@ Wong Kar-wai filme le désir, le manque, le temps qui passe. Ses personnages se 
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Quentin_Tarantino_by_Gage_Skidmore.jpg?width=220",
     nationality: "Américain",
     movement: "Postmodernisme",
+    family: "Cinéma contemporain",
     summary: `Quentin Jerome Tarantino naît à Knoxville, Tennessee. Élevé par sa mère en Californie, il abandonne l'école pour travailler dans un vidéoclub. Cette éducation cinématographique encyclopédique, des classiques aux films d'exploitation, nourrit son œuvre.
 
 Reservoir Dogs (1992), huis clos sanglant, révèle un dialoguiste brillant et un metteur en scène virtuose. Pulp Fiction (1994), récit éclaté de gangsters à Los Angeles, remporte la Palme d'or et redéfinit le cinéma des années 1990 : dialogues pop, violence stylisée, structure non linéaire.
@@ -482,6 +509,7 @@ Tarantino annonce sa retraite après dix films. Once Upon a Time in Hollywood (2
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Christopher_Nolan_Cannes_2018.jpg?width=220",
     nationality: "Britannico-américain",
     movement: "Blockbuster d'auteur",
+    family: "Cinéma contemporain",
     summary: `Christopher Edward Nolan naît à Londres, fils d'un publicitaire anglais et d'une hôtesse de l'air américaine. Cinéphile précoce, il tourne des courts métrages en Super 8 avant de réaliser Following (1998) avec un budget dérisoire. Memento (2000), récit inversé d'un amnésique, le révèle.
 
 Engagé par Warner pour relancer Batman, Nolan livre une trilogie (Batman Begins, The Dark Knight, The Dark Knight Rises) qui redéfinit le film de super-héros comme drame sérieux. Le Joker de Heath Ledger devient iconique. Nolan prouve qu'un blockbuster peut être intelligent.
@@ -499,6 +527,7 @@ Défenseur de la pellicule et de l'expérience en salle, Nolan est l'un des rare
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Bong_Joon_Ho_-_Okja.jpg/330px-Bong_Joon_Ho_-_Okja.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Sud-coréen",
     movement: "Cinéma coréen contemporain",
+    family: "Cinéma contemporain",
     summary: `Bong Joon-ho naît à Daegu, en Corée du Sud. Diplômé de sociologie, il étudie le cinéma et réalise des courts métrages remarqués. Memories of Murder (2003), enquête sur un tueur en série non élucidée, impose son sens du mélange des genres : thriller, comédie noire, critique sociale.
 
 The Host (2006), film de monstre écologique, devient le plus grand succès du cinéma coréen. Mother (2009) et Snowpiercer (2013) confirment sa capacité à subvertir les genres. Okja (2017), fable sur l'industrie alimentaire, est produit par Netflix.

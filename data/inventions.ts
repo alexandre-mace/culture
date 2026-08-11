@@ -6,6 +6,7 @@ export interface Invention {
   image?: string;
   nationality: string;
   movement: string;
+  family?: string;
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -20,6 +21,7 @@ export const inventions: Invention[] = [
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Roue_primitive.png?width=220",
     nationality: "Mésopotamien",
     movement: "Préhistoire",
+    family: "Antiquité & Moyen Âge",
     summary: `La roue apparaît en Mésopotamie vers 3500 av. J.-C., d'abord comme tour de potier puis comme moyen de transport. C'est l'une des inventions les plus fondamentales de l'histoire humaine, absente des civilisations précolombiennes.
 
 Les premières roues sont des disques pleins en bois, lourds et fragiles. L'invention de la roue à rayons vers 2000 av. J.-C. les allège considérablement. Le char de guerre devient une arme redoutable dans tout le monde antique.
@@ -37,6 +39,7 @@ Associée à l'essieu, la roue reste le fondement de tous les transports terrest
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Cuneiform_script2.jpg?width=220",
     nationality: "Mésopotamien / Égyptien",
     movement: "Antiquité",
+    family: "Antiquité & Moyen Âge",
     summary: `L'écriture apparaît indépendamment en Mésopotamie (cunéiforme, vers 3200 av. J.-C.) et en Égypte (hiéroglyphes, vers 3100 av. J.-C.). Elle naît des besoins comptables des premières cités-États et transforme radicalement les sociétés humaines.
 
 Les premiers signes sont des pictogrammes représentant des objets concrets. Progressivement, ils évoluent vers des idéogrammes puis des phonogrammes notant des sons. L'alphabet phénicien (vers 1050 av. J.-C.) simplifie le système en une trentaine de signes.
@@ -54,6 +57,7 @@ L'invention de l'écriture marque traditionnellement la fin de la préhistoire e
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Paper_production.jpg?width=220",
     nationality: "Chinois",
     movement: "Antiquité",
+    family: "Antiquité & Moyen Âge",
     summary: `Le papier est inventé en Chine en 105 ap. J.-C. par Cai Lun, eunuque de la cour impériale. Il utilise des fibres végétales (mûrier, chanvre) réduites en pâte et étalées en feuilles. Le secret de fabrication reste chinois pendant des siècles.
 
 Avant le papier, on écrit sur papyrus (fragile), parchemin (coûteux), tablettes d'argile ou de cire, bambou, soie. Le papier est léger, peu coûteux, facile à produire. Il révolutionne la diffusion de l'écrit.
@@ -71,6 +75,7 @@ Le papier reste le support dominant de l'information jusqu'à l'ère numérique.
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Kompas_Sofia.JPG?width=220",
     nationality: "Chinois",
     movement: "Moyen Âge",
+    family: "Antiquité & Moyen Âge",
     summary: `La boussole magnétique apparaît en Chine au XIe siècle, d'abord pour la géomancie (feng shui) puis pour la navigation. Elle utilise la propriété de la magnétite ou du fer aimanté de s'orienter vers le nord magnétique.
 
 Les Chinois transmettent la boussole aux Arabes qui l'amènent en Europe au XIIe siècle. Elle révolutionne la navigation en permettant de s'orienter par temps couvert ou la nuit, sans repères célestes visibles.
@@ -88,6 +93,7 @@ La boussole reste l'instrument de navigation fondamental jusqu'à l'invention du
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Gutenberg_Bible.jpg?width=220",
     nationality: "Allemand",
     movement: "Renaissance",
+    family: "Renaissance & sciences",
     summary: `Johannes Gutenberg invente l'imprimerie à caractères mobiles vers 1450 à Mayence. Il combine plusieurs innovations : caractères métalliques interchangeables, presse à vis, encre grasse. La Bible de Gutenberg (1455) est le premier livre imprimé en Europe.
 
 L'imprimerie existait en Chine depuis le XIe siècle (caractères mobiles de Bi Sheng), mais les milliers d'idéogrammes limitaient son usage. L'alphabet européen rend les caractères mobiles bien plus efficaces.
@@ -105,6 +111,7 @@ L'imprimerie est considérée comme l'invention la plus importante du deuxième 
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Galileo_Galilei01.jpg?width=220",
     nationality: "Néerlandais / Italien",
     movement: "Révolution scientifique",
+    family: "Renaissance & sciences",
     summary: `Le télescope est inventé en 1608 par le lunetier néerlandais Hans Lippershey. Galilée l'améliore dès 1609 et le tourne vers le ciel, découvrant les montagnes de la Lune, les satellites de Jupiter, les phases de Vénus.
 
 Ces observations confirment le système héliocentrique de Copernic et bouleversent la cosmologie. La Terre n'est plus le centre de l'univers. Galilée publie ses découvertes dans le Sidereus Nuncius (1610), best-seller de l'époque.
@@ -122,6 +129,7 @@ Le télescope reste l'instrument fondamental de l'astronomie. Les grands observa
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Van_Leeuwenhoek%27s_microscopes_by_Henry_Baker.jpg?width=220",
     nationality: "Néerlandais",
     movement: "Révolution scientifique",
+    family: "Renaissance & sciences",
     summary: `Le microscope apparaît au début du XVIIe siècle, mais c'est Anton van Leeuwenhoek qui en fait un instrument scientifique. Ses lentilles artisanales (grossissement x270) lui permettent de découvrir les bactéries, les spermatozoïdes, les globules rouges.
 
 Le microscope révèle un monde invisible à l'œil nu. Robert Hooke observe les cellules végétales (1665), ouvrant la voie à la biologie cellulaire. Pasteur et Koch utilisent le microscope pour fonder la microbiologie.
@@ -139,6 +147,7 @@ Le microscope a transformé la médecine (diagnostic, histologie), la biologie (
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Newcomen_atmospheric_engine_animation.gif?width=220",
     nationality: "Britannique",
     movement: "Révolution industrielle",
+    family: "Ère industrielle",
     summary: `Thomas Newcomen construit la première machine à vapeur pratique en 1712, pour pomper l'eau des mines de charbon. James Watt l'améliore considérablement à partir de 1769 (condenseur séparé, mouvement rotatif), la rendant utilisable pour l'industrie.
 
 La machine à vapeur transforme la chaleur en travail mécanique. Elle libère l'industrie de la force humaine, animale et hydraulique. Les usines peuvent s'implanter n'importe où, pas seulement près des cours d'eau.
@@ -156,6 +165,7 @@ Remplacée par le moteur à explosion et l'électricité, la machine à vapeur r
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Edward_Jenner._Oil_painting._Wellcome_V0023503.jpg?width=220",
     nationality: "Britannique",
     movement: "Médecine moderne",
+    family: "Médecine & vivant",
     summary: `Edward Jenner pratique la première vaccination en 1796. Il inocule le virus de la vaccine (variole des vaches) à un enfant, qui devient immunisé contre la variole humaine, maladie alors mortelle et redoutée.
 
 L'idée de l'inoculation existait en Chine et en Turquie (variolisation), mais elle était dangereuse. Jenner systématise une méthode sûre, fondée sur l'observation que les vachers ne contractent pas la variole.
@@ -173,6 +183,7 @@ La variole est éradiquée en 1980, première maladie éliminée par l'homme. La
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/VoltaBattery.JPG?width=220",
     nationality: "Italien",
     movement: "Révolution scientifique",
+    family: "Ère industrielle",
     summary: `Alessandro Volta invente la pile électrique en 1800, empilant des disques de cuivre et de zinc séparés par du carton imbibé d'eau salée. Pour la première fois, on dispose d'une source de courant électrique continu et stable.
 
 La pile de Volta permet des expériences décisives. Humphry Davy isole de nouveaux éléments chimiques par électrolyse. Oersted découvre l'électromagnétisme. Faraday invente le moteur électrique et la dynamo.
@@ -190,6 +201,7 @@ Aujourd'hui, les batteries lithium-ion équipent smartphones, voitures électriq
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Boulevard_du_Temple_by_Daguerre.jpg?width=220",
     nationality: "Français",
     movement: "XIXe siècle",
+    family: "Ère industrielle",
     summary: `La photographie naît officiellement le 19 août 1839, quand l'Académie des sciences présente le daguerréotype de Louis Daguerre. Nicéphore Niépce avait obtenu la première image permanente en 1826, mais son procédé était impraticable.
 
 La photographie fixe mécaniquement la réalité, bouleversant l'art du portrait, le journalisme, la science. En quelques décennies, elle devient accessible à tous (Kodak, 1888). Le cinéma en découle directement.
@@ -207,6 +219,7 @@ Aujourd'hui, des milliards de photos sont prises chaque jour. Du reportage à l'
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Morse_telegraph.jpg?width=220",
     nationality: "Américain / Britannique",
     movement: "XIXe siècle",
+    family: "Ère industrielle",
     summary: `Samuel Morse met au point le télégraphe électrique pratique en 1837, avec son célèbre code de points et traits. En 1844, il envoie le premier message public : "What hath God wrought" entre Washington et Baltimore.
 
 Le télégraphe permet pour la première fois de communiquer instantanément à distance. Les fils couvrent les continents, les câbles sous-marins relient l'Europe à l'Amérique (1866). Le monde se connecte.
@@ -224,6 +237,7 @@ Le morse reste utilisé jusqu'à la fin du XXe siècle, notamment en mer. Le té
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Actor_portraying_Alexander_Graham_Bell_in_an_AT%26T_promotional_film_%281926%29.jpg?width=220",
     nationality: "Américain",
     movement: "XIXe siècle",
+    family: "Ère industrielle",
     summary: `Alexander Graham Bell brevète le téléphone en 1876, quelques heures avant Elisha Gray. "Mr. Watson, come here, I want to see you" : le premier appel téléphonique marque une révolution dans la communication humaine.
 
 Le téléphone transmet la voix en temps réel sur des fils électriques. En quelques décennies, il connecte les foyers, les entreprises, les nations. Les centrales téléphoniques emploient des milliers d'opératrices.
@@ -241,6 +255,7 @@ Aujourd'hui, le téléphone est devenu un ordinateur de poche. La voix n'est plu
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Thomas_Edison2.jpg?width=220",
     nationality: "Américain",
     movement: "Révolution industrielle",
+    family: "Ère industrielle",
     summary: `Thomas Edison présente l'ampoule à incandescence pratique en 1879. Après des milliers d'essais, il trouve un filament de carbone capable de briller des heures dans une ampoule sous vide. L'éclairage électrique devient viable.
 
 Edison ne se contente pas de l'ampoule : il conçoit tout le système électrique (centrale, réseau, compteur). En 1882, la première centrale électrique éclaire un quartier de New York. L'électricité entre dans les foyers.
@@ -258,6 +273,7 @@ L'ampoule à incandescence cède aujourd'hui la place aux LED, cent fois plus ef
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/1885Benz.jpg?width=220",
     nationality: "Allemand",
     movement: "Révolution industrielle",
+    family: "Moteurs & ondes",
     summary: `Karl Benz brevète la première automobile à moteur à explosion en 1886. Indépendamment, Gottlieb Daimler développe son propre moteur. Le principe : brûler un mélange air-essence dans un cylindre pour produire un mouvement.
 
 Le moteur à explosion offre une puissance concentrée et mobile, impossible avec la vapeur. L'automobile se développe rapidement, démocratisée par Ford et sa chaîne de montage (Model T, 1908). L'avion suit (Wright, 1903).
@@ -275,6 +291,7 @@ Le moteur thermique cède progressivement la place au moteur électrique pour l'
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Guglielmo_Marconi.jpg?width=220",
     nationality: "Italien",
     movement: "XXe siècle",
+    family: "Moteurs & ondes",
     summary: `Guglielmo Marconi réalise la première transmission radio longue distance en 1896, développant les travaux de Hertz et Tesla. En 1901, il transmet un signal à travers l'Atlantique. La communication sans fil est née.
 
 La radio libère la communication des câbles. Elle équipe les navires (naufrage du Titanic, 1912), les armées, puis les foyers. Les premières émissions régulières datent des années 1920. La radio devient un média de masse.
@@ -292,6 +309,7 @@ Les ondes radio portent aussi la télévision, les télécommunications mobiles,
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/First_flight2.jpg?width=220",
     nationality: "Américain",
     movement: "XXe siècle",
+    family: "Moteurs & ondes",
     summary: `Les frères Wright réalisent le premier vol motorisé contrôlé le 17 décembre 1903 à Kitty Hawk : 12 secondes, 36 mètres. En quelques années, l'aviation progresse spectaculairement (Blériot traverse la Manche, 1909).
 
 La Première Guerre mondiale accélère le développement : avions de chasse, bombardiers. L'entre-deux-guerres voit les premiers vols transatlantiques (Lindbergh, 1927). L'aviation commerciale naît (Pan Am, Air France).
@@ -308,6 +326,7 @@ L'aviation représente 2-3% des émissions de CO2 mondiales. La décarbonation d
     birthYear: 1928,
     nationality: "Britannique",
     movement: "Médecine moderne",
+    family: "Médecine & vivant",
     summary: `Alexander Fleming découvre la pénicilline en 1928 : une moisissure (Penicillium) tue les bactéries sur une boîte de Petri oubliée. Florey et Chain la purifient et la produisent industriellement pendant la Seconde Guerre mondiale.
 
 La pénicilline inaugure l'ère des antibiotiques. Des maladies autrefois mortelles (pneumonie, septicémie, syphilis) deviennent curables. L'espérance de vie bondit. D'autres antibiotiques suivent (streptomycine, tétracycline).
@@ -325,6 +344,7 @@ L'abus d'antibiotiques engendre la résistance bactérienne, menace majeure du X
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/ENIAC-changing_a_tube.jpg?width=220",
     nationality: "Américain / Britannique",
     movement: "Révolution numérique",
+    family: "Révolution numérique",
     summary: `L'ENIAC (1945), premier ordinateur électronique programmable, occupe une pièce entière et consomme 150 kW. Il peut faire en quelques heures des calculs qui prendraient des années à la main. L'ère informatique commence.
 
 Les pionniers (Turing, von Neumann, Shannon) posent les bases théoriques. Le transistor (1947) puis le circuit intégré (1958) permettent la miniaturisation. L'ordinateur passe de l'armée et la recherche aux entreprises (IBM) puis aux foyers (Apple, 1977).
@@ -342,6 +362,7 @@ L'intelligence artificielle, héritière de ces machines, promet une nouvelle r�
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Replica-of-first-transistor.jpg?width=220",
     nationality: "Américain",
     movement: "Révolution numérique",
+    family: "Révolution numérique",
     summary: `John Bardeen, Walter Brattain et William Shockley inventent le transistor aux Bell Labs en 1947. Ce petit composant semi-conducteur remplace le tube à vide, fragile et énergivore. C'est la brique de base de toute l'électronique moderne.
 
 Le transistor permet la miniaturisation de l'électronique. Les radios portables (1954), les premiers ordinateurs à transistors, puis les circuits intégrés (1958) contenant des milliers puis des milliards de transistors sur une puce.
@@ -359,6 +380,7 @@ Le transistor est peut-être l'invention la plus importante du XXe siècle. Sans
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/First-arpanet-imp-log.jpg?width=220",
     nationality: "Américain",
     movement: "Révolution numérique",
+    family: "Révolution numérique",
     summary: `ARPANET, ancêtre d'internet, transmet son premier message le 29 octobre 1969 entre UCLA et Stanford. Le réseau militaire évolue vers un réseau académique puis commercial. Le World Wide Web (Tim Berners-Lee, 1989) le rend accessible à tous.
 
 Internet connecte les ordinateurs du monde entier via le protocole TCP/IP. Le web ajoute une couche de documents liés (hypertexte). Les navigateurs (Mosaic, 1993) demandent juste un clic. Le public découvre internet dans les années 1990.
@@ -376,6 +398,7 @@ Les défis d'internet au XXIe siècle : vie privée, désinformation, cybersécu
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/GPS_Satellite_NASA_art-iif.jpg?width=220",
     nationality: "Américain",
     movement: "Révolution numérique",
+    family: "Révolution numérique",
     summary: `Le GPS (Global Positioning System) débute en 1978 avec le lancement des premiers satellites par l'armée américaine. Ouvert aux civils en 1983, il permet de connaître sa position n'importe où sur Terre avec une précision métrique.
 
 Le système repose sur 24 satellites émettant des signaux horaires. Un récepteur calcule sa distance à plusieurs satellites et en déduit sa position par triangulation. Des systèmes concurrents existent : Galileo (Europe), GLONASS (Russie), BeiDou (Chine).
@@ -393,6 +416,7 @@ Le GPS illustre les applications civiles des technologies militaires. Il est dev
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/CRISPR-Cas9_Editing_of_the_Genome_%2826453307604%29.jpg/330px-CRISPR-Cas9_Editing_of_the_Genome_%2826453307604%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain / Français",
     movement: "Biotechnologies",
+    family: "Médecine & vivant",
     summary: `CRISPR-Cas9, découvert par Jennifer Doudna et Emmanuelle Charpentier en 2012, est un outil d'édition génétique révolutionnaire. Ces "ciseaux moléculaires" permettent de modifier l'ADN avec une précision, une simplicité et un coût sans précédent.
 
 CRISPR vient des bactéries, qui l'utilisent pour se défendre contre les virus. Les chercheuses ont montré qu'on pouvait le programmer pour couper n'importe quelle séquence d'ADN. Le gène cible peut être inactivé, réparé ou remplacé.

@@ -3,6 +3,7 @@ import { Shuffle } from "lucide-react";
 import { subjectCounts } from "@/lib/search-data";
 import { SubjectProgress } from "@/components/subject-progress";
 import { FavoritesLink } from "@/components/favorites-link";
+import { PinnedSubjects } from "@/components/pinned-subjects";
 
 const categories = [
   {
@@ -241,6 +242,7 @@ export default function HomePage() {
 
       {/* Categories */}
       <section className="container pb-16 space-y-10">
+        <PinnedSubjects />
         {categories.map((category) => (
           <div key={category.name}>
             <h2 className="flex items-center gap-2 text-xl font-semibold mb-4">

@@ -12,9 +12,9 @@ import {
 } from "react";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, Share2, Check, X, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, ChevronUp, ChevronDown, Share2, Check, X, Star, Pin } from "lucide-react";
 import { useSearchParams, usePathname } from "next/navigation";
-import { markRead, isFavorite, toggleFavorite } from "@/lib/user-data";
+import { markRead, isFavorite, toggleFavorite, isPinnedSubject, togglePinnedSubject } from "@/lib/user-data";
 import { subjectEmojis } from "@/lib/subject-meta";
 
 interface TimelineItem {
@@ -25,6 +25,7 @@ interface TimelineItem {
   image?: string;
   nationality: string;
   movement: string;
+  family?: string;
   summary: string;
   mainWorks: string[];
   keyIdeas?: string[];
@@ -201,10 +202,22 @@ function TimelineContent({
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
-  // Sort items chronologically
-  const sortedItems = useMemo(() => {
-    return [...items].sort((a, b) => a.birthYear - b.birthYear);
+  // Families (editorial groups), in chronological order of first appearance
+  const families = useMemo(() => {
+    const seen: string[] = [];
+    for (const item of [...items].sort((a, b) => a.birthYear - b.birthYear)) {
+      if (item.family && !seen.includes(item.family)) seen.push(item.family);
+    }
+    return seen;
   }, [items]);
+  const [activeFamily, setActiveFamily] = useState<string | null>(null);
+
+  // Sort items chronologically (filtered by the active family, if any)
+  const sortedItems = useMemo(() => {
+    return items
+      .filter((item) => !activeFamily || item.family === activeFamily)
+      .sort((a, b) => a.birthYear - b.birthYear);
+  }, [items, activeFamily]);
 
   // Keep the selection valid when the item list shrinks (e.g. /tout filters)
   useEffect(() => {
@@ -434,16 +447,73 @@ function TimelineContent({
       {/* Left side - Timeline */}
       <div ref={timelineContainerRef} className="w-full md:w-1/2 overflow-y-auto relative">
         <div className="sticky top-0 z-20 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-          <h1
-            className={cn(
-              "font-semibold text-center py-4",
-              titleExtra ? "text-lg md:text-xl px-16 md:px-72 truncate" : "text-xl"
+          <div className="relative">
+            <h1
+              className={cn(
+                "font-semibold text-center py-4",
+                titleExtra ? "text-lg md:text-xl px-16 md:px-72 truncate" : "text-xl"
+              )}
+            >
+              {title}
+            </h1>
+            {titleExtra && (
+              <div className="absolute right-3 top-1/2 -translate-y-1/2">{titleExtra}</div>
             )}
-          >
-            {title}
-          </h1>
-          {titleExtra && (
-            <div className="absolute right-3 top-1/2 -translate-y-1/2">{titleExtra}</div>
+            {/* Pin the whole subject (not shown on /tout, which has its own controls) */}
+            {!showCategory && !titleExtra && (
+              <button
+                onClick={() => {
+                  togglePinnedSubject(pathname);
+                  setFavTick((t) => t + 1);
+                }}
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+                aria-label={
+                  hydrated && isPinnedSubject(pathname)
+                    ? "Désépingler ce sujet"
+                    : "Épingler ce sujet sur l'accueil"
+                }
+              >
+                <Pin
+                  className={cn(
+                    "h-4 w-4",
+                    hydrated && isPinnedSubject(pathname) && "fill-primary text-primary"
+                  )}
+                />
+              </button>
+            )}
+          </div>
+          {/* Family filter (editorial groups within the subject) */}
+          {!showCategory && families.length >= 2 && (
+            <div
+              className="flex gap-1.5 overflow-x-auto px-4 pb-3 scrollbar-hide"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
+              <button
+                onClick={() => setActiveFamily(null)}
+                className={cn(
+                  "shrink-0 rounded-full border px-2.5 py-1 text-xs font-medium transition-colors",
+                  activeFamily === null
+                    ? "bg-primary text-primary-foreground border-primary"
+                    : "text-muted-foreground hover:text-foreground hover:border-primary/50"
+                )}
+              >
+                Tous
+              </button>
+              {families.map((family) => (
+                <button
+                  key={family}
+                  onClick={() => setActiveFamily(activeFamily === family ? null : family)}
+                  className={cn(
+                    "shrink-0 rounded-full border px-2.5 py-1 text-xs font-medium transition-colors whitespace-nowrap",
+                    activeFamily === family
+                      ? "bg-primary text-primary-foreground border-primary"
+                      : "text-muted-foreground hover:text-foreground hover:border-primary/50"
+                  )}
+                >
+                  {family}
+                </button>
+              ))}
+            </div>
           )}
         </div>
 

@@ -1,5 +1,38 @@
-// Tiny href -> emoji map, safe to import from client components
+// Tiny href -> emoji/name maps, safe to import from client components
 // (no data imports, unlike lib/all-items)
+export const subjectNames: Record<string, string> = {
+  "/philosophie": "Philosophie",
+  "/litterature": "Littérature",
+  "/peinture": "Peinture",
+  "/cinema": "Cinéma",
+  "/architecture": "Architecture",
+  "/musique-classique": "Musique classique",
+  "/inventions": "Inventions",
+  "/astronomie": "Astronomie",
+  "/medecine": "Médecine",
+  "/explorations": "Explorations",
+  "/mouvements-politiques": "Mouvements politiques",
+  "/mathematiques": "Mathématiques",
+  "/physique": "Physique",
+  "/biologie": "Biologie",
+  "/jazz": "Jazz",
+  "/economie": "Économie",
+  "/empires": "Empires",
+  "/esclavage": "Esclavage",
+  "/psychologie": "Psychologie",
+  "/guerres": "Guerres",
+  "/monnaies": "Monnaies & Banques",
+  "/religions": "Religions",
+  "/revolutions-industrielles": "Révolutions industrielles",
+  "/pandemies": "Pandémies",
+  "/epoques": "Époques",
+  "/droits-civiques": "Droits civiques",
+  "/democratie": "Démocratie",
+  "/mythologies": "Mythologies",
+  "/photographie": "Photographie",
+  "/arts-decoratifs": "Arts décoratifs",
+};
+
 export const subjectEmojis: Record<string, string> = {
   "/philosophie": "🏛️",
   "/litterature": "✍️",

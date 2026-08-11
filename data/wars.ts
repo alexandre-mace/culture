@@ -6,6 +6,7 @@ export interface WarItem {
   image?: string;
   nationality: string;
   movement: string;
+  family?: string;
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -20,6 +21,7 @@ export const wars: WarItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Map_Greco-Persian_Wars-fr.svg/langfr-330px-Map_Greco-Persian_Wars-fr.svg.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Grec/Perse",
     movement: "Antiquité",
+    family: "Antiquité",
     summary:
       "Conflit entre les cités grecques et l'Empire perse. Marathon, Thermopyles, Salamine : les Grecs repoussent l'invasion. Victoire fondatrice de l'identité grecque et de la démocratie athénienne.",
     mainWorks: [
@@ -37,6 +39,7 @@ export const wars: WarItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Carte_de_la_guerre_du_P%C3%A9loponn%C3%A8se_431a.C.svg/langfr-330px-Carte_de_la_guerre_du_P%C3%A9loponn%C3%A8se_431a.C.svg.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Grec",
     movement: "Antiquité",
+    family: "Antiquité",
     summary:
       "Guerre fratricide entre Athènes et Sparte pour l'hégémonie grecque. 27 ans de conflit qui épuise les cités. Défaite d'Athènes, déclin de la Grèce classique.",
     mainWorks: [
@@ -54,6 +57,7 @@ export const wars: WarItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Domain_changes_during_the_Punic_Wars.gif/330px-Domain_changes_during_the_Punic_Wars.gif?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Romain/Carthaginois",
     movement: "Antiquité",
+    family: "Antiquité",
     summary:
       "Trois guerres entre Rome et Carthage pour la domination de la Méditerranée. Hannibal franchit les Alpes mais Rome triomphe. Destruction de Carthage en -146.",
     mainWorks: [
@@ -71,6 +75,7 @@ export const wars: WarItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Carte_des_croisades_avec_participation_des_Fran%C3%A7ais.png/330px-Carte_des_croisades_avec_participation_des_Fran%C3%A7ais.png",
     nationality: "Européen/Musulman",
     movement: "Moyen Âge",
+    family: "Moyen Âge & Renaissance",
     summary:
       "Expéditions militaires chrétiennes pour reprendre la Terre sainte aux musulmans. Huit croisades majeures, création d'États latins, chute finale d'Acre en 1291.",
     mainWorks: [
@@ -87,6 +92,7 @@ export const wars: WarItem[] = [
     deathYear: 1453,
     nationality: "Français/Anglais",
     movement: "Moyen Âge",
+    family: "Moyen Âge & Renaissance",
     summary:
       "Conflit dynastique entre France et Angleterre. Crécy, Azincourt : désastres français. Jeanne d'Arc renverse le cours de la guerre. La France sort victorieuse mais dévastée.",
     mainWorks: [
@@ -104,6 +110,7 @@ export const wars: WarItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Bartolomeinatten%2C_scen_fr%C3%A5n%2C_efter_samtida_gravyrer_1%2C_Nordisk_familjebok.png/330px-Bartolomeinatten%2C_scen_fr%C3%A5n%2C_efter_samtida_gravyrer_1%2C_Nordisk_familjebok.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Européen",
     movement: "Renaissance",
+    family: "Moyen Âge & Renaissance",
     summary:
       "Conflits entre catholiques et protestants en Europe. En France : 8 guerres, massacre de la Saint-Barthélemy. En Allemagne : guerre de Trente Ans, dévastation du Saint-Empire.",
     mainWorks: [
@@ -121,6 +128,7 @@ export const wars: WarItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Napoleonic_Wars.jpg/330px-Napoleonic_Wars.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Européen",
     movement: "Moderne",
+    family: "Ère moderne",
     summary:
       "Napoléon contre les coalitions européennes. Austerlitz, Iéna, Wagram : victoires éclatantes. Campagne de Russie (1812) et Waterloo (1815) : défaites finales.",
     mainWorks: [
@@ -137,6 +145,7 @@ export const wars: WarItem[] = [
     deathYear: 1865,
     nationality: "Américain",
     movement: "Moderne",
+    family: "Ère moderne",
     summary:
       "Guerre civile américaine entre le Nord (Union) et le Sud (Confédérés). L'esclavage en est la cause profonde. 620 000 morts, abolition de l'esclavage, reconstruction difficile.",
     mainWorks: [
@@ -154,6 +163,7 @@ export const wars: WarItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Montage_photo_1914-1918.png/330px-Montage_photo_1914-1918.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Mondial",
     movement: "Contemporain",
+    family: "Guerres mondiales",
     summary:
       "La 'Grande Guerre' oppose les Empires centraux aux Alliés. Tranchées, gaz, chars : 10 millions de morts militaires. Effondrement des empires, naissance de l'URSS, traumatisme générationnel.",
     mainWorks: [
@@ -170,6 +180,7 @@ export const wars: WarItem[] = [
     deathYear: 1939,
     nationality: "Espagnol",
     movement: "Contemporain",
+    family: "Guerres mondiales",
     summary:
       "Conflit entre républicains et nationalistes de Franco. Repérage de la Seconde Guerre mondiale : Hitler et Mussolini soutiennent Franco. Guernica bombardée. Victoire franquiste.",
     mainWorks: [
@@ -187,6 +198,7 @@ export const wars: WarItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/WW2Montage.PNG/330px-WW2Montage.PNG",
     nationality: "Mondial",
     movement: "Contemporain",
+    family: "Guerres mondiales",
     summary:
       "Le conflit le plus meurtrier de l'histoire : 70-85 millions de morts. Shoah, bombes atomiques. Défaite de l'Axe (Allemagne, Italie, Japon), naissance de l'ONU et de la Guerre froide.",
     mainWorks: [
@@ -203,6 +215,7 @@ export const wars: WarItem[] = [
     deathYear: 1953,
     nationality: "International",
     movement: "Guerre froide",
+    family: "Guerre froide",
     summary:
       "Premier conflit majeur de la Guerre froide. La Corée du Nord envahit le Sud, intervention américaine sous mandat ONU, puis chinoise. Armistice sans traité de paix, Corée toujours divisée.",
     mainWorks: [
@@ -220,6 +233,7 @@ export const wars: WarItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/VietnamMural.jpg/330px-VietnamMural.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "International",
     movement: "Guerre froide",
+    family: "Guerre froide",
     summary:
       "Conflit opposant le Nord-Vietnam communiste au Sud soutenu par les USA. Guérilla, bombardements massifs, 3 millions de morts vietnamiens. Première défaite américaine, traumatisme national.",
     mainWorks: [
@@ -236,6 +250,7 @@ export const wars: WarItem[] = [
     deathYear: 1973,
     nationality: "Moyen-Oriental",
     movement: "Contemporain",
+    family: "Guerre froide",
     summary:
       "Série de conflits entre Israël et ses voisins arabes. 1948, 1967 (Six Jours), 1973 (Kippour). Israël agrandit son territoire, question palestinienne non résolue.",
     mainWorks: [
@@ -252,6 +267,7 @@ export const wars: WarItem[] = [
     deathYear: 1989,
     nationality: "International",
     movement: "Guerre froide",
+    family: "Guerre froide",
     summary:
       "L'URSS envahit l'Afghanistan pour soutenir le régime communiste. Les moudjahidines, soutenus par les USA, résistent. Retrait soviétique en 1989, facteur de la chute de l'URSS.",
     mainWorks: [
@@ -269,6 +285,7 @@ export const wars: WarItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gulf_War_Photobox.jpg/330px-Gulf_War_Photobox.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "International",
     movement: "Post-Guerre froide",
+    family: "Après 1989",
     summary:
       "L'Irak de Saddam Hussein envahit le Koweït. Coalition internationale menée par les USA. Opération Tempête du Désert : victoire rapide, mais Saddam reste au pouvoir.",
     mainWorks: [
@@ -286,6 +303,7 @@ export const wars: WarItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Collage_Yugoslav_wars.jpg/330px-Collage_Yugoslav_wars.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Balkanique",
     movement: "Post-Guerre froide",
+    family: "Après 1989",
     summary:
       "Éclatement de la Yougoslavie en guerres ethniques. Siège de Sarajevo, génocide de Srebrenica (8000 morts), guerre du Kosovo. Retour de la guerre en Europe.",
     mainWorks: [
@@ -302,6 +320,7 @@ export const wars: WarItem[] = [
     deathYear: 2021,
     nationality: "International",
     movement: "Contemporain",
+    family: "Après 1989",
     summary:
       "Après le 11 septembre, les USA envahissent l'Afghanistan pour éliminer Al-Qaïda. 20 ans de guerre, retrait chaotique en 2021, retour des Talibans au pouvoir.",
     mainWorks: [
@@ -319,6 +338,7 @@ export const wars: WarItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/0/07/Iraq_header_2.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     nationality: "International",
     movement: "Contemporain",
+    family: "Après 1989",
     summary:
       "Les USA envahissent l'Irak, prétextant des armes de destruction massive inexistantes. Chute de Saddam Hussein, chaos, guerre civile, émergence de l'État islamique.",
     mainWorks: [
@@ -335,6 +355,7 @@ export const wars: WarItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/2022_Russian_invasion_of_Ukraine.svg/langfr-330px-2022_Russian_invasion_of_Ukraine.svg.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Européen",
     movement: "Contemporain",
+    family: "Après 1989",
     summary:
       "La Russie envahit l'Ukraine le 24 février 2022. Résistance ukrainienne inattendue, soutien occidental. Plus grand conflit en Europe depuis 1945. Issue incertaine.",
     mainWorks: [

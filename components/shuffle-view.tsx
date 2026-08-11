@@ -13,6 +13,7 @@ interface ShuffleItem {
   image?: string;
   nationality: string;
   movement: string;
+  family?: string;
   summary: string;
   mainWorks: string[];
   keyIdeas?: string[];

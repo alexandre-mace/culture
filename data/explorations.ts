@@ -6,6 +6,7 @@ export interface ExplorationItem {
   image?: string;
   nationality: string;
   movement: string;
+  family?: string;
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -19,6 +20,7 @@ export const explorations: ExplorationItem[] = [
     deathYear: -800,
     nationality: "Phénicien",
     movement: "Antiquité",
+    family: "Antiquité & Moyen Âge",
     summary:
       "Premiers grands navigateurs de l'histoire, les Phéniciens explorent toute la Méditerranée et fondent des comptoirs commerciaux. Ils auraient même circumnavigué l'Afrique pour le pharaon Néchao II.",
     mainWorks: [
@@ -36,6 +38,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Pyth%C3%A9as_%28cropped%29.jpg/330px-Pyth%C3%A9as_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Grec (Massalia)",
     movement: "Antiquité",
+    family: "Antiquité & Moyen Âge",
     itemType: "person",
     summary:
       "Explorateur et astronome grec de Marseille, il navigue jusqu'aux îles Britanniques et probablement jusqu'en Islande (Thulé). Premier à décrire les marées océaniques et le soleil de minuit.",
@@ -54,6 +57,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Zheng_He.jpg/330px-Zheng_He.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Chinois",
     movement: "Explorations chinoises",
+    family: "Antiquité & Moyen Âge",
     itemType: "person",
     summary:
       "Amiral de la flotte impériale Ming, il mène sept expéditions monumentales avec des centaines de navires géants. Explore l'Asie du Sud-Est, l'Inde, l'Arabie et l'Afrique de l'Est.",
@@ -72,6 +76,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Bartolomeu_Dias%2C_South_Africa_House_%28cut%29.JPG/330px-Bartolomeu_Dias%2C_South_Africa_House_%28cut%29.JPG?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Portugais",
     movement: "Grandes découvertes",
+    family: "Grandes découvertes",
     itemType: "person",
     summary:
       "Premier Européen à franchir le cap de Bonne-Espérance en 1488, ouvrant la route maritime vers l'Inde. Sa découverte permet les expéditions de Vasco de Gama.",
@@ -90,6 +95,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ridolfo_del_Ghirlandaio_-_Ritratto_di_Cristoforo_Colombo_%281520%29.jpg/330px-Ridolfo_del_Ghirlandaio_-_Ritratto_di_Cristoforo_Colombo_%281520%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Génois",
     movement: "Grandes découvertes",
+    family: "Grandes découvertes",
     itemType: "person",
     summary:
       "Convaincu de pouvoir atteindre l'Asie par l'ouest, il découvre l'Amérique en 1492 pour le compte de l'Espagne. Quatre voyages qui changent l'histoire mondiale, même s'il meurt persuadé d'avoir atteint l'Asie.",
@@ -108,6 +114,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Vasco_da_Gama_-_1838.png/330px-Vasco_da_Gama_-_1838.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Portugais",
     movement: "Grandes découvertes",
+    family: "Grandes découvertes",
     itemType: "person",
     summary:
       "Premier Européen à atteindre l'Inde par la mer en 1498, contournant l'Afrique. Ouvre la route des épices et établit l'empire commercial portugais en Asie.",
@@ -126,6 +133,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/JohnCabotPainting.jpg/330px-JohnCabotPainting.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Vénitien/Anglais",
     movement: "Grandes découvertes",
+    family: "Grandes découvertes",
     itemType: "person",
     summary:
       "Navigateur vénitien au service de l'Angleterre, il explore la côte de l'Amérique du Nord en 1497, revendiquant Terre-Neuve pour la couronne anglaise. Base des futures revendications britanniques en Amérique.",
@@ -144,6 +152,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Ferdinand_Magellan.jpg/330px-Ferdinand_Magellan.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Portugais/Espagnol",
     movement: "Grandes découvertes",
+    family: "Grandes découvertes",
     itemType: "person",
     summary:
       "Organise la première circumnavigation du globe (1519-1522), prouvant définitivement la rotondité de la Terre. Meurt aux Philippines mais son expédition, menée à terme par Elcano, révolutionne la géographie.",
@@ -162,6 +171,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Jacques_Cartier_1851-1852.jpg/330px-Jacques_Cartier_1851-1852.jpg",
     nationality: "Français",
     movement: "Exploration de l'Amérique du Nord",
+    family: "Grandes découvertes",
     itemType: "person",
     summary:
       "Explorateur français qui découvre le fleuve Saint-Laurent et revendique le Canada pour la France. Trois voyages (1534-1542) qui fondent la présence française en Amérique du Nord.",
@@ -180,6 +190,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/1590_or_later_Marcus_Gheeraerts%2C_Sir_Francis_Drake_Buckland_Abbey%2C_Devon.jpg/330px-1590_or_later_Marcus_Gheeraerts%2C_Sir_Francis_Drake_Buckland_Abbey%2C_Devon.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Anglais",
     movement: "Explorations élisabéthaines",
+    family: "Grandes découvertes",
     itemType: "person",
     summary:
       "Corsaire et navigateur anglais, second à réaliser la circumnavigation (1577-1580). Héros national anglais, il joue un rôle décisif contre l'Invincible Armada espagnole.",
@@ -197,6 +208,7 @@ export const explorations: ExplorationItem[] = [
     deathYear: 1611,
     nationality: "Anglais",
     movement: "Exploration arctique",
+    family: "Pôles & extrêmes",
     itemType: "person",
     summary:
       "Explorateur anglais cherchant le passage du Nord-Ouest. Découvre le fleuve Hudson et la baie d'Hudson. Abandonné par son équipage mutiné dans la baie qui porte son nom.",
@@ -215,6 +227,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/f/f8/AbelTasman.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     nationality: "Néerlandais",
     movement: "Exploration du Pacifique",
+    family: "Voyages scientifiques",
     itemType: "person",
     summary:
       "Navigateur néerlandais qui découvre la Tasmanie, la Nouvelle-Zélande et les îles Fidji. Premier Européen à atteindre ces terres, ouvrant l'exploration de l'Océanie.",
@@ -233,6 +246,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Captainjamescookportrait.jpg/330px-Captainjamescookportrait.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Anglais",
     movement: "Exploration scientifique",
+    family: "Voyages scientifiques",
     itemType: "person",
     summary:
       "Plus grand explorateur du XVIIIe siècle, il cartographie le Pacifique lors de trois voyages. Découvre la côte est de l'Australie, explore l'Antarctique et Hawaii où il trouve la mort.",
@@ -251,6 +265,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Jean-Fran%C3%A7ois_de_Galaup_de_La_P%C3%A9rouse_jeune.jpg/330px-Jean-Fran%C3%A7ois_de_Galaup_de_La_P%C3%A9rouse_jeune.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Français",
     movement: "Exploration scientifique",
+    family: "Voyages scientifiques",
     itemType: "person",
     summary:
       "Navigateur français chargé par Louis XVI d'une expédition scientifique dans le Pacifique. Disparaît mystérieusement à Vanikoro après avoir exploré l'Alaska, l'Asie et l'Océanie.",
@@ -268,6 +283,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Carte_Lewis-Clark_Expedition-fr.svg/langfr-330px-Carte_Lewis-Clark_Expedition-fr.svg.png?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Américain",
     movement: "Exploration de l'Amérique",
+    family: "Explorations continentales",
     summary:
       "Expédition commanditée par Jefferson pour explorer l'Ouest américain jusqu'au Pacifique (1804-1806). Traversent les Rocheuses avec l'aide de Sacagawea, ouvrant la voie à l'expansion américaine.",
     mainWorks: [
@@ -285,6 +301,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/f/f3/AvHumboldt.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     nationality: "Allemand",
     movement: "Exploration scientifique",
+    family: "Voyages scientifiques",
     itemType: "person",
     summary:
       "Naturaliste et explorateur, il parcourt l'Amérique latine pendant cinq ans (1799-1804). Fonde la géographie moderne et l'écologie, documentant climat, végétation et géologie.",
@@ -303,6 +320,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/David_Livingstone_by_Thomas_Annan.jpg/330px-David_Livingstone_by_Thomas_Annan.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Écossais",
     movement: "Exploration de l'Afrique",
+    family: "Explorations continentales",
     itemType: "person",
     summary:
       "Missionnaire et explorateur, il parcourt l'Afrique centrale pendant 30 ans. Découvre les chutes Victoria et cherche les sources du Nil. Retrouvé par Stanley en 1871.",
@@ -321,6 +339,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Henry_Morton_Stanley_Reutlinger_BNF_Gallica.jpg/330px-Henry_Morton_Stanley_Reutlinger_BNF_Gallica.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Gallois/Américain",
     movement: "Exploration de l'Afrique",
+    family: "Explorations continentales",
     itemType: "person",
     summary:
       "Journaliste devenu explorateur, célèbre pour avoir retrouvé Livingstone. Explore le fleuve Congo et contribue (controversément) à la colonisation du Congo pour le roi Léopold II.",
@@ -339,6 +358,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Amundsen_in_fur_skins.jpg/330px-Amundsen_in_fur_skins.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Norvégien",
     movement: "Exploration polaire",
+    family: "Pôles & extrêmes",
     itemType: "person",
     summary:
       "Plus grand explorateur polaire, premier à franchir le passage du Nord-Ouest (1906), premier au pôle Sud (1911) et premier à survoler le pôle Nord (1926). Disparaît en Arctique lors d'une mission de sauvetage.",
@@ -357,6 +377,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Scott_of_the_Antarctic_%28bw%29_%28cropped%29.jpg/330px-Scott_of_the_Antarctic_%28bw%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Anglais",
     movement: "Exploration polaire",
+    family: "Pôles & extrêmes",
     itemType: "person",
     summary:
       "Explorateur britannique dont l'expédition au pôle Sud se termine en tragédie. Arrivé au pôle un mois après Amundsen, il meurt avec ses compagnons sur le chemin du retour.",
@@ -375,6 +396,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/South_-_the_story_of_Shackleton%27s_last_expedition%2C_1914-1917_-_The_Leader_%28cropped%29.jpg/330px-South_-_the_story_of_Shackleton%27s_last_expedition%2C_1914-1917_-_The_Leader_%28cropped%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Irlandais/Anglais",
     movement: "Exploration polaire",
+    family: "Pôles & extrêmes",
     itemType: "person",
     summary:
       "Explorateur légendaire de l'Antarctique. Son expédition Endurance (1914-1916) devient un exploit de survie : après la perte du navire, il sauve tout son équipage après 22 mois sur la glace.",
@@ -391,6 +413,7 @@ export const explorations: ExplorationItem[] = [
     birthYear: 1953,
     nationality: "Néo-Zélandais / Népalais",
     movement: "Exploration moderne",
+    family: "Pôles & extrêmes",
     summary:
       "Edmund Hillary et Tenzing Norgay sont les premiers à atteindre le sommet de l'Everest le 29 mai 1953. Exploit qui couronne des décennies de tentatives et symbolise la conquête des derniers espaces terrestres.",
     mainWorks: [
@@ -407,6 +430,7 @@ export const explorations: ExplorationItem[] = [
     deathYear: 1962,
     nationality: "Suisse",
     movement: "Exploration des profondeurs",
+    family: "Pôles & extrêmes",
     summary:
       "Auguste Piccard explore la stratosphère en ballon (1931). Son fils Jacques atteint le fond de la fosse des Mariannes en 1960 (-10 916 m), le point le plus profond des océans.",
     mainWorks: [
@@ -424,6 +448,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Yuri_Gagarin_%281961%29.jpg/330px-Yuri_Gagarin_%281961%29.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Soviétique",
     movement: "Exploration spatiale",
+    family: "Espace",
     itemType: "person",
     summary:
       "Premier homme dans l'espace le 12 avril 1961. Son vol orbital de 108 minutes à bord de Vostok 1 ouvre l'ère de l'exploration spatiale habitée et fait de lui un héros mondial.",
@@ -442,6 +467,7 @@ export const explorations: ExplorationItem[] = [
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Neil_Armstrong_pose.jpg/330px-Neil_Armstrong_pose.jpg",
     nationality: "Américain",
     movement: "Exploration spatiale",
+    family: "Espace",
     itemType: "person",
     summary:
       "Premier homme à marcher sur la Lune le 20 juillet 1969. Commandant d'Apollo 11, ses premiers pas lunaires sont regardés par 600 millions de personnes et marquent l'apogée de la course à l'espace.",

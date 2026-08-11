@@ -6,6 +6,7 @@ export interface AstronomyItem {
   image?: string;
   nationality: string;
   movement: string;
+  family?: string;
   summary: string;
   mainWorks: string[];
   itemType?: "person" | "topic";
@@ -21,6 +22,7 @@ export const astronomyItems: AstronomyItem[] = [
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Babylonian_tablet_recording_Halley%27s_comet.jpg?width=220",
     nationality: "Babylonien",
     movement: "Antiquité",
+    family: "Antiquité",
     itemType: "topic",
     summary: `L'astronomie babylonienne est la plus ancienne tradition astronomique systématique. Dès le IIe millénaire av. J.-C., les prêtres-astronomes observent méthodiquement le ciel et consignent leurs observations sur des tablettes d'argile.
 
@@ -40,6 +42,7 @@ L'astrologie naît aussi en Mésopotamie : l'idée que les astres influencent le
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Aristarchus_of_Samos.jpg?width=220",
     nationality: "Grec",
     movement: "Antiquité",
+    family: "Antiquité",
     summary: `Aristarque de Samos est le premier à proposer un modèle héliocentrique de l'univers : la Terre tourne autour du Soleil, et non l'inverse. Cette idée révolutionnaire, dix-huit siècles avant Copernic, est rejetée par ses contemporains.
 
 Son raisonnement est géométrique : il mesure les tailles relatives du Soleil et de la Lune, et leurs distances à la Terre. Bien que ses valeurs soient imprécises, sa méthode est rigoureuse.
@@ -58,6 +61,7 @@ Aristarque est redécouvert à la Renaissance. Copernic le cite comme précurseu
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Ptolemy_16century.jpg?width=220",
     nationality: "Gréco-égyptien",
     movement: "Antiquité",
+    family: "Antiquité",
     summary: `Claude Ptolémée, astronome et mathématicien d'Alexandrie, synthétise tout le savoir astronomique antique dans l'Almageste, référence absolue pendant quatorze siècles. Son système géocentrique place la Terre immobile au centre de l'univers.
 
 Pour expliquer les mouvements apparemment irréguliers des planètes, Ptolémée élabore un système complexe d'épicycles (cercles sur cercles) et d'équants. Ce modèle permet des prédictions assez précises.
@@ -76,6 +80,7 @@ Le système de Ptolémée, adopté par l'Église, devient dogme. Sa contestation
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Nikolaus_Kopernikus.jpg?width=220",
     nationality: "Polonais",
     movement: "Renaissance",
+    family: "Révolution copernicienne",
     summary: `Nicolas Copernic, chanoine et astronome polonais, bouleverse la cosmologie en plaçant le Soleil au centre de l'univers. Son De revolutionibus orbium coelestium (1543), publié l'année de sa mort, inaugure la révolution scientifique.
 
 Copernic reprend l'héliocentrisme d'Aristarque pour simplifier le système ptoléméique. La Terre devient une planète comme les autres, tournant sur elle-même (jour) et autour du Soleil (année). L'ordre des planètes s'en déduit logiquement.
@@ -94,6 +99,7 @@ L'Église catholique condamne l'héliocentrisme en 1616. Mais la révolution cop
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Tycho_Brahe.JPG?width=220",
     nationality: "Danois",
     movement: "Renaissance",
+    family: "Révolution copernicienne",
     summary: `Tycho Brahe est le plus grand astronome observateur avant l'invention du télescope. Depuis son observatoire d'Uraniborg, il accumule des mesures d'une précision inégalée, dix fois supérieure à ses prédécesseurs.
 
 Tycho observe la supernova de 1572 et la comète de 1577, prouvant que le ciel n'est pas immuable comme le croyait Aristote. Ces phénomènes se produisent au-delà de la Lune, dans le monde supposé parfait des étoiles.
@@ -112,6 +118,7 @@ Ses observations, transmises à son assistant Kepler, permettront à celui-ci de
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/JKepler.jpg/330px-JKepler.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Allemand",
     movement: "Révolution scientifique",
+    family: "Révolution copernicienne",
     summary: `Johannes Kepler, mathématicien et astronome allemand, découvre les trois lois du mouvement planétaire. Utilisant les observations de Tycho Brahe, il rompt avec deux millénaires de cercles parfaits : les planètes décrivent des ellipses.
 
 Première loi : les orbites sont des ellipses dont le Soleil occupe un foyer. Deuxième loi : le rayon Soleil-planète balaie des aires égales en temps égaux. Troisième loi : le carré de la période est proportionnel au cube du demi-grand axe.
@@ -130,6 +137,7 @@ Les lois de Kepler, purement descriptives, seront expliquées par Newton grâce 
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Justus_Sustermans_-_Portrait_of_Galileo_Galilei%2C_1636.jpg?width=220",
     nationality: "Italien",
     movement: "Révolution scientifique",
+    family: "Révolution copernicienne",
     summary: `Galileo Galilei, savant florentin, est le père de la physique moderne et de la méthode expérimentale. En 1609, il tourne vers le ciel une lunette améliorée et fait des découvertes qui bouleversent la cosmologie.
 
 Il observe les montagnes de la Lune (le ciel n'est pas parfait), les satellites de Jupiter (la Terre n'est pas le centre unique), les phases de Vénus (elle tourne autour du Soleil), les taches solaires. Le Sidereus Nuncius (1610) rend ces découvertes célèbres.
@@ -148,6 +156,7 @@ Galilée fonde aussi la cinématique (chute des corps, mouvement parabolique). S
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/GodfreyKneller-IsaacNewton-1689.jpg?width=220",
     nationality: "Anglais",
     movement: "Révolution scientifique",
+    family: "Révolution copernicienne",
     summary: `Isaac Newton achève la révolution scientifique en unifiant la mécanique terrestre et céleste. Les Principia Mathematica (1687) établissent les lois du mouvement et la gravitation universelle : la même force fait tomber la pomme et orbiter la Lune.
 
 La loi de la gravitation (attraction proportionnelle aux masses, inversement proportionnelle au carré de la distance) explique les lois de Kepler, les marées, la forme de la Terre, les trajectoires des comètes. L'univers devient une horloge mécanique.
@@ -166,6 +175,7 @@ La mécanique newtonienne règne sans partage pendant deux siècles, jusqu'à Ei
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/William_Herschel01.jpg?width=220",
     nationality: "Germano-britannique",
     movement: "Siècle des Lumières",
+    family: "Cosmologie moderne",
     summary: `William Herschel, musicien devenu astronome, découvre Uranus en 1781, première planète trouvée depuis l'Antiquité. Cette découverte double la taille connue du système solaire et lui vaut une renommée mondiale.
 
 Herschel construit les plus grands télescopes de son époque (miroirs jusqu'à 1,2 m) et entreprend un relevé systématique du ciel. Il découvre des milliers de nébuleuses et d'amas, deux satellites d'Uranus, deux de Saturne.
@@ -184,6 +194,7 @@ Herschel découvre aussi le rayonnement infrarouge en 1800, ouvrant l'astronomie
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Studio_portrait_photograph_of_Edwin_Powell_Hubble.JPG?width=220",
     nationality: "Américain",
     movement: "Cosmologie moderne",
+    family: "Cosmologie moderne",
     summary: `Edwin Hubble révolutionne notre vision de l'univers. En 1924, il prouve que la nébuleuse d'Andromède est une galaxie extérieure à la Voie lactée. L'univers s'avère immensément plus grand que prévu, peuplé de milliards de galaxies.
 
 En 1929, Hubble découvre que les galaxies s'éloignent de nous à une vitesse proportionnelle à leur distance (loi de Hubble). L'univers est en expansion. Cette observation fonde la cosmologie du Big Bang.
@@ -201,6 +212,7 @@ Le télescope spatial Hubble, lancé en 1990, porte son nom. Ses images spectacu
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Einstein_1921_by_F_Schmutzer_-_restoration.jpg?width=220",
     nationality: "Allemand / Suisse",
     movement: "Physique moderne",
+    family: "Cosmologie moderne",
     itemType: "topic",
     summary: `Albert Einstein publie la relativité générale en 1915, révolutionnant notre compréhension de la gravitation. L'espace et le temps forment un tissu courbé par la présence de masse. Les planètes suivent les géodésiques de cet espace-temps.
 
@@ -219,6 +231,7 @@ Einstein cherche ensuite une théorie unifiée des forces, sans succès. La réc
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Lemaitre.jpg?width=220",
     nationality: "Belge / Américain",
     movement: "Cosmologie moderne",
+    family: "Cosmologie moderne",
     itemType: "topic",
     summary: `Georges Lemaître, prêtre et physicien belge, propose en 1927 que l'univers a commencé par l'explosion d'un "atome primitif". Cette hypothèse, combinée à l'expansion observée par Hubble, fonde la théorie du Big Bang.
 
@@ -237,6 +250,7 @@ Le Big Bang n'est pas une explosion dans l'espace mais l'expansion de l'espace l
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/USA.NM.VeryLargeArray.02.jpg?width=220",
     nationality: "Américain",
     movement: "Astronomie moderne",
+    family: "Ère spatiale & astrophysique",
     itemType: "topic",
     summary: `Karl Jansky découvre en 1932 que le centre de la Voie lactée émet des ondes radio. Cette découverte fortuite ouvre une nouvelle fenêtre sur l'univers : la radioastronomie, qui révèle des objets invisibles en lumière visible.
 
@@ -255,6 +269,7 @@ En 2019, l'Event Horizon Telescope (réseau mondial) obtient la première image 
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Sputnik_asm.jpg?width=220",
     nationality: "Soviétique",
     movement: "Conquête spatiale",
+    family: "Ère spatiale & astrophysique",
     itemType: "topic",
     summary: `Le 4 octobre 1957, l'URSS lance Spoutnik 1, premier satellite artificiel. Son "bip-bip" radio, capté dans le monde entier, inaugure l'ère spatiale et choque les États-Unis, déclenchant la course à l'espace.
 
@@ -273,6 +288,7 @@ L'astronomie spatiale s'affranchit de l'atmosphère : Hubble, Chandra, James Web
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Crab_Nebula.jpg?width=220",
     nationality: "Britannique",
     movement: "Astrophysique",
+    family: "Ère spatiale & astrophysique",
     itemType: "topic",
     summary: `Jocelyn Bell découvre les pulsars en 1967 : des signaux radio extrêmement réguliers, surnommés d'abord "LGM" (Little Green Men). Ce sont en fait des étoiles à neutrons en rotation rapide, résidus d'explosions de supernovae.
 
@@ -291,6 +307,7 @@ En 2017, la fusion de deux étoiles à neutrons est observée en ondes gravitati
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/Black_hole_-_Messier_87_crop_max_res.jpg?width=220",
     nationality: "International",
     movement: "Astrophysique",
+    family: "Ère spatiale & astrophysique",
     itemType: "topic",
     summary: `Les trous noirs, prédits par la relativité générale, sont des régions de l'espace d'où rien ne peut s'échapper, pas même la lumière. Leur existence est longtemps débattue jusqu'aux premières détections indirectes dans les années 1970.
 
@@ -309,6 +326,7 @@ En 2019, l'Event Horizon Telescope photographie le trou noir de M87 : une ombre 
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/2M1207b_-_First_image_of_an_exoplanet.jpg/330px-2M1207b_-_First_image_of_an_exoplanet.jpg?utm_source=fr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     nationality: "Suisse",
     movement: "Astronomie contemporaine",
+    family: "Astronomie contemporaine",
     itemType: "topic",
     summary: `Michel Mayor et Didier Queloz découvrent en 1995 la première exoplanète autour d'une étoile semblable au Soleil : 51 Pegasi b, une "Jupiter chaude" orbitant en 4 jours. Cette découverte, couronnée par le Nobel 2019, ouvre un nouveau champ de l'astronomie.
 
@@ -327,6 +345,7 @@ Le télescope James Webb, lancé en 2021, analyse les atmosphères d'exoplanète
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/LIGO_measurement_of_gravitational_waves.svg?width=220",
     nationality: "Américain",
     movement: "Physique contemporaine",
+    family: "Astronomie contemporaine",
     itemType: "topic",
     summary: `Le 14 septembre 2015, les détecteurs LIGO captent pour la première fois des ondes gravitationnelles, prédites par Einstein un siècle plus tôt. Elles proviennent de la fusion de deux trous noirs à 1,3 milliard d'années-lumière.
 
@@ -345,6 +364,7 @@ Le prix Nobel 2017 récompense cette découverte. Des détecteurs plus sensibles
     image: "https://commons.wikimedia.org/wiki/Special:FilePath/James_Webb_Space_Telescope_Mirror37.jpg?width=220",
     nationality: "International",
     movement: "Astronomie contemporaine",
+    family: "Astronomie contemporaine",
     itemType: "topic",
     summary: `Le télescope spatial James Webb, lancé le 25 décembre 2021, est le plus puissant jamais construit. Son miroir de 6,5 m et ses instruments infrarouges observent les premières galaxies, les atmosphères d'exoplanètes, la formation des étoiles.
 
