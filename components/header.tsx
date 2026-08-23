@@ -108,7 +108,7 @@ export function Header() {
         </LinkButton>
 
         {/* Search button */}
-        <SearchTrigger onOpen={() => setOpen(true)} className="w-60 justify-start" />
+        <SearchTrigger onOpen={() => setOpen(true)} className="w-60" />
 
       </div>
 
