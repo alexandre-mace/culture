@@ -6,6 +6,7 @@ import { SubjectProgress } from "@/components/subject-progress";
 import { FavoritesLink } from "@/components/favorites-link";
 import { PinnedSubjects } from "@/components/pinned-subjects";
 import { FicheDuJour } from "@/components/fiche-du-jour";
+import { LinkCard } from "@/components/link-card";
 
 const categories = [
   {
@@ -255,10 +256,11 @@ export default function HomePage() {
           </h2>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {getParcoursSummaries().map((parcours) => (
-              <Link
+              <LinkCard
                 key={parcours.slug}
                 href={`/parcours/${parcours.slug}`}
-                className="group flex items-center gap-3 rounded-lg border p-4 hover:border-primary/50 hover:bg-muted/50 transition-all"
+                arrow={false}
+                className="flex-row items-center gap-3"
               >
                 <span className="text-2xl">{parcours.emoji}</span>
                 <div className="min-w-0">
@@ -270,7 +272,7 @@ export default function HomePage() {
                 <span className="ml-auto shrink-0 text-xs text-muted-foreground tabular-nums">
                   {parcours.stepCount} ét.
                 </span>
-              </Link>
+              </LinkCard>
             ))}
           </div>
         </div>
@@ -282,10 +284,11 @@ export default function HomePage() {
             </h2>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {category.subjects.map((subject) => (
-                <Link
+                <LinkCard
                   key={subject.href}
                   href={subject.href}
-                  className="group flex items-center gap-3 rounded-lg border p-4 hover:border-primary/50 hover:bg-muted/50 transition-all"
+                  arrow={false}
+                  className="flex-row items-center gap-3"
                 >
                   <span className="text-2xl">{subject.emoji}</span>
                   <div className="min-w-0">
@@ -301,7 +304,7 @@ export default function HomePage() {
                       <SubjectProgress href={subject.href} total={subjectCounts[subject.href]} />
                     </span>
                   )}
-                </Link>
+                </LinkCard>
               ))}
             </div>
           </div>

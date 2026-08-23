@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Route } from "lucide-react";
 import { getParcoursSummaries } from "@/lib/parcours";
+import { LinkCard } from "@/components/link-card";
 
 export const metadata = {
   title: "Parcours guidés — Culture",
@@ -22,10 +23,10 @@ export default function ParcoursPage() {
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {summaries.map((parcours) => (
-          <Link
+          <LinkCard
             key={parcours.slug}
             href={`/parcours/${parcours.slug}`}
-            className="group rounded-lg border p-4 hover:border-primary/50 hover:bg-muted/50 transition-all"
+            arrow={false}
           >
             <div className="text-3xl mb-2">{parcours.emoji}</div>
             <h2 className="font-semibold group-hover:text-primary transition-colors">
@@ -38,7 +39,7 @@ export default function ParcoursPage() {
               <span>{parcours.subjectEmojis.join(" ")}</span>
               <span className="tabular-nums">{parcours.stepCount} étapes</span>
             </div>
-          </Link>
+          </LinkCard>
         ))}
       </div>
     </div>

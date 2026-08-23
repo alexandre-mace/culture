@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { CalendarDays, Flame } from "lucide-react";
+import { LinkCard } from "@/components/link-card";
 
 interface IndexEntry {
   name: string;
@@ -82,9 +83,10 @@ export function FicheDuJour() {
   return (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-[2fr_1fr]">
       {/* Fiche du jour */}
-      <Link
+      <LinkCard
         href={entry.href}
-        className="group flex items-center gap-4 rounded-lg border p-4 hover:border-primary/50 hover:bg-muted/50 transition-all"
+        arrow={false}
+        className="flex-row items-center gap-4"
       >
         <Avatar className="h-14 w-14 border-2 border-primary/20 shrink-0">
           <AvatarImage src={entry.image} alt={entry.name} />
@@ -107,13 +109,14 @@ export function FicheDuJour() {
             {entry.quote ? `« ${entry.quote} »` : entry.teaser}
           </p>
         </div>
-      </Link>
+      </LinkCard>
 
       {/* Défi du jour */}
       {defi && (
-        <Link
+        <LinkCard
           href="/defi"
-          className="group flex items-center gap-3 rounded-lg border p-4 hover:border-primary/50 hover:bg-muted/50 transition-all"
+          arrow={false}
+          className="flex-row items-center gap-3"
         >
           <CalendarDays className="h-8 w-8 text-primary shrink-0" />
           <div className="min-w-0">
@@ -130,7 +133,7 @@ export function FicheDuJour() {
               )}
             </p>
           </div>
-        </Link>
+        </LinkCard>
       )}
     </div>
   );
