@@ -18,6 +18,7 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import { Button as AriaButton } from "react-aria-components";
+import { SearchTrigger } from "@/components/ui/search-trigger";
 import { Search, Shuffle, Brain, Star, Route } from "lucide-react";
 import { navigationCategories, searchItems } from "@/lib/search-data";
 import { stripAccents } from "@/lib/utils";
@@ -28,18 +29,6 @@ export function Header() {
   const pathname = usePathname();
 
   const isToutPage = pathname === "/tout";
-
-  React.useEffect(() => {
-    const down = (e: KeyboardEvent) => {
-      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault();
-        setOpen((open) => !open);
-      }
-    };
-
-    document.addEventListener("keydown", down);
-    return () => document.removeEventListener("keydown", down);
-  }, []);
 
   // Desktop only header
   return (
@@ -119,17 +108,7 @@ export function Header() {
         </LinkButton>
 
         {/* Search button */}
-        <Button
-          variant="outline"
-          className="relative h-8 w-60 justify-start px-3 py-2"
-          onPress={() => setOpen(true)}
-        >
-          <Search className="h-4 w-4 mr-2" />
-          <span className="text-sm">Rechercher...</span>
-          <kbd className="pointer-events-none absolute right-1.5 top-1/2 -translate-y-1/2 h-5 select-none items-center gap-0.5 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 flex">
-            <span>⌘</span>K
-          </kbd>
-        </Button>
+        <SearchTrigger onOpen={() => setOpen(true)} className="w-60 justify-start" />
 
       </div>
 
