@@ -5,6 +5,7 @@ import "./globals.css";
 import { Header } from "@/components/header";
 import { TabBar } from "@/components/tab-bar";
 import { SwRegister } from "@/components/sw-register";
+import { MadeWithLove } from "@/components/made-with-love";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -42,6 +43,7 @@ export default function RootLayout({
         <Header />
           <main className="pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-0">
             {children}
+            <MadeWithLove className="mt-10 pb-8" />
           </main>
           <TabBar />
           <SwRegister />
