@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useTheme } from "next-themes";
 import {
   User,
   Star,
@@ -31,7 +30,6 @@ function todayKey(offset = 0): string {
 }
 
 export default function ProfilPage() {
-  const { resolvedTheme, setTheme } = useTheme();
   const [stats, setStats] = useState<Stats | null>(null);
   const [copied, setCopied] = useState(false);
 
@@ -138,19 +136,6 @@ export default function ProfilPage() {
         Préférences
       </p>
       <div className="space-y-1">
-        <button
-          onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-          className="w-full flex items-center gap-3 rounded-lg px-3 py-3 hover:bg-accent transition-colors text-left"
-        >
-          {resolvedTheme === "dark" ? (
-            <Sun className="h-5 w-5 text-muted-foreground" />
-          ) : (
-            <Moon className="h-5 w-5 text-muted-foreground" />
-          )}
-          <span className="flex-1 font-medium">
-            {resolvedTheme === "dark" ? "Thème clair" : "Thème sombre"}
-          </span>
-        </button>
         <button
           onClick={shareApp}
           className="w-full flex items-center gap-3 rounded-lg px-3 py-3 hover:bg-accent transition-colors text-left"

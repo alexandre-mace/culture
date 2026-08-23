@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button, LinkButton } from "@/components/ui/button";
 import { CalendarDays, Check, X, Share2, Flame, Brain } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { mulberry32, makeQuestion, type Question } from "@/lib/quiz-engine";
@@ -163,16 +163,14 @@ export default function DefiPage() {
           </p>
         )}
         <div className="grid grid-cols-1 gap-3 max-w-sm mx-auto mt-6">
-          <Button size="lg" onClick={() => share(done)} className="gap-2">
+          <Button size="lg" onPress={() => share(done)} className="gap-2">
             <Share2 className="h-4 w-4" />
             {copied ? "Copié !" : "Partager mon score"}
           </Button>
-          <Button size="lg" variant="outline" asChild className="gap-2">
-            <Link href="/quiz">
-              <Brain className="h-4 w-4" />
-              Continuer en quiz libre
-            </Link>
-          </Button>
+          <LinkButton size="lg" variant="outline" href="/quiz" className="gap-2">
+            <Brain className="h-4 w-4" />
+            Continuer en quiz libre
+          </LinkButton>
         </div>
         <p className="text-xs text-muted-foreground mt-8">
           Nouvelle grille demain — la même pour tout le monde.
@@ -285,7 +283,7 @@ export default function DefiPage() {
 
       {revealed && (
         <div className="mt-6 flex justify-end">
-          <Button onClick={advance}>
+          <Button onPress={advance}>
             {marks.length === QUESTIONS ? "Voir le résultat" : "Question suivante"}
           </Button>
         </div>

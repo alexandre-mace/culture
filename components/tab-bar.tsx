@@ -6,8 +6,8 @@ import { Home, Library, Search, Shuffle, Brain, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import {
+  Command,
   CommandDialog,
-  CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
@@ -203,15 +203,23 @@ export function TabBar() {
 
       {/* Search dialog */}
       <CommandDialog open={searchOpen} onOpenChange={setSearchOpen}>
+        <Command>
         <CommandInput placeholder="Rechercher..." />
-        <CommandList className="max-h-[60vh]">
-          <CommandEmpty>Aucun résultat.</CommandEmpty>
+        <CommandList
+          className="max-h-[60vh]"
+          renderEmptyState={() => (
+            <div className="py-6 text-center text-sm text-muted-foreground">
+              Aucun résultat.
+            </div>
+          )}
+        >
           <CommandGroup heading="Timelines">
             {navigationCategories.flatMap((cat) => cat.items).map((item) => (
               <CommandItem
                 key={item.href}
-                value={`timeline ${item.name} ${stripAccents(item.name)}`}
-                onSelect={() => {
+                id={item.href}
+                textValue={`timeline ${item.name} ${stripAccents(item.name)}`}
+                onAction={() => {
                   router.push(item.href);
                   setSearchOpen(false);
                 }}
@@ -224,8 +232,9 @@ export function TabBar() {
             {searchItems.map((item) => (
               <CommandItem
                 key={item.href}
-                value={`${item.name} ${item.category} ${item.movement} ${stripAccents(`${item.name} ${item.category} ${item.movement}`)}`}
-                onSelect={() => {
+                id={item.href}
+                textValue={`${item.name} ${item.category} ${item.movement} ${stripAccents(`${item.name} ${item.category} ${item.movement}`)}`}
+                onAction={() => {
                   router.push(item.href);
                   setSearchOpen(false);
                 }}
@@ -238,6 +247,7 @@ export function TabBar() {
             ))}
           </CommandGroup>
         </CommandList>
+        </Command>
       </CommandDialog>
     </>
   );

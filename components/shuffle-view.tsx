@@ -192,13 +192,13 @@ export function ShuffleView({ items, headerExtra }: ShuffleViewProps) {
           <Button
             variant="ghost"
             size="icon"
-            onClick={reshuffle}
+            onPress={reshuffle}
             className="h-9 w-9"
             aria-label="Mélanger à nouveau"
           >
             <Dices className="h-4 w-4" />
           </Button>
-          <Button variant="ghost" size="icon" onClick={shareItem} className="h-9 w-9">
+          <Button variant="ghost" size="icon" onPress={shareItem} className="h-9 w-9">
             {copied ? <Check className="h-4 w-4" /> : <Share2 className="h-4 w-4" />}
           </Button>
           {headerExtra}

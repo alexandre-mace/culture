@@ -45,7 +45,7 @@ export default function ToutPage() {
       <Button
         variant={filterActive ? "secondary" : "ghost"}
         size="sm"
-        onClick={() => setFiltersOpen(true)}
+        onPress={() => setFiltersOpen(true)}
         className="gap-1.5 h-7 px-2"
         aria-label="Filtrer les catégories"
       >
@@ -56,7 +56,7 @@ export default function ToutPage() {
         <Button
           variant={mode === "timeline" ? "secondary" : "ghost"}
           size="sm"
-          onClick={() => setMode("timeline")}
+          onPress={() => setMode("timeline")}
           className="gap-1.5 h-7"
         >
           <ListOrdered className="h-4 w-4" />
@@ -65,7 +65,7 @@ export default function ToutPage() {
         <Button
           variant={mode === "shuffle" ? "secondary" : "ghost"}
           size="sm"
-          onClick={() => setMode("shuffle")}
+          onPress={() => setMode("shuffle")}
           className="gap-1.5 h-7"
         >
           <Shuffle className="h-4 w-4" />
@@ -98,8 +98,8 @@ export default function ToutPage() {
                 variant="ghost"
                 size="sm"
                 className="h-7 text-xs text-muted-foreground"
-                onClick={() => setHidden(new Set())}
-                disabled={hidden.size === 0}
+                onPress={() => setHidden(new Set())}
+                isDisabled={hidden.size === 0}
               >
                 Tout afficher
               </Button>

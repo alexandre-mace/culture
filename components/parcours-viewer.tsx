@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import { Button, LinkButton } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, ExternalLink, Flag, Route } from "lucide-react";
 import { markRead } from "@/lib/user-data";
 import type { ResolvedParcours } from "@/lib/parcours";
@@ -62,13 +62,11 @@ export function ParcoursViewer({ parcours }: { parcours: ResolvedParcours }) {
           l'histoire.
         </p>
         <div className="grid grid-cols-1 gap-3 max-w-sm mx-auto">
-          <Button asChild size="lg" className="gap-2">
-            <Link href="/parcours">
-              <Route className="h-4 w-4" />
-              Autres parcours
-            </Link>
-          </Button>
-          <Button variant="outline" size="lg" onClick={() => { setFinished(false); setStepIndex(0); }}>
+          <LinkButton size="lg" href="/parcours" className="gap-2">
+            <Route className="h-4 w-4" />
+            Autres parcours
+          </LinkButton>
+          <Button variant="outline" size="lg" onPress={() => { setFinished(false); setStepIndex(0); }}>
             Recommencer
           </Button>
         </div>
@@ -160,11 +158,11 @@ export function ParcoursViewer({ parcours }: { parcours: ResolvedParcours }) {
 
       {/* Navigation */}
       <div className="flex items-center justify-between border-t pt-4">
-        <Button variant="outline" onClick={previous} disabled={stepIndex === 0} className="gap-1.5">
+        <Button variant="outline" onPress={previous} isDisabled={stepIndex === 0} className="gap-1.5">
           <ChevronLeft className="h-4 w-4" />
           Précédent
         </Button>
-        <Button onClick={next} className="gap-1.5">
+        <Button onPress={next} className="gap-1.5">
           {stepIndex + 1 >= parcours.steps.length ? "Terminer" : "Suivant"}
           <ChevronRight className="h-4 w-4" />
         </Button>

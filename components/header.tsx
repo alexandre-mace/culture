@@ -3,25 +3,22 @@
 import * as React from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button";
+import { Button, LinkButton } from "@/components/ui/button";
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+  DropdownMenu,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
+  Command,
   CommandDialog,
-  CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
+import { Button as AriaButton } from "react-aria-components";
 import { Search, Shuffle, Brain, Star, Route } from "lucide-react";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { navigationCategories, searchItems } from "@/lib/search-data";
 import { stripAccents } from "@/lib/utils";
 
@@ -49,93 +46,83 @@ export function Header() {
     <header className="hidden md:block sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="flex h-12 items-center px-4 gap-2">
         {/* Logo */}
-        <Button variant="ghost" size="icon" asChild className="shrink-0">
-          <Link href="/">
-            <span className="text-xl">📚</span>
-          </Link>
-        </Button>
+        <LinkButton variant="ghost" size="icon" href="/" className="shrink-0">
+          <span className="text-xl">📚</span>
+        </LinkButton>
 
         {/* Navigation Menu */}
-        <NavigationMenu viewport={false}>
-          <NavigationMenuList>
-            {navigationCategories.map((category) => (
-              <NavigationMenuItem key={category.name}>
-                <NavigationMenuTrigger>{category.name}</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[200px] gap-2">
-                    <li>
-                      {category.items.map((item) => (
-                        <NavigationMenuLink key={item.href} asChild>
-                          <Link href={item.href}>{item.name}</Link>
-                        </NavigationMenuLink>
-                      ))}
-                    </li>
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            ))}
-          </NavigationMenuList>
-        </NavigationMenu>
+        <nav className="flex items-center gap-1">
+          {navigationCategories.map((category) => (
+            <DropdownMenuTrigger key={category.name}>
+              <AriaButton className="inline-flex h-8 items-center gap-1 rounded-md px-3 text-sm font-medium whitespace-nowrap outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-3 focus-visible:ring-ring/50 aria-expanded:bg-accent">
+                {category.name}
+              </AriaButton>
+              <DropdownMenu placement="bottom start" className="w-[200px]">
+                {category.items.map((item) => (
+                  <DropdownMenuItem
+                    key={item.href}
+                    href={item.href}
+                    textValue={item.name}
+                  >
+                    {item.name}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenu>
+            </DropdownMenuTrigger>
+          ))}
+        </nav>
 
         {/* Toutes button */}
-        <Button
+        <LinkButton
           variant={isToutPage ? "secondary" : "ghost"}
           size="sm"
-          asChild
+          href="/tout"
           className="gap-1.5"
         >
-          <Link href="/tout">
-            <Shuffle className="h-4 w-4" />
-            Toutes
-          </Link>
-        </Button>
+              <Shuffle className="h-4 w-4" />
+              Toutes
+        </LinkButton>
 
         {/* Quiz button */}
-        <Button
+        <LinkButton
           variant={pathname === "/quiz" ? "secondary" : "ghost"}
           size="sm"
-          asChild
+          href="/quiz"
           className="gap-1.5"
         >
-          <Link href="/quiz">
-            <Brain className="h-4 w-4" />
-            Quiz
-          </Link>
-        </Button>
+              <Brain className="h-4 w-4" />
+              Quiz
+        </LinkButton>
 
         {/* Parcours button */}
-        <Button
+        <LinkButton
           variant={pathname.startsWith("/parcours") ? "secondary" : "ghost"}
           size="sm"
-          asChild
+          href="/parcours"
           className="gap-1.5"
         >
-          <Link href="/parcours">
-            <Route className="h-4 w-4" />
-            Parcours
-          </Link>
-        </Button>
+              <Route className="h-4 w-4" />
+              Parcours
+        </LinkButton>
 
         {/* Spacer */}
         <div className="flex-1" />
 
         {/* Favorites */}
-        <Button
+        <LinkButton
           variant={pathname === "/favoris" ? "secondary" : "ghost"}
           size="icon"
-          asChild
+          href="/favoris"
           className="h-8 w-8"
         >
-          <Link href="/favoris" aria-label="Mes favoris">
-            <Star className="h-4 w-4" />
-          </Link>
-        </Button>
+              <Star className="h-4 w-4" />
+        </LinkButton>
 
         {/* Search button */}
         <Button
           variant="outline"
           className="relative h-8 w-60 justify-start px-3 py-2"
-          onClick={() => setOpen(true)}
+          onPress={() => setOpen(true)}
         >
           <Search className="h-4 w-4 mr-2" />
           <span className="text-sm">Rechercher...</span>
@@ -144,20 +131,27 @@ export function Header() {
           </kbd>
         </Button>
 
-        <ThemeToggle className="h-8 w-8" />
       </div>
 
       {/* Command dialog for search */}
       <CommandDialog open={open} onOpenChange={setOpen}>
+        <Command>
         <CommandInput placeholder="Rechercher..." />
-        <CommandList className="max-h-[400px]">
-          <CommandEmpty>Aucun résultat.</CommandEmpty>
+        <CommandList
+          className="max-h-[400px]"
+          renderEmptyState={() => (
+            <div className="py-6 text-center text-sm text-muted-foreground">
+              Aucun résultat.
+            </div>
+          )}
+        >
           <CommandGroup heading="Timelines">
             {navigationCategories.flatMap((cat) => cat.items).map((item) => (
               <CommandItem
                 key={item.href}
-                value={`timeline ${item.name} ${stripAccents(item.name)}`}
-                onSelect={() => {
+                id={item.href}
+                textValue={`timeline ${item.name} ${stripAccents(item.name)}`}
+                onAction={() => {
                   router.push(item.href);
                   setOpen(false);
                 }}
@@ -170,8 +164,9 @@ export function Header() {
             {searchItems.map((item) => (
               <CommandItem
                 key={item.href}
-                value={`${item.name} ${item.category} ${item.movement} ${stripAccents(`${item.name} ${item.category} ${item.movement}`)}`}
-                onSelect={() => {
+                id={item.href}
+                textValue={`${item.name} ${item.category} ${item.movement} ${stripAccents(`${item.name} ${item.category} ${item.movement}`)}`}
+                onAction={() => {
                   router.push(item.href);
                   setOpen(false);
                 }}
@@ -184,6 +179,7 @@ export function Header() {
             ))}
           </CommandGroup>
         </CommandList>
+        </Command>
       </CommandDialog>
     </header>
   );
