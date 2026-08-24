@@ -8,6 +8,7 @@ import { useState } from "react";
 import {
   Command,
   CommandDialog,
+  CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
@@ -205,21 +206,18 @@ export function TabBar() {
       <CommandDialog open={searchOpen} onOpenChange={setSearchOpen}>
         <Command>
         <CommandInput placeholder="Rechercher..." />
-        <CommandList
-          className="max-h-[60vh]"
-          renderEmptyState={() => (
+        <CommandList className="max-h-[60vh]">
+          <CommandEmpty>
             <div className="py-6 text-center text-sm text-muted-foreground">
               Aucun résultat.
             </div>
-          )}
-        >
+          </CommandEmpty>
           <CommandGroup heading="Timelines">
             {navigationCategories.flatMap((cat) => cat.items).map((item) => (
               <CommandItem
                 key={item.href}
-                id={item.href}
-                textValue={`timeline ${item.name} ${stripAccents(item.name)}`}
-                onAction={() => {
+                value={`timeline ${item.name} ${stripAccents(item.name)}`}
+                onSelect={() => {
                   router.push(item.href);
                   setSearchOpen(false);
                 }}
@@ -232,9 +230,8 @@ export function TabBar() {
             {searchItems.map((item) => (
               <CommandItem
                 key={item.href}
-                id={item.href}
-                textValue={`${item.name} ${item.category} ${item.movement} ${stripAccents(`${item.name} ${item.category} ${item.movement}`)}`}
-                onAction={() => {
+                value={`${item.name} ${item.category} ${item.movement} ${stripAccents(`${item.name} ${item.category} ${item.movement}`)}`}
+                onSelect={() => {
                   router.push(item.href);
                   setSearchOpen(false);
                 }}

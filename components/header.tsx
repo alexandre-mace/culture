@@ -6,18 +6,19 @@ import { useRouter, usePathname } from "next/navigation";
 import { Button, LinkButton } from "@/components/ui/button";
 import {
   DropdownMenu,
+  DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
   Command,
   CommandDialog,
+  CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { Button as AriaButton } from "react-aria-components";
 import { SearchTrigger } from "@/components/ui/search-trigger";
 import { Search, Shuffle, Brain, Star, Route } from "lucide-react";
 import { navigationCategories, searchItems } from "@/lib/search-data";
@@ -42,22 +43,25 @@ export function Header() {
         {/* Navigation Menu */}
         <nav className="flex items-center gap-1">
           {navigationCategories.map((category) => (
-            <DropdownMenuTrigger key={category.name}>
-              <AriaButton className="inline-flex h-8 items-center gap-1 rounded-md px-3 text-sm font-medium whitespace-nowrap outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-3 focus-visible:ring-ring/50 aria-expanded:bg-accent">
+            <DropdownMenu key={category.name}>
+              <DropdownMenuTrigger className="inline-flex h-8 items-center gap-1 rounded-md px-3 text-sm font-medium whitespace-nowrap outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-3 focus-visible:ring-ring/50 aria-expanded:bg-accent">
                 {category.name}
-              </AriaButton>
-              <DropdownMenu placement="bottom start" className="w-[200px]">
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                side="bottom"
+                align="start"
+                className="w-[200px]"
+              >
                 {category.items.map((item) => (
                   <DropdownMenuItem
                     key={item.href}
-                    href={item.href}
-                    textValue={item.name}
+                    render={<Link href={item.href} />}
                   >
                     {item.name}
                   </DropdownMenuItem>
                 ))}
-              </DropdownMenu>
-            </DropdownMenuTrigger>
+              </DropdownMenuContent>
+            </DropdownMenu>
           ))}
         </nav>
 
@@ -116,21 +120,18 @@ export function Header() {
       <CommandDialog open={open} onOpenChange={setOpen}>
         <Command>
         <CommandInput placeholder="Rechercher..." />
-        <CommandList
-          className="max-h-[400px]"
-          renderEmptyState={() => (
+        <CommandList className="max-h-[400px]">
+          <CommandEmpty>
             <div className="py-6 text-center text-sm text-muted-foreground">
               Aucun résultat.
             </div>
-          )}
-        >
+          </CommandEmpty>
           <CommandGroup heading="Timelines">
             {navigationCategories.flatMap((cat) => cat.items).map((item) => (
               <CommandItem
                 key={item.href}
-                id={item.href}
-                textValue={`timeline ${item.name} ${stripAccents(item.name)}`}
-                onAction={() => {
+                value={`timeline ${item.name} ${stripAccents(item.name)}`}
+                onSelect={() => {
                   router.push(item.href);
                   setOpen(false);
                 }}
@@ -143,9 +144,8 @@ export function Header() {
             {searchItems.map((item) => (
               <CommandItem
                 key={item.href}
-                id={item.href}
-                textValue={`${item.name} ${item.category} ${item.movement} ${stripAccents(`${item.name} ${item.category} ${item.movement}`)}`}
-                onAction={() => {
+                value={`${item.name} ${item.category} ${item.movement} ${stripAccents(`${item.name} ${item.category} ${item.movement}`)}`}
+                onSelect={() => {
                   router.push(item.href);
                   setOpen(false);
                 }}

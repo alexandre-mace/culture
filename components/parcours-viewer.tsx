@@ -66,7 +66,7 @@ export function ParcoursViewer({ parcours }: { parcours: ResolvedParcours }) {
             <Route className="h-4 w-4" />
             Autres parcours
           </LinkButton>
-          <Button variant="outline" size="lg" onPress={() => { setFinished(false); setStepIndex(0); }}>
+          <Button variant="outline" size="lg" onClick={() => { setFinished(false); setStepIndex(0); }}>
             Recommencer
           </Button>
         </div>
@@ -158,11 +158,11 @@ export function ParcoursViewer({ parcours }: { parcours: ResolvedParcours }) {
 
       {/* Navigation */}
       <div className="flex items-center justify-between border-t pt-4">
-        <Button variant="outline" onPress={previous} isDisabled={stepIndex === 0} className="gap-1.5">
+        <Button variant="outline" onClick={previous} disabled={stepIndex === 0} className="gap-1.5">
           <ChevronLeft className="h-4 w-4" />
           Précédent
         </Button>
-        <Button onPress={next} className="gap-1.5">
+        <Button onClick={next} className="gap-1.5">
           {stepIndex + 1 >= parcours.steps.length ? "Terminer" : "Suivant"}
           <ChevronRight className="h-4 w-4" />
         </Button>

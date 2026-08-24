@@ -158,26 +158,25 @@ export default function QuizPage() {
           </p>
           {!finished && (
             <Select
-              className="w-full"
-              selectedKey={category ?? "toutes"}
-              onSelectionChange={(key) =>
-                setCategory(key === "toutes" ? null : String(key))
+              value={category ?? "toutes"}
+              onValueChange={(value) =>
+                setCategory(value === "toutes" ? null : String(value))
               }
             >
               <SelectTrigger className="w-full" aria-label="Choisir une catégorie">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="max-h-[50vh]">
-                <SelectItem id="toutes">🎲 Toutes les catégories</SelectItem>
+                <SelectItem value="toutes">🎲 Toutes les catégories</SelectItem>
                 {categories.map((cat) => (
-                  <SelectItem key={cat.name} id={cat.name} textValue={cat.name}>
+                  <SelectItem key={cat.name} value={cat.name}>
                     {cat.emoji} {cat.name}
                   </SelectItem>
                 ))}
               </SelectContent>
             </Select>
           )}
-          <Button size="lg" onPress={() => start("mixte")} className="gap-2">
+          <Button size="lg" onClick={() => start("mixte")} className="gap-2">
             {finished ? <RotateCcw className="h-4 w-4" /> : <Brain className="h-4 w-4" />}
             {finished ? "Rejouer" : "Lancer le quiz"}
           </Button>
@@ -293,7 +292,7 @@ export default function QuizPage() {
           >
             {lastCorrect ? "Bien joué !" : "Raté…"}
           </span>
-          <Button onPress={advance}>
+          <Button onClick={advance}>
             {questionIndex + 1 >= QUESTIONS_PER_RUN ? "Voir le score" : "Question suivante"}
           </Button>
         </div>

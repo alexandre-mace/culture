@@ -163,7 +163,7 @@ export default function DefiPage() {
           </p>
         )}
         <div className="grid grid-cols-1 gap-3 max-w-sm mx-auto mt-6">
-          <Button size="lg" onPress={() => share(done)} className="gap-2">
+          <Button size="lg" onClick={() => share(done)} className="gap-2">
             <Share2 className="h-4 w-4" />
             {copied ? "Copié !" : "Partager mon score"}
           </Button>
@@ -283,7 +283,7 @@ export default function DefiPage() {
 
       {revealed && (
         <div className="mt-6 flex justify-end">
-          <Button onPress={advance}>
+          <Button onClick={advance}>
             {marks.length === QUESTIONS ? "Voir le résultat" : "Question suivante"}
           </Button>
         </div>
